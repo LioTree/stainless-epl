@@ -1,1 +1,1 @@
-frontends/dotty/target/universal/stage/bin/stainless-dotty frontends/benchmarks/equivalence/isSorted/isSorted.scala  --equivchk=true --comparefuns=IsSorted.isSortedR --models=IsSorted.isSortedA --timeout=3  -J-Xdebug -J-Xrunjdwp:server=y,transport=dt_socket,address=*:5005,suspend=y
+frontends/dotty/target/universal/stage/bin/stainless-dotty frontends/benchmarks/equivalence/isSorted/isSorted.scala  --equivchk=true --comparefuns=IsSorted.isSortedR --models=IsSorted.isSortedA --timeout=3  -agentlib:jdwp=transport=dt_socket,server=n,address=localhost:5005,suspend=y,onuncaught=n
