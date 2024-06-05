@@ -36,7 +36,10 @@ class StainlessExtraction(val inoxCtx: inox.Context) {
           case Some(ref) => extractRef(ref)
           case None => FreshIdentifier(unit.source.file.name.replaceFirst("[.][^.]+$", ""))
         }
-        (id, pd.stats)
+        if(unit.source.toString.contains("Lab.scala"))
+          (id, ProgramExtractors.processStats(pd.stats))
+        else
+          (id, pd.stats)
       case _ =>
         (FreshIdentifier(unit.source.file.name.replaceFirst("[.][^.]+$", "")), List.empty)
     }

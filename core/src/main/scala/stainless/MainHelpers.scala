@@ -26,6 +26,9 @@ trait MainHelpers extends inox.MainHelpers { self =>
   case object EquivChk extends Category {
     override def toString: String = "Equivalence checking"
   }
+  case object Cluster extends Category {
+    override def toString: String = "Cluster"
+  }
 
   override protected def getOptions: Map[inox.OptionDef[_], Description] = super.getOptions - inox.solvers.optAssumeChecked ++ Map(
     optVersion -> Description(General, "Display the version number"),
@@ -85,6 +88,7 @@ trait MainHelpers extends inox.MainHelpers { self =>
     equivchk.optInitScore -> Description(EquivChk, "Initial score for models"),
     equivchk.optInitWeights -> Description(EquivChk, "Initial weights for models, overriding the initial score"),
     equivchk.optMaxPerm -> Description(EquivChk, "Maximum number of permutations to be tested when matching auxiliary functions"),
+    cluster.optFrameworkFile -> Description(Cluster, "Specify the empty framework file to know functions and classes to extract"),
   ) ++ MainHelpers.components.map { component =>
     val option = inox.FlagOptionDef(component.name, default = false)
     option -> Description(Pipelines, component.description)
