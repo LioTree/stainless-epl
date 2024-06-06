@@ -15,6 +15,8 @@ import typer._
 import extraction.xlang.{trees => xt}
 import frontend.{CallBack, Frontend, FrontendFactory, ThreadedFrontend, UnsupportedCodeException}
 import Utils._
+import stainless.cluster.optFrameworkFile
+import scala.sys
 
 case class ExtractedUnit(file: String, unit: xt.UnitDef, classes: Seq[xt.ClassDef], functions: Seq[xt.FunDef], typeDefs: Seq[xt.TypeDef])
 
@@ -36,10 +38,15 @@ class StainlessExtraction(val inoxCtx: inox.Context) {
           case Some(ref) => extractRef(ref)
           case None => FreshIdentifier(unit.source.file.name.replaceFirst("[.][^.]+$", ""))
         }
-        if(unit.source.toString.contains("Lab.scala"))
-          (id, ProgramExtractors.processStats(pd.stats))
-        else
-          (id, pd.stats)
+        inoxCtx.options.findOption(optFrameworkFile) match {
+          case Some(to) =>
+            if (to.exists(_.contains(unit.source.toString))) {
+              (new TodoExtractor).traverse(pd.stats)
+              sys.exit(0)
+            }
+          case None =>
+        }
+        (id, pd.stats)
       case _ =>
         (FreshIdentifier(unit.source.file.name.replaceFirst("[.][^.]+$", "")), List.empty)
     }
