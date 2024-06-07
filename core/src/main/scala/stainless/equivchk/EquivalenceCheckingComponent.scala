@@ -127,12 +127,12 @@ class EquivalenceCheckingRun private(override val component: EquivalenceChecking
     val toProcess = createFilter.filter(ids, plainSyms, underlyingRun.component)
     for {
       gen <- underlyingRun.execute(toProcess, plainSyms, ExtractionSummary.Node(traceSummary, plainSummary))
-      invalidVCsCands = counterExamples(gen).flatMap {
-        case (vc, ctex) => ec.reportUnsafe(gen.program)(gen, vc, ctex).getOrElse(Set.empty)
-      }.toSeq.distinct
-      unknownsSafetyCands = unknowns(gen).flatMap(ec.reportUnknown(gen.program)(gen, _).getOrElse(Set.empty)).toSeq.distinct
-      _ = debugInvalidVCsCandidates(invalidVCsCands)
-      _ = debugUnknownsSafetyCandidates(unknownsSafetyCands)
+//      invalidVCsCands = counterExamples(gen).flatMap {
+//        case (vc, ctex) => ec.reportUnsafe(gen.program)(gen, vc, ctex).getOrElse(Set.empty)
+//      }.toSeq.distinct
+//      unknownsSafetyCands = unknowns(gen).flatMap(ec.reportUnknown(gen.program)(gen, _).getOrElse(Set.empty)).toSeq.distinct
+//      _ = debugInvalidVCsCandidates(invalidVCsCands)
+//      _ = debugUnknownsSafetyCandidates(unknownsSafetyCands)
       trRes <- equivCheck(ec)
     } yield buildAnalysis(ec)(ids, gen, trRes)
   }
