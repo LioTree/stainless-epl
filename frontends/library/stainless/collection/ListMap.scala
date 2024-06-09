@@ -62,6 +62,10 @@ case class ListMap[A, B](toList: List[(A, B)]) {
     }
   }
 
+  def ++(keyValues: ListMap[A, B]): ListMap[A, B] = {
+    this ++ keyValues.toList
+  }
+
   def -(key: A): ListMap[A, B] = {
     if (contains(key)) {
       ListSpecs.noDuplicateMapFilter(toList, (kv: (A, B)) => kv._1 != key, (kv: (A, B)) => kv._1)
