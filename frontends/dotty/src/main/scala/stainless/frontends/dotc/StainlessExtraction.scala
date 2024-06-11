@@ -38,13 +38,13 @@ class StainlessExtraction(val inoxCtx: inox.Context) {
           case Some(ref) => extractRef(ref)
           case None => FreshIdentifier(unit.source.file.name.replaceFirst("[.][^.]+$", ""))
         }
+        // If the --framework-file parameter exists, extract the names of the to-do functions
+        // contained in the specified file, and then ignore it.
         inoxCtx.options.findOption(optFrameworkFile) match {
           case Some(to) =>
             if (to.exists(_.contains(unit.source.toString))) {
-              val todoExtractor = new TodoExtractor
-              todoExtractor.traverse(pd.stats)
-              todoExtractor.writeJson()
-              sys.exit(0)
+              TodoExtractor.traverse(pd.stats)
+              return None
             }
           case None =>
         }

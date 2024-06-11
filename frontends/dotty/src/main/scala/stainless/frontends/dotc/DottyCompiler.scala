@@ -3,18 +3,19 @@
 package stainless
 package frontends.dotc
 
-import dotty.tools.dotc.{Main => _, _}
-import plugins._
-import dotty.tools.dotc.reporting.{Diagnostic, Reporter => DottyReporter}
-import dotty.tools.dotc.interfaces.Diagnostic.{ERROR, WARNING, INFO}
+import dotty.tools.dotc.{Main as _, *}
+import plugins.*
+import dotty.tools.dotc.reporting.{Diagnostic, Reporter as DottyReporter}
+import dotty.tools.dotc.interfaces.Diagnostic.{ERROR, INFO, WARNING}
 import dotty.tools.dotc.util.SourcePosition
 import dotty.tools.io.AbstractFile
-import core.Contexts.{Context => DottyContext, _}
-import core.Phases._
-import transform._
-import typer._
+import core.Contexts.{Context as DottyContext, *}
+import core.Phases.*
+import transform.*
+import typer.*
 import frontend.{CallBack, Frontend, FrontendFactory, ThreadedFrontend}
-import Utils._
+import Utils.*
+import stainless.cluster.optFrameworkFile
 
 import java.io.File
 import java.net.URL
@@ -155,7 +156,12 @@ object DottyCompiler {
 
           val cps = Seq(scala213Lib, scala3Lib).distinct.mkString(java.io.File.pathSeparator)
           val flags = Seq("-color:never", "-language:implicitConversions", "-Ysafe-init", s"-cp:$cps")
-          allCompilerArguments(ctx, compilerArgs) ++ flags
+          ctx.options.findOption(optFrameworkFile) match {
+            case Some(to) =>
+              to.toSeq ++ allCompilerArguments(ctx, compilerArgs) ++ flags
+            case None =>
+              allCompilerArguments(ctx, compilerArgs) ++ flags
+          }
         }
         val compiler: DottyCompiler = new DottyCompiler(ctx, this.callback)
 
