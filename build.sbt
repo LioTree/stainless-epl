@@ -102,7 +102,8 @@ lazy val commonSettings: Seq[Setting[_]] = artifactSettings ++ Seq(
     ("io.get-coursier"       %% "coursier"                   % "2.0.16").cross(CrossVersion.for3Use2_13),
     "com.typesafe"            % "config"                     % "1.3.4",
 
-    "org.scalatest"   %% "scalatest"     % "3.2.9" % "test"
+    "org.scalatest"   %% "scalatest"     % "3.2.9" % "test",
+    "com.typesafe.play" %% "play-json" % "2.10.5"
   ),
 
   // There is a conflict with the cross version of scala-xml.

@@ -41,7 +41,9 @@ class StainlessExtraction(val inoxCtx: inox.Context) {
         inoxCtx.options.findOption(optFrameworkFile) match {
           case Some(to) =>
             if (to.exists(_.contains(unit.source.toString))) {
-              (new TodoExtractor).traverse(pd.stats)
+              val todoExtractor = new TodoExtractor
+              todoExtractor.traverse(pd.stats)
+              todoExtractor.writeJson()
               sys.exit(0)
             }
           case None =>
