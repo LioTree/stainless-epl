@@ -9,6 +9,7 @@ import Contexts._
 // Similar to `MacroTransform`, but we need to handle `untpdTree`,
 // so we cannot directly inherit from it.
 class PureScalaTransform extends Phase {
+
   import ast.untpd._
 
   override val phaseName = "pure Scala Transform"
@@ -24,9 +25,27 @@ class PureScalaTransform extends Phase {
 
   class PureScalaTransformer extends UntypedTreeMap {
     override def transform(tree: Tree)(using Context): Tree = {
+      import Names.termName
       tree match {
+        // replace Nil with Nil().
         case Ident(name) if name.toString == "Nil" =>
-          Apply(Ident(Names.termName("Nil")), Nil)
+          Apply(Ident(termName("Nil")), Nil)
+        // Add `import stainless.collection._` `import stainless.annotation._` and
+        // `import stainless.lang._` to the beginning of the file.
+        case PackageDef(pid, stats) =>
+          val importCollection = Import(
+            Select(Ident(termName("stainless")), termName("collection")),
+            List(ImportSelector(Ident(termName("_")), EmptyTree, EmptyTree))
+          )
+          val importAnnotation = Import(
+            Select(Ident(termName("stainless")), termName("annotation")),
+            List(ImportSelector(Ident(termName("_")), EmptyTree, EmptyTree))
+          )
+          val importLang = Import(
+            Select(Ident(termName("stainless")), termName("lang")),
+            List(ImportSelector(Ident(termName("_")), EmptyTree, EmptyTree))
+          )
+          cpy.PackageDef(tree)(transformSub(pid), importCollection :: importAnnotation :: importLang :: transformStats(stats, ctx.owner))
         case _ =>
           super.transform(tree)
       }
