@@ -26,8 +26,12 @@ class PureScalaTransform extends Phase {
   class PureScalaTransformer extends UntypedTreeMap {
     override def transform(tree: Tree)(using Context): Tree = {
       import Names.termName
+      import Names.typeName
       tree match {
-        // replace Nil with Nil().
+        // Replace Int with BigInt.
+        case Ident(name) if name.toString == "Int" =>
+          Ident(typeName("BigInt"))
+        // Replace Nil with Nil().
         case Ident(name) if name.toString == "Nil" =>
           Apply(Ident(termName("Nil")), Nil)
         // Add `import stainless.collection._` `import stainless.annotation._` and
