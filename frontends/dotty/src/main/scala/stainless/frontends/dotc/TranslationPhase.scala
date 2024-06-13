@@ -7,12 +7,12 @@ import parsing.Parser
 import typer.TyperPhase
 
 class TranslationPhase extends PluginPhase {
-  override val name: String = "translation from Scala to Pure Scala"
+  override val phaseName = "translation from Scala to Pure Scala"
   override val runsAfter = Set(Parser.name)
   override val runsBefore = Set(TyperPhase.name)
 
   override def run(using dottyCtx: DottyContext): Unit = {
-    ???
+    (new PureScalaTransform).run
   }
 
   override def runOn(units: List[CompilationUnit])(using dottyCtx: DottyContext): List[CompilationUnit] = {
