@@ -25,6 +25,8 @@ class PureScalaTransform extends Phase {
   class PureScalaTransformer extends UntypedTreeMap {
     override def transform(tree: Tree)(using Context): Tree = {
       tree match {
+        case Ident(name) if name.toString == "Nil" =>
+          Apply(Ident(Names.termName("Nil")), Nil)
         case _ =>
           super.transform(tree)
       }
