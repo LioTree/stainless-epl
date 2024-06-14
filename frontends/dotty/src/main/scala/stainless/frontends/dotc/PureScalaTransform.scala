@@ -28,6 +28,9 @@ class PureScalaTransform extends Phase {
       import Names.termName
       import Names.typeName
       tree match {
+        // Replace Double with BigInt.
+        case Ident(name) if name.toString == "Double" =>
+          Ident(typeName("BigInt"))
         // Replace Int with BigInt.
         case Ident(name) if name.toString == "Int" =>
           Ident(typeName("BigInt"))
