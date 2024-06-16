@@ -10,6 +10,7 @@ import Names.termName
 import Names.typeName
 import scala.collection.mutable.ArrayBuffer
 import scala.collection.mutable.Stack
+import scala.collection.mutable.Set
 
 // Similar to `MacroTransform`, but we need to handle `untpdTree`,
 // so we cannot directly inherit from it.
@@ -91,7 +92,7 @@ class PureScalaTransform extends Phase {
     private class DecreasesDetector(defDef: DefDef) extends UntypedTreeTraverser {
       private val matches: Stack[Ident | Boolean] = Stack.empty
       private val cases: Stack[Ident] = Stack.empty
-      val decreases: ArrayBuffer[Ident] = ArrayBuffer.empty
+      val decreases: Set[Ident] = Set.empty
 
       private def checkParamss(target: Ident): Boolean = {
         defDef.paramss.exists { params =>
