@@ -13,7 +13,7 @@ class TranslationPhase extends PluginPhase {
 
   override def run(using dottyCtx: DottyContext): Unit = {
     val unit = dottyCtx.compilationUnit
-    if(!unit.source.toString.startsWith("/tmp/stainless")) 
+    if(!unit.source.toString.startsWith("/tmp/stainless"))
       (new PureScalaTransform).run
   }
 
