@@ -42,6 +42,9 @@ class PureScalaTransform extends Phase {
         case Ident(name) if name.toString == "Nil" =>
           // Replace Nil with Nil().
           Apply(Ident(termName("Nil")), Nil)
+        case Select(Select(Select(Ident(name1), name2), name3), name4) if s"$name1.$name2.$name3.$name4" == "scala.collection.immutable.ListMap" =>
+          // Replace scala.collection.immutable.ListMap with ListMap.
+          Ident(typeName("ListMap"))
         case PackageDef(pid, stats) =>
           // Add `import stainless.collection._` `import stainless.annotation._` and
           // `import stainless.lang._` to the beginning of the file.
