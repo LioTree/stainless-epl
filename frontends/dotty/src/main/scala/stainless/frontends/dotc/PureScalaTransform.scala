@@ -116,7 +116,7 @@ class PureScalaTransform extends Phase {
         tree match {
           case CaseDef(pat, guard, body) =>
             pat match {
-              case InfixOp(left: Ident, op: Ident, right: Ident) if op.name == termName("::") && matches.top != false =>
+              case InfixOp(_, op: Ident, right: Ident) if op.name == termName("::") && matches.top != false =>
                 cases.push(right)
                 traverseChildren(tree)
                 cases.pop()
