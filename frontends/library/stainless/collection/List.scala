@@ -86,6 +86,14 @@ sealed abstract class List[T] {
   @isabelle.function(term = "%xs x. x # xs")
   def ::(t:T): List[T] = Cons(t, this)
 
+  @isabelle.function(term = "%xs ys. xs @ ys")
+  def :::(that: List[T]): List[T] = {
+    this match {
+      case Nil() => that
+      case Cons(x, xs) => Cons(x, xs ::: that)
+    }
+  } ensuring(res => (res.size == size + that.size) && (res.content == content ++ that.content) && res == this ++ that)
+
   @isabelle.function(term = "%xs x. xs @ [x]")
   def :+(t:T): List[T] = {
     this match {
