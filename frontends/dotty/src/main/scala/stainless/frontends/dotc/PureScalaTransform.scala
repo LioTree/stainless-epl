@@ -130,10 +130,12 @@ class PureScalaTransform extends Phase {
                   defDef.rhs
                 )
             }
-            cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(newRhs))
+            // remove all original annotations
+            cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(newRhs)).withAnnotations(Nil)
           }
           else
-            cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(defDef.rhs))
+            // remove all original annotations
+            cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(defDef.rhs)).withAnnotations(Nil)
         case _ =>
           super.transform(tree)
       }
