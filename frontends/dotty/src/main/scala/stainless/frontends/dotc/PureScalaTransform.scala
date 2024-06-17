@@ -34,23 +34,33 @@ class PureScalaTransform extends Phase {
     override def transform(tree: Tree)(using Context): Tree = {
       tree match {
         case Ident(name) if name.toString == "Double" =>
-          // Replace Double with BigInt.
-          Ident(typeName("BigInt"))
+          name match {
+            case name if name.isTermName =>
+              // Replace Double with BigInt.
+              Ident(termName("BigInt"))
+            case name if name.isTypeName =>
+              Ident(typeName("BigInt"))
+          }
         case Ident(name) if name.toString == "Int" =>
           // Replace Int with BigInt.
-          Ident(typeName("BigInt"))
+          name match {
+            case name if name.isTermName =>
+              Ident(termName("BigInt"))
+            case name if name.isTypeName =>
+              Ident(typeName("BigInt"))
+          }
         case Ident(name) if name.toString == "Nil" =>
           // Replace Nil with Nil().
           Apply(Ident(termName("Nil")), Nil)
         case Select(Select(Select(Ident(name1), name2), name3), name4) if s"$name1.$name2.$name3.$name4" == "scala.collection.immutable.ListMap" =>
           // Replace scala.collection.immutable.ListMap with ListMap.
-           name4 match {
-             case name if name.isTermName => Ident(termName("ListMap"))
-             case name if name.isTypeName => Ident(typeName("ListMap"))
-           }
+          name4 match {
+            case name if name.isTermName => Ident(termName("ListMap"))
+            case name if name.isTypeName => Ident(typeName("ListMap"))
+          }
         //        case Apply(fun@Ident(name), args) if name.toString == "ListMap" =>
         case Apply(fun, args) if fun.isInstanceOf[Ident] && fun.asInstanceOf[Ident].name.toString == "ListMap"
-            || fun.isInstanceOf[Select] && fun.asInstanceOf[Select].toString.endsWith("ListMap)") =>
+          || fun.isInstanceOf[Select] && fun.asInstanceOf[Select].toString.endsWith("ListMap)") =>
           args(0) match {
             // There is already a List wrapper.
             case Apply(fun2@Ident(name), args2) if name.toString == "List" =>
