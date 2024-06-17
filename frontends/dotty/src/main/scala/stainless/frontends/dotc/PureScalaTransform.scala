@@ -52,6 +52,9 @@ class PureScalaTransform extends Phase {
         case Ident(name) if name.toString == "Nil" =>
           // Replace Nil with Nil().
           Apply(Ident(termName("Nil")), Nil)
+        case Ident(name) if name.toString == "None" =>
+          // Replace None with None().
+          Apply(Ident(termName("None")), Nil)
         case Select(Select(Select(Ident(name1), name2), name3), name4) if s"$name1.$name2.$name3.$name4" == "scala.collection.immutable.ListMap" =>
           // Replace scala.collection.immutable.ListMap with ListMap.
           name4 match {
