@@ -6,8 +6,8 @@ import Phases.*
 import ast.Trees.*
 import Contexts.*
 import dotty.tools.dotc.ast.untpd
-import Names.termName
-import Names.typeName
+import Names.{TermName, TypeName, termName, typeName}
+
 import scala.collection.mutable.ArrayBuffer
 import scala.collection.mutable.Stack
 import scala.collection.mutable.Set
@@ -44,16 +44,38 @@ class PureScalaTransform extends Phase {
           Apply(Ident(termName("Nil")), Nil)
         case Select(Select(Select(Ident(name1), name2), name3), name4) if s"$name1.$name2.$name3.$name4" == "scala.collection.immutable.ListMap" =>
           // Replace scala.collection.immutable.ListMap with ListMap.
-          Ident(typeName("ListMap"))
-        case Apply(fun@Ident(name), args) if fun.name.toString == "ListMap" =>
+           name4 match {
+             case name if name.isTermName => Ident(termName("ListMap"))
+             case name if name.isTypeName => Ident(typeName("ListMap"))
+           }
+        //        case Apply(fun@Ident(name), args) if name.toString == "ListMap" =>
+        case Apply(fun, args) if fun.isInstanceOf[Ident] && fun.asInstanceOf[Ident].name.toString == "ListMap"
+            || fun.isInstanceOf[Select] && fun.asInstanceOf[Select].toString.endsWith("ListMap)") =>
           args(0) match {
-            case Apply(fun2@Ident(name2),args) if fun2.name.toString == "List" =>
-              super.transform(tree)
+            // There is already a List wrapper.
+            case Apply(fun2@Ident(name), args2) if name.toString == "List" =>
+              Apply(transform(fun), transform(args))
             case _ =>
               // add List() wrapper for arguments of ListMap.
               // Adding direct support for initializing ListMap with multiple ArrowAssoc in the stainless library seems to cause a bug in stainless codeExtraction (lack of handling for SeqLiteral).
-              Apply(super.transform(fun), List(Apply(Ident(termName("List")), super.transform(args))))
+              Apply(transform(fun), List(Apply(Ident(termName("List")), transform(args))))
           }
+        case InfixOp(left, op: Ident, right) if op.name.toString == "->" =>
+          // add BigInt() wrapper for the number of the ArrowAssoc.
+          // implict transform from Int to BigInt doesn't work in this case.
+          val newLeft = left match {
+            case Number(_, _) =>
+              Apply(Ident(termName("BigInt")), List(super.transform(left)))
+            case _ =>
+              transform(left)
+          }
+          val newRight = right match {
+            case Number(_, _) =>
+              Apply(Ident(termName("BigInt")), List(super.transform(right)))
+            case _ =>
+              transform(right)
+          }
+          InfixOp(newLeft, op, newRight)
         case PackageDef(pid, stats) =>
           // Add `import stainless.collection._` `import stainless.annotation._` and
           // `import stainless.lang._` to the beginning of the file.
@@ -70,11 +92,14 @@ class PureScalaTransform extends Phase {
             List(ImportSelector(Ident(termName("_")), EmptyTree, EmptyTree))
           )
           cpy.PackageDef(tree)(transformSub(pid), importCollection :: importAnnotation :: importLang :: transformStats(stats, ctx.owner))
+        case Import(expr, selectors) =>
+          // Remove all imports.
+          EmptyTree
         case defDef@DefDef(name, paramss, tpt, _) =>
           // Add decreases annotation automatically.
           val decreasesDetector = new DecreasesDetector(defDef)
           decreasesDetector.traverse(defDef)
-          if(!decreasesDetector.decreases.isEmpty) {
+          if (!decreasesDetector.decreases.isEmpty) {
             val decreasesApplies: ArrayBuffer[Apply] = ArrayBuffer.empty
             decreasesDetector.decreases.foreach(decrease =>
               decreasesApplies += Apply(Ident(termName("decreases")), List(decrease))
