@@ -123,4 +123,7 @@ object ListMap {
   implicit class ToListMapOps[K, V](l: List[(K, V)]) {
     def toListMap: ListMap[K, V] = fromList(l)
   }
+
+  @library
+  def apply[A,B](): ListMap[A, B]  = ListMap.empty[A, B]
 }
