@@ -13,8 +13,17 @@ class TranslationPhase extends PluginPhase {
 
   override def run(using dottyCtx: DottyContext): Unit = {
     val unit = dottyCtx.compilationUnit
-    if(!unit.source.toString.startsWith("/tmp/stainless"))
+    if(!unit.source.toString.startsWith("/tmp/stainless")) {
+      println("Before PureScalaTransform: ")
+      println(unit.untpdTree.show)
+      println("-------------------------------------------------")
+      println(unit.untpdTree.toString)
       (new PureScalaTransform).run
+      println("*************************************************")
+      println(unit.untpdTree.show)
+      println("-------------------------------------------------")
+      println(unit.untpdTree.toString)
+    }
   }
 
   override def runOn(units: List[CompilationUnit])(using dottyCtx: DottyContext): List[CompilationUnit] = {

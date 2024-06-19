@@ -32,8 +32,6 @@ class PureScalaTransform extends Phase {
   private def transformPhase(using Context): Phase = this
 
   private class PureScalaTransformer extends UntypedTreeMap {
-    private var replaceType: TypeName = EmptyTypeName
-
     override def transform(tree: Tree)(using Context): Tree = {
       tree match {
         case Ident(name) if name.toString == "Double" =>
@@ -58,9 +56,6 @@ class PureScalaTransform extends Phase {
         case Ident(name) if name.toString == "None" =>
           // Replace None with None().
           Apply(Ident(termName("None")), Nil)
-        case Ident(name: TypeName) if name.toString == replaceType.toString =>
-          // Replace the type with BigInt.
-          Ident(typeName("BigInt"))
         case Select(Select(Select(Ident(name1), name2), name3), name4) if s"$name1.$name2.$name3.$name4" == "scala.collection.immutable.ListMap" =>
           // Replace scala.collection.immutable.ListMap with ListMap.
           name4 match {
@@ -79,13 +74,7 @@ class PureScalaTransform extends Phase {
               // Adding direct support for initializing ListMap with multiple ArrowAssoc in the stainless library seems to cause a bug in stainless codeExtraction (lack of handling for SeqLiteral).
               Apply(transform(fun), List(Apply(Ident(termName("List")), transform(args))))
           }
-        case Apply(fun@Select(qualifier: Ident, name: TermName), args) if qualifier.name.toString == "sys" && name.toString == "error" =>
-          if (replaceType == EmptyTypeName)
-            // Replace sys.error with empty.
-            EmptyTree
-          else
-            // Replace sys.error with BigInt(0).
-            Apply(Ident(termName("BigInt")), List(Number("0",Whole(10))))
+//        case Apply(fun@Select(qualifier: Ident, name: TermName), args) if qualifier.name.toString == "sys" && name.toString == "error" =>
         case InfixOp(left, op: Ident, right) if op.name.toString == "->" =>
           // add BigInt() wrapper for the number of the ArrowAssoc.
           // implict transform from Int to BigInt doesn't work in this case.
@@ -122,9 +111,6 @@ class PureScalaTransform extends Phase {
           // Remove all imports.
           EmptyTree
         case defDef@DefDef(name, paramss, tpt, _) =>
-          if (checkReturnType(defDef))
-            replaceType = defDef.tpt.asInstanceOf[Ident].name.asTypeName
-          val newDefDef = {
             val defDefDetector = new DefDefDetector(defDef)
             defDefDetector.traverse(defDef)
             if(defDefDetector.unSupported) {
@@ -167,28 +153,9 @@ class PureScalaTransform extends Phase {
                 // remove all original annotations
                 cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(defDef.rhs)).withAnnotations(Nil)
             }
-          }
-          replaceType = EmptyTypeName
-          newDefDef
-        case TypeDef(name: TypeName, rhs) if name.toString == replaceType.toString =>
-          EmptyTree
         case _ =>
           super.transform(tree)
       }
-    }
-
-    private def checkReturnType(defDef: DefDef): Boolean = {
-      val typeDefNames = if (defDef.paramss.isEmpty) {
-        List.empty
-      } else {
-        defDef.paramss(0).collect {
-          case td: TypeDef => td.name
-        }
-      }
-      if (defDef.tpt.isInstanceOf[Ident] && typeDefNames.contains(defDef.tpt.asInstanceOf[Ident].name))
-        true
-      else
-        false
     }
 
     private class DefDefDetector(defDef: DefDef) extends UntypedTreeTraverser {
