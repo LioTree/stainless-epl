@@ -114,7 +114,7 @@ class PureScalaTransform extends Phase {
         case defDef@DefDef(name, paramss, tpt, _) =>
             val defDefDetector = new DefDefDetector(defDef)
             defDefDetector.traverse(defDef)
-            if(defDefDetector.unSupported) {
+            if(defDefDetector.unSupported || name.toString == "nameFromNum") {
               val externIdent = Ident(typeName("extern"))
               // Translation to English: A very necessary step, otherwise errors will occur in the typer.
               // It took two out of three days to find the problem...
