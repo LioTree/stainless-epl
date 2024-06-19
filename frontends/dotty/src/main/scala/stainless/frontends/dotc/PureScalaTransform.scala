@@ -222,6 +222,8 @@ class PureScalaTransform extends Phase {
             unSupported = true
           case Select(qualifier, name) if name.toString == "toString" || name.toString == "length" =>
             unSupported = true
+          case ForDo(enums, body) =>
+            unSupported = true
           case _ =>
             traverseChildren(tree)
         }
