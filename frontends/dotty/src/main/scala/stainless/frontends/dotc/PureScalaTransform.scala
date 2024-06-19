@@ -74,7 +74,8 @@ class PureScalaTransform extends Phase {
               // Adding direct support for initializing ListMap with multiple ArrowAssoc in the stainless library seems to cause a bug in stainless codeExtraction (lack of handling for SeqLiteral).
               Apply(transform(fun), List(Apply(Ident(termName("List")), transform(args))))
           }
-//        case Apply(fun@Select(qualifier: Ident, name: TermName), args) if qualifier.name.toString == "sys" && name.toString == "error" =>
+        case Apply(fun@Select(qualifier: Ident, name: TermName), args) if qualifier.name.toString == "sys" && name.toString == "error" =>
+          Apply(TypeApply(Ident(termName("error")), List(Ident(typeName("Nothing")))), List(Literal(Constants.Constant("error message"))))
         case InfixOp(left, op: Ident, right) if op.name.toString == "->" =>
           // add BigInt() wrapper for the number of the ArrowAssoc.
           // implict transform from Int to BigInt doesn't work in this case.
