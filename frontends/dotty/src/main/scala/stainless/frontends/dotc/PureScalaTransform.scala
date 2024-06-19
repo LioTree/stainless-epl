@@ -63,8 +63,8 @@ class PureScalaTransform extends Phase {
             case name if name.isTypeName => Ident(typeName("ListMap"))
           }
         //        case Apply(fun@Ident(name), args) if name.toString == "ListMap" =>
-        case Apply(fun, args) if fun.isInstanceOf[Ident] && fun.asInstanceOf[Ident].name.toString == "ListMap"
-          || fun.isInstanceOf[Select] && fun.asInstanceOf[Select].toString.endsWith("ListMap)") =>
+        case Apply(fun, args) if (fun.isInstanceOf[Ident] && fun.asInstanceOf[Ident].name.toString == "ListMap"
+          || fun.isInstanceOf[Select] && fun.asInstanceOf[Select].toString.endsWith("ListMap)")) && args.nonEmpty =>
           args(0) match {
             // There is already a List wrapper.
             case Apply(fun2@Ident(name), args2) if name.toString == "List" =>
