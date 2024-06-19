@@ -75,7 +75,10 @@ class PureScalaTransform extends Phase {
               Apply(transform(fun), List(Apply(Ident(termName("List")), transform(args))))
           }
         case Apply(fun@Select(qualifier: Ident, name: TermName), args) if qualifier.name.toString == "sys" && name.toString == "error" =>
+          // replace sys.error() with error[Nothing]()
           Apply(TypeApply(Ident(termName("error")), List(Ident(typeName("Nothing")))), List(Literal(Constants.Constant("error message"))))
+        case Apply(fun@Select(qualifier: Ident, name: TermName), args) if qualifier.name.toString == "math" =>
+          Apply(Ident(name), args)
         case InfixOp(left, op: Ident, right) if op.name.toString == "->" =>
           // add BigInt() wrapper for the number of the ArrowAssoc.
           // implict transform from Int to BigInt doesn't work in this case.
@@ -107,7 +110,11 @@ class PureScalaTransform extends Phase {
             Select(Ident(termName("stainless")), termName("lang")),
             List(ImportSelector(Ident(termName("_")), EmptyTree, EmptyTree))
           )
-          cpy.PackageDef(tree)(transformSub(pid), importCollection :: importAnnotation :: importLang :: transformStats(stats, ctx.owner))
+          val importMath = Import(
+            Select(Ident(termName("stainless")), termName("math")),
+            List(ImportSelector(Ident(termName("_")), EmptyTree, EmptyTree))
+          )
+          cpy.PackageDef(tree)(transformSub(pid), importCollection :: importAnnotation :: importLang :: importMath :: transformStats(stats, ctx.owner))
         case Import(expr, selectors) =>
           // Remove all imports.
           EmptyTree
