@@ -86,6 +86,13 @@ case class ListMap[A, B](toList: List[(A, B)]) {
 
   def updated(a: A, b: B): ListMap[A, B] = this + (a -> b)
 
+  def getOrElse(key: A, default: B): B = {
+    get(key) match {
+      case Some(value) => value
+      case None() => default
+    }
+  }
+
   def values: List[B] = toList.map(_._2)
 
   def keys: List[A] = toList.map(_._1)
