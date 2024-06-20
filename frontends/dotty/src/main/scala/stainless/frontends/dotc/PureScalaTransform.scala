@@ -74,11 +74,17 @@ class PureScalaTransform extends Phase {
               Apply(transform(fun), List(Apply(Ident(termName("List")), transform(args))))
           }
         case Apply(fun@Select(qualifier: Ident, name: TermName), args) if qualifier.name.toString == "sys" && name.toString == "error" =>
-          // replace sys.error() with error[Nothing]()
-          Apply(TypeApply(Ident(termName("error")), List(Ident(typeName("Nothing")))), List(Literal(Constants.Constant("error message"))))
+          // replace sys.error() with error[Nothing]("Error message.")
+          Apply(TypeApply(Ident(termName("error")), List(Ident(typeName("Nothing")))), List(Literal(Constants.Constant("Error message."))))
         case Apply(fun@Select(qualifier: Ident, name: TermName), args) if qualifier.name.toString == "math" =>
           // replace math.xx with xx because the stainless.math library is imported.
           Apply(Ident(name), args)
+        case Throw(expr) =>
+          // Replace throw with error[Nothing]("Error message.")
+          // Although stainless supports the use of Exception(), its return type is not Nothing.
+          
+//          Apply(Ident(termName("Exception")), List(Literal(Constants.Constant("Exception message."))))
+          Apply(TypeApply(Ident(termName("error")), List(Ident(typeName("Nothing")))), List(Literal(Constants.Constant("Error message."))))
         case Number(_, _) =>
            // Despite there is implicit conversion between BigInt and Int,
            // there are still some cases where the conversion cannot be performed automatically (such as 1 -> "xxxx").
