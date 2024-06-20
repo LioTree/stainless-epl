@@ -62,7 +62,6 @@ class PureScalaTransform extends Phase {
             case name if name.isTermName => Ident(termName("ListMap"))
             case name if name.isTypeName => Ident(typeName("ListMap"))
           }
-        //        case Apply(fun@Ident(name), args) if name.toString == "ListMap" =>
         case Apply(fun, args) if (fun.isInstanceOf[Ident] && fun.asInstanceOf[Ident].name.toString == "ListMap"
           || fun.isInstanceOf[Select] && fun.asInstanceOf[Select].toString.endsWith("ListMap)")) && args.nonEmpty =>
           args(0) match {
@@ -78,7 +77,14 @@ class PureScalaTransform extends Phase {
           // replace sys.error() with error[Nothing]()
           Apply(TypeApply(Ident(termName("error")), List(Ident(typeName("Nothing")))), List(Literal(Constants.Constant("error message"))))
         case Apply(fun@Select(qualifier: Ident, name: TermName), args) if qualifier.name.toString == "math" =>
+          // replace math.xx with xx because the stainless.math library is imported.
           Apply(Ident(name), args)
+        case Number(_, _) =>
+          // Despite the implementation of the intToBigInt implicit conversion in the stainless library, 
+          // there are still some cases where the conversion cannot be performed automatically (such as the commented out "->" case below). 
+          // Therefore, all Numbers are directly wrapped with BigInt()
+          Apply(Ident(termName("BigInt")), List(tree))
+          /*
         case InfixOp(left, op: Ident, right) if op.name.toString == "->" =>
           // add BigInt() wrapper for the number of the ArrowAssoc.
           // implict transform from Int to BigInt doesn't work in this case.
@@ -95,6 +101,7 @@ class PureScalaTransform extends Phase {
               transform(right)
           }
           InfixOp(newLeft, op, newRight)
+          */
         case PackageDef(pid, stats) =>
           // Add `import stainless.collection._` `import stainless.annotation._` and
           // `import stainless.lang._` to the beginning of the file.
