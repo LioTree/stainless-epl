@@ -80,28 +80,10 @@ class PureScalaTransform extends Phase {
           // replace math.xx with xx because the stainless.math library is imported.
           Apply(Ident(name), args)
         case Number(_, _) =>
-          // Despite the implementation of the intToBigInt implicit conversion in the stainless library, 
-          // there are still some cases where the conversion cannot be performed automatically (such as the commented out "->" case below). 
-          // Therefore, all Numbers are directly wrapped with BigInt()
+           // Despite there is implicit conversion between BigInt and Int,
+           // there are still some cases where the conversion cannot be performed automatically (such as 1 -> "xxxx").
+           // Therefore, all Numbers are directly wrapped with BigInt()
           Apply(Ident(termName("BigInt")), List(tree))
-          /*
-        case InfixOp(left, op: Ident, right) if op.name.toString == "->" =>
-          // add BigInt() wrapper for the number of the ArrowAssoc.
-          // implict transform from Int to BigInt doesn't work in this case.
-          val newLeft = left match {
-            case Number(_, _) =>
-              Apply(Ident(termName("BigInt")), List(super.transform(left)))
-            case _ =>
-              transform(left)
-          }
-          val newRight = right match {
-            case Number(_, _) =>
-              Apply(Ident(termName("BigInt")), List(super.transform(right)))
-            case _ =>
-              transform(right)
-          }
-          InfixOp(newLeft, op, newRight)
-          */
         case PackageDef(pid, stats) =>
           // Add `import stainless.collection._` `import stainless.annotation._` and
           // `import stainless.lang._` to the beginning of the file.
