@@ -158,8 +158,6 @@ package object lang {
         scala.None
       }
     }
-
-    implicit def intToBigInt(i: Int): scala.math.BigInt = apply(i)
   }
 
   @library
