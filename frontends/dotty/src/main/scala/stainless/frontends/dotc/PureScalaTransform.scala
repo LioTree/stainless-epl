@@ -62,6 +62,9 @@ class PureScalaTransform extends Phase {
             case name if name.isTermName => Ident(termName("ListMap"))
             case name if name.isTypeName => Ident(typeName("ListMap"))
           }
+        case Select(qualifier, name) if name.toString == "abs" =>
+          // Replace .abs with abs().
+          Apply(Ident(termName("abs")), List(qualifier))
         case Apply(fun, args) if (fun.isInstanceOf[Ident] && fun.asInstanceOf[Ident].name.toString == "ListMap"
           || fun.isInstanceOf[Select] && fun.asInstanceOf[Select].toString.endsWith("ListMap)")) && args.nonEmpty =>
           args(0) match {
