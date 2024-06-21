@@ -52,6 +52,9 @@ sealed abstract class List[T] {
     (that != Nil[T]() || res == this)
   }
 
+  @isabelle.function(term = "List.append")
+  def concat(that: List[T]): List[T] = this ++ that
+
   def head: T = {
     require(this != Nil[T]())
     val Cons(h, _) = this: @unchecked // Be quiet!
@@ -703,6 +706,13 @@ object List {
       case Nil() => ""
       case Cons(a, b) => f(a) + rec(b)
     }
+  }
+
+  @library
+  // The concat method in Scala's List uses variable arguments, but Stainless does not support this. If there is a need to handle an arbitrary number of arguments, it is necessary to use List() for parameter conversion at the front end and modify the definition of concat.
+  def concat[A](l1: List[A], l2: List[A]): List[A] = {
+//    l.foldRight(List.empty[A])(_ ::: _)
+    l1 ++ l2
   }
 }
 
