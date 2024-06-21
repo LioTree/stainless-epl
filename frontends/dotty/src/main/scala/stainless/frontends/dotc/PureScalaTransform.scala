@@ -37,19 +37,19 @@ class PureScalaTransform extends Phase {
         case Ident(name) if name.toString == "Double" =>
           name match {
             case name if name.isTermName =>
-              // Replace Double with BigInt.
-              Ident(termName("BigInt"))
+              // Replace Double with Int.
+              Ident(termName("Int"))
             case name if name.isTypeName =>
-              Ident(typeName("BigInt"))
+              Ident(typeName("Int"))
           }
-        case Ident(name) if name.toString == "Int" =>
-          // Replace Int with BigInt.
-          name match {
-            case name if name.isTermName =>
-              Ident(termName("BigInt"))
-            case name if name.isTypeName =>
-              Ident(typeName("BigInt"))
-          }
+//        case Ident(name) if name.toString == "Int" =>
+//          // Replace Int with BigInt.
+//          name match {
+//            case name if name.isTermName =>
+//              Ident(termName("BigInt"))
+//            case name if name.isTypeName =>
+//              Ident(typeName("BigInt"))
+//          }
         case Ident(name) if name.toString == "Nil" =>
           // Replace Nil with Nil().
           Apply(Ident(termName("Nil")), Nil)
@@ -65,6 +65,8 @@ class PureScalaTransform extends Phase {
         case Select(qualifier, name) if name.toString == "abs" =>
           // Replace .abs with abs().
           Apply(Ident(termName("abs")), List(qualifier))
+//        case InfixOp(left, op: Ident, right) if op.name.toString == "^" =>
+//          Apply(Ident(termName("xor")), List(left, right))
         case Apply(fun, args) if (fun.isInstanceOf[Ident] && fun.asInstanceOf[Ident].name.toString == "ListMap"
           || fun.isInstanceOf[Select] && fun.asInstanceOf[Select].toString.endsWith("ListMap)")) && args.nonEmpty =>
           args(0) match {
@@ -81,21 +83,20 @@ class PureScalaTransform extends Phase {
           Apply(TypeApply(Ident(termName("error")), List(Ident(typeName("Nothing")))), List(Literal(Constants.Constant("Error message."))))
         case Apply(fun@Select(qualifier: Ident, name: TermName), args) if qualifier.name.toString == "math" =>
           // replace math.xx with xx because the stainless.math library is imported.
-          Apply(Ident(name), args)
+          Apply(Ident(name), super.transform(args))
         case Apply(fun:Ident, args) if fun.name.toString == "println" =>
           // replace println with print
-          Apply(Ident(termName("print")), args)
+          Apply(Ident(termName("print")), super.transform(args))
         case Throw(expr) =>
           // Replace throw with error[Nothing]("Error message.")
           // Although stainless supports the use of Exception(), its return type is not Nothing.
-          
 //          Apply(Ident(termName("Exception")), List(Literal(Constants.Constant("Exception message."))))
           Apply(TypeApply(Ident(termName("error")), List(Ident(typeName("Nothing")))), List(Literal(Constants.Constant("Error message."))))
-        case Number(_, _) =>
+//        case Number(_, _) =>
            // Despite there is implicit conversion between BigInt and Int,
            // there are still some cases where the conversion cannot be performed automatically (such as 1 -> "xxxx").
            // Therefore, all Numbers are directly wrapped with BigInt()
-          Apply(Ident(termName("BigInt")), List(tree))
+//          Apply(Ident(termName("BigInt")), List(tree))
         case PackageDef(pid, stats) =>
           // Add `import stainless.collection._` `import stainless.annotation._` and
           // `import stainless.lang._` to the beginning of the file.
@@ -228,7 +229,7 @@ class PureScalaTransform extends Phase {
             traverseChildren(tree)
           case Apply(fun: Select, args) if fun.toString.endsWith("toString)") || fun.toString.endsWith("length)") =>
             unSupported = true
-          case Select(qualifier, name) if name.toString == "toString" || name.toString == "length" =>
+          case Select(qualifier, name) if name.toString == "toString" || name.toString == "length" || name.toString == "isBlank" =>
             unSupported = true
           case ForDo(enums, body) =>
             unSupported = true
