@@ -75,7 +75,7 @@ class PureScalaTransform extends Phase {
               Apply(transform(fun), transform(args))
             case _ =>
               // add List() wrapper for arguments of ListMap.
-              // Adding direct support for initializing ListMap with multiple ArrowAssoc in the stainless library seems to cause a bug in stainless codeExtraction (lack of handling for SeqLiteral).
+              // Adding direct support for initializing ListMap with multiple ArrowAssoc since stainless doesn't support SeqLiteral.
               Apply(transform(fun), List(Apply(Ident(termName("List")), transform(args))))
           }
         case Apply(fun@Select(qualifier: Ident, name: TermName), args) if qualifier.name.toString == "sys" && name.toString == "error" =>
