@@ -75,6 +75,8 @@ case class ListMap[A, B](toList: List[(A, B)]) {
     }
   }
 
+  def removed(key: A): ListMap[A, B] = this - key
+
   def --(keys: List[A]): ListMap[A, B] = keys match {
     case Nil()           => this
     case Cons(key, rest) => (this - key) -- rest
