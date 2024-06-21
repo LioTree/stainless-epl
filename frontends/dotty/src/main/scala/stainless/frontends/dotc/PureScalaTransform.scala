@@ -122,7 +122,6 @@ class PureScalaTransform extends Phase {
           EmptyTree
         case defDef@DefDef(name, paramss, tpt, _) =>
             val defDefDetector = new DefDefDetector(defDef)
-            defDefDetector.traverse(defDef)
             if(defDefDetector.unSupported || name.toString == "nameFromNum") {
               val externIdent = Ident(typeName("extern"))
               // Translation to English: A very necessary step, otherwise errors will occur in the typer.
@@ -168,11 +167,12 @@ class PureScalaTransform extends Phase {
       }
     }
 
-    private class DefDefDetector(defDef: DefDef) extends UntypedTreeTraverser {
+    private class DefDefDetector(defDef: DefDef)(using Context) extends UntypedTreeTraverser {
       private val matches: Stack[Ident | Boolean] = Stack.empty
       private val cases: Stack[Ident] = Stack.empty
       val decreases: Set[Ident] = Set.empty
       var unSupported = false
+      traverse(defDef)
 
       private def checkParamss(target: Ident): Boolean = {
         defDef.paramss.exists { params =>
