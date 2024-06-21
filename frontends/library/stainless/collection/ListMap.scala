@@ -88,6 +88,15 @@ case class ListMap[A, B](toList: List[(A, B)]) {
 
   def updated(a: A, b: B): ListMap[A, B] = this + (a -> b)
 
+  def updatedWith(key: A)(remappingFunction: Option[B] => Option[B]): ListMap[A,B] = {
+    val previousValue = this.get(key)
+    remappingFunction(previousValue) match {
+      case None()            => this - key
+      case Some(nextValue) =>
+        this.updated(key, nextValue)
+    }
+  }
+
   def getOrElse(key: A, default: B): B = {
     get(key) match {
       case Some(value) => value
