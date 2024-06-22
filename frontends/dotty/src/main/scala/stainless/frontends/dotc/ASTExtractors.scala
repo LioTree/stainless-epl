@@ -273,10 +273,19 @@ trait ASTExtractors {
     (sym is Synthetic) && sym.name.isTermName && sym.name.toTermName.toString.startsWith("copy")
   }
 
+  def isTupleAccessor(sym: Symbol) = {
+    val Pattern = """^_(\d+)$""".r
+    (sym is Synthetic) && sym.name.isTermName && (sym.name.toTermName.toString match {
+      case Pattern(_) => true
+      case _ => false
+    })
+  }
+
   def canExtractSynthetic(sym: Symbol) = {
     (sym is Implicit) ||
     isDefaultGetter(sym) ||
-    isCopyMethod(sym)
+    isCopyMethod(sym) ||
+    isTupleAccessor(sym)
   }
 
   import AuxiliaryExtractors._
