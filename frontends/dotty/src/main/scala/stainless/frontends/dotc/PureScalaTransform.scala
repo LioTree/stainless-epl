@@ -97,9 +97,9 @@ class PureScalaTransform extends Phase {
         // replace math.xx with xx because the stainless.math library is imported.
         case Apply(fun@Select(qualifier: Ident, name: TermName), args) if qualifier.name.toString == "math" =>
           Apply(Ident(name), super.transform(args))
-        // replace println with print
+        // ignore println
         case Apply(fun: Ident, args) if fun.name.toString == "println" =>
-          Apply(Ident(termName("print")), super.transform(args))
+          EmptyTree
         // Replace throw with error[Nothing]("Error message.")
         case Throw(expr) =>
           // Although stainless supports the use of Exception(), its return type is not Nothing. Therefore, we use error[Nothing] instead.
