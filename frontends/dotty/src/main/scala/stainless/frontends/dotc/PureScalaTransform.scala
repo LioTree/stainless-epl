@@ -66,6 +66,10 @@ class PureScalaTransform extends Phase {
         // Replace None with None().
         case Ident(name) if name.toString == "None" =>
           Apply(Ident(termName("None")), Nil)
+        // Replace Character with String.
+        // It is possible to add an implicit conversion from Char to String in the stainless library, but stainless cannot verify it because it must be @extern.
+        case Literal(constant: Constants.Constant) if constant.value.isInstanceOf[Character] =>
+          Literal(Constants.Constant(constant.value.toString))
         // Replace scala.collection.immutable.ListMap with ListMap.
         case Select(Select(Select(Ident(name1), name2), name3), name4) if s"$name1.$name2.$name3.$name4" == "scala.collection.immutable.ListMap" =>
           name4 match {

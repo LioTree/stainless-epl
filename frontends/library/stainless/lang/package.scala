@@ -247,7 +247,4 @@ package object lang {
     def unchanged(objs: Set[AnyHeapRef], h0: Heap, h1: Heap): Boolean =
       /* objs.mapMerge(h1, h0) == h0 */ ???
   }
-
-  @extern @library
-  implicit def charToString(c: Char): String = String.valueOf(c)
 }
