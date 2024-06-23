@@ -2,6 +2,7 @@ package stainless
 
 import stainless.annotation.library
 import stainless.collection.List
+import stainless.collection.ListMap
 import stainless.lang.decreases
 
 package object ext {
@@ -57,6 +58,16 @@ package object ext {
   @library
   def plus(x: String, y: String): String = {
     x + y
+  }
+
+  @library
+  def plus[A,B](x: ListMap[A,B], y:(A,B)): ListMap[A,B] = {
+    x + y
+  }
+
+  @library
+  def plus[A,B](x: ListMap[A,B], y:List[(A,B)]): ListMap[A,B] = {
+    x ++ y
   }
 
   @library

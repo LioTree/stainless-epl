@@ -69,7 +69,11 @@ class PureScalaTransform extends Phase {
         // Replace A + B with plus(A, B).
         // Added plus functions in the stainless library that can handle addition of different types (int, string, ListMap).
         case InfixOp(left, op: Ident, right) if op.name == termName("+") =>
-          Apply(Ident(termName("plus")), List(transform(left), transform(right)))
+          right match
+            case Tuple(tupleTrees: List[Tree]) =>
+              Apply(Ident(termName("plus")), List(transform(left), Apply(Ident(termName("List")), tupleTrees.map(transform))))
+            case _ =>
+              Apply(Ident(termName("plus")), List(transform(left), transform(right)))
         // Replace Character with String.
         // It is possible to add an implicit conversion from Char to String in the stainless library, but stainless cannot verify it because it must be @extern.
         case Literal(constant: Constants.Constant) if constant.value.isInstanceOf[Character] =>
@@ -100,7 +104,7 @@ class PureScalaTransform extends Phase {
           Apply(TypeApply(Ident(termName("error")), List(Ident(typeName("Nothing")))), List(Literal(Constants.Constant("Error message."))))
         // replace math.xx with xx because the stainless.math library is imported.
         case Apply(fun@Select(qualifier: Ident, name: TermName), args) if qualifier.name.toString == "math" =>
-          Apply(Ident(name), super.transform(args))
+          Apply(Ident(name), transform(args))
         // ignore println
         case Apply(fun: Ident, args) if fun.name.toString == "println" =>
           EmptyTree
@@ -185,7 +189,7 @@ class PureScalaTransform extends Phase {
               case _ =>
                 List(case_)
             })
-          cpy.Match(tree)(super.transform(selector), super.transformSub(flatCases))
+          cpy.Match(tree)(transform(selector), transformSub(flatCases))
         case _ =>
           super.transform(tree)
       }
