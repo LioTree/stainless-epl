@@ -66,6 +66,10 @@ class PureScalaTransform extends Phase {
         // Replace None with None().
         case Ident(name) if name.toString == "None" =>
           Apply(Ident(termName("None")), Nil)
+        // Replace A + B with plus(A, B).
+        // Added plus functions in the stainless library that can handle addition of different types (int, string, ListMap).
+        case InfixOp(left, op: Ident, right) if op.name == termName("+") =>
+          Apply(Ident(termName("plus")), List(transform(left), transform(right)))
         // Replace Character with String.
         // It is possible to add an implicit conversion from Char to String in the stainless library, but stainless cannot verify it because it must be @extern.
         case Literal(constant: Constants.Constant) if constant.value.isInstanceOf[Character] =>
@@ -104,7 +108,7 @@ class PureScalaTransform extends Phase {
         case Throw(expr) =>
           // Although stainless supports the use of Exception(), its return type is not Nothing. Therefore, we use error[Nothing] instead.
           Apply(TypeApply(Ident(termName("error")), List(Ident(typeName("Nothing")))), List(Literal(Constants.Constant("Error message."))))
-        // Add `import stainless.collection._` `import stainless.annotation._` and `import stainless.lang._` to the beginning of the file.
+        // Add `import stainless.collection._` `import stainless.annotation._` `import stainless.lang._` and `import stainless.ext._` to the beginning of the file.
         case PackageDef(pid, stats) =>
           val importCollection = Import(
             Select(Ident(termName("stainless")), termName("collection")),
@@ -122,13 +126,17 @@ class PureScalaTransform extends Phase {
             Select(Ident(termName("stainless")), termName("math")),
             List(ImportSelector(Ident(termName("_")), EmptyTree, EmptyTree))
           )
-          cpy.PackageDef(tree)(transformSub(pid), importCollection :: importAnnotation :: importLang :: importMath :: transformStats(stats, ctx.owner))
+          val importExt = Import(
+            Select(Ident(termName("stainless")), termName("ext")),
+            List(ImportSelector(Ident(termName("_")), EmptyTree, EmptyTree))
+          )
+          cpy.PackageDef(tree)(transformSub(pid), importCollection :: importAnnotation :: importLang :: importMath :: importExt :: transformStats(stats, ctx.owner))
         // Remove all original imports.
         case Import(expr, selectors) =>
           EmptyTree
         case defDef@DefDef(name, paramss, tpt, _) =>
           val defDefDetector = new DefDefDetector(defDef)
-          if (defDefDetector.unSupported || name.toString == "nameFromNum") {
+          if (defDefDetector.unSupported) {
             val externIdent = Ident(typeName("extern"))
             // A very necessary step, otherwise errors will occur in the typer.
             // It took two out of three days to find the problem...
