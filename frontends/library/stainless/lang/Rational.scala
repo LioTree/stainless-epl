@@ -79,6 +79,8 @@ object Rational {
 
   implicit def bigIntToRat(n: BigInt): Rational = Rational(n, 1)
 
+  implicit def ratToBigInt(n: Rational): BigInt = n.numerator / n.denominator
+
   def apply(n: BigInt): Rational = Rational(n, 1)
 
 }
