@@ -51,15 +51,20 @@ class PureScalaTransform extends Phase {
      */
     override def transform(tree: Tree)(using Context): Tree = {
       tree match {
-        // Replace Double with Int.
-        // Translating to Real might be a better choice, but it involves type conversion between Int and Real, which will be considered later.
-        case Ident(name) if name.toString == "Double" =>
+        // Replace Int and Double with BigInt
+        // Translating Double to Real might be a better choice, but it involves type conversion between BigInt and Real, which will be considered later.
+        case Ident(name) if name.toString == "Int" || name.toString == "Double" =>
           name match {
             case name if name.isTermName =>
-              Ident(termName("Int"))
+              Ident(termName("BigInt"))
             case name if name.isTypeName =>
-              Ident(typeName("Int"))
+              Ident(typeName("BigInt"))
           }
+        // Despite there is implicit conversion between BigInt and Int,
+        // there are still some cases where the conversion cannot be performed automatically (such as 1 -> "xxxx").
+        // Therefore, all Numbers are directly wrapped with BigInt()
+        case Number(_, _) =>
+          Apply(Ident(termName("BigInt")), List(tree))
         // Replace Nil with Nil().
         case Ident(name) if name.toString == "Nil" =>
           Apply(Ident(termName("Nil")), Nil)
@@ -89,7 +94,7 @@ class PureScalaTransform extends Phase {
           Apply(Ident(termName("abs")), List(qualifier))
         // Handling ListMap initialization.
         case Apply(fun, args) if (fun.isInstanceOf[Ident] && fun.asInstanceOf[Ident].name.toString == "ListMap"
-          || fun.isInstanceOf[Select] && fun.asInstanceOf[Select].toString.endsWith("ListMap)") 
+          || fun.isInstanceOf[Select] && fun.asInstanceOf[Select].toString.endsWith("ListMap)")
           || fun.isInstanceOf[TypeApply] && fun.asInstanceOf[TypeApply].toString.contains("ListMap")) && args.nonEmpty =>
           args(0) match {
             // There is already a List wrapper.

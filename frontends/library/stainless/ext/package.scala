@@ -7,7 +7,7 @@ import stainless.lang.decreases
 
 package object ext {
   @library
-  def intToString(n: Int): String = {
+  def bigIntToString(n: BigInt): String = {
     if (n == 0) return "0"
 
     var number = n
@@ -41,18 +41,18 @@ package object ext {
   }
 
   @library
-  def plus(x: Int, y: Int): Int = {
+  def plus(x: BigInt, y: BigInt): BigInt = {
     x + y
   }
 
   @library
-  def plus(x: String, y: Int): String = {
-    x + intToString(y)
+  def plus(x: String, y: BigInt): String = {
+    x + bigIntToString(y)
   }
 
   @library
-  def plus(x: Int, y: String): String = {
-    intToString(x) + y
+  def plus(x: BigInt, y: String): String = {
+    bigIntToString(x) + y
   }
 
   @library
@@ -71,7 +71,7 @@ package object ext {
   }
 
   @library
-  def toString(x: Int): String = {
-    intToString(x)
+  def toString(x: BigInt): String = {
+    bigIntToString(x)
   }
 }
