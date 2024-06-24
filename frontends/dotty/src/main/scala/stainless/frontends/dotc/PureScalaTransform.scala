@@ -45,6 +45,8 @@ class PureScalaTransform extends Phase {
    * It extends `UntypedTreeMap`, which is a class for transforming untyped trees.
    */
   private class PureScalaTransformer extends UntypedTreeMap {
+    private val returnTypeStack: Stack[Tree] = Stack.empty
+
     /**
      * The main method of this class, which performs the transformations on the given tree.
      * It matches on the structure of the tree and applies the appropriate transformation.
@@ -123,7 +125,8 @@ class PureScalaTransform extends Phase {
           }
         // replace sys.error() with error[Nothing]("Error message.")
         case Apply(fun@Select(qualifier: Ident, name: TermName), args) if qualifier.name.toString == "sys" && name.toString == "error" =>
-          Apply(TypeApply(Ident(termName("error")), List(Ident(typeName("Nothing")))), List(Literal(Constants.Constant("Error message."))))
+          //          Apply(TypeApply(Ident(termName("error")), List(Ident(typeName("Nothing")))), List(Literal(Constants.Constant("Error message."))))
+          TypeApply(Ident(termName("errorWrapper")), List(returnTypeStack.top))
         // replace math.xx with xx because the stainless.math library is imported.
         case Apply(fun@Select(qualifier: Ident, name: TermName), args) if qualifier.name.toString == "math" =>
           Apply(Ident(name), transform(args))
@@ -158,46 +161,51 @@ class PureScalaTransform extends Phase {
           EmptyTree
         case defDef@DefDef(name, paramss, tpt, _) =>
           val defDefDetector = new DefDefDetector(defDef)
-          if (defDefDetector.unSupported) {
-            val externIdent = Ident(typeName("extern"))
-            // A very necessary step, otherwise errors will occur in the typer.
-            // It took two out of three days to find the problem...
-            externIdent.span = Span(defDef.span.start, defDef.span.start + 7)
-            val externAnnotation = Apply(Select(New(externIdent), termName("<init>")), Nil)
+          returnTypeStack.push(transform(defDef.tpt))
+          val newDefDef = {
+            if (defDefDetector.unSupported) {
+              val externIdent = Ident(typeName("extern"))
+              // A very necessary step, otherwise errors will occur in the typer.
+              // It took two out of three days to find the problem...
+              externIdent.span = Span(defDef.span.start, defDef.span.start + 7)
+              val externAnnotation = Apply(Select(New(externIdent), termName("<init>")), Nil)
 
-            val pureIdent = Ident(typeName("pure"))
-            pureIdent.span = Span(defDef.span.start + 8, defDef.span.start + 8 + 5)
-            val pureAnnotation = Apply(Select(New(pureIdent), termName("<init>")), Nil)
+              val pureIdent = Ident(typeName("pure"))
+              pureIdent.span = Span(defDef.span.start + 8, defDef.span.start + 8 + 5)
+              val pureAnnotation = Apply(Select(New(pureIdent), termName("<init>")), Nil)
 
-            cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(defDef.rhs)).withAnnotations(List(externAnnotation, pureAnnotation))
-          }
-          else {
-            // Add decreases annotation automatically.
-            if (!defDefDetector.decreases.isEmpty) {
-              val decreasesApplies: ArrayBuffer[Apply] = ArrayBuffer.empty
-              defDefDetector.decreases.foreach(decrease =>
-                decreasesApplies += Apply(Ident(termName("decreases")), List(decrease))
-              )
-              val newRhs = defDef.rhs match {
-                case Block(stats, expr) =>
-                  Block(
-                    decreasesApplies.toList ::: stats,
-                    expr
-                  )
-                case _ =>
-                  // The function body originally only had one statement. Wrap it in a block.
-                  Block(
-                    decreasesApplies.toList,
-                    defDef.rhs
-                  )
-              }
-              // remove all original annotations
-              cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(newRhs)).withAnnotations(Nil)
+              cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(defDef.rhs)).withAnnotations(List(externAnnotation, pureAnnotation))
             }
-            else
-              // remove all original annotations
-              cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(defDef.rhs)).withAnnotations(Nil)
+            else {
+              // Add decreases annotation automatically.
+              if (!defDefDetector.decreases.isEmpty) {
+                val decreasesApplies: ArrayBuffer[Apply] = ArrayBuffer.empty
+                defDefDetector.decreases.foreach(decrease =>
+                  decreasesApplies += Apply(Ident(termName("decreases")), List(decrease))
+                )
+                val newRhs = defDef.rhs match {
+                  case Block(stats, expr) =>
+                    Block(
+                      decreasesApplies.toList ::: stats,
+                      expr
+                    )
+                  case _ =>
+                    // The function body originally only had one statement. Wrap it in a block.
+                    Block(
+                      decreasesApplies.toList,
+                      defDef.rhs
+                    )
+                }
+                // remove all original annotations
+                cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(newRhs)).withAnnotations(Nil)
+              }
+              else
+                // remove all original annotations
+                cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(defDef.rhs)).withAnnotations(Nil)
+            }
           }
+          returnTypeStack.pop()
+          newDefDef
         case Match(selector, cases) =>
           // Find whether there is Alternative in cases
           val flatCases = cases.flatMap(case_ =>

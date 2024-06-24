@@ -110,6 +110,10 @@ package object lang {
   @ignore
   def error[T](reason: java.lang.String): T = sys.error(reason)
 
+  // For addressing the bug in Stainless's equivalence checking that occurs in the presence of error[T].
+  @extern @pure
+  def errorWrapper[T]: T = error[T]("error message")
+
   @ignore
   def old[T](value: T): T = value
 
