@@ -110,6 +110,10 @@ class PureScalaTransform extends Phase {
         // Replace .abs with abs().
         case Select(qualifier, name) if name.toString == "abs" =>
           Apply(Ident(termName("abs")), List(qualifier))
+        case Apply(fun@Select(qualifier, name), args) if name.toString == "toString" && args.size == 0 =>
+          Select(qualifier, termName("toStringExt"))
+        case Select(qualifier, name) if name.toString == "toString" =>
+          Select(qualifier, termName("toStringExt"))
         // Handling ListMap initialization.
         case Apply(fun, args) if (fun.isInstanceOf[Ident] && fun.asInstanceOf[Ident].name.toString == "ListMap"
           || fun.isInstanceOf[Select] && fun.asInstanceOf[Select].toString.endsWith("ListMap)")
