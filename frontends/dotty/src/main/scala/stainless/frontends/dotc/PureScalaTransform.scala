@@ -126,7 +126,10 @@ class PureScalaTransform extends Phase {
         // replace sys.error() with error[Nothing]("Error message.")
         case Apply(fun@Select(qualifier: Ident, name: TermName), args) if qualifier.name.toString == "sys" && name.toString == "error" =>
           //          Apply(TypeApply(Ident(termName("error")), List(Ident(typeName("Nothing")))), List(Literal(Constants.Constant("Error message."))))
-          TypeApply(Ident(termName("errorWrapper")), List(returnTypeStack.top))
+          if (returnTypeStack.top.toString == "TypeTree")
+            TypeApply(Ident(termName("errorWrapper")), List(Ident(typeName("Nothing"))))
+          else
+            TypeApply(Ident(termName("errorWrapper")), List(returnTypeStack.top))
         // replace math.xx with xx because the stainless.math library is imported.
         case Apply(fun@Select(qualifier: Ident, name: TermName), args) if qualifier.name.toString == "math" =>
           Apply(Ident(name), transform(args))
