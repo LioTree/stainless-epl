@@ -7,7 +7,7 @@ import ast.Trees.*
 import Contexts.*
 import dotty.tools.dotc.ast.untpd
 import Names.{EmptyTypeName, TermName, TypeName, termName, typeName}
-import dotty.tools.dotc.ast.untpd.NumberKind.Whole
+import dotty.tools.dotc.ast.untpd.NumberKind.{Decimal, Whole}
 import dotty.tools.dotc.util.Spans.Span
 
 import scala.collection.mutable.ArrayBuffer
@@ -51,41 +51,54 @@ class PureScalaTransform extends Phase {
      */
     override def transform(tree: Tree)(using Context): Tree = {
       tree match {
-        // Replace Int and Double with BigInt
-        // Translating Double to Real might be a better choice, but it involves type conversion between BigInt and Real, which will be considered later.
-        case Ident(name) if name.toString == "Int" || name.toString == "Double" =>
+        // Replace Int and Double with BigIntExt
+        // Translating Double to Real might be a better choice, but it involves type conversion between BigIntExt and Real, which will be considered later.
+        case Ident(name) if name.toString == "Int" =>
           name match {
             case name if name.isTermName =>
-              Ident(termName("BigInt"))
+              Ident(termName("BigIntExt"))
             case name if name.isTypeName =>
-              Ident(typeName("BigInt"))
+              Ident(typeName("BigIntExt"))
           }
-        // Despite there is implicit conversion between BigInt and Int,
+        case Ident(name) if name.toString == "Double" =>
+          name match {
+            case name if name.isTermName =>
+              Ident(termName("Rational"))
+            case name if name.isTypeName =>
+              Ident(typeName("Rational"))
+          }
+        case Ident(name) if name.toString == "String" =>
+          name match {
+            case name if name.isTermName =>
+              Ident(termName("StringExt"))
+            case name if name.isTypeName =>
+              Ident(typeName("StringExt"))
+          } // Despite there is implicit conversion between BigInt and Int,
         // there are still some cases where the conversion cannot be performed automatically (such as 1 -> "xxxx").
         // Therefore, all Numbers are directly wrapped with BigInt()
-        case Number(_, _) =>
-          Apply(Ident(termName("BigInt")), List(tree))
+        case Number(digits, _) =>
+          if (digits.contains(".")) {
+            val (numerator, denominator) = floatToFraction(digits.toDouble)
+            Apply(Ident(termName("Rational")), List(Number(numerator.toString, Whole(10)), Number(denominator.toString, Whole(10))))
+          } else
+            Apply(Ident(termName("BigIntExt")), List(Apply(Ident(termName("BigInt")), List(tree))))
         // Replace Nil with Nil().
         case Ident(name) if name.toString == "Nil" =>
           Apply(Ident(termName("Nil")), Nil)
         // Replace None with None().
         case Ident(name) if name.toString == "None" =>
           Apply(Ident(termName("None")), Nil)
-        // Replace A + B with plus(A, B).
-        // Added plus functions in the stainless library that can handle addition of different types (int, string, ListMap).
-        case InfixOp(left, op: Ident, right) if op.name == termName("+") =>
-          right match
-            case Tuple(tupleTrees: List[Tree]) =>
-              Apply(Ident(termName("plus")), List(transform(left), Apply(Ident(termName("List")), tupleTrees.map(transform))))
-            case _ =>
-              Apply(Ident(termName("plus")), List(transform(left), transform(right)))
+        case InfixOp(left, op: Ident, right: Tuple) if op.name == termName("+") =>
+          Apply(Ident(termName("plus")), List(transform(left), Apply(Ident(termName("List")), right.trees.map(transform))))
         // replace to with List.range
         case InfixOp(left, op: Ident, right) if op.name == termName("to") =>
           Apply(Select(Ident(termName("List")), termName("range")), List(transform(left), transform(right)))
         // Replace Character with String.
         // It is possible to add an implicit conversion from Char to String in the stainless library, but stainless cannot verify it because it must be @extern.
         case Literal(constant: Constants.Constant) if constant.value.isInstanceOf[Character] =>
-          Literal(Constants.Constant(constant.value.toString))
+          Apply(Ident(termName("StringExt")), List(Literal(Constants.Constant(constant.value.toString))))
+        case Literal(constant: Constants.Constant) if constant.value.isInstanceOf[String] =>
+          Apply(Ident(termName("StringExt")), List(Literal(constant)))
         // Replace scala.collection.immutable.ListMap with ListMap.
         case Select(Select(Select(Ident(name1), name2), name3), name4) if s"$name1.$name2.$name3.$name4" == "scala.collection.immutable.ListMap" =>
           name4 match {
@@ -121,7 +134,7 @@ class PureScalaTransform extends Phase {
         case Throw(expr) =>
           // Although stainless supports the use of Exception(), its return type is not Nothing. Therefore, we use error[Nothing] instead.
           Apply(TypeApply(Ident(termName("error")), List(Ident(typeName("Nothing")))), List(Literal(Constants.Constant("Error message."))))
-        // Add `import stainless.collection._` `import stainless.annotation._` `import stainless.lang._` and `import stainless.ext._` to the beginning of the file.
+        // Add `import stainless.collection._` `import stainless.annotation._` `import stainless.lang._` to the beginning of the file.
         case PackageDef(pid, stats) =>
           val importCollection = Import(
             Select(Ident(termName("stainless")), termName("collection")),
@@ -139,11 +152,7 @@ class PureScalaTransform extends Phase {
             Select(Ident(termName("stainless")), termName("math")),
             List(ImportSelector(Ident(termName("_")), EmptyTree, EmptyTree))
           )
-          val importExt = Import(
-            Select(Ident(termName("stainless")), termName("ext")),
-            List(ImportSelector(Ident(termName("_")), EmptyTree, EmptyTree))
-          )
-          cpy.PackageDef(tree)(transformSub(pid), importCollection :: importAnnotation :: importLang :: importMath :: importExt :: transformStats(stats, ctx.owner))
+          cpy.PackageDef(tree)(transformSub(pid), importCollection :: importAnnotation :: importLang :: importMath :: transformStats(stats, ctx.owner))
         // Remove all original imports.
         case Import(expr, selectors) =>
           EmptyTree
@@ -202,6 +211,24 @@ class PureScalaTransform extends Phase {
         case _ =>
           super.transform(tree)
       }
+    }
+
+    private def floatToFraction(x: Double, tolerance: Double = 1.0E-6): (Long, Long) = {
+      def gcd(a: Long, b: Long): Long = {
+        if (b == 0) a else gcd(b, a % b)
+      }
+
+      var num = x
+      var den = 1L
+      while (math.abs(num - math.round(num)) > tolerance) {
+        num *= 10
+        den *= 10
+      }
+      val numerator = math.round(num)
+      val denominator = den
+      val divisor = gcd(numerator, denominator)
+
+      (numerator / divisor, denominator / divisor)
     }
 
     /**
@@ -272,10 +299,6 @@ class PureScalaTransform extends Phase {
               }
             )
             traverseChildren(tree)
-          case Apply(fun: Select, args) if fun.toString.endsWith("toString)") || fun.toString.endsWith("length)") =>
-            unSupported = true
-          case Select(qualifier, name) if name.toString == "toString" || name.toString == "length" || name.toString == "isBlank" =>
-            unSupported = true
           case ForDo(enums, body) =>
             unSupported = true
           case _ =>
