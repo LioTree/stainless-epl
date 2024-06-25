@@ -100,7 +100,7 @@ class PureScalaTransform extends Phase {
           Apply(Select(Ident(termName("List")), termName("rangeTo")), List(transform(left), transform(right)))
         case GenFrom(pat, expr, checkMode) =>
           GenFrom(transform(pat), Select(transform(expr), termName("toScala")), checkMode)
-//          Select(Apply(Select(Ident(termName("List")), termName("range")), List(transform(left), transform(right))), termName("toScala"))
+        //          Select(Apply(Select(Ident(termName("List")), termName("range")), List(transform(left), transform(right))), termName("toScala"))
         // Replace Character with String.
         // It is possible to add an implicit conversion from Char to String in the stainless library, but stainless cannot verify it because it must be @extern.
         case Literal(constant: Constants.Constant) if constant.value.isInstanceOf[Character] =>
@@ -170,7 +170,10 @@ class PureScalaTransform extends Phase {
             Select(Ident(termName("stainless")), termName("math")),
             List(ImportSelector(Ident(termName("_")), EmptyTree, EmptyTree))
           )
-          cpy.PackageDef(tree)(transformSub(pid), importCollection :: importAnnotation :: importLang :: importMath :: transformStats(stats, ctx.owner))
+          if (pid.name.toString == "<empty>")
+            cpy.PackageDef(tree)(transformSub(Ident(termName(extractFileName(ctx.compilationUnit.source.toString)))), importCollection :: importAnnotation :: importLang :: importMath :: transformStats(stats, ctx.owner))
+          else
+            cpy.PackageDef(tree)(transformSub(pid), importCollection :: importAnnotation :: importLang :: importMath :: transformStats(stats, ctx.owner))
         // Remove all original imports.
         case Import(expr, selectors) =>
           EmptyTree
@@ -233,6 +236,14 @@ class PureScalaTransform extends Phase {
           cpy.Match(tree)(transform(selector), transformSub(flatCases))
         case _ =>
           super.transform(tree)
+      }
+    }
+
+    private def extractFileName(path: String): String = {
+      val regex = """.*/([^/]+)\.scala$""".r
+      path match {
+        case regex(fileName) => fileName.replace("-", "_")
+        case _ => "No match found"
       }
     }
 
