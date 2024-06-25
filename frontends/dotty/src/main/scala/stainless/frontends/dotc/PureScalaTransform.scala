@@ -93,9 +93,12 @@ class PureScalaTransform extends Phase {
           Apply(Ident(termName("None")), Nil)
         case InfixOp(left, op: Ident, right: Tuple) if op.name == termName("+") =>
           InfixOp(transform(left), Ident(termName("++")), Apply(Ident(termName("List")), right.trees.map(transform)))
-        //         replace to with List.range().toScala
+        //         replace to with List.range()
         case InfixOp(left, op: Ident, right) if op.name == termName("to") =>
-          Select(Apply(Select(Ident(termName("List")), termName("range")), List(transform(left), transform(right))), termName("toScala"))
+          Apply(Select(Ident(termName("List")), termName("range")), List(transform(left), transform(right)))
+        case GenFrom(pat, expr: InfixOp, checkMode) =>
+          GenFrom(transform(pat), Select(transform(expr), termName("toScala")), checkMode)
+//          Select(Apply(Select(Ident(termName("List")), termName("range")), List(transform(left), transform(right))), termName("toScala"))
         // Replace Character with String.
         // It is possible to add an implicit conversion from Char to String in the stainless library, but stainless cannot verify it because it must be @extern.
         case Literal(constant: Constants.Constant) if constant.value.isInstanceOf[Character] =>
