@@ -2,6 +2,7 @@ package stainless.lang
 
 import stainless.annotation.library
 import stainless.collection.List
+import stainless.annotation._
 
 import scala.language.implicitConversions
 
@@ -36,6 +37,9 @@ case class BigIntExt(val underlying: BigInt) {
   def >=(that: BigIntExt): Boolean = underlying >= that.underlying
 
   def !=(that: BigIntExt): Boolean = underlying != that.underlying
+
+  @extern @pure
+  def ^(that: BigIntExt): BigIntExt = BigIntExt(0)
 
   def toStringExt: StringExt = {
     if (underlying == 0) return "0"
