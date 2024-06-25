@@ -2,6 +2,8 @@ package stainless.lang
 
 import stainless.annotation.library
 
+import stainless.annotation._
+
 import scala.language.implicitConversions
 
 @library
@@ -13,16 +15,22 @@ case class StringExt(val underlying: String) {
   def length: BigIntExt = BigIntExt(underlying.bigLength())
 
   // Because of stainless bug, these three methods cannot be used
+  @extern @pure
   def substring(start: BigIntExt): StringExt = {
-    StringExt(underlying.bigSubstring(start))
+//    StringExt(underlying.bigSubstring(start))
+    StringExt("")
   }
 
+  @extern @pure
   def substring(start: BigIntExt, end: BigIntExt): StringExt = {
-    StringExt(underlying.bigSubstring(start, end))
+//    StringExt(underlying.bigSubstring(start, end))
+    StringExt("")
   }
 
+  @extern @pure
   def last: StringExt = {
-    StringExt(underlying.bigSubstring(this.length - BigIntExt(scala.BigInt(1)), this.length))
+//    StringExt(underlying.bigSubstring(this.length - BigIntExt(scala.BigInt(1)), this.length))
+    StringExt("")
   }
 }
 
