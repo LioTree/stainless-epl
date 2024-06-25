@@ -4,6 +4,7 @@ package stainless
 
 import stainless.annotation._
 import stainless.lang.StaticChecks._
+import stainless.lang.Rational
 
 import scala.language.implicitConversions
 
@@ -40,24 +41,10 @@ package object math {
   @library
   def abs(n: BigInt) = if (n < 0) -n else n
 
-  @library
-  def sqrt(x: BigInt): BigInt = {
-    def next(n: BigInt, i: BigInt): BigInt = (n + i / n) / 2
-
-    val one = BigInt(1)
-    var n = one
-    var n1 = next(n, x)
-
-    while (abs(n1 - n) > one) {
-      n = n1
-      n1 = next(n, x)
-    }
-
-    while (n1 * n1 > x) {
-      n1 -= one
-    }
-
-    n1
+  @extern @pure
+  def sqrt(x: Rational): Rational = {
+    // Whatever the implementation
+    Rational(1,2)
   }
 
   @library
