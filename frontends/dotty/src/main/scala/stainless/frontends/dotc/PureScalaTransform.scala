@@ -90,8 +90,8 @@ class PureScalaTransform extends Phase {
         // Replace None with None().
         case Ident(name) if name.toString == "None" =>
           Apply(Ident(termName("None")), Nil)
-//        case InfixOp(left, op: Ident, right: Tuple) if op.name == termName("+") =>
-//          Apply(Ident(termName("plus")), List(transform(left), Apply(Ident(termName("List")), right.trees.map(transform))))
+        case InfixOp(left, op: Ident, right: Tuple) if op.name == termName("+") =>
+          InfixOp(transform(left), Ident(termName("++")), Apply(Ident(termName("List")), right.trees.map(transform)))
         // replace to with List.range
         case InfixOp(left, op: Ident, right) if op.name == termName("to") =>
           Apply(Select(Ident(termName("List")), termName("range")), List(transform(left), transform(right)))
