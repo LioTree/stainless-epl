@@ -115,6 +115,8 @@ class PureScalaTransform extends Phase {
           Select(transform(qualifier), termName("toStringExt"))
         case Select(qualifier, name) if name.toString == "toString" =>
           Select(transform(qualifier), termName("toStringExt"))
+        case Apply(fun@Select(qualifier, name), args) if name.toString == "length" && args.size == 0 =>
+          Select(transform(qualifier), termName("length"))
         // Handling ListMap initialization.
         case Apply(fun, args) if (fun.isInstanceOf[Ident] && fun.asInstanceOf[Ident].name.toString == "ListMap"
           || fun.isInstanceOf[Select] && fun.asInstanceOf[Select].toString.endsWith("ListMap)")
