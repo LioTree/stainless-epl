@@ -114,10 +114,6 @@ object Rational {
 
   implicit def bigIntExtToRat(n: BigIntExt): Rational = Rational(n.underlying, 1)
 
-  implicit def ratToBigInt(n: Rational): BigInt = n.numerator / n.denominator
-
-  implicit def ratToBigIntExt(n: Rational): BigIntExt = BigIntExt(n.numerator / n.denominator)
-
   def apply(n: BigInt): Rational = Rational(n, 1)
 
   def unapply(n: Rational): Option[(BigInt, BigInt)] = Some((n.numerator, n.denominator))
