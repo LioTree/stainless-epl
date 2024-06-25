@@ -32,6 +32,8 @@ case class StringExt(val underlying: String) {
 //    StringExt(underlying.bigSubstring(this.length - BigIntExt(scala.BigInt(1)), this.length))
     StringExt("")
   }
+
+  def contentEquals(that: StringExt): Boolean = underlying == that.underlying
 }
 
 @library
