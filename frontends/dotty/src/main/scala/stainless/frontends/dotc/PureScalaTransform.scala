@@ -55,20 +55,20 @@ class PureScalaTransform extends Phase {
       tree match {
         // Replace Int and Double with BigIntExt
         // Translating Double to Real might be a better choice, but it involves type conversion between BigIntExt and Real, which will be considered later.
-        case Ident(name) if name.toString == "Int" =>
+        case Ident(name) if name.toString == "Int" || name.toString == "Double" =>
           name match {
             case name if name.isTermName =>
               Ident(termName("BigIntExt"))
             case name if name.isTypeName =>
               Ident(typeName("BigIntExt"))
           }
-        case Ident(name) if name.toString == "Double" =>
-          name match {
-            case name if name.isTermName =>
-              Ident(termName("Rational"))
-            case name if name.isTypeName =>
-              Ident(typeName("Rational"))
-          }
+        //        case Ident(name) if name.toString == "Double" =>
+        //          name match {
+        //            case name if name.isTermName =>
+        //              Ident(termName("Rational"))
+        //            case name if name.isTypeName =>
+        //              Ident(typeName("Rational"))
+        //          }
         case Ident(name) if name.toString == "String" =>
           name match {
             case name if name.isTermName =>
@@ -80,8 +80,9 @@ class PureScalaTransform extends Phase {
         // Therefore, all Numbers are directly wrapped with BigInt()
         case Number(digits, _) =>
           if (digits.contains(".")) {
-            val (numerator, denominator) = floatToFraction(digits.toDouble)
-            Apply(Ident(termName("Rational")), List(Number(numerator.toString, Whole(10)), Number(denominator.toString, Whole(10))))
+            //            val (numerator, denominator) = floatToFraction(digits.toDouble)
+            //            Apply(Ident(termName("Rational")), List(Number(numerator.toString, Whole(10)), Number(denominator.toString, Whole(10))))
+            Apply(Ident(termName("BigIntExt")), List(Apply(Ident(termName("BigInt")), List(Number((digits.toDouble.toInt.toString), Whole(10))))))
           } else
             Apply(Ident(termName("BigIntExt")), List(Apply(Ident(termName("BigInt")), List(tree))))
         // Replace Nil with Nil().
@@ -92,9 +93,9 @@ class PureScalaTransform extends Phase {
           Apply(Ident(termName("None")), Nil)
         case InfixOp(left, op: Ident, right: Tuple) if op.name == termName("+") =>
           InfixOp(transform(left), Ident(termName("++")), Apply(Ident(termName("List")), right.trees.map(transform)))
-        // replace to with List.range
+        //         replace to with List.range().toScala
         case InfixOp(left, op: Ident, right) if op.name == termName("to") =>
-          Apply(Select(Ident(termName("List")), termName("range")), List(transform(left), transform(right)))
+          Select(Apply(Select(Ident(termName("List")), termName("range")), List(transform(left), transform(right))), termName("toScala"))
         // Replace Character with String.
         // It is possible to add an implicit conversion from Char to String in the stainless library, but stainless cannot verify it because it must be @extern.
         case Literal(constant: Constants.Constant) if constant.value.isInstanceOf[Character] =>
