@@ -696,6 +696,14 @@ object List {
     if(until <= start) Nil[BigInt]() else Cons(start, range(start + 1, until))
   } ensuring{(res: List[BigInt]) => res.size == until - start }
 
+  /* Range from start (inclusive) to until (inclusive) */
+  @library
+  def rangeTo(start: BigInt, to: BigInt): List[BigInt] = {
+    require(start <= to)
+    decreases(to - start)
+    if(to <= start) Nil[BigInt]() else Cons(start, range(start + 1, to + 1))
+  } ensuring{(res: List[BigInt]) => res.size == to + 1 - start }
+
   @library
   def mkString[A](l: List[A], mid: String, f: A => String) = {
     def rec(l: List[A]): String = l match {

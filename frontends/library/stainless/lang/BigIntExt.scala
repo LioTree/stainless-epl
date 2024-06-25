@@ -41,6 +41,8 @@ case class BigIntExt(val underlying: BigInt) {
   @extern @pure
   def ^(that: BigIntExt): BigIntExt = BigIntExt(0)
 
+  def toInt: BigIntExt = this
+
   def toStringExt: StringExt = {
     if (underlying == 0) return "0"
 

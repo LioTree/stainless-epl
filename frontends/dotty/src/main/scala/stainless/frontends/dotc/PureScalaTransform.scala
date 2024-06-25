@@ -94,9 +94,11 @@ class PureScalaTransform extends Phase {
         case InfixOp(left, op: Ident, right: Tuple) if op.name == termName("+") =>
           InfixOp(transform(left), Ident(termName("++")), Apply(Ident(termName("List")), right.trees.map(transform)))
         //         replace to with List.range()
-        case InfixOp(left, op: Ident, right) if op.name == termName("to") =>
+        case InfixOp(left, op: Ident, right) if op.name == termName("until") =>
           Apply(Select(Ident(termName("List")), termName("range")), List(transform(left), transform(right)))
-        case GenFrom(pat, expr: InfixOp, checkMode) =>
+        case InfixOp(left, op: Ident, right) if op.name == termName("to") =>
+          Apply(Select(Ident(termName("List")), termName("rangeTo")), List(transform(left), transform(right)))
+        case GenFrom(pat, expr, checkMode) =>
           GenFrom(transform(pat), Select(transform(expr), termName("toScala")), checkMode)
 //          Select(Apply(Select(Ident(termName("List")), termName("range")), List(transform(left), transform(right))), termName("toScala"))
         // Replace Character with String.
