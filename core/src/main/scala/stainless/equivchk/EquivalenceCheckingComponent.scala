@@ -126,7 +126,7 @@ class EquivalenceCheckingRun private(override val component: EquivalenceChecking
     }
     val toProcess = createFilter.filter(ids, plainSyms, underlyingRun.component)
     for {
-      gen <- underlyingRun.execute(toProcess, plainSyms, ExtractionSummary.Node(traceSummary, plainSummary))
+//      gen <- underlyingRun.execute(toProcess, plainSyms, ExtractionSummary.Node(traceSummary, plainSummary))
 //      invalidVCsCands = counterExamples(gen).flatMap {
 //        case (vc, ctex) => ec.reportUnsafe(gen.program)(gen, vc, ctex).getOrElse(Set.empty)
 //      }.toSeq.distinct
@@ -134,13 +134,12 @@ class EquivalenceCheckingRun private(override val component: EquivalenceChecking
 //      _ = debugInvalidVCsCandidates(invalidVCsCands)
 //      _ = debugUnknownsSafetyCandidates(unknownsSafetyCands)
       trRes <- equivCheck(ec)
-    } yield buildAnalysis(ec)(ids, gen, trRes)
-  }
+//    } yield buildAnalysis(ec)(ids, gen, trRes)
+  } yield buildAnalysis(ec)(ids, trRes)
+}
 
-  private def buildAnalysis(ec: EquivalenceChecker)(ids: Seq[Identifier], general: VerificationAnalysis, trRes: ec.Results): EquivalenceCheckingAnalysis = {
-    val genRecors = general.toReport.results.map { verifRecord =>
-      Record(verifRecord.id, verifRecord.pos, verifRecord.time, Status.Verification(verifRecord.status), verifRecord.solverName, verifRecord.kind, verifRecord.derivedFrom)
-    }
+//  private def buildAnalysis(ec: EquivalenceChecker)(ids: Seq[Identifier], general: VerificationAnalysis, trRes: ec.Results): EquivalenceCheckingAnalysis = {
+    private def buildAnalysis(ec: EquivalenceChecker)(ids: Seq[Identifier], trRes: ec.Results): EquivalenceCheckingAnalysis = {
     val valid = trRes.valid.toSeq.sortBy(_._1).map {
       case (v, data) =>
         assert(data.path.nonEmpty)
@@ -182,9 +181,11 @@ class EquivalenceCheckingRun private(override val component: EquivalenceChecking
         Record(unknown, fd.getPos, data.solvingInfo.time, Status.Equivalence(EquivalenceStatus.UnknownEquivalence), data.solvingInfo.solverName, "equivalence", fd.source)
     }
 
-    val allRecords = genRecors ++ valid ++ unsafe ++ unequiv ++ wrgs ++ unknwsSafety ++ unknwsEquiv
-    new EquivalenceCheckingAnalysis(ids.toSet, allRecords, general.extractionSummary)
-  }
+//    val allRecords = genRecors ++ valid ++ unsafe ++ unequiv ++ wrgs ++ unknwsSafety ++ unknwsEquiv
+      val allRecords = valid ++ unsafe ++ unequiv ++ wrgs ++ unknwsSafety ++ unknwsEquiv
+//      new EquivalenceCheckingAnalysis(ids.toSet, allRecords, general.extractionSummary)
+      new EquivalenceCheckingAnalysis(ids.toSet, allRecords,  ExtractionSummary.NoSummary)
+    }
 
   private def equivCheck(ec: EquivalenceChecker): Future[ec.Results] = {
     class Identity(override val s: ec.trees.type, override val t: trace.trees.type) extends transformers.ConcreteTreeTransformer(s, t)
