@@ -2372,7 +2372,23 @@ class CodeExtraction(inoxCtx: inox.Context,
         xt.AnnotatedType(xt.BVType(signed, size), Seq(xt.StrictBV))
 
       case AppliedType(tr: TypeRef, tps) if isMapSym(tr.symbol) =>
-        val Seq(from, to) = tps map extractType
+        val Seq(from, to) = tps.size match {
+          case 2 => tps map extractType
+          // Handle cases like:
+          // type Env[B] = Map[String,B]
+          // val e:Env[Variable] = Map("xx"->"xxx")
+          case 1 =>
+            tr.symbol.info.resultType match {
+              case TypeAlias(alias: HKTypeLambda) =>
+                alias.resType match {
+                  case AppliedType(_, args) if args.size == 2 =>
+                    args.head match {
+                      case TypeRef(_, _)  => Seq(args.head, tps.head) map extractType
+                      case _ => Seq(tps.head, args.tail.head) map extractType
+                    }
+                }
+            }
+        }
         xt.MapType(from, xt.ClassType(getIdentifier(optionSymbol), Seq(to)).setPos(pos))
 
       case AppliedType(tr: TypeRef, tps) if isMutableMapSym(tr.symbol) =>
