@@ -43,6 +43,8 @@ case class BigIntExt(val underlying: BigInt) {
 
   def toInt: BigIntExt = this
 
+  def abs: BigIntExt = BigIntExt(stainless.math.abs(underlying))
+
   def toStringExt: StringExt = {
     if (underlying == 0) return "0"
 
