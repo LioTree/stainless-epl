@@ -161,14 +161,14 @@ class PureScalaTransform extends Phase {
             Select(Ident(termName("stainless")), termName("lang")),
             List(ImportSelector(Ident(termName("_")), EmptyTree, EmptyTree))
           )
-          val importList = Import(
+          val importCollection = Import(
             Select(Ident(termName("stainless")), termName("collection")),
-            List(ImportSelector(Ident(termName("List")), EmptyTree, EmptyTree))
+            List(ImportSelector(Ident(termName("_")), EmptyTree, EmptyTree))
           )
           if (pid.name.toString == "<empty>")
-            cpy.PackageDef(tree)(transformSub(Ident(termName(extractFileName(ctx.compilationUnit.source.toString)))), importStainless :: importAnnotation :: importLang :: importList :: transformStats(stats, ctx.owner))
+            cpy.PackageDef(tree)(transformSub(Ident(termName(extractFileName(ctx.compilationUnit.source.toString)))), importStainless :: importAnnotation :: importLang :: importCollection :: transformStats(stats, ctx.owner))
           else
-            cpy.PackageDef(tree)(transformSub(pid), importStainless :: importAnnotation :: importList :: importLang :: transformStats(stats, ctx.owner))
+            cpy.PackageDef(tree)(transformSub(pid), importStainless :: importAnnotation :: importCollection :: importLang :: transformStats(stats, ctx.owner))
 
         // Remove import scala.collection.immutable.Set
         case Import(expr, selectors) if tree.show == "import scala.collection.immutable.Set" =>
