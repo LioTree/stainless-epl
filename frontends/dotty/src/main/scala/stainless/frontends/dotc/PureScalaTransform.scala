@@ -57,71 +57,70 @@ class PureScalaTransform extends Phase {
         // Translating Double to Real might be a better choice, but it involves type conversion between BigIntExt and Real, which will be considered later.
         case Ident(name) if name.toString == "Int" || name.toString == "Double" =>
           name match {
-            case name if name.isTermName =>
-              Ident(termName("BigIntExt"))
-            case name if name.isTypeName =>
-              Ident(typeName("BigIntExt"))
+            case name if name.isTermName => Ident(termName("BigIntExt"))
+            case name if name.isTypeName => Ident(typeName("BigIntExt"))
           }
-        //        case Ident(name) if name.toString == "Double" =>
-        //          name match {
-        //            case name if name.isTermName =>
-        //              Ident(termName("Rational"))
-        //            case name if name.isTypeName =>
-        //              Ident(typeName("Rational"))
-        //          }
+
         case Ident(name) if name.toString == "String" =>
           name match {
-            case name if name.isTermName =>
-              Ident(termName("StringExt"))
-            case name if name.isTypeName =>
-              Ident(typeName("StringExt"))
-          } // Despite there is implicit conversion between BigInt and Int,
+            case name if name.isTermName => Ident(termName("StringExt"))
+            case name if name.isTypeName => Ident(typeName("StringExt"))
+          }
+
+        // Despite there is implicit conversion between BigInt and Int,
         // there are still some cases where the conversion cannot be performed automatically (such as 1 -> "xxxx").
         // Therefore, all Numbers are directly wrapped with BigInt()
         case Number(digits, _) =>
-          if (digits.contains(".")) {
-            //            val (numerator, denominator) = floatToFraction(digits.toDouble)
-            //            Apply(Ident(termName("Rational")), List(Number(numerator.toString, Whole(10)), Number(denominator.toString, Whole(10))))
-            Apply(Ident(termName("BigIntExt")), List(Apply(Ident(termName("BigInt")), List(Number((digits.toDouble.toInt.toString), Whole(10))))))
-          } else
-            Apply(Ident(termName("BigIntExt")), List(Apply(Ident(termName("BigInt")), List(tree))))
+          if (digits.contains(".")) Apply(Ident(termName("BigIntExt")), List(Apply(Ident(termName("BigInt")), List(Number((digits.toDouble.toInt.toString), Whole(10))))))
+          else Apply(Ident(termName("BigIntExt")), List(Apply(Ident(termName("BigInt")), List(tree))))
+          
         // Replace Nil with Nil().
-        case Ident(name) if name.toString == "Nil" =>
-          Apply(Ident(termName("Nil")), Nil)
+        case Ident(name) if name.toString == "Nil" => Apply(Ident(termName("Nil")), Nil)
+          
         // Replace None with None().
-        case Ident(name) if name.toString == "None" =>
-          Apply(Ident(termName("None")), Nil)
+        case Ident(name) if name.toString == "None" => Apply(Ident(termName("None")), Nil)
+          
         case InfixOp(left, op: Ident, right: Tuple) if op.name == termName("+") =>
           InfixOp(transform(left), Ident(termName("++")), Apply(Ident(termName("List")), right.trees.map(transform)))
-        //         replace to with List.range()
+          
+        // Replace a until b with List.range(a,b)
         case InfixOp(left, op: Ident, right) if op.name == termName("until") =>
           Apply(Select(Ident(termName("List")), termName("range")), List(transform(left), transform(right)))
+          
+        // Replace a to b with List.rangeTo(a,b)
         case InfixOp(left, op: Ident, right) if op.name == termName("to") =>
           Apply(Select(Ident(termName("List")), termName("rangeTo")), List(transform(left), transform(right)))
+          
         case GenFrom(pat, expr, checkMode) =>
           GenFrom(transform(pat), Select(transform(expr), termName("toScala")), checkMode)
-        //          Select(Apply(Select(Ident(termName("List")), termName("range")), List(transform(left), transform(right))), termName("toScala"))
+          
         // Replace Character with String.
         // It is possible to add an implicit conversion from Char to String in the stainless library, but stainless cannot verify it because it must be @extern.
         case Literal(constant: Constants.Constant) if constant.value.isInstanceOf[Character] =>
           Apply(Ident(termName("StringExt")), List(Literal(Constants.Constant(constant.value.toString))))
+          
         case Literal(constant: Constants.Constant) if constant.value.isInstanceOf[String] =>
           Apply(Ident(termName("StringExt")), List(Literal(constant)))
+          
         // Replace scala.collection.immutable.ListMap with ListMap.
         case Select(Select(Select(Ident(name1), name2), name3), name4) if s"$name1.$name2.$name3.$name4" == "scala.collection.immutable.ListMap" =>
           name4 match {
             case name if name.isTermName => Ident(termName("ListMap"))
             case name if name.isTypeName => Ident(typeName("ListMap"))
           }
+          
         // Replace .abs with abs().
-        case Select(qualifier, name) if name.toString == "abs" =>
-          Apply(Ident(termName("abs")), List(qualifier))
+        case Select(qualifier, name) if name.toString == "abs" => Apply(Ident(termName("abs")), List(qualifier))
+          
         case Apply(fun@Select(qualifier, name), args) if name.toString == "toString" && args.size == 0 =>
           Select(transform(qualifier), termName("toStringExt"))
+          
         case Select(qualifier, name) if name.toString == "toString" =>
           Select(transform(qualifier), termName("toStringExt"))
+          
         case Apply(fun@Select(qualifier, name), args) if name.toString == "length" && args.size == 0 =>
           Select(transform(qualifier), termName("length"))
+          
         // Handling ListMap initialization.
         case Apply(fun, args) if (fun.isInstanceOf[Ident] && fun.asInstanceOf[Ident].name.toString == "ListMap"
           || fun.isInstanceOf[Select] && fun.asInstanceOf[Select].toString.endsWith("ListMap)")
@@ -135,6 +134,7 @@ class PureScalaTransform extends Phase {
               // Adding direct support for initializing ListMap with multiple ArrowAssoc since stainless doesn't support SeqLiteral.
               Apply(transform(fun), List(Apply(Ident(termName("List")), transform(args))))
           }
+          
         // replace sys.error() with error[Nothing]("Error message.")
         case Apply(fun@Select(qualifier: Ident, name: TermName), args) if qualifier.name.toString == "sys" && name.toString == "error" =>
           //          Apply(TypeApply(Ident(termName("error")), List(Ident(typeName("Nothing")))), List(Literal(Constants.Constant("Error message."))))
@@ -142,16 +142,20 @@ class PureScalaTransform extends Phase {
             TypeApply(Ident(termName("errorWrapper")), List(Ident(typeName("Nothing"))))
           else
             TypeApply(Ident(termName("errorWrapper")), List(returnTypeStack.top))
+            
         // replace math.xx with xx because the stainless.math library is imported.
         case Apply(fun@Select(qualifier: Ident, name: TermName), args) if qualifier.name.toString == "math" =>
           Apply(Ident(name), transform(args))
+          
         // ignore println
         case Apply(fun: Ident, args) if fun.name.toString == "println" =>
           EmptyTree
+          
         // Replace throw with error[Nothing]("Error message.")
         case Throw(expr) =>
           // Although stainless supports the use of Exception(), its return type is not Nothing. Therefore, we use error[Nothing] instead.
           Apply(TypeApply(Ident(termName("error")), List(Ident(typeName("Nothing")))), List(Literal(Constants.Constant("Error message."))))
+          
         // Add `import stainless.collection._` `import stainless.annotation._` `import stainless.lang._` to the beginning of the file.
         case PackageDef(pid, stats) =>
           val importCollection = Import(
@@ -174,9 +178,11 @@ class PureScalaTransform extends Phase {
             cpy.PackageDef(tree)(transformSub(Ident(termName(extractFileName(ctx.compilationUnit.source.toString)))), importCollection :: importAnnotation :: importLang :: importMath :: transformStats(stats, ctx.owner))
           else
             cpy.PackageDef(tree)(transformSub(pid), importCollection :: importAnnotation :: importLang :: importMath :: transformStats(stats, ctx.owner))
+            
         // Remove all original imports.
         case Import(expr, selectors) =>
           EmptyTree
+          
         case defDef@DefDef(name, paramss, tpt, _) =>
           val defDefDetector = new DefDefDetector(defDef)
           returnTypeStack.push(transform(defDef.tpt))
@@ -224,6 +230,7 @@ class PureScalaTransform extends Phase {
           }
           returnTypeStack.pop()
           newDefDef
+          
         case Match(selector, cases) =>
           // Find whether there is Alternative in cases
           val flatCases = cases.flatMap(case_ =>
@@ -234,6 +241,7 @@ class PureScalaTransform extends Phase {
                 List(case_)
             })
           cpy.Match(tree)(transform(selector), transformSub(flatCases))
+          
         case _ =>
           super.transform(tree)
       }
