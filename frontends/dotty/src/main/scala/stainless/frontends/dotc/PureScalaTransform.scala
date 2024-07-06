@@ -102,13 +102,6 @@ class PureScalaTransform extends Phase {
         case Literal(constant: Constants.Constant) if constant.value.isInstanceOf[String] =>
           Apply(Ident(termName("StringExt")), List(Literal(constant)))
 
-        // Replace scala.collection.immutable.ListMap with ListMap.
-        //        case Select(Select(Select(Ident(name1), name2), name3), name4) if s"$name1.$name2.$name3.$name4" == "scala.collection.immutable.ListMap" =>
-        //          name4 match {
-        //            case name if name.isTermName => Ident(termName("ListMap"))
-        //            case name if name.isTypeName => Ident(typeName("ListMap"))
-        //          }
-
         // Replace .abs with abs().
         //        case Select(qualifier, name) if name.toString == "abs" => Apply(Ident(termName("abs")), List(qualifier))
 
@@ -137,15 +130,10 @@ class PureScalaTransform extends Phase {
 
         // replace sys.error() with error[Nothing]("Error message.")
         case Apply(fun@Select(qualifier: Ident, name: TermName), args) if qualifier.name.toString == "sys" && name.toString == "error" =>
-          //          Apply(TypeApply(Ident(termName("error")), List(Ident(typeName("Nothing")))), List(Literal(Constants.Constant("Error message."))))
           if (returnTypeStack.top.toString == "TypeTree")
             TypeApply(Ident(termName("errorWrapper")), List(Ident(typeName("Nothing"))))
           else
             TypeApply(Ident(termName("errorWrapper")), List(returnTypeStack.top))
-
-        // replace math.xx with xx because the stainless.math library is imported.
-        //        case Apply(fun@Select(qualifier: Ident, name: TermName), args) if qualifier.name.toString == "math" =>
-        //          Apply(Ident(name), transform(args))
 
         // ignore println
         case Apply(fun: Ident, args) if fun.name.toString == "println" =>
@@ -154,7 +142,10 @@ class PureScalaTransform extends Phase {
         // Replace throw with error[Nothing]("Error message.")
         case Throw(expr) =>
           // Although stainless supports the use of Exception(), its return type is not Nothing. Therefore, we use error[Nothing] instead.
-          Apply(TypeApply(Ident(termName("error")), List(Ident(typeName("Nothing")))), List(Literal(Constants.Constant("Error message."))))
+          if (returnTypeStack.top.toString == "TypeTree")
+            TypeApply(Ident(termName("errorWrapper")), List(Ident(typeName("Nothing"))))
+          else
+            TypeApply(Ident(termName("errorWrapper")), List(returnTypeStack.top))
 
         // Add `import stainless.collection._` `import stainless.annotation._` `import stainless.lang._` to the beginning of the file.
         case PackageDef(pid, stats) =>
@@ -162,10 +153,6 @@ class PureScalaTransform extends Phase {
             Ident(termName("stainless")),
             List(ImportSelector(Ident(termName("_")), EmptyTree, EmptyTree))
           )
-          //          val importCollection = Import(
-          //            Select(Ident(termName("stainless")), termName("collection")),
-          //            List(ImportSelector(Ident(termName("_")), EmptyTree, EmptyTree))
-          //          )
           val importAnnotation = Import(
             Select(Ident(termName("stainless")), termName("annotation")),
             List(ImportSelector(Ident(termName("_")), EmptyTree, EmptyTree))
@@ -178,15 +165,9 @@ class PureScalaTransform extends Phase {
             Select(Ident(termName("stainless")), termName("collection")),
             List(ImportSelector(Ident(termName("List")), EmptyTree, EmptyTree))
           )
-          //          val importMath = Import(
-          //            Select(Ident(termName("stainless")), termName("math")),
-          //            List(ImportSelector(Ident(termName("_")), EmptyTree, EmptyTree))
-          //          )
           if (pid.name.toString == "<empty>")
-            //            cpy.PackageDef(tree)(transformSub(Ident(termName(extractFileName(ctx.compilationUnit.source.toString)))), importCollection :: importAnnotation :: importLang :: importMath :: transformStats(stats, ctx.owner))
             cpy.PackageDef(tree)(transformSub(Ident(termName(extractFileName(ctx.compilationUnit.source.toString)))), importStainless :: importAnnotation :: importLang :: importList :: transformStats(stats, ctx.owner))
           else
-            //            cpy.PackageDef(tree)(transformSub(pid), importCollection :: importAnnotation :: importLang :: importMath :: transformStats(stats, ctx.owner))
             cpy.PackageDef(tree)(transformSub(pid), importStainless :: importAnnotation :: importList :: importLang :: transformStats(stats, ctx.owner))
 
         // Remove import scala.collection.immutable.Set
