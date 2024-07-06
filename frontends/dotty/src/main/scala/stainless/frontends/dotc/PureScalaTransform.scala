@@ -103,11 +103,11 @@ class PureScalaTransform extends Phase {
           Apply(Ident(termName("StringExt")), List(Literal(constant)))
 
         // Replace scala.collection.immutable.ListMap with ListMap.
-        case Select(Select(Select(Ident(name1), name2), name3), name4) if s"$name1.$name2.$name3.$name4" == "scala.collection.immutable.ListMap" =>
-          name4 match {
-            case name if name.isTermName => Ident(termName("ListMap"))
-            case name if name.isTypeName => Ident(typeName("ListMap"))
-          }
+        //        case Select(Select(Select(Ident(name1), name2), name3), name4) if s"$name1.$name2.$name3.$name4" == "scala.collection.immutable.ListMap" =>
+        //          name4 match {
+        //            case name if name.isTermName => Ident(termName("ListMap"))
+        //            case name if name.isTypeName => Ident(typeName("ListMap"))
+        //          }
 
         // Replace .abs with abs().
         //        case Select(qualifier, name) if name.toString == "abs" => Apply(Ident(termName("abs")), List(qualifier))
@@ -174,20 +174,24 @@ class PureScalaTransform extends Phase {
             Select(Ident(termName("stainless")), termName("lang")),
             List(ImportSelector(Ident(termName("_")), EmptyTree, EmptyTree))
           )
+          val importList = Import(
+            Select(Ident(termName("stainless")), termName("collection")),
+            List(ImportSelector(Ident(termName("List")), EmptyTree, EmptyTree))
+          )
           //          val importMath = Import(
           //            Select(Ident(termName("stainless")), termName("math")),
           //            List(ImportSelector(Ident(termName("_")), EmptyTree, EmptyTree))
           //          )
           if (pid.name.toString == "<empty>")
             //            cpy.PackageDef(tree)(transformSub(Ident(termName(extractFileName(ctx.compilationUnit.source.toString)))), importCollection :: importAnnotation :: importLang :: importMath :: transformStats(stats, ctx.owner))
-            cpy.PackageDef(tree)(transformSub(Ident(termName(extractFileName(ctx.compilationUnit.source.toString)))), importStainless :: importAnnotation :: importLang :: transformStats(stats, ctx.owner))
+            cpy.PackageDef(tree)(transformSub(Ident(termName(extractFileName(ctx.compilationUnit.source.toString)))), importStainless :: importAnnotation :: importLang :: importList :: transformStats(stats, ctx.owner))
           else
             //            cpy.PackageDef(tree)(transformSub(pid), importCollection :: importAnnotation :: importLang :: importMath :: transformStats(stats, ctx.owner))
-            cpy.PackageDef(tree)(transformSub(pid), importStainless :: importAnnotation :: importLang :: transformStats(stats, ctx.owner))
+            cpy.PackageDef(tree)(transformSub(pid), importStainless :: importAnnotation :: importList :: importLang :: transformStats(stats, ctx.owner))
 
-        // Remove all original imports.
-        //        case Import(expr, selectors) =>
-        //          EmptyTree
+        // Remove import scala.collection.immutable.Set
+        case Import(expr, selectors) if tree.show == "import scala.collection.immutable.Set" =>
+          EmptyTree
 
         // import scala.math => import stainless.math
         case Import(Ident(qualifierName), List(ImportSelector(Ident(name), EmptyTree, EmptyTree)))
@@ -198,6 +202,11 @@ class PureScalaTransform extends Phase {
         // scala.math.xx() => stainless.math.xx()
         case Select(qualifier: Ident, name) if s"${qualifier.name}.$name" == "scala.math" =>
           Select(Ident(termName("stainless")), name)
+
+        // import scala.collection.immutable.ListMap => import stainless.collection.ListMap
+        // scala.collection.immutable.ListMap.xx => stainless.collection.ListMap.xx
+        case Select(Select(Ident(name1), name2), name3) if s"$name1.$name2.$name3" == "scala.collection.immutable" =>
+          Select(Ident(termName("stainless")), termName("collection"))
 
         case defDef@DefDef(name, paramss, tpt, _) =>
           val defDefDetector = new DefDefDetector(defDef)
