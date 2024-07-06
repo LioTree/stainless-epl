@@ -19,7 +19,7 @@ import scala.collection.mutable.Set
  * but it handles `untpdTree`, so it cannot directly inherit from `MacroTransform`.
  * It performs transformations on the Scala code to make it compatible with the Stainless verification tool.
  */
-class PureScalaTransform extends Phase {
+class PureScalaTransform(extractPublicClass: Boolean, publicPackageName: String, packageName: String) extends Phase {
 
   import ast.untpd._
 
@@ -46,6 +46,15 @@ class PureScalaTransform extends Phase {
    */
   private class PureScalaTransformer extends UntypedTreeMap {
     private val returnTypeStack: Stack[Tree] = Stack.empty
+    private val publicClasses = List(
+      "Colour",
+      "Red",
+      "Green",
+      "Blue",
+      "Shape",
+      "Circle",
+      "Rectangle",
+    )
 
     /**
      * The main method of this class, which performs the transformations on the given tree.
@@ -79,6 +88,10 @@ class PureScalaTransform extends Phase {
 
         // Replace None with None().
         case Ident(name) if name.toString == "None" => Apply(Ident(termName("None")), Nil)
+
+        case Ident(name) if publicClasses.contains(name.toString) => Select(Ident(termName(publicPackageName)), name)
+
+        case TypeDef(name, rhs) if (!extractPublicClass && publicClasses.contains(name.toString)) => EmptyTree
 
         case InfixOp(left, op: Ident, right: Tuple) if op.name == termName("+") =>
           InfixOp(transform(left), Ident(termName("++")), Apply(Ident(termName("List")), right.trees.map(transform)))
@@ -165,10 +178,11 @@ class PureScalaTransform extends Phase {
             Select(Ident(termName("stainless")), termName("collection")),
             List(ImportSelector(Ident(termName("_")), EmptyTree, EmptyTree))
           )
-          if (pid.name.toString == "<empty>")
-            cpy.PackageDef(tree)(transformSub(Ident(termName(extractFileName(ctx.compilationUnit.source.toString)))), importStainless :: importAnnotation :: importLang :: importCollection :: transformStats(stats, ctx.owner))
-          else
+          val result = if (pid.name.toString == "<empty>") {
+            cpy.PackageDef(tree)(transformSub(Ident(termName(packageName))), importStainless :: importAnnotation :: importLang :: importCollection :: transformStats(stats, ctx.owner))
+          } else
             cpy.PackageDef(tree)(transformSub(pid), importStainless :: importAnnotation :: importCollection :: importLang :: transformStats(stats, ctx.owner))
+          result
 
         // Remove import scala.collection.immutable.Set
         case Import(expr, selectors) if tree.show == "import scala.collection.immutable.Set" =>
@@ -250,14 +264,6 @@ class PureScalaTransform extends Phase {
 
         case _ =>
           super.transform(tree)
-      }
-    }
-
-    private def extractFileName(path: String): String = {
-      val regex = """.*/([^/]+)\.scala$""".r
-      path match {
-        case regex(fileName) => fileName.replace("-", "_")
-        case _ => "No match found"
       }
     }
 
