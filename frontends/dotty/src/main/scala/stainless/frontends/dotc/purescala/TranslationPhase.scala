@@ -26,17 +26,20 @@ class TranslationPhase extends PluginPhase {
       // Replace original package name "<empty>" with the new package name
       val untypedTree = untpd.cpy.PackageDef(unit.untpdTree)(Ident(termName(packageName)), unit.untpdTree.asInstanceOf[PackageDef].stats)
 
+      val extractTraverser = new ExtractTraverser("election", untypedTree)
+      println(extractTraverser.targets)
+
       println("Before PureScalaTransform: ")
       println(untypedTree.show)
       println(untypedTree.toString)
 
       if (firstFile) {
-        unit.untpdTree = new Assignment1Transformer(firstFile, packageName).transform(untypedTree)
+        unit.untpdTree = new Assignment1Transformer(firstFile, packageName, extractTraverser.targets).transform(untypedTree)
         publicPackageName = packageName
         firstFile = false
       }
       else
-        unit.untpdTree = new Assignment1Transformer(firstFile, publicPackageName).transform(untypedTree)
+        unit.untpdTree = new Assignment1Transformer(firstFile, publicPackageName, extractTraverser.targets).transform(untypedTree)
 
       println("*************************************************")
       println(unit.untpdTree.show)

@@ -6,7 +6,7 @@ import dotty.tools.dotc.ast.untpd
 import dotty.tools.dotc.ast.untpd.NumberKind.{Decimal, Whole}
 import dotty.tools.dotc.core.*
 import dotty.tools.dotc.core.Contexts.*
-import dotty.tools.dotc.core.Names.{EmptyTypeName, TermName, TypeName, termName, typeName}
+import dotty.tools.dotc.core.Names.{EmptyTermName, EmptyTypeName, TermName, TypeName, termName, typeName}
 import dotty.tools.dotc.core.Phases.*
 import dotty.tools.dotc.util.Spans.Span
 
@@ -16,11 +16,12 @@ import scala.collection.mutable.{ArrayBuffer, Set, Stack}
  * This class performs the transformations on the Scala code.
  * It extends `UntypedTreeMap`, which is a class for transforming untyped trees.
  */
-class PureScalaTransformer extends ast.untpd.UntypedTreeMap {
+class PureScalaTransformer(targets: Set[String]) extends ast.untpd.UntypedTreeMap {
 
   import ast.untpd.*
 
   private val returnTypeStack: Stack[Tree] = Stack.empty
+  private val defStack: Stack[String] = Stack.empty
 
   /**
    * The main method of this class, which performs the transformations on the given tree.
@@ -28,6 +29,92 @@ class PureScalaTransformer extends ast.untpd.UntypedTreeMap {
    */
   override def transform(tree: Tree)(using Context): Tree = {
     tree match {
+      case TypeDef(name, _) if defStack.isEmpty && !targets.contains(name.toString) =>
+        TypeDef(name, Template(DefDef(termName("<init>"), Nil, TypeTree(), EmptyTree), Nil, EmptyValDef, Nil))
+
+      case DefDef(name, _, _, _) if defStack.isEmpty && !targets.contains(name.toString) =>
+       DefDef(name, Nil, Ident(typeName("Unit")), Block(Nil, EmptyTree))
+
+      case ModuleDef(name, _) if defStack.isEmpty && !targets.contains(name.toString) =>
+        ModuleDef(name, Template(DefDef(termName("<init>"), Nil, TypeTree(), EmptyTree), Nil, EmptyValDef, Nil))
+
+      case ValDef(name, _, _) if defStack.isEmpty && !targets.contains(name.toString) =>
+        ValDef(name, TypeTree(), Block(Nil, EmptyTree))
+
+      case TypeDef(name, rhs) =>
+        defStack.push(name.toString)
+        val result = cpy.TypeDef(tree)(name, transform(rhs))
+        defStack.pop()
+        // Just make Stainless happy. It will throw an error if non-sealed classes are compared.
+        if (result.mods.is(Flags.Abstract))
+          result.withMods(result.mods | Flags.Sealed)
+        else
+          result
+
+      case defDef@DefDef(name, paramss, tpt, _) =>
+        val defDefDetector = new DefDefDetector(defDef)
+        defStack.push(name.toString)
+        returnTypeStack.push(transform(defDef.tpt))
+        val newDefDef = {
+          if (defDefDetector.unSupported) {
+            val externIdent = Ident(typeName("extern"))
+            // A very necessary step, otherwise errors will occur in the typer.
+            // It took two out of three days to find the problem...
+            externIdent.span = Span(defDef.span.start, defDef.span.start + 7)
+            val externAnnotation = Apply(Select(New(externIdent), termName("<init>")), Nil)
+
+            val pureIdent = Ident(typeName("pure"))
+            pureIdent.span = Span(defDef.span.start + 8, defDef.span.start + 8 + 5)
+            val pureAnnotation = Apply(Select(New(pureIdent), termName("<init>")), Nil)
+
+            cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(defDef.rhs)).withAnnotations(List(externAnnotation, pureAnnotation))
+          }
+          else {
+            // Add decreases annotation automatically.
+            if (!defDefDetector.decreases.isEmpty) {
+              val decreasesApplies: ArrayBuffer[Apply] = ArrayBuffer.empty
+              defDefDetector.decreases.foreach(decrease =>
+                decreasesApplies += Apply(Ident(termName("decreases")), List(decrease))
+              )
+              val newRhs = defDef.rhs match {
+                case Block(stats, expr) =>
+                  Block(
+                    decreasesApplies.toList ::: stats,
+                    expr
+                  )
+                case _ =>
+                  // The function body originally only had one statement. Wrap it in a block.
+                  Block(
+                    decreasesApplies.toList,
+                    defDef.rhs
+                  )
+              }
+              // remove all original annotations
+              //                cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(newRhs)).withAnnotations(Nil)
+              cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(newRhs))
+            }
+            else
+              // remove all original annotations
+              //                cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(defDef.rhs)).withAnnotations(Nil)
+              cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(defDef.rhs))
+          }
+        }
+        returnTypeStack.pop()
+        defStack.pop()
+        newDefDef
+
+      case moduleDef: ModuleDef =>
+        defStack.push(moduleDef.name.toString)
+        val result = untpd.cpy.ModuleDef(tree)(moduleDef.name, transformSub(moduleDef.impl))
+        defStack.pop()
+        result
+
+      case valDef: ValDef =>
+        defStack.push(valDef.name.toString)
+        val result = cpy.ValDef(tree)(valDef.name, transform(valDef.tpt), transform(valDef.rhs))
+        defStack.pop()
+        result
+
       // Replace Int and Double with BigIntExt
       // Translating Double to Real might be a better choice, but it involves type conversion between BigIntExt and Real, which will be considered later.
       case Ident(name) if name.toString == "Int" || name.toString == "Double" =>
@@ -54,10 +141,6 @@ class PureScalaTransformer extends ast.untpd.UntypedTreeMap {
 
       // Replace None with None().
       case Ident(name) if name.toString == "None" => Apply(Ident(termName("None")), Nil)
-
-      // Just make Stainless happy. It will throw an error if non-sealed classes are compared.
-      case typeDef: TypeDef if typeDef.mods.is(Flags.Abstract) =>
-        typeDef.withMods(typeDef.mods | Flags.Sealed)
 
       case InfixOp(left, op: Ident, right: Tuple) if op.name == termName("+") =>
         InfixOp(transform(left), Ident(termName("++")), Apply(Ident(termName("List")), right.trees.map(transform)))
@@ -164,11 +247,11 @@ class PureScalaTransformer extends ast.untpd.UntypedTreeMap {
           List(ImportSelector(Ident(termName("_")), EmptyTree, EmptyTree))
         )
         cpy.PackageDef(tree)(transformSub(pid), importStainless :: importAnnotation :: importCollection :: importLang :: transformStats(stats, ctx.owner))
-//        val result = if (pid.name.toString == "<empty>") {
-//          cpy.PackageDef(tree)(transformSub(Ident(termName(packageName))), importStainless :: importAnnotation :: importLang :: importCollection :: transformStats(stats, ctx.owner))
-//        } else
-//          cpy.PackageDef(tree)(transformSub(pid), importStainless :: importAnnotation :: importCollection :: importLang :: transformStats(stats, ctx.owner))
-//        result
+      //        val result = if (pid.name.toString == "<empty>") {
+      //          cpy.PackageDef(tree)(transformSub(Ident(termName(packageName))), importStainless :: importAnnotation :: importLang :: importCollection :: transformStats(stats, ctx.owner))
+      //        } else
+      //          cpy.PackageDef(tree)(transformSub(pid), importStainless :: importAnnotation :: importCollection :: importLang :: transformStats(stats, ctx.owner))
+      //        result
 
       // Remove import scala.collection.immutable.Set
       case Import(expr, selectors) if tree.show == "import scala.collection.immutable.Set" =>
@@ -188,56 +271,6 @@ class PureScalaTransformer extends ast.untpd.UntypedTreeMap {
       // scala.collection.immutable.ListMap.xx => stainless.collection.ListMap.xx
       case Select(Select(Ident(name1), name2), name3) if s"$name1.$name2.$name3" == "scala.collection.immutable" =>
         Select(Ident(termName("stainless")), termName("collection"))
-
-      case defDef@DefDef(name, paramss, tpt, _) =>
-        val defDefDetector = new DefDefDetector(defDef)
-        returnTypeStack.push(transform(defDef.tpt))
-        val newDefDef = {
-          if (defDefDetector.unSupported) {
-            val externIdent = Ident(typeName("extern"))
-            // A very necessary step, otherwise errors will occur in the typer.
-            // It took two out of three days to find the problem...
-            externIdent.span = Span(defDef.span.start, defDef.span.start + 7)
-            val externAnnotation = Apply(Select(New(externIdent), termName("<init>")), Nil)
-
-            val pureIdent = Ident(typeName("pure"))
-            pureIdent.span = Span(defDef.span.start + 8, defDef.span.start + 8 + 5)
-            val pureAnnotation = Apply(Select(New(pureIdent), termName("<init>")), Nil)
-
-            cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(defDef.rhs)).withAnnotations(List(externAnnotation, pureAnnotation))
-          }
-          else {
-            // Add decreases annotation automatically.
-            if (!defDefDetector.decreases.isEmpty) {
-              val decreasesApplies: ArrayBuffer[Apply] = ArrayBuffer.empty
-              defDefDetector.decreases.foreach(decrease =>
-                decreasesApplies += Apply(Ident(termName("decreases")), List(decrease))
-              )
-              val newRhs = defDef.rhs match {
-                case Block(stats, expr) =>
-                  Block(
-                    decreasesApplies.toList ::: stats,
-                    expr
-                  )
-                case _ =>
-                  // The function body originally only had one statement. Wrap it in a block.
-                  Block(
-                    decreasesApplies.toList,
-                    defDef.rhs
-                  )
-              }
-              // remove all original annotations
-              //                cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(newRhs)).withAnnotations(Nil)
-              cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(newRhs))
-            }
-            else
-              // remove all original annotations
-              //                cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(defDef.rhs)).withAnnotations(Nil)
-              cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(defDef.rhs))
-          }
-        }
-        returnTypeStack.pop()
-        newDefDef
 
       case Match(selector, cases) =>
         // Find whether there is Alternative in cases

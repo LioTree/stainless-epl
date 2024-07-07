@@ -12,7 +12,7 @@ import dotty.tools.dotc.util.Spans.Span
 
 import scala.collection.mutable.{ArrayBuffer, Set, Stack}
 
-class Assignment1Transformer(extractPublicClass: Boolean, publicPackageName: String) extends PureScalaTransformer {
+class Assignment1Transformer(extractPublicClass: Boolean, publicPackageName: String, targets: Set[String]) extends PureScalaTransformer(targets) {
   import ast.untpd.*
   
   private val publicClasses = List(
