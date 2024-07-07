@@ -93,6 +93,10 @@ class PureScalaTransform(extractPublicClass: Boolean, publicPackageName: String,
 
         case TypeDef(name, rhs) if (!extractPublicClass && publicClasses.contains(name.toString)) => EmptyTree
 
+        // Just make Stainless happy. It will throw an error if non-sealed classes are compared.
+        case typeDef: TypeDef if typeDef.mods.is(Flags.Abstract) =>
+          typeDef.withMods(typeDef.mods | Flags.Sealed)
+
         case InfixOp(left, op: Ident, right: Tuple) if op.name == termName("+") =>
           InfixOp(transform(left), Ident(termName("++")), Apply(Ident(termName("List")), right.trees.map(transform)))
 
