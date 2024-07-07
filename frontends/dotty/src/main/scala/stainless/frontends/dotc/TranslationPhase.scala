@@ -17,22 +17,21 @@ class TranslationPhase extends PluginPhase {
     val unit = dottyCtx.compilationUnit
     if (!unit.source.toString.startsWith("/tmp/stainless")) {
       println("Before PureScalaTransform: ")
-      //      println(unit.untpdTree.show)
-      //      println("-------------------------------------------------")
-      //      println(unit.untpdTree.toString)
+      println(unit.untpdTree.show)
+      println(unit.untpdTree.toString)
       val newPackageName = extractFileName(dottyCtx.compilationUnit.source.toString)
       if (firstFile) {
-        (new PureScalaTransform(firstFile, newPackageName, newPackageName)).run
+        unit.untpdTree = new PureScalaTransformer(firstFile, newPackageName, newPackageName).transform(unit.untpdTree)
         publicPackageName = newPackageName
         firstFile = false
       }
       else
-        (new PureScalaTransform(firstFile, publicPackageName, newPackageName)).run
+        unit.untpdTree = new PureScalaTransformer(firstFile, publicPackageName, newPackageName).transform(unit.untpdTree)
       println("*************************************************")
       println(unit.untpdTree.show)
+      println(unit.untpdTree.toString)
       println("-------------------------------------------------")
     }
-    //      println(unit.untpdTree.toString)
   }
 
   private def extractFileName(path: String): String = {
