@@ -104,8 +104,27 @@ class PureScalaTransform(extractPublicClass: Boolean, publicPackageName: String,
         case InfixOp(left, op: Ident, right) if op.name == termName("to") =>
           Apply(Select(Ident(termName("List")), termName("rangeTo")), List(transform(left), transform(right)))
 
-        case GenFrom(pat, expr, checkMode) =>
-          GenFrom(transform(pat), Select(transform(expr), termName("toScala")), checkMode)
+//        case GenFrom(pat, expr, checkMode) =>
+//          GenFrom(transform(pat), Select(transform(expr), termName("toScala")), checkMode)
+
+        case ForDo(List(GenFrom(pat, expr, checkMode)), body) =>
+          val counterVarName: String = randomVariableName(8)
+          val exprVarName: String = randomVariableName(8)
+          val exprDef = ValDef(termName(exprVarName), TypeTree(), transform(expr))
+          val counterDef = ValDef(termName(counterVarName), TypeTree(), Apply(Ident(termName("BigIntExt")), List(Apply(Ident(termName("BigInt")), List(Number("0", Whole(10)))))))
+          counterDef.setMods(Modifiers(Flags.Mutable))
+          val whileDo = WhileDo(
+            Parens(InfixOp(Ident(termName(counterVarName)), Ident(termName("<")), Select(Ident(termName(exprVarName)), termName("length")))),
+            Block(
+              List(
+                Apply(Ident(termName("decreases")), List(InfixOp(Select(Ident(termName(exprVarName)), termName("length")), Ident(termName("-")), Ident(termName(counterVarName))))),
+                ValDef(pat.asInstanceOf[Ident].name.toTermName, TypeTree(), Apply(Ident(termName(exprVarName)), List(Ident(termName(counterVarName))))),
+                transform(body),
+              ),
+              Assign(Ident(termName(counterVarName)), InfixOp(Ident(termName(counterVarName)), Ident(termName("+")), Apply(Ident(termName("BigIntExt")), List(Apply(Ident(termName("BigInt")), List(Number("1", Whole(10))))))))
+            )
+          )
+          Block(List(exprDef, counterDef), whileDo)
 
         // Replace Character with String.
         // It is possible to add an implicit conversion from Char to String in the stainless library, but stainless cannot verify it because it must be @extern.
@@ -241,11 +260,13 @@ class PureScalaTransform(extractPublicClass: Boolean, publicPackageName: String,
                     )
                 }
                 // remove all original annotations
-                cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(newRhs)).withAnnotations(Nil)
+                //                cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(newRhs)).withAnnotations(Nil)
+                cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(newRhs))
               }
               else
                 // remove all original annotations
-                cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(defDef.rhs)).withAnnotations(Nil)
+                //                cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(defDef.rhs)).withAnnotations(Nil)
+                cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(defDef.rhs))
             }
           }
           returnTypeStack.pop()
@@ -265,6 +286,18 @@ class PureScalaTransform(extractPublicClass: Boolean, publicPackageName: String,
         case _ =>
           super.transform(tree)
       }
+    }
+
+    private def randomVariableName(length: Int): String = {
+      import scala.util.Random
+      require(length > 0, "Variable name length must be greater than 0")
+
+      val alphabet = ('a' to 'z') ++ ('A' to 'Z')
+      val validChars = alphabet ++ ('0' to '9') ++ Seq('_')
+
+      val firstChar = alphabet(Random.nextInt(alphabet.length))
+      val remainingChars = (1 until length).map(_ => validChars(Random.nextInt(validChars.length)))
+      (firstChar +: remainingChars).mkString
     }
 
     private def floatToFraction(x: Double, tolerance: Double = 1.0E-6): (Long, Long) = {
@@ -353,8 +386,6 @@ class PureScalaTransform(extractPublicClass: Boolean, publicPackageName: String,
               }
             )
             traverseChildren(tree)
-          case ForDo(enums, body) =>
-            unSupported = true
           case _ =>
             traverseChildren(tree)
         }
