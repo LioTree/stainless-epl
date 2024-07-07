@@ -16,7 +16,7 @@ import scala.collection.mutable.{ArrayBuffer, Set, Stack}
  * This class performs the transformations on the Scala code.
  * It extends `UntypedTreeMap`, which is a class for transforming untyped trees.
  */
-class PureScalaTransformer(packageName: String) extends ast.untpd.UntypedTreeMap {
+class PureScalaTransformer extends ast.untpd.UntypedTreeMap {
 
   import ast.untpd.*
 
@@ -163,11 +163,12 @@ class PureScalaTransformer(packageName: String) extends ast.untpd.UntypedTreeMap
           Select(Ident(termName("stainless")), termName("collection")),
           List(ImportSelector(Ident(termName("_")), EmptyTree, EmptyTree))
         )
-        val result = if (pid.name.toString == "<empty>") {
-          cpy.PackageDef(tree)(transformSub(Ident(termName(packageName))), importStainless :: importAnnotation :: importLang :: importCollection :: transformStats(stats, ctx.owner))
-        } else
-          cpy.PackageDef(tree)(transformSub(pid), importStainless :: importAnnotation :: importCollection :: importLang :: transformStats(stats, ctx.owner))
-        result
+        cpy.PackageDef(tree)(transformSub(pid), importStainless :: importAnnotation :: importCollection :: importLang :: transformStats(stats, ctx.owner))
+//        val result = if (pid.name.toString == "<empty>") {
+//          cpy.PackageDef(tree)(transformSub(Ident(termName(packageName))), importStainless :: importAnnotation :: importLang :: importCollection :: transformStats(stats, ctx.owner))
+//        } else
+//          cpy.PackageDef(tree)(transformSub(pid), importStainless :: importAnnotation :: importCollection :: importLang :: transformStats(stats, ctx.owner))
+//        result
 
       // Remove import scala.collection.immutable.Set
       case Import(expr, selectors) if tree.show == "import scala.collection.immutable.Set" =>
