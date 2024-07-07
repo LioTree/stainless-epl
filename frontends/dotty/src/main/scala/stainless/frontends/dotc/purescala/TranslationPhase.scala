@@ -1,14 +1,14 @@
-package stainless.frontends.dotc
+package stainless.frontends.dotc.purescala
 
-import dotty.tools.dotc.{Main as _, *}
-import plugins.*
-import core.Contexts.{Context as DottyContext, *}
-import parsing.Parser
-import stainless.frontends.dotc.purescala.{Assignment1Transformer, PureScalaTransformer}
-import typer.TyperPhase
 import dotty.tools.dotc.ast.untpd
-import dotty.tools.dotc.ast.untpd.{PackageDef, Ident}
+import dotty.tools.dotc.ast.untpd.{Ident, PackageDef}
+import dotty.tools.dotc.core.Contexts.{Context as DottyContext, *}
 import dotty.tools.dotc.core.Names.termName
+import dotty.tools.dotc.parsing.Parser
+import dotty.tools.dotc.plugins.*
+import dotty.tools.dotc.typer.TyperPhase
+import dotty.tools.dotc.{Main as _, *}
+import stainless.frontends.dotc.purescala.{Assignment1Transformer, PureScalaTransformer}
 
 class TranslationPhase extends PluginPhase {
 

@@ -16,6 +16,7 @@ import typer.*
 import frontend.{CallBack, Frontend, FrontendFactory, ThreadedFrontend}
 import Utils.*
 import stainless.cluster.optFrameworkFile
+import stainless.frontends.dotc.purescala.TranslationPhase
 
 import java.io.File
 import java.net.URL
