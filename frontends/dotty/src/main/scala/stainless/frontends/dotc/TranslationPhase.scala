@@ -4,6 +4,7 @@ import dotty.tools.dotc.{Main as _, *}
 import plugins.*
 import core.Contexts.{Context as DottyContext, *}
 import parsing.Parser
+import stainless.frontends.dotc.purescala.{Assignment1Transformer, PureScalaTransformer}
 import typer.TyperPhase
 
 class TranslationPhase extends PluginPhase {
@@ -21,12 +22,12 @@ class TranslationPhase extends PluginPhase {
       println(unit.untpdTree.toString)
       val newPackageName = extractFileName(dottyCtx.compilationUnit.source.toString)
       if (firstFile) {
-        unit.untpdTree = new PureScalaTransformer(firstFile, newPackageName, newPackageName).transform(unit.untpdTree)
+        unit.untpdTree = new Assignment1Transformer(firstFile, newPackageName, newPackageName).transform(unit.untpdTree)
         publicPackageName = newPackageName
         firstFile = false
       }
       else
-        unit.untpdTree = new PureScalaTransformer(firstFile, publicPackageName, newPackageName).transform(unit.untpdTree)
+        unit.untpdTree = new Assignment1Transformer(firstFile, publicPackageName, newPackageName).transform(unit.untpdTree)
       println("*************************************************")
       println(unit.untpdTree.show)
       println(unit.untpdTree.toString)
