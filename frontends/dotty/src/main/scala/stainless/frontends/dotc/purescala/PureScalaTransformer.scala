@@ -10,7 +10,7 @@ import dotty.tools.dotc.core.Names.{EmptyTermName, EmptyTypeName, TermName, Type
 import dotty.tools.dotc.core.Phases.*
 import dotty.tools.dotc.util.Spans.Span
 
-import scala.collection.mutable.{ArrayBuffer, Set, Stack}
+import scala.collection.mutable.{ArrayBuffer, Set, Stack, Map}
 
 /**
  * This class performs the transformations on the Scala code.
@@ -325,24 +325,25 @@ class PureScalaTransformer(targets: Set[String]) extends ast.untpd.UntypedTreeMa
   private class DefDefDetector(defDef: DefDef)(using Context) extends UntypedTreeTraverser {
     private val matches: Stack[Ident | Boolean] = Stack.empty
     private val cases: Stack[Ident] = Stack.empty
+    private val listParamss: Set[String] = Set.empty
+    private val var2Param: Map[String, String] = Map.empty
     val decreases: Set[Ident] = Set.empty
     var unSupported = false
+    initListParamss()
     traverse(defDef)
 
-    private def checkParamss(target: Ident): Boolean = {
-      defDef.paramss.exists { params =>
-        params.exists { param =>
-          param match {
-            case ValDef(name, tpt, _) if name == target.name =>
+    private def initListParamss(): Unit = {
+      defDef.paramss.foreach { params =>
+        params.foreach { param =>
+          param match
+            case ValDef(name, tpt, _) =>
               tpt match {
                 case AppliedTypeTree(Ident(tptName), args) if tptName.toString == "List" =>
-                  true
+                  listParamss.add(name.toString)
+                  var2Param += (name.toString -> name.toString)
                 case _ =>
-                  false
               }
             case _ =>
-              false
-          }
         }
       }
     }
@@ -353,6 +354,16 @@ class PureScalaTransformer(targets: Set[String]) extends ast.untpd.UntypedTreeMa
      */
     override def traverse(tree: untpd.Tree)(using Context): Unit = {
       tree match {
+        // cases like val r = reverse(l) r match {}
+        case ValDef(name, _, Apply(_, args)) =>
+          args.foreach(arg =>
+            arg match {
+              case Ident(name2) if listParamss.contains(name2.toString) =>
+                listParamss.add(name.toString)
+                var2Param += (name.toString -> name2.toString)
+              case _ =>
+            }
+          )
         case CaseDef(pat, guard, body) =>
           pat match {
             case InfixOp(_, op: Ident, right: Ident) if op.name == termName("::") && matches.top != false =>
@@ -364,8 +375,8 @@ class PureScalaTransformer(targets: Set[String]) extends ast.untpd.UntypedTreeMa
           }
         case Match(selector, cases) =>
           selector match {
-            case identSelector@Ident(name) if checkParamss(identSelector) =>
-              matches.push(identSelector)
+            case identSelector@Ident(name) if listParamss.contains(name.toString) =>
+              matches.push(Ident(termName(var2Param(name.toString))))
               traverseChildren(tree)
               matches.pop()
             case _ =>
