@@ -28,22 +28,40 @@ class ExtractTraverser(target: String, packageDef: PackageDef)(using Context) ex
   val targets: Set[String] = Set(target)
   private val worklist: Queue[Tree] = Queue(elements(target))
 
-  while(worklist.nonEmpty) {
+  while (worklist.nonEmpty) {
     traverse(worklist.dequeue)
   }
 
   override def traverse(tree: untpd.Tree)(using Context): Unit = {
     tree match {
-      case Ident(name) if elements.contains(name.toString) && !targets.contains(name.toString)=>
+      case Apply(Ident(name), args) if elements.contains(name.toString) && !targets.contains(name.toString) =>
         targets.add(name.toString)
         worklist.enqueue(elements(name.toString))
-//      case DefDef(name, paramss, tpt)=>
-//      case defDef: ValDef =>
-//        traverseChildren(tree)
-//      case moduleDef: ModuleDef =>
-//        traverseChildren(tree)
-//      case typeDef: TypeDef =>
-//        traverseChildren(tree)
+        traverseChildren(tree)
+
+      case Select(Ident(name), _) if elements.contains(name.toString) && !targets.contains(name.toString) =>
+        targets.add(name.toString)
+        worklist.enqueue(elements(name.toString))
+        traverseChildren(tree)
+
+      case New(Ident(name)) if elements.contains(name.toString) && !targets.contains(name.toString) =>
+        targets.add(name.toString)
+        worklist.enqueue(elements(name.toString))
+        traverseChildren(tree)
+
+      case ValDef(_, Ident(name), _) if elements.contains(name.toString) && !targets.contains(name.toString) =>
+        targets.add(name.toString)
+        worklist.enqueue(elements(name.toString))
+        traverseChildren(tree)
+
+      case Template(_, parentsOrDerived: List[Tree], _, _) =>
+        parentsOrDerived.foreach {
+          case Ident(name) if elements.contains(name.toString) && !targets.contains(name.toString) =>
+            targets.add(name.toString)
+            worklist.enqueue(elements(name.toString))
+          case _ =>
+        }
+
       case _ => traverseChildren(tree)
     }
   }
