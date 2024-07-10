@@ -5,13 +5,14 @@ import dotty.tools.dotc.ast.Trees.*
 import dotty.tools.dotc.ast.untpd
 import dotty.tools.dotc.ast.untpd.NumberKind.{Decimal, Whole}
 import dotty.tools.dotc.core.*
-import dotty.tools.dotc.core.Contexts.*
+import dotty.tools.dotc.core.Contexts.{Context => DottyContext}
 import dotty.tools.dotc.core.Flags
 import dotty.tools.dotc.core.Names.{termName, typeName}
+import stainless.equivchkplus.optExtractTarget
 
 import scala.collection.mutable.{Queue, Map, Set, Stack}
 
-class ProgramExtractor(target: String, packageDef: untpd.PackageDef)(using Context) extends ast.untpd.UntypedTreeMap {
+class ProgramExtractor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends ast.untpd.UntypedTreeMap {
 
   import ast.untpd.*
 
@@ -19,7 +20,7 @@ class ProgramExtractor(target: String, packageDef: untpd.PackageDef)(using Conte
   private val targets = depDetector.targets
   private val defStack: Stack[String] = Stack.empty
 
-  override def transform(tree: Tree)(using Context): Tree = {
+  override def transform(tree: Tree)(using dottyCtx: DottyContext): Tree = {
     tree match {
       case TypeDef(name, rhs) =>
         if (defStack.isEmpty && !targets.contains(name.toString))
@@ -65,7 +66,12 @@ class ProgramExtractor(target: String, packageDef: untpd.PackageDef)(using Conte
     }
   }
 
-  class DepDetector(using Context) extends UntypedTreeTraverser {
+  class DepDetector(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends UntypedTreeTraverser {
+    val packageDef = dottyCtx.compilationUnit.untpdTree match {
+      case packageDef: PackageDef => packageDef
+      case _ => throw new Exception("No package definition found")
+    }
+    val target = inoxCtx.options.findOption(optExtractTarget).getOrElse(throw new Exception("No target found"))
     val elements: Map[String, untpd.Tree] = Map.empty
 
     packageDef.stats.foreach(stat =>
@@ -88,7 +94,7 @@ class ProgramExtractor(target: String, packageDef: untpd.PackageDef)(using Conte
       traverse(worklist.dequeue)
     }
 
-    override def traverse(tree: untpd.Tree)(using Context): Unit = {
+    override def traverse(tree: untpd.Tree)(using DottyContext): Unit = {
       tree match {
         case Apply(Ident(name), args) if elements.contains(name.toString) && !targets.contains(name.toString) =>
           targets.add(name.toString)

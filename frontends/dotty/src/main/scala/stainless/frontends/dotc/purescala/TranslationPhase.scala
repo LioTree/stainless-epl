@@ -10,7 +10,7 @@ import dotty.tools.dotc.typer.TyperPhase
 import dotty.tools.dotc.{Main as _, *}
 import stainless.frontends.dotc.purescala.{Assignment1Transformer, PureScalaTransformer}
 
-class TranslationPhase extends PluginPhase {
+class TranslationPhase(val inoxCtx: inox.Context) extends PluginPhase {
 
   override val phaseName = "translation from Scala to Pure Scala"
   override val runsAfter = Set(Parser.name)
@@ -19,14 +19,16 @@ class TranslationPhase extends PluginPhase {
   var publicPackageName = ""
 
   override def run(using dottyCtx: DottyContext): Unit = {
-
     val unit = dottyCtx.compilationUnit
     if (!unit.source.toString.startsWith("/tmp/stainless")) {
+      given inox.Context = inoxCtx
+      unit.untpdTree = (new ProgramExtractor).transform(unit.untpdTree)
+      /*
       val packageName = extractFileName(unit.source.toString)
       // Replace original package name "<empty>" with the new package name
       val untypedTree = untpd.cpy.PackageDef(unit.untpdTree)(Ident(termName(packageName)), unit.untpdTree.asInstanceOf[PackageDef].stats)
 
-      val extractTraverser = new ExtractTraverser("election", untypedTree)
+      val extractTraverser = new ExtractTraverser("center", untypedTree)
       println(extractTraverser.targets)
 
       println("Before PureScalaTransform: ")
@@ -40,12 +42,12 @@ class TranslationPhase extends PluginPhase {
       }
       else
         unit.untpdTree = new Assignment1Transformer(firstFile, publicPackageName, extractTraverser.targets).transform(untypedTree)
+       */
 
       println("*************************************************")
       println(unit.untpdTree.show)
       println(unit.untpdTree.toString)
-      println("-------------------------------------------------")
-    }
+      println("-------------------------------------------------")    }
   }
 
   private def extractFileName(path: String): String = {

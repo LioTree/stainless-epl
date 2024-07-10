@@ -2,7 +2,8 @@ package stainless
 package extraction
 package trace
 
-import stainless.equivchk.Utils
+//import stainless.equivchk.Utils
+import stainless.equivchkplus.Utils
 
 class TraceInductElimination(override val s: Trees, override val t: termination.Trees)
                             (using override val context: inox.Context)

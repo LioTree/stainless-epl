@@ -25,7 +25,7 @@ class DottyCompiler(ctx: inox.Context, callback: CallBack) extends Compiler {
   override def phases: List[List[Phase]] = {
     val allOrigPhases = super.phases
     val extractionPhase = new ExtractionPhase
-    val translationPhase = new TranslationPhase
+    val translationPhase = new TranslationPhase(ctx)
     val scheduled = Plugins.schedule(allOrigPhases, List(translationPhase, extractionPhase))
     // We only care about the phases preceding Stainless *plus* some phases that are after Stainless,
     // namely RefChecker, init.Checker and ForwardDepChecks.

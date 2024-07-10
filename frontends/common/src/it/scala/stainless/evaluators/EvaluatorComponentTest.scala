@@ -4,7 +4,8 @@ package evaluators
 import _root_.io.circe.JsonObject
 import inox.{OptionValue, TestSilentReporter}
 import org.scalatest.funsuite.AnyFunSuite
-import stainless.equivchk.EquivalenceCheckingReport.Status
+//import stainless.equivchk.EquivalenceCheckingReport.Status
+import stainless.equivchkplus.EquivalenceCheckingReport.Status
 import stainless.extraction.utils.DebugSymbols
 import stainless.extraction.xlang.{TreeSanitizer, extractor, trees as xt}
 import stainless.extraction.{ExtractionSummary, extractionSemantics}

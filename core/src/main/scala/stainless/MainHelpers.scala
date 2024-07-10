@@ -80,14 +80,15 @@ trait MainHelpers extends inox.MainHelpers { self =>
     utils.Caches.optCacheDir -> Description(General, "Specify the directory in which cache files should be stored"),
     testgen.optOutputFile -> Description(TestsGeneration, "Specify the output file"),
     testgen.optGenCIncludes -> Description(TestsGeneration, "(GenC variant only) Specify header includes"),
-    equivchk.optCompareFuns -> Description(EquivChk, "Only consider functions f1,f2,... for equivalence checking"),
-    equivchk.optModels -> Description(EquivChk, "Consider functions f1, f2, ... as model functions for equivalence checking"),
-    equivchk.optNorm -> Description(EquivChk, "Use function f as normalization function for equivalence checking"),
-    equivchk.optEquivalenceOutput -> Description(EquivChk, "JSON output file for equivalence checking"),
-    equivchk.optN -> Description(EquivChk, "Consider the top N models"),
-    equivchk.optInitScore -> Description(EquivChk, "Initial score for models"),
-    equivchk.optInitWeights -> Description(EquivChk, "Initial weights for models, overriding the initial score"),
-    equivchk.optMaxPerm -> Description(EquivChk, "Maximum number of permutations to be tested when matching auxiliary functions"),
+    equivchkplus.optExtractTarget -> Description(EquivChk, "Extract a target function, object, or class and its dependencies, just for debugging purposes"),
+    equivchkplus.optCompareFuns -> Description(EquivChk, "Only consider functions f1,f2,... for equivalence checking"),
+    equivchkplus.optModels -> Description(EquivChk, "Consider functions f1, f2, ... as model functions for equivalence checking"),
+    equivchkplus.optNorm -> Description(EquivChk, "Use function f as normalization function for equivalence checking"),
+    equivchkplus.optEquivalenceOutput -> Description(EquivChk, "JSON output file for equivalence checking"),
+    equivchkplus.optN -> Description(EquivChk, "Consider the top N models"),
+    equivchkplus.optInitScore -> Description(EquivChk, "Initial score for models"),
+    equivchkplus.optInitWeights -> Description(EquivChk, "Initial weights for models, overriding the initial score"),
+    equivchkplus.optMaxPerm -> Description(EquivChk, "Maximum number of permutations to be tested when matching auxiliary functions"),
     cluster.optFrameworkFile -> Description(Cluster, "Specify the empty framework file to know functions and classes to extract"),
   ) ++ MainHelpers.components.map { component =>
     val option = inox.FlagOptionDef(component.name, default = false)
@@ -120,7 +121,7 @@ trait MainHelpers extends inox.MainHelpers { self =>
     frontend.DebugSectionRecovery,
     frontend.DebugSectionExtraDeps,
     genc.DebugSectionGenC,
-    equivchk.DebugSectionEquivChk
+    equivchkplus.DebugSectionEquivChk
   )
 
   override protected def displayVersion(reporter: inox.Reporter): Unit = {

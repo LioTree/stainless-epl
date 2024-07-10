@@ -43,7 +43,8 @@ package object frontend {
     genc.GenCComponent,
     testgen.ScalaTestGenComponent,
     testgen.GenCTestGenComponent,
-    equivchk.EquivalenceCheckingComponent
+    equivchkplus.EquivalenceCheckingComponent
+//    equivchk.EquivalenceCheckingComponent
   )
 
   /**
