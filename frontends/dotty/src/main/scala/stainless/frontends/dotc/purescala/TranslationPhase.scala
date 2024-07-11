@@ -8,7 +8,7 @@ import dotty.tools.dotc.parsing.Parser
 import dotty.tools.dotc.plugins.*
 import dotty.tools.dotc.typer.TyperPhase
 import dotty.tools.dotc.{Main as _, *}
-import stainless.frontends.dotc.purescala.{Assignment1Transformer, PureScalaTransformer}
+import stainless.frontends.dotc.purescala.*
 
 class TranslationPhase(val inoxCtx: inox.Context) extends PluginPhase {
 
@@ -22,7 +22,11 @@ class TranslationPhase(val inoxCtx: inox.Context) extends PluginPhase {
     val unit = dottyCtx.compilationUnit
     if (!unit.source.toString.startsWith("/tmp/stainless")) {
       given inox.Context = inoxCtx
-      unit.untpdTree = (new ProgramExtractor).transform(unit.untpdTree)
+      val transformers = 
+        (new ProgramExtractor).transform andThen
+        (new StainlessTransformer).transform
+        
+      unit.untpdTree = transformers(unit.untpdTree)
       /*
       val packageName = extractFileName(unit.source.toString)
       // Replace original package name "<empty>" with the new package name
@@ -47,7 +51,8 @@ class TranslationPhase(val inoxCtx: inox.Context) extends PluginPhase {
       println("*************************************************")
       println(unit.untpdTree.show)
       println(unit.untpdTree.toString)
-      println("-------------------------------------------------")    }
+      println("-------------------------------------------------")
+    }
   }
 
   private def extractFileName(path: String): String = {
