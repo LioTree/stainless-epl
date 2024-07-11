@@ -8,7 +8,6 @@ import dotty.tools.dotc.parsing.Parser
 import dotty.tools.dotc.plugins.*
 import dotty.tools.dotc.typer.TyperPhase
 import dotty.tools.dotc.{Main as _, *}
-import stainless.equivchkplus.PackageNameRewriter
 import stainless.frontends.dotc.purescala.*
 
 class TranslationPhase(val inoxCtx: inox.Context) extends PluginPhase {

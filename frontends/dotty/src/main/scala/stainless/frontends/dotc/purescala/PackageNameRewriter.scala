@@ -1,4 +1,4 @@
-package stainless.equivchkplus
+package stainless.frontends.dotc.purescala
 
 import dotty.tools.dotc.*
 import dotty.tools.dotc.ast.Trees.*
