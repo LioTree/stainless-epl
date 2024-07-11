@@ -145,51 +145,7 @@ class StainlessTransformer extends ast.untpd.UntypedTreeMap {
         val newDefDef = cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(defDef.rhs))
         returnTypeStack.pop()
         newDefDef
-      //        val defDefDetector = new DefDefDetector(defDef)
-      //        val newDefDef = {
-      //          if (defDefDetector.unSupported) {
-      //            val externIdent = Ident(typeName("extern"))
-      //            // A very necessary step, otherwise errors will occur in the typer.
-      //            // It took two out of three days to find the problem...
-      //            externIdent.span = Span(defDef.span.start, defDef.span.start + 7)
-      //            val externAnnotation = Apply(Select(New(externIdent), termName("<init>")), Nil)
-      //
-      //            val pureIdent = Ident(typeName("pure"))
-      //            pureIdent.span = Span(defDef.span.start + 8, defDef.span.start + 8 + 5)
-      //            val pureAnnotation = Apply(Select(New(pureIdent), termName("<init>")), Nil)
-      //
-      //            cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(defDef.rhs)).withAnnotations(List(externAnnotation, pureAnnotation))
-      //          }
-      //          else {
-      //            // Add decreases annotation automatically.
-      //            if (!defDefDetector.decreases.isEmpty) {
-      //              val decreasesApplies: ArrayBuffer[Apply] = ArrayBuffer.empty
-      //              defDefDetector.decreases.foreach(decrease =>
-      //                decreasesApplies += Apply(Ident(termName("decreases")), List(decrease))
-      //              )
-      //              val newRhs = defDef.rhs match {
-      //                case Block(stats, expr) =>
-      //                  Block(
-      //                    decreasesApplies.toList ::: stats,
-      //                    expr
-      //                  )
-      //                case _ =>
-      //                  // The function body originally only had one statement. Wrap it in a block.
-      //                  Block(
-      //                    decreasesApplies.toList,
-      //                    defDef.rhs
-      //                  )
-      //              }
-      //              // remove all original annotations
-      //              //                cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(newRhs)).withAnnotations(Nil)
-      //              cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(newRhs))
-      //            }
-      //            else
-      //              // remove all original annotations
-      //              //                cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(defDef.rhs)).withAnnotations(Nil)
-      //             cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(newRhs))
-      //          }
-      //        }
+      
       // Add `import stainless.collection._` `import stainless.annotation._` `import stainless.lang._` to the beginning of the file.
       case PackageDef(pid, stats) =>
         val importStainless = Import(

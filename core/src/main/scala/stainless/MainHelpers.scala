@@ -81,6 +81,8 @@ trait MainHelpers extends inox.MainHelpers { self =>
     testgen.optOutputFile -> Description(TestsGeneration, "Specify the output file"),
     testgen.optGenCIncludes -> Description(TestsGeneration, "(GenC variant only) Specify header includes"),
     equivchkplus.optExtractTarget -> Description(EquivChk, "Extract a target function, object, or class and its dependencies, just for debugging purposes"),
+    equivchkplus.optPublicClasses -> Description(EquivChk, "Consider classes c1, c2, … as public classes."),
+    equivchkplus.optPublicClassesPN -> Description(EquivChk, "Use p1 as the package name for public classes."),
     equivchkplus.optCompareFuns -> Description(EquivChk, "Only consider functions f1,f2,... for equivalence checking"),
     equivchkplus.optModels -> Description(EquivChk, "Consider functions f1, f2, ... as model functions for equivalence checking"),
     equivchkplus.optNorm -> Description(EquivChk, "Use function f as normalization function for equivalence checking"),

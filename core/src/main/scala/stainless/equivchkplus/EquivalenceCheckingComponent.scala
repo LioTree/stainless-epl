@@ -15,10 +15,24 @@ import scala.concurrent.Future
 object DebugSectionEquivChk extends inox.DebugSection("equivchk")
 
 object optExtractTarget extends inox.OptionDef[String] {
-  val name = "extract-target"
+  val name = "extract"
   val default = ""
   val parser = inox.OptionParsers.stringParser
   val usageRhs = "f1"
+}
+
+object optPublicClasses extends inox.OptionDef[Seq[String]] {
+  val name = "pubclasses"
+  val default = Seq[String]()
+  val parser = inox.OptionParsers.seqParser(inox.OptionParsers.stringParser)
+  val usageRhs = "c1,c2,..."
+}
+
+object optPublicClassesPN extends inox.OptionDef[String] {
+  val name = "pubclasses-pn"
+  val default = ""
+  val parser = inox.OptionParsers.stringParser
+  val usageRhs = "p1"
 }
 
 object optCompareFuns extends inox.OptionDef[Seq[String]] {
