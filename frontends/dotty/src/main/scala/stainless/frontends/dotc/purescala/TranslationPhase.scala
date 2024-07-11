@@ -22,10 +22,10 @@ class TranslationPhase(val inoxCtx: inox.Context) extends PluginPhase {
     val unit = dottyCtx.compilationUnit
     if (!unit.source.toString.startsWith("/tmp/stainless")) {
       given inox.Context = inoxCtx
-      val transformers = 
-        (new ProgramExtractor).transform andThen
-        (new StainlessTransformer).transform
-        
+      val transformers = (new ProgramExtractor).transform andThen
+                         (new StainlessTransformer).transform andThen
+                         (new DecreasesInference).transform
+
       unit.untpdTree = transformers(unit.untpdTree)
       /*
       val packageName = extractFileName(unit.source.toString)

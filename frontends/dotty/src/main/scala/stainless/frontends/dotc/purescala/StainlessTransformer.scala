@@ -135,7 +135,6 @@ class StainlessTransformer extends ast.untpd.UntypedTreeMap {
         else
           TypeApply(Ident(termName("errorWrapper")), List(returnTypeStack.top))
 
-
       // Just make Stainless happy. It will throw an error if non-sealed classes are compared.
       case typeDef@TypeDef(name, rhs) if typeDef.mods is Flags.Abstract =>
         val result = cpy.TypeDef(tree)(name, transform(rhs))
@@ -256,96 +255,5 @@ class StainlessTransformer extends ast.untpd.UntypedTreeMap {
     val firstChar = alphabet(Random.nextInt(alphabet.length))
     val remainingChars = (1 until length).map(_ => validChars(Random.nextInt(validChars.length)))
     (firstChar +: remainingChars).mkString
-  }
-
-  /**
-   * This class is used to detect certain patterns in the definition of a function.
-   * It traverses the tree of the function and collects information about it.
-   */
-  private class DefDefDetector(defDef: DefDef)(using dottyCtx: DottyContext) extends UntypedTreeTraverser {
-    private val matches: Stack[Ident | Boolean] = Stack.empty
-    private val cases: Stack[Ident] = Stack.empty
-    private val listParamss: Set[String] = Set.empty
-    private val var2Param: Map[String, String] = Map.empty
-    val decreases: Set[Ident] = Set.empty
-    var unSupported = false
-    initListParamss()
-    traverse(defDef)
-
-    private def initListParamss(): Unit = {
-      defDef.paramss.foreach { params =>
-        params.foreach { param =>
-          param match
-            case ValDef(name, tpt, _) =>
-              tpt match {
-                case AppliedTypeTree(Ident(tptName), args) if tptName.toString == "List" =>
-                  listParamss.add(name.toString)
-                  var2Param += (name.toString -> name.toString)
-                case _ =>
-              }
-            case _ =>
-        }
-      }
-    }
-
-    /**
-     * This method traverses the tree and collects information about it.
-     * It detects certain patterns in the tree and updates the state of the detector accordingly.
-     */
-    override def traverse(tree: untpd.Tree)(using dottyCtx: DottyContext): Unit = {
-      tree match {
-        // cases like val r = reverse(l) r match {}
-        case ValDef(name, _, Apply(_, args)) =>
-          args.foreach(arg =>
-            arg match {
-              case Ident(name2) if listParamss.contains(name2.toString) =>
-                listParamss.add(name.toString)
-                var2Param += (name.toString -> name2.toString)
-              case _ =>
-            }
-          )
-        case CaseDef(pat, guard, body) =>
-          pat match {
-            case InfixOp(_, op: Ident, right: Ident) if op.name == termName("::") && matches.top != false =>
-              cases.push(right)
-              traverseChildren(tree)
-              cases.pop()
-            case _ =>
-              traverseChildren(tree)
-          }
-        case Match(selector, cases) =>
-          selector match {
-            case identSelector@Ident(name) if listParamss.contains(name.toString) =>
-              matches.push(Ident(termName(var2Param(name.toString))))
-              traverseChildren(tree)
-              matches.pop()
-            case _ =>
-              matches.push(false)
-              traverseChildren(tree)
-              matches.pop()
-          }
-        case Apply(fun@Ident(name), args) if fun.name == defDef.name =>
-          args.foreach(arg =>
-            arg match {
-              case argIdent: Ident if cases.exists(caseIdent => caseIdent.name == argIdent.name) =>
-                findIdentInMatches match {
-                  case Some(top) =>
-                    decreases += top
-                  case None =>
-                }
-              case _ =>
-            }
-          )
-          traverseChildren(tree)
-        case _ =>
-          traverseChildren(tree)
-      }
-    }
-
-    def findIdentInMatches: Option[Ident] = {
-      matches.collectFirst {
-        case ident: Ident => ident
-      }
-    }
   }
 }
