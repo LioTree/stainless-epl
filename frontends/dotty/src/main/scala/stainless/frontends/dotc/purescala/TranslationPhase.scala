@@ -9,6 +9,7 @@ import dotty.tools.dotc.plugins.*
 import dotty.tools.dotc.typer.TyperPhase
 import dotty.tools.dotc.{Main as _, *}
 import stainless.frontends.dotc.purescala.*
+import stainless.equivchkplus.optTranslation
 
 class TranslationPhase(val inoxCtx: inox.Context) extends PluginPhase {
 
@@ -19,24 +20,29 @@ class TranslationPhase(val inoxCtx: inox.Context) extends PluginPhase {
   var publicPackageName = ""
 
   override def run(using dottyCtx: DottyContext): Unit = {
-    val unit = dottyCtx.compilationUnit
-    if (!unit.source.toString.startsWith("/tmp/stainless")) {
-      println("Before Transformation: ")
-      println(unit.untpdTree.show)
-      println(unit.untpdTree.toString)
+    inoxCtx.options.findOption(optTranslation) match {
+      case Some(to) if to == true =>
+        val unit = dottyCtx.compilationUnit
+        if (!unit.source.toString.startsWith("/tmp/stainless")) {
+          println("Before Transformation: ")
+          println(unit.untpdTree.show)
+          println(unit.untpdTree.toString)
 
-      given inox.Context = inoxCtx
-      val transformers = (new ProgramExtractor).transform andThen
-                         (new StainlessTransformer).transform andThen
-                         (new DecreasesInference).transform andThen
-                         (new PackageNameRewriter).transform
+          given inox.Context = inoxCtx
 
-      unit.untpdTree = transformers(unit.untpdTree)
+          val transformers = (new ProgramExtractor).transform andThen
+            (new StainlessTransformer).transform andThen
+            (new DecreasesInference).transform andThen
+            (new PackageNameRewriter).transform
 
-      println("*************************************************")
-      println("After Transformation: ")
-      println(unit.untpdTree.show)
-      println(unit.untpdTree.toString)
+          unit.untpdTree = transformers(unit.untpdTree)
+
+          println("*************************************************")
+          println("After Transformation: ")
+          println(unit.untpdTree.show)
+          println(unit.untpdTree.toString)
+        }
+      case _ =>
     }
   }
 
