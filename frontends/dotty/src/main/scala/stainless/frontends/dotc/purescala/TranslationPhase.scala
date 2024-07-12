@@ -46,14 +46,6 @@ class TranslationPhase(val inoxCtx: inox.Context) extends PluginPhase {
     }
   }
 
-  private def extractFileName(path: String): String = {
-    val regex = """.*/([^/]+)\.scala$""".r
-    path match {
-      case regex(fileName) => fileName.replace("-", "_")
-      case _ => "No match found"
-    }
-  }
-
   override def runOn(units: List[CompilationUnit])(using dottyCtx: DottyContext): List[CompilationUnit] = {
     super.runOn(units)
   }

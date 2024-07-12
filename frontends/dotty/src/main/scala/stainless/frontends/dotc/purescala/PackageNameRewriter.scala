@@ -20,7 +20,7 @@ class PackageNameRewriter(using inoxCtx: inox.Context) extends ast.untpd.Untyped
     val regex = """.*/([^/]+)\.scala$""".r
     path match {
       case regex(fileName) => fileName.replace("-", "_")
-      case _ => "No match found"
+      case _ => sys.error("Invalid file name")
     }
   }
 
