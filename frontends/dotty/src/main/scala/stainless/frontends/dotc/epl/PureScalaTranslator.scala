@@ -1,4 +1,4 @@
-package stainless.frontends.dotc.purescala
+package stainless.frontends.dotc.epl
 
 import dotty.tools.dotc.*
 import dotty.tools.dotc.ast.Trees.*
@@ -16,7 +16,7 @@ import scala.collection.mutable.{ArrayBuffer, Set, Stack, Map}
  * This class performs the transformations on the Scala code.
  * It extends `UntypedTreeMap`, which is a class for transforming untyped trees.
  */
-class StainlessTransformer extends ast.untpd.UntypedTreeMap {
+class PureScalaTranslator extends ast.untpd.UntypedTreeMap {
 
   import ast.untpd.*
 

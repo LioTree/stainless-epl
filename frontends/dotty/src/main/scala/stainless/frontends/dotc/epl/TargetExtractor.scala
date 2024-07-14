@@ -1,4 +1,4 @@
-package stainless.frontends.dotc.purescala
+package stainless.frontends.dotc.epl
 
 import dotty.tools.dotc.*
 import dotty.tools.dotc.ast.Trees.*
@@ -12,7 +12,7 @@ import stainless.equivchkplus.optExtractTarget
 
 import scala.collection.mutable.{Queue, Map, Set, Stack}
 
-class ProgramExtractor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends ast.untpd.UntypedTreeMap {
+class TargetExtractor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends ast.untpd.UntypedTreeMap {
 
   import ast.untpd.*
 

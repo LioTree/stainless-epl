@@ -1,4 +1,4 @@
-package stainless.frontends.dotc.purescala
+package stainless.frontends.dotc.epl
 
 import dotty.tools.dotc.ast.untpd
 import dotty.tools.dotc.ast.untpd.{Ident, PackageDef}
@@ -8,12 +8,12 @@ import dotty.tools.dotc.parsing.Parser
 import dotty.tools.dotc.plugins.*
 import dotty.tools.dotc.typer.TyperPhase
 import dotty.tools.dotc.{Main as _, *}
-import stainless.frontends.dotc.purescala.*
+import stainless.frontends.dotc.epl.*
 import stainless.equivchkplus.optTranslation
 
-class TranslationPhase(val inoxCtx: inox.Context) extends PluginPhase {
+class TransformationPhase(val inoxCtx: inox.Context) extends PluginPhase {
 
-  override val phaseName = "translation from Scala to Pure Scala"
+  override val phaseName = "Transformation for Programming assignments of EPL"
   override val runsAfter = Set(Parser.name)
   override val runsBefore = Set(TyperPhase.name)
   var firstFile = true
@@ -30,8 +30,8 @@ class TranslationPhase(val inoxCtx: inox.Context) extends PluginPhase {
 
           given inox.Context = inoxCtx
 
-          val transformers = (new ProgramExtractor).transform andThen
-            (new StainlessTransformer).transform andThen
+          val transformers = (new TargetExtractor).transform andThen
+            (new PureScalaTranslator).transform andThen
             (new DecreasesInference).transform andThen
             (new PackageNameRewriter).transform
 

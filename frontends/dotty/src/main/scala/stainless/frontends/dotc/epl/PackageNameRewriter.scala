@@ -1,4 +1,4 @@
-package stainless.frontends.dotc.purescala
+package stainless.frontends.dotc.epl
 
 import dotty.tools.dotc.*
 import dotty.tools.dotc.ast.Trees.*
