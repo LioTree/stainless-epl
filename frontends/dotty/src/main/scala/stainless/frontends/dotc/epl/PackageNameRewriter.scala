@@ -11,13 +11,14 @@ import dotty.tools.dotc.core.Names.{termName, typeName}
 import stainless.equivchkplus.{optPublicClasses, optPublicClassesPN}
 
 class PackageNameRewriter(using inoxCtx: inox.Context) extends ast.untpd.UntypedTreeMap {
+
   import ast.untpd.*
 
   private val publicClasses = inoxCtx.options.findOption(optPublicClasses).getOrElse(Seq.empty[String])
   private val publicClassesPN = inoxCtx.options.findOption(optPublicClassesPN).getOrElse("")
 
   private def extractFileName(path: String): String = {
-    val regex = """.*/([^/]+)\.scala$""".r
+    val regex = """(?:.*/)?([^/]+)\.scala$""".r
     path match {
       case regex(fileName) => fileName.replace("-", "_")
       case _ => sys.error("Invalid file name")
