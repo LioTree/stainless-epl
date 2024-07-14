@@ -80,7 +80,7 @@ trait MainHelpers extends inox.MainHelpers { self =>
     utils.Caches.optCacheDir -> Description(General, "Specify the directory in which cache files should be stored"),
     testgen.optOutputFile -> Description(TestsGeneration, "Specify the output file"),
     testgen.optGenCIncludes -> Description(TestsGeneration, "(GenC variant only) Specify header includes"),
-    equivchkplus.optTranslation -> Description(EquivChk, "Translation to use for equivalence checking"),
+    equivchkplus.optTransformation -> Description(EquivChk, "Translation to use for equivalence checking"),
     equivchkplus.optExtractTarget -> Description(EquivChk, "Extract a target function, object, or class and its dependencies, just for debugging purposes"),
     equivchkplus.optPublicClasses -> Description(EquivChk, "Consider classes c1, c2, … as public classes."),
     equivchkplus.optPublicClassesPN -> Description(EquivChk, "Use p1 as the package name for public classes."),

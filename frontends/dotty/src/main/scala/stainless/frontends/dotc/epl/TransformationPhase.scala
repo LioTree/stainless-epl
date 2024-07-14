@@ -9,7 +9,7 @@ import dotty.tools.dotc.plugins.*
 import dotty.tools.dotc.typer.TyperPhase
 import dotty.tools.dotc.{Main as _, *}
 import stainless.frontends.dotc.epl.*
-import stainless.equivchkplus.optTranslation
+import stainless.equivchkplus.optTransformation
 
 class TransformationPhase(val inoxCtx: inox.Context) extends PluginPhase {
 
@@ -20,7 +20,7 @@ class TransformationPhase(val inoxCtx: inox.Context) extends PluginPhase {
   var publicPackageName = ""
 
   override def run(using dottyCtx: DottyContext): Unit = {
-    inoxCtx.options.findOption(optTranslation) match {
+    inoxCtx.options.findOption(optTransformation) match {
       case Some(to) if to == true =>
         val unit = dottyCtx.compilationUnit
         if (!unit.source.toString.startsWith("/tmp/stainless")) {

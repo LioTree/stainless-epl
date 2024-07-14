@@ -14,8 +14,8 @@ import scala.concurrent.Future
 
 object DebugSectionEquivChk extends inox.DebugSection("equivchk")
 
-object optTranslation extends inox.OptionDef[Boolean] {
-  val name = "translation"
+object optTransformation extends inox.OptionDef[Boolean] {
+  val name = "transformation"
   val default = false
   val parser = inox.OptionParsers.booleanParser
   val usageRhs = "true|false"
