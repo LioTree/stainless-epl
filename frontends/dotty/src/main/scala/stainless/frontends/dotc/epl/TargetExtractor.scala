@@ -5,12 +5,12 @@ import dotty.tools.dotc.ast.Trees.*
 import dotty.tools.dotc.ast.untpd
 import dotty.tools.dotc.ast.untpd.NumberKind.{Decimal, Whole}
 import dotty.tools.dotc.core.*
-import dotty.tools.dotc.core.Contexts.{Context => DottyContext}
+import dotty.tools.dotc.core.Contexts.Context as DottyContext
 import dotty.tools.dotc.core.Flags
 import dotty.tools.dotc.core.Names.{termName, typeName}
 import stainless.equivchkplus.optExtractTarget
 
-import scala.collection.mutable.{Queue, Map, Set, Stack}
+import scala.collection.mutable.{Map, Queue, Set, Stack}
 
 class TargetExtractor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends ast.untpd.UntypedTreeMap {
 
@@ -67,28 +67,32 @@ class TargetExtractor(using dottyCtx: DottyContext, inoxCtx: inox.Context) exten
   }
 
   class DepDetector(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends UntypedTreeTraverser {
+    def insertElement(elements: Map[String, List[untpd.Tree]], key: String, element: untpd.Tree): Unit = {
+      elements.updateWith(key) {
+        case Some(existingList) => Some(element :: existingList)
+        case None => Some(List(element))
+      }
+    }
+
     val packageDef = dottyCtx.compilationUnit.untpdTree match {
       case packageDef: PackageDef => packageDef
       case _ => throw new Exception("No package definition found")
     }
     val target = inoxCtx.options.findOption(optExtractTarget).getOrElse(throw new Exception("No target found"))
-    val elements: Map[String, untpd.Tree] = Map.empty
+    val elements: Map[String, List[untpd.Tree]] = Map.empty
 
     packageDef.stats.foreach(stat =>
       stat match {
-        case defDef: DefDef =>
-          elements += (defDef.name.toString -> defDef)
-        case typeDef: TypeDef =>
-          elements += (typeDef.name.toString -> typeDef)
-        case valDef: ValDef =>
-          elements += (valDef.name.toString -> valDef)
-        case moduleDef: ModuleDef =>
-          elements += (moduleDef.name.toString -> moduleDef)
+        case defDef: DefDef => insertElement(elements, defDef.name.toString, defDef)
+        case typeDef: TypeDef => insertElement(elements, typeDef.name.toString, typeDef)
+        case valDef: ValDef => insertElement(elements, valDef.name.toString, valDef)
+        case moduleDef: ModuleDef => insertElement(elements, moduleDef.name.toString, moduleDef)
         case _ =>
-      }
-    )
+      })
+    
     val targets: Set[String] = Set(target)
-    private val worklist: Queue[Tree] = Queue(elements(target))
+    private val worklist: Queue[Tree] = Queue.empty
+    worklist ++= elements(target)
 
     while (worklist.nonEmpty) {
       traverse(worklist.dequeue)
@@ -98,31 +102,32 @@ class TargetExtractor(using dottyCtx: DottyContext, inoxCtx: inox.Context) exten
       tree match {
         case Apply(Ident(name), args) if elements.contains(name.toString) && !targets.contains(name.toString) =>
           targets.add(name.toString)
-          worklist.enqueue(elements(name.toString))
+          worklist ++= elements(name.toString)
           traverseChildren(tree)
 
         case Select(Ident(name), _) if elements.contains(name.toString) && !targets.contains(name.toString) =>
           targets.add(name.toString)
-          worklist.enqueue(elements(name.toString))
+          worklist ++= elements(name.toString)
           traverseChildren(tree)
 
         case New(Ident(name)) if elements.contains(name.toString) && !targets.contains(name.toString) =>
           targets.add(name.toString)
-          worklist.enqueue(elements(name.toString))
+          worklist ++= elements(name.toString)
           traverseChildren(tree)
 
         case ValDef(_, Ident(name), _) if elements.contains(name.toString) && !targets.contains(name.toString) =>
           targets.add(name.toString)
-          worklist.enqueue(elements(name.toString))
+          worklist ++= elements(name.toString)
           traverseChildren(tree)
 
         case Template(_, parentsOrDerived: List[Tree], _, _) =>
           parentsOrDerived.foreach {
             case Ident(name) if elements.contains(name.toString) && !targets.contains(name.toString) =>
               targets.add(name.toString)
-              worklist.enqueue(elements(name.toString))
+              worklist ++= elements(name.toString)
             case _ =>
           }
+          traverseChildren(tree)
 
         case _ => traverseChildren(tree)
       }

@@ -9,7 +9,7 @@ import dotty.tools.dotc.plugins.*
 import dotty.tools.dotc.typer.TyperPhase
 import dotty.tools.dotc.{Main as _, *}
 import stainless.frontends.dotc.epl.*
-import stainless.equivchkplus.optTransformation
+import stainless.equivchkplus.{optTransformation, optAssn2}
 
 class TransformationPhase(val inoxCtx: inox.Context) extends PluginPhase {
 
@@ -27,6 +27,9 @@ class TransformationPhase(val inoxCtx: inox.Context) extends PluginPhase {
           println("Before Transformation: ")
           println(unit.untpdTree.show)
           println(unit.untpdTree.toString)
+
+          if(inoxCtx.options.findOption(optAssn2).getOrElse(false))
+            unit.untpdTree = (new Assn2Preprocessor).transform(unit.untpdTree)
 
           given inox.Context = inoxCtx
 
