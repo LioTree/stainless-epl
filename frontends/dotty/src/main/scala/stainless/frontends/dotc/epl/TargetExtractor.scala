@@ -67,29 +67,40 @@ class TargetExtractor(using dottyCtx: DottyContext, inoxCtx: inox.Context) exten
   }
 
   class DepDetector(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends UntypedTreeTraverser {
-    def insertElement(elements: Map[String, List[untpd.Tree]], key: String, element: untpd.Tree): Unit = {
-      elements.updateWith(key) {
-        case Some(existingList) => Some(element :: existingList)
-        case None => Some(List(element))
-      }
-    }
-
-    val packageDef = dottyCtx.compilationUnit.untpdTree match {
+    private val packageDef = dottyCtx.compilationUnit.untpdTree match {
       case packageDef: PackageDef => packageDef
       case _ => throw new Exception("No package definition found")
     }
-    val target = inoxCtx.options.findOption(optExtractTarget).getOrElse(throw new Exception("No target found"))
-    val elements: Map[String, List[untpd.Tree]] = Map.empty
+    private val target = inoxCtx.options.findOption(optExtractTarget).getOrElse(throw new Exception("No target found"))
+    private val elements: Map[String, List[untpd.Tree]] = Map.empty
+    private val extendsMap: Map[String, List[String]] = Map.empty
+
+    def insert[T](map: Map[String, List[T]])(key: String, value: T): Unit = {
+      map.updateWith(key) {
+        case Some(existingList) => Some(value :: existingList)
+        case None => Some(List(value))
+      }
+    }
 
     packageDef.stats.foreach(stat =>
       stat match {
-        case defDef: DefDef => insertElement(elements, defDef.name.toString, defDef)
-        case typeDef: TypeDef => insertElement(elements, typeDef.name.toString, typeDef)
-        case valDef: ValDef => insertElement(elements, valDef.name.toString, valDef)
-        case moduleDef: ModuleDef => insertElement(elements, moduleDef.name.toString, moduleDef)
+        case defDef: DefDef => insert(elements)(defDef.name.toString, defDef)
+        case typeDef@TypeDef(name, rhs@Template(_, parentsOrDerived: List[Tree], _, _)) =>
+          insert(elements)(name.toString, typeDef)
+          parentsOrDerived.foreach {
+            case Ident(parentName) => insert(extendsMap)(parentName.toString, name.toString)
+            case _ =>
+          }
+        case moduleDef@ModuleDef(name, impl@Template(_, parentsOrDerived: List[Tree], _, _)) =>
+          insert(elements)(name.toString, moduleDef)
+          parentsOrDerived.foreach {
+            case Ident(parentName) => insert(extendsMap)(parentName.toString, name.toString)
+            case _ =>
+          }
+        case valDef: ValDef => insert(elements)(valDef.name.toString, valDef)
         case _ =>
       })
-    
+
     val targets: Set[String] = Set(target)
     private val worklist: Queue[Tree] = Queue.empty
     worklist ++= elements(target)
@@ -118,6 +129,18 @@ class TargetExtractor(using dottyCtx: DottyContext, inoxCtx: inox.Context) exten
         case ValDef(_, Ident(name), _) if elements.contains(name.toString) && !targets.contains(name.toString) =>
           targets.add(name.toString)
           worklist ++= elements(name.toString)
+          traverseChildren(tree)
+
+        case TypeDef(name, _) =>
+          targets.add(name.toString)
+          if(extendsMap.contains(name.toString))
+            worklist ++= extendsMap(name.toString).map(elements).flatten
+          traverseChildren(tree)
+
+        case ModuleDef(name, _) =>
+          targets.add(name.toString)
+          if (extendsMap.contains(name.toString))
+            worklist ++= extendsMap(name.toString).map(elements).flatten
           traverseChildren(tree)
 
         case Template(_, parentsOrDerived: List[Tree], _, _) =>
