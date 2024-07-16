@@ -28,9 +28,9 @@ class PureScalaTranslator extends ast.untpd.UntypedTreeMap {
    */
   override def transform(tree: Tree)(using dottyCtx: DottyContext): Tree = {
     tree match {
-      // Replace Int and Double with BigIntExt
+      // Replace Int,Integer and Double with BigIntExt
       // Translating Double to Real might be a better choice, but it involves type conversion between BigIntExt and Real, which will be considered later.
-      case Ident(name) if name.toString == "Int" || name.toString == "Double" =>
+      case Ident(name) if name.toString == "Int" || name.toString == "Integer" || name.toString == "Double" =>
         name match {
           case name if name.isTermName => Ident(termName("BigIntExt"))
           case name if name.isTypeName => Ident(typeName("BigIntExt"))
