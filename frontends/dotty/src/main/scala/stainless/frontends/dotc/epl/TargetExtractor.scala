@@ -108,9 +108,9 @@ class TargetExtractor(using dottyCtx: DottyContext, inoxCtx: inox.Context) exten
         case _ =>
       })
 
-    val targets: Set[String] = Set(target)
+    val targets: Set[String] =Set(inoxCtx.options.findOption(optExtractTarget).getOrElse(throw new Exception("No extract target found")): _*)
     private val worklist: Queue[Tree] = Queue.empty
-    worklist ++= elements(target)
+    worklist ++= targets.map(elements).flatten
 
     while (worklist.nonEmpty) {
       traverse(worklist.dequeue)

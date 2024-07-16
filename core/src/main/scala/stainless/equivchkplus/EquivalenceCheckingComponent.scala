@@ -28,11 +28,18 @@ object optTransformation extends inox.OptionDef[Boolean] {
   val usageRhs = "true|false"
 }
 
-object optExtractTarget extends inox.OptionDef[String] {
+object optExternPureDefs extends inox.OptionDef[Seq[String]] {
+  val name = "externpure"
+  val default = Seq[String]()
+  val parser = inox.OptionParsers.seqParser(inox.OptionParsers.stringParser)
+  val usageRhs = "f1,c2,o3"
+}
+
+object optExtractTarget extends inox.OptionDef[Seq[String]] {
   val name = "extract"
-  val default = ""
-  val parser = inox.OptionParsers.stringParser
-  val usageRhs = "f1"
+  val default = Seq[String]()
+  val parser = inox.OptionParsers.seqParser(inox.OptionParsers.stringParser)
+  val usageRhs = "f1,c2,o3"
 }
 
 object optPublicClasses extends inox.OptionDef[Seq[String]] {

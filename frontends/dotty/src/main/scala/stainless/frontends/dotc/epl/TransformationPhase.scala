@@ -36,7 +36,7 @@ class TransformationPhase(val inoxCtx: inox.Context) extends PluginPhase {
           val transformers = (new TargetExtractor).transform andThen
             (new PureScalaTranslator).transform andThen
             (new DecreasesInference).transform andThen
-            (new PackageNameRewriter).transform
+            (new PostProcessor).transform
 
           unit.untpdTree = transformers(unit.untpdTree)
 

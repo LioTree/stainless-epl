@@ -8,14 +8,16 @@ import dotty.tools.dotc.core.*
 import dotty.tools.dotc.core.Contexts.{Context => DottyContext}
 import dotty.tools.dotc.core.Flags
 import dotty.tools.dotc.core.Names.{termName, typeName}
-import stainless.equivchkplus.{optPublicClasses, optPublicClassesPN}
+import dotty.tools.dotc.util.Spans.Span
+import stainless.equivchkplus.{optPublicClasses, optPublicClassesPN, optExternPureDefs}
 
-class PackageNameRewriter(using inoxCtx: inox.Context) extends ast.untpd.UntypedTreeMap {
+class PostProcessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends ast.untpd.UntypedTreeMap {
 
   import ast.untpd.*
 
   private val publicClasses = inoxCtx.options.findOption(optPublicClasses).getOrElse(Seq.empty[String])
   private val publicClassesPN = inoxCtx.options.findOption(optPublicClassesPN).getOrElse("")
+  private val externpureDefs = inoxCtx.options.findOption(optExternPureDefs).getOrElse(Seq.empty[String])
 
   private def extractFileName(path: String): String = {
     val regex = """(?:.*/)?([^/]+)\.scala$""".r
@@ -25,8 +27,21 @@ class PackageNameRewriter(using inoxCtx: inox.Context) extends ast.untpd.Untyped
     }
   }
 
+  private def genAnnotations(spanStart: Int): List[Apply] = {
+    val externIdent = Ident(typeName("extern"))
+    // A very necessary step, otherwise errors will occur in the typer.
+    externIdent.span = Span(spanStart, spanStart + 7)
+    val externAnnotation = Apply(Select(New(externIdent), termName("<init>")), Nil)
+
+    val pureIdent = Ident(typeName("pure"))
+    pureIdent.span = Span(spanStart + 8, spanStart + 8 + 5)
+    val pureAnnotation = Apply(Select(New(pureIdent), termName("<init>")), Nil)
+    List(externAnnotation, pureAnnotation)
+  }
+
   override def transform(tree: Tree)(using dottyCtx: DottyContext): Tree = {
     tree match {
+      // Package Name Rewrite
       case PackageDef(pid, stats) if pid.name.toString == "<empty>" =>
         val newPackageName = extractFileName(dottyCtx.source.toString)
         cpy.PackageDef(tree)(Ident(termName(newPackageName)), transformStats(stats, dottyCtx.owner))
@@ -42,6 +57,19 @@ class PackageNameRewriter(using inoxCtx: inox.Context) extends ast.untpd.Untyped
 
       case valDef@ValDef(name, Ident(tptName), _) if publicClasses.contains(tptName.toString) =>
         cpy.ValDef(valDef)(name, Select(Ident(termName(publicClassesPN)), tptName), transform(valDef.rhs))
+
+      // Add @extern and @pure
+      case defDef@DefDef(name, paramss, tpt, _) if externpureDefs.contains(name.toString) =>
+        val result = cpy.DefDef(tree)(name, transformParamss(paramss), transform(tpt), transform(defDef.rhs))
+        result.withAnnotations(genAnnotations(result.span.start))
+
+      case ModuleDef(name, impl) if externpureDefs.contains(name.toString) =>
+        val result = untpd.cpy.ModuleDef(tree)(name, transformSub(impl))
+        result.withAnnotations(genAnnotations(result.span.start))
+
+      case valDef@ValDef(name, tpt, _) if externpureDefs.contains(name.toString) =>
+        val result = cpy.ValDef(tree)(name, transform(tpt), transform(valDef.rhs))
+        result.withAnnotations(genAnnotations(result.span.start))
 
       case _ => super.transform(tree)
     }
