@@ -85,19 +85,26 @@ class TargetExtractor(using dottyCtx: DottyContext, inoxCtx: inox.Context) exten
     packageDef.stats.foreach(stat =>
       stat match {
         case defDef: DefDef => insert(elements)(defDef.name.toString, defDef)
+
         case typeDef@TypeDef(name, rhs@Template(_, parentsOrDerived: List[Tree], _, _)) =>
           insert(elements)(name.toString, typeDef)
           parentsOrDerived.foreach {
             case Ident(parentName) => insert(extendsMap)(parentName.toString, name.toString)
             case _ =>
           }
+
+        case typeDef@TypeDef(name, rhs:LambdaTypeTree) =>
+          insert(elements)(name.toString, typeDef)
+
         case moduleDef@ModuleDef(name, impl@Template(_, parentsOrDerived: List[Tree], _, _)) =>
           insert(elements)(name.toString, moduleDef)
           parentsOrDerived.foreach {
             case Ident(parentName) => insert(extendsMap)(parentName.toString, name.toString)
             case _ =>
           }
+
         case valDef: ValDef => insert(elements)(valDef.name.toString, valDef)
+
         case _ =>
       })
 
@@ -109,45 +116,54 @@ class TargetExtractor(using dottyCtx: DottyContext, inoxCtx: inox.Context) exten
       traverse(worklist.dequeue)
     }
 
+    def addWorklist(name: String): Unit = {
+      if (elements.contains(name) && !targets.contains(name)) {
+        targets.add(name)
+        worklist ++= elements(name)
+      }
+    }
+
     override def traverse(tree: untpd.Tree)(using DottyContext): Unit = {
       tree match {
-        case Apply(Ident(name), args) if elements.contains(name.toString) && !targets.contains(name.toString) =>
-          targets.add(name.toString)
-          worklist ++= elements(name.toString)
+        case Apply(Ident(name), args) =>
+          addWorklist(name.toString)
           traverseChildren(tree)
 
-        case Select(Ident(name), _) if elements.contains(name.toString) && !targets.contains(name.toString) =>
-          targets.add(name.toString)
-          worklist ++= elements(name.toString)
+        case Select(Ident(name), _) =>
+          addWorklist(name.toString)
           traverseChildren(tree)
 
-        case New(Ident(name)) if elements.contains(name.toString) && !targets.contains(name.toString) =>
-          targets.add(name.toString)
-          worklist ++= elements(name.toString)
+        case New(Ident(name)) =>
+          addWorklist(name.toString)
           traverseChildren(tree)
 
-        case ValDef(_, Ident(name), _) if elements.contains(name.toString) && !targets.contains(name.toString) =>
-          targets.add(name.toString)
-          worklist ++= elements(name.toString)
+        case ValDef(_, Ident(name), _) =>
+          addWorklist(name.toString)
+          traverseChildren(tree)
+
+        case ValDef(_, AppliedTypeTree(Ident(name), args), _) =>
+          addWorklist(name.toString)
+          args.foreach(arg =>
+            arg match {
+              case Ident(name) => addWorklist(name.toString)
+              case _ =>
+            })
           traverseChildren(tree)
 
         case TypeDef(name, _) =>
-          targets.add(name.toString)
           if(extendsMap.contains(name.toString))
-            worklist ++= extendsMap(name.toString).map(elements).flatten
+            extendsMap(name.toString).foreach(addWorklist)
           traverseChildren(tree)
 
         case ModuleDef(name, _) =>
-          targets.add(name.toString)
           if (extendsMap.contains(name.toString))
-            worklist ++= extendsMap(name.toString).map(elements).flatten
+            extendsMap(name.toString).foreach(addWorklist)
           traverseChildren(tree)
 
         case Template(_, parentsOrDerived: List[Tree], _, _) =>
           parentsOrDerived.foreach {
-            case Ident(name) if elements.contains(name.toString) && !targets.contains(name.toString) =>
-              targets.add(name.toString)
-              worklist ++= elements(name.toString)
+            case Ident(name) =>
+              addWorklist(name.toString)
             case _ =>
           }
           traverseChildren(tree)
