@@ -21,49 +21,53 @@ class TargetExtractor(using dottyCtx: DottyContext, inoxCtx: inox.Context) exten
   private val defStack: Stack[String] = Stack.empty
 
   override def transform(tree: Tree)(using dottyCtx: DottyContext): Tree = {
-    tree match {
-      case TypeDef(name, rhs) =>
-        if (defStack.isEmpty && !targets.contains(name.toString))
-          TypeDef(name, Template(DefDef(termName("<init>"), Nil, TypeTree(), EmptyTree), Nil, EmptyValDef, Nil))
-        else {
-          defStack.push(name.toString)
-          val result = cpy.TypeDef(tree)(name, transform(rhs))
-          defStack.pop()
-          result
-        }
+    if(targets.nonEmpty) {
+      tree match {
+        case TypeDef(name, rhs) =>
+          if (defStack.isEmpty && !targets.contains(name.toString))
+            TypeDef(name, Template(DefDef(termName("<init>"), Nil, TypeTree(), EmptyTree), Nil, EmptyValDef, Nil))
+          else {
+            defStack.push(name.toString)
+            val result = cpy.TypeDef(tree)(name, transform(rhs))
+            defStack.pop()
+            result
+          }
 
-      case defDef@DefDef(name, paramss, tpt, _) =>
-        if (defStack.isEmpty && !targets.contains(name.toString))
-          DefDef(name, Nil, Ident(typeName("Unit")), Block(Nil, EmptyTree))
-        else {
-          defStack.push(name.toString)
-          val result = cpy.DefDef(tree)(name, transformParamss(paramss), transform(tpt), transform(defDef.rhs))
-          defStack.pop()
-          result
-        }
+        case defDef@DefDef(name, paramss, tpt, _) =>
+          if (defStack.isEmpty && !targets.contains(name.toString))
+            DefDef(name, Nil, Ident(typeName("Unit")), Block(Nil, EmptyTree))
+          else {
+            defStack.push(name.toString)
+            val result = cpy.DefDef(tree)(name, transformParamss(paramss), transform(tpt), transform(defDef.rhs))
+            defStack.pop()
+            result
+          }
 
-      case ModuleDef(name, impl) =>
-        if (defStack.isEmpty && !targets.contains(name.toString))
-          ModuleDef(name, Template(DefDef(termName("<init>"), Nil, TypeTree(), EmptyTree), Nil, EmptyValDef, Nil))
-        else {
-          defStack.push(name.toString)
-          val result = untpd.cpy.ModuleDef(tree)(name, transformSub(impl))
-          defStack.pop()
-          result
-        }
+        case ModuleDef(name, impl) =>
+          if (defStack.isEmpty && !targets.contains(name.toString))
+            ModuleDef(name, Template(DefDef(termName("<init>"), Nil, TypeTree(), EmptyTree), Nil, EmptyValDef, Nil))
+          else {
+            defStack.push(name.toString)
+            val result = untpd.cpy.ModuleDef(tree)(name, transformSub(impl))
+            defStack.pop()
+            result
+          }
 
-      case valDef@ValDef(name, tpt, _) =>
-        if (defStack.isEmpty && !targets.contains(name.toString))
-          ValDef(name, TypeTree(), Block(Nil, EmptyTree))
-        else {
-          defStack.push(name.toString)
-          val result = cpy.ValDef(tree)(name, transform(tpt), transform(valDef.rhs))
-          defStack.pop()
-          result
-        }
+        case valDef@ValDef(name, tpt, _) =>
+          if (defStack.isEmpty && !targets.contains(name.toString))
+            ValDef(name, TypeTree(), Block(Nil, EmptyTree))
+          else {
+            defStack.push(name.toString)
+            val result = cpy.ValDef(tree)(name, transform(tpt), transform(valDef.rhs))
+            defStack.pop()
+            result
+          }
 
-      case _ => super.transform(tree)
+        case _ => super.transform(tree)
+      }
     }
+    else
+      tree
   }
 
   class DepDetector(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends UntypedTreeTraverser {
@@ -108,12 +112,15 @@ class TargetExtractor(using dottyCtx: DottyContext, inoxCtx: inox.Context) exten
         case _ =>
       })
 
-    val targets: Set[String] =Set(inoxCtx.options.findOption(optExtractTarget).getOrElse(throw new Exception("No extract target found")): _*)
+    val targets: Set[String] =Set(inoxCtx.options.findOption(optExtractTarget).get: _*)
     private val worklist: Queue[Tree] = Queue.empty
-    worklist ++= targets.map(elements).flatten
 
-    while (worklist.nonEmpty) {
-      traverse(worklist.dequeue)
+    if(target.nonEmpty) {
+      worklist ++= targets.map(elements).flatten
+
+      while (worklist.nonEmpty) {
+        traverse(worklist.dequeue)
+      }
     }
 
     def addWorklist(name: String): Unit = {
