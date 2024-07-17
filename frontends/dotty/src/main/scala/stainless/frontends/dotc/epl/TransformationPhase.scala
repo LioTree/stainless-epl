@@ -9,7 +9,7 @@ import dotty.tools.dotc.plugins.*
 import dotty.tools.dotc.typer.TyperPhase
 import dotty.tools.dotc.{Main as _, *}
 import stainless.frontends.dotc.epl.*
-import stainless.equivchkplus.{optTransformation, optAssn2}
+import stainless.equivchkplus.{DebugSectionTransformation, optTransformation, optAssn2}
 
 class TransformationPhase(val inoxCtx: inox.Context) extends PluginPhase {
 
@@ -24,14 +24,16 @@ class TransformationPhase(val inoxCtx: inox.Context) extends PluginPhase {
       case Some(to) if to == true =>
         val unit = dottyCtx.compilationUnit
         if (!unit.source.toString.startsWith("/tmp/stainless")) {
-          println("Before Transformation: ")
-          println(unit.untpdTree.show)
-          println(unit.untpdTree.toString)
-
-          if(inoxCtx.options.findOption(optAssn2).getOrElse(false))
-            unit.untpdTree = (new Assn2Preprocessor).transform(unit.untpdTree)
-
           given inox.Context = inoxCtx
+          given givenDebugSection: DebugSectionTransformation.type = DebugSectionTransformation
+
+          inoxCtx.reporter.whenDebug(DebugSectionTransformation) { debug =>
+            debug(s"Before transformation:\n ${unit.untpdTree.show}")
+            debug(s"${unit.untpdTree.toString}")
+          }
+
+          if (inoxCtx.options.findOption(optAssn2).getOrElse(false))
+            unit.untpdTree = (new Assn2Preprocessor).transform(unit.untpdTree)
 
           val transformers = (new TargetExtractor).transform andThen
             (new PureScalaTranslator).transform andThen
@@ -40,10 +42,10 @@ class TransformationPhase(val inoxCtx: inox.Context) extends PluginPhase {
 
           unit.untpdTree = transformers(unit.untpdTree)
 
-          println("*************************************************")
-          println("After Transformation: ")
-          println(unit.untpdTree.show)
-          println(unit.untpdTree.toString)
+          inoxCtx.reporter.whenDebug(DebugSectionTransformation) { debug =>
+            debug(s"After transformation:\n ${unit.untpdTree.show}")
+            debug(s"${unit.untpdTree.toString}")
+          }
         }
       case _ =>
     }

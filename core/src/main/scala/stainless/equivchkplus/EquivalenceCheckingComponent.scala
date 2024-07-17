@@ -14,6 +14,8 @@ import scala.concurrent.Future
 
 object DebugSectionEquivChk extends inox.DebugSection("equivchk")
 
+object DebugSectionTransformation extends inox.DebugSection("transformation")
+
 object optAssn2 extends inox.OptionDef[Boolean] {
   val name = "assn2"
   val default = false
