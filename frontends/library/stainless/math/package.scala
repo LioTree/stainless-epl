@@ -41,12 +41,6 @@ package object math {
   @library
   def abs(n: BigInt) = if (n < 0) -n else n
 
-  @extern @pure
-  def sqrt(x: Rational): Rational = {
-    // Whatever the implementation
-    Rational(1,2)
-  }
-
   @library
   implicit def bigIntToNat(b: BigInt): Nat = {
     require(b >= 0)
