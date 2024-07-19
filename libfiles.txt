@@ -13,8 +13,8 @@ stainless/lang/package.scala
 stainless/lang/Bag.scala
 stainless/lang/StrOps.scala
 stainless/lang/Map.scala
-stainless/lang/BigIntExt.scala
-stainless/lang/StringExt.scala
+stainless/lang/OverflowInt.scala
+stainless/lang/StringWrapper.scala
 stainless/collection/CMap.scala
 stainless/collection/CovariantConversion.scala
 stainless/collection/List.scala
