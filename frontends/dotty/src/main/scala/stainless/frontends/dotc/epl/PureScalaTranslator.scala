@@ -28,26 +28,27 @@ class PureScalaTranslator extends ast.untpd.UntypedTreeMap {
    */
   override def transform(tree: Tree)(using dottyCtx: DottyContext): Tree = {
     tree match {
-      // Replace Int,Integer and Double with BigIntExt
-      // Translating Double to Real might be a better choice, but it involves type conversion between BigIntExt and Real, which will be considered later.
+      // Replace Int,Integer and Double with OverflowInt
       case Ident(name) if name.toString == "Int" || name.toString == "Integer" || name.toString == "Double" =>
         name match {
-          case name if name.isTermName => Ident(termName("BigIntExt"))
-          case name if name.isTypeName => Ident(typeName("BigIntExt"))
+          case name if name.isTermName => Ident(termName("OverflowInt"))
+          case name if name.isTypeName => Ident(typeName("OverflowInt"))
         }
 
       case Ident(name) if name.toString == "String" =>
         name match {
-          case name if name.isTermName => Ident(termName("StringExt"))
-          case name if name.isTypeName => Ident(typeName("StringExt"))
+          case name if name.isTermName => Ident(termName("StringWrapper"))
+          case name if name.isTypeName => Ident(typeName("StringWrapper"))
         }
 
-      // Despite there is implicit conversion between BigInt and Int,
-      // there are still some cases where the conversion cannot be performed automatically (such as 1 -> "xxxx").
-      // Therefore, all Numbers are directly wrapped with BigInt()
+      // all Numbers are directly wrapped with OverflowInt()
       case Number(digits, _) =>
-        if (digits.contains(".")) Apply(Ident(termName("BigIntExt")), List(Apply(Ident(termName("BigInt")), List(Number((digits.toDouble.toInt.toString), Whole(10))))))
-        else Apply(Ident(termName("BigIntExt")), List(Apply(Ident(termName("BigInt")), List(tree))))
+        if (digits.contains(".")) {
+          if (digits.toDouble == digits.toDouble.toInt)
+            Apply(Ident(termName("OverflowInt")), List(Number((digits.toDouble.toInt.toString), Whole(10))))
+          else
+            sys.error("Unable to translate floating-point numbers with decimals.")
+        } else Apply(Ident(termName("OverflowInt")), List(tree))
 
       // Replace Nil with Nil().
       case Ident(name) if name.toString == "Nil" => Apply(Ident(termName("Nil")), Nil)
@@ -66,38 +67,45 @@ class PureScalaTranslator extends ast.untpd.UntypedTreeMap {
       case InfixOp(left, op: Ident, right) if op.name == termName("to") =>
         Apply(Select(Ident(termName("List")), termName("rangeTo")), List(transform(left), transform(right)))
 
+      // In Scala, for comprehensions are merely syntactic sugar that get translated into calls to methods like foreach, map, and flatMap.
+      // Stainless can support List's for-yield but cannot support for, because List lacks the foreach method.
+      // Adding foreach is certainly simple, but Stainless cannot handle lambda functions with side effects.
+      // This means scenarios like var result = 0; for (i <- list) { result += i } cannot be supported even List::foreach is added.
+      // Therefore, we convert for loops directly into while loops for processing, and Stainless will transform them into recursive functions.
       case ForDo(List(GenFrom(pat, expr, checkMode)), body) =>
         val counterVarName: String = randomVariableName(8)
         val exprVarName: String = randomVariableName(8)
         val exprDef = ValDef(termName(exprVarName), TypeTree(), transform(expr))
-        val counterDef = ValDef(termName(counterVarName), TypeTree(), Apply(Ident(termName("BigIntExt")), List(Apply(Ident(termName("BigInt")), List(Number("0", Whole(10)))))))
+        val counterDef = ValDef(termName(counterVarName), TypeTree(), Apply(Ident(termName("OverflowInt")), List(Number("0", Whole(10)))))
         counterDef.setMods(Modifiers(Flags.Mutable))
         val whileDo = WhileDo(
           Parens(InfixOp(Ident(termName(counterVarName)), Ident(termName("<")), Select(Ident(termName(exprVarName)), termName("length")))),
           Block(
             List(
-              Apply(Ident(termName("decreases")), List(InfixOp(Select(Ident(termName(exprVarName)), termName("length")), Ident(termName("-")), Ident(termName(counterVarName))))),
-              ValDef(pat.asInstanceOf[Ident].name.toTermName, TypeTree(), Apply(Ident(termName(exprVarName)), List(Ident(termName(counterVarName))))),
+              Apply(Ident(termName("decreases")), List(InfixOp(Select(Ident(termName(exprVarName)), termName("length")),
+                Ident(termName("-")), Ident(termName(counterVarName))))),
+              ValDef(pat.asInstanceOf[Ident].name.toTermName, TypeTree(), Apply(Ident(termName(exprVarName)),
+                List(Ident(termName(counterVarName))))),
               transform(body),
             ),
-            Assign(Ident(termName(counterVarName)), InfixOp(Ident(termName(counterVarName)), Ident(termName("+")), Apply(Ident(termName("BigIntExt")), List(Apply(Ident(termName("BigInt")), List(Number("1", Whole(10))))))))
+            Assign(Ident(termName(counterVarName)), InfixOp(Ident(termName(counterVarName)), Ident(termName("+")),
+              Apply(Ident(termName("OverflowInt")), List(Number("1", Whole(10))))))
           )
         )
-        Block(List(exprDef, counterDef), whileDo)
+        Block(List(exprDef, counterDef), InfixOp(Parens(whileDo), Ident(termName("invariant")),
+          Parens(InfixOp(Ident(termName(counterVarName)), Ident(termName(">=")),
+          Apply(Ident(termName("OverflowInt")), List(Number("0", Whole(10))))))))
 
       // Replace Character with String.
       // It is possible to add an implicit conversion from Char to String in the stainless library, but stainless cannot verify it because it must be @extern.
       case Literal(constant: Constants.Constant) if constant.value.isInstanceOf[Character] =>
-        Apply(Ident(termName("StringExt")), List(Literal(Constants.Constant(constant.value.toString))))
+        Apply(Ident(termName("StringWrapper")), List(Literal(Constants.Constant(constant.value.toString))))
 
       case Literal(constant: Constants.Constant) if constant.value.isInstanceOf[String] =>
-        Apply(Ident(termName("StringExt")), List(Literal(constant)))
+        Apply(Ident(termName("StringWrapper")), List(Literal(constant)))
 
       case Apply(fun@Select(qualifier, name), args) if name.toString == "toString" && args.size == 0 =>
-        Select(transform(qualifier), termName("toStringExt"))
-
-      case Select(qualifier, name) if name.toString == "toString" =>
-        Select(transform(qualifier), termName("toStringExt"))
+        Select(transform(qualifier), termName("toString"))
 
       case Apply(fun@Select(qualifier, name), args) if name.toString == "length" && args.size == 0 =>
         Select(transform(qualifier), termName("length"))
@@ -145,7 +153,7 @@ class PureScalaTranslator extends ast.untpd.UntypedTreeMap {
         val newDefDef = cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(defDef.rhs))
         returnTypeStack.pop()
         newDefDef
-      
+
       // Add `import stainless.collection._` `import stainless.annotation._` `import stainless.lang._` to the beginning of the file.
       case PackageDef(pid, stats) =>
         val importStainless = Import(
