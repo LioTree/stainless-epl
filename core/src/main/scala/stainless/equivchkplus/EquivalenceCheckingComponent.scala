@@ -16,6 +16,13 @@ object DebugSectionEquivChk extends inox.DebugSection("equivchk")
 
 object DebugSectionTransformation extends inox.DebugSection("transformation")
 
+object optAssn1 extends inox.OptionDef[Boolean] {
+  val name = "assn1"
+  val default = false
+  val parser = inox.OptionParsers.booleanParser
+  val usageRhs = "true|false"
+}
+
 object optAssn2 extends inox.OptionDef[Boolean] {
   val name = "assn2"
   val default = false
@@ -49,13 +56,6 @@ object optPublicClasses extends inox.OptionDef[Seq[String]] {
   val default = Seq[String]()
   val parser = inox.OptionParsers.seqParser(inox.OptionParsers.stringParser)
   val usageRhs = "c1,c2,..."
-}
-
-object optPublicClassesPN extends inox.OptionDef[String] {
-  val name = "pubclasses-pn"
-  val default = ""
-  val parser = inox.OptionParsers.stringParser
-  val usageRhs = "p1"
 }
 
 object optCompareFuns extends inox.OptionDef[Seq[String]] {

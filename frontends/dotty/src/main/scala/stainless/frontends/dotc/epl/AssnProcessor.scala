@@ -5,19 +5,19 @@ import dotty.tools.dotc.ast.Trees.*
 import dotty.tools.dotc.ast.untpd
 import dotty.tools.dotc.ast.untpd.NumberKind.{Decimal, Whole}
 import dotty.tools.dotc.core.*
-import dotty.tools.dotc.core.Contexts.{Context => DottyContext}
+import dotty.tools.dotc.core.Contexts.Context as DottyContext
 import dotty.tools.dotc.core.Flags
 import dotty.tools.dotc.core.Names.{termName, typeName}
 import dotty.tools.dotc.util.Spans.Span
-import stainless.equivchkplus.{optPublicClasses, optPublicClassesPN, optExternPureDefs}
+import stainless.equivchkplus.{optExternPureDefs, optPublicClasses}
+import stainless.frontends.dotc.epl.AssnProcessor.firstPackageName
 
-class PostProcessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends ast.untpd.UntypedTreeMap {
+class AssnProcessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends ast.untpd.UntypedTreeMap {
 
   import ast.untpd.*
 
-  private val publicClasses = inoxCtx.options.findOption(optPublicClasses).getOrElse(Seq.empty[String])
-  private val publicClassesPN = inoxCtx.options.findOption(optPublicClassesPN).getOrElse("")
-  private val externpureDefs = inoxCtx.options.findOption(optExternPureDefs).getOrElse(Seq.empty[String])
+  private val publicClasses: Seq[String] = inoxCtx.options.findOption(optPublicClasses).getOrElse(Seq.empty[String])
+  private val externpureDefs: Seq[String] = inoxCtx.options.findOption(optExternPureDefs).getOrElse(Seq.empty[String])
 
   private def extractFileName(path: String): String = {
     val regex = """(?:.*/)?([^/]+)\.scala$""".r
@@ -44,19 +44,20 @@ class PostProcessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends
       // Package Name Rewrite
       case PackageDef(pid, stats) if pid.name.toString == "<empty>" =>
         val newPackageName = extractFileName(dottyCtx.source.toString)
-        cpy.PackageDef(tree)(Ident(termName(newPackageName)), transformStats(stats, dottyCtx.owner))
-
-      case Apply(Ident(name), args) if publicClasses.contains(name.toString) =>
-        cpy.Apply(tree)(Select(Ident(termName(publicClassesPN)), name), transform(args))
-
-      case Select(Ident(qualifierName), name) if publicClasses.contains(qualifierName.toString) =>
-        cpy.Select(tree)(Select(Ident(termName(publicClassesPN)), qualifierName), name)
-
-      case New(Ident(name)) if publicClasses.contains(name.toString) =>
-        cpy.New(tree)(Select(Ident(termName(publicClassesPN)), name))
-
-      case valDef@ValDef(name, Ident(tptName), _) if publicClasses.contains(tptName.toString) =>
-        cpy.ValDef(valDef)(name, Select(Ident(termName(publicClassesPN)), tptName), transform(valDef.rhs))
+        val newStats = {
+          if(publicClasses.nonEmpty && AssnProcessor.firstPackageName != "") {
+            val newImport = Import(Ident(termName(firstPackageName)),
+              publicClasses.map(
+                publicClass => ImportSelector(Ident(termName(publicClass)))).toList
+                )
+            newImport :: stats
+          }
+          else {
+            AssnProcessor.firstPackageName = newPackageName
+            stats
+          }
+        }
+        cpy.PackageDef(tree)(Ident(termName(newPackageName)), transformStats(newStats, dottyCtx.owner))
 
       // Add @extern and @pure
       case defDef@DefDef(name, paramss, tpt, _) if externpureDefs.contains(name.toString) =>
@@ -74,4 +75,8 @@ class PostProcessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends
       case _ => super.transform(tree)
     }
   }
+}
+
+object AssnProcessor {
+  var firstPackageName = ""
 }

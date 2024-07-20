@@ -21,27 +21,23 @@ class TransformationPhase(val inoxCtx: inox.Context) extends PluginPhase {
 
   override def run(using dottyCtx: DottyContext): Unit = {
     inoxCtx.options.findOption(optTransformation) match {
-      case Some(to) if to == true =>
+      case Some(true)  =>
         val unit = dottyCtx.compilationUnit
         if (!unit.source.toString.startsWith("/tmp/stainless")) {
           given inox.Context = inoxCtx
 
           given givenDebugSection: DebugSectionTransformation.type = DebugSectionTransformation
 
-          inoxCtx.reporter.whenDebug(DebugSectionTransformation) { debug =>
-            debug(s"Before transformation:\n ${unit.untpdTree.show}")
-            debug(s"${unit.untpdTree.toString}")
-          }
-
-          if (inoxCtx.options.findOption(optAssn2).getOrElse(false))
-            unit.untpdTree = (new Assn2Preprocessor).transform(unit.untpdTree)
-          else
-            unit.untpdTree = (new Assn1Preprocessor).transform(unit.untpdTree)
+//          inoxCtx.reporter.whenDebug(DebugSectionTransformation) { debug =>
+//            debug(s"Before transformation:\n ${unit.untpdTree.show}")
+//            debug(s"${unit.untpdTree.toString}")
+//          }
 
           val transformers = (new TargetExtractor).transform andThen
-            (new PureScalaTranslator).transform andThen
+            (new Assn1Processor).transform andThen
+            (new Assn2Processor).transform andThen
             (new DecreasesInference).transform andThen
-            (new PostProcessor).transform
+            (new PureScalaTranslator).transform
 
           unit.untpdTree = transformers(unit.untpdTree)
 
