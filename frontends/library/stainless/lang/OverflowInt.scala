@@ -21,7 +21,7 @@ case class OverflowInt(underlying: BigInt) {
 
   def +(that: OverflowInt): OverflowInt = OverflowInt.overflow(underlying + that.underlying)
 
-  def +(that: StringWrapper): StringWrapper = toString + that
+  def +(that: StringWrapper): StringWrapper = StringWrapper(toString) + that
 
   def -(that: OverflowInt): OverflowInt = OverflowInt.overflow(underlying - that.underlying)
 
@@ -100,5 +100,7 @@ object OverflowInt {
 
   implicit def bigInt2OverflowInt(b: BigInt): OverflowInt = OverflowInt(b)
 
-  implicit def overflowInt2Int(b: OverflowInt): BigInt = b.underlying
+  implicit def overflowInt2BigInt(b: OverflowInt): BigInt = {
+    b.underlying
+  } ensuring(res => res >= IntMin && res <= IntMax)
 }
