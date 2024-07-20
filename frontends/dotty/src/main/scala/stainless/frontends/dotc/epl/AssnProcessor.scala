@@ -16,7 +16,7 @@ class AssnProcessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends
 
   import ast.untpd.*
 
-  private val publicClasses: Seq[String] = inoxCtx.options.findOption(optPublicClasses).getOrElse(Seq.empty[String])
+  private val pubClasses: Seq[String] = inoxCtx.options.findOption(optPublicClasses).getOrElse(Seq.empty[String])
   private val externpureDefs: Seq[String] = inoxCtx.options.findOption(optExternPureDefs).getOrElse(Seq.empty[String])
 
   private def extractFileName(path: String): String = {
@@ -45,12 +45,24 @@ class AssnProcessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends
       case PackageDef(pid, stats) if pid.name.toString == "<empty>" =>
         val newPackageName = extractFileName(dottyCtx.source.toString)
         val newStats = {
-          if(publicClasses.nonEmpty && AssnProcessor.firstPackageName != "") {
+          if (pubClasses.nonEmpty && AssnProcessor.firstPackageName != "") {
+            val (tempNewStats, pubClassesNeed) = stats.map(stat =>
+              stat match
+                case DefDef(name, _, _, _) if pubClasses.contains(name.toString) =>
+                  (EmptyTree, name.toString)
+                case ModuleDef(name, _) if pubClasses.contains(name.toString) =>
+                  (EmptyTree, name.toString)
+                case TypeDef(name, _) if pubClasses.contains(name.toString) =>
+                  (EmptyTree, name.toString)
+                case ValDef(name, _, _) if pubClasses.contains(name.toString) =>
+                  (EmptyTree, name.toString)
+                case _ => (stat, "")
+            ).unzip
             val newImport = Import(Ident(termName(firstPackageName)),
-              publicClasses.map(
+              pubClassesNeed.filter(_ != "").map(
                 publicClass => ImportSelector(Ident(termName(publicClass)))).toList
-                )
-            newImport :: stats
+            )
+            newImport :: tempNewStats
           }
           else {
             AssnProcessor.firstPackageName = newPackageName
