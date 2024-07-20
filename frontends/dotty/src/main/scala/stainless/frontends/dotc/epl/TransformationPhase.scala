@@ -25,6 +25,7 @@ class TransformationPhase(val inoxCtx: inox.Context) extends PluginPhase {
         val unit = dottyCtx.compilationUnit
         if (!unit.source.toString.startsWith("/tmp/stainless")) {
           given inox.Context = inoxCtx
+
           given givenDebugSection: DebugSectionTransformation.type = DebugSectionTransformation
 
           inoxCtx.reporter.whenDebug(DebugSectionTransformation) { debug =>
@@ -34,6 +35,8 @@ class TransformationPhase(val inoxCtx: inox.Context) extends PluginPhase {
 
           if (inoxCtx.options.findOption(optAssn2).getOrElse(false))
             unit.untpdTree = (new Assn2Preprocessor).transform(unit.untpdTree)
+          else
+            unit.untpdTree = (new Assn1Preprocessor).transform(unit.untpdTree)
 
           val transformers = (new TargetExtractor).transform andThen
             (new PureScalaTranslator).transform andThen
