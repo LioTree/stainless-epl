@@ -31,7 +31,7 @@ object StringWrapper {
 
   def unapply(stringExt: StringWrapper): Option[String] = Some(stringExt.underlying)
 
-  implicit def stringToStringExt(b: String): StringWrapper = StringWrapper(b)
+  implicit def string2StringWrapper(b: String): StringWrapper = StringWrapper(b)
 
-  implicit def stringExtToString(b: StringWrapper): String = b.underlying
+  implicit def stringWrapper2String(b: StringWrapper): String = b.underlying
 }
