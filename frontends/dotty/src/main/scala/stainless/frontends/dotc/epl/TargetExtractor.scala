@@ -84,7 +84,10 @@ class TargetExtractor(using dottyCtx: DottyContext, inoxCtx: inox.Context) exten
         case _ =>
       })
 
-    val targets: Set[String] = Set(inoxCtx.options.findOption(optExtractTarget).get: _*)
+    val targets: Set[String] = inoxCtx.options.findOption(optExtractTarget) match {
+      case Some(targets) => Set(targets: _*)
+      case None => Set.empty
+    }
     private val worklist: Queue[Tree] = Queue.empty
 
     if (targets.nonEmpty) {
