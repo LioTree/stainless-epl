@@ -10,7 +10,7 @@ import dotty.tools.dotc.core.Flags
 import dotty.tools.dotc.core.Names.{termName, typeName}
 import stainless.equivchkplus.optAssn2
 
-class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends ast.untpd.UntypedTreeMap {
+class Assn2Preprocessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends AssnProcessor {
 
   import ast.untpd.*
 

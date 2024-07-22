@@ -9,14 +9,14 @@ import dotty.tools.dotc.core.Contexts.Context as DottyContext
 import dotty.tools.dotc.core.Flags
 import dotty.tools.dotc.core.Names.{termName, typeName}
 import dotty.tools.dotc.util.Spans.Span
-import stainless.equivchkplus.{optExternPureDefs, optPublicClasses}
+import stainless.equivchkplus.{optExternPureDefs, optPublicDefs}
 import stainless.frontends.dotc.epl.AssnProcessor.firstPackageName
 
 class AssnProcessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends ast.untpd.UntypedTreeMap {
 
   import ast.untpd.*
 
-  private val pubClasses: Seq[String] = inoxCtx.options.findOption(optPublicClasses).getOrElse(Seq.empty[String])
+  private val pubDefs: Seq[String] = inoxCtx.options.findOption(optPublicDefs).getOrElse(Seq.empty[String])
   private val externpureDefs: Seq[String] = inoxCtx.options.findOption(optExternPureDefs).getOrElse(Seq.empty[String])
 
   private def extractFileName(path: String): String = {
@@ -45,16 +45,16 @@ class AssnProcessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends
       case PackageDef(pid, stats) if pid.name.toString == "<empty>" =>
         val newPackageName = extractFileName(dottyCtx.source.toString)
         val newStats = {
-          if (pubClasses.nonEmpty && AssnProcessor.firstPackageName != "") {
+          if (pubDefs.nonEmpty && AssnProcessor.firstPackageName != "") {
             val (tempNewStats, pubClassesNeed) = stats.map(stat =>
               stat match
-                case DefDef(name, _, _, _) if pubClasses.contains(name.toString) =>
+                case DefDef(name, _, _, _) if pubDefs.contains(name.toString) =>
                   (EmptyTree, name.toString)
-                case ModuleDef(name, _) if pubClasses.contains(name.toString) =>
+                case ModuleDef(name, _) if pubDefs.contains(name.toString) =>
                   (EmptyTree, name.toString)
-                case TypeDef(name, _) if pubClasses.contains(name.toString) =>
+                case TypeDef(name, _) if pubDefs.contains(name.toString) =>
                   (EmptyTree, name.toString)
-                case ValDef(name, _, _) if pubClasses.contains(name.toString) =>
+                case ValDef(name, _, _) if pubDefs.contains(name.toString) =>
                   (EmptyTree, name.toString)
                 case _ => (stat, "")
             ).unzip
