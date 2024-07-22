@@ -47,6 +47,8 @@ case class OverflowInt(underlying: BigInt) {
 
   def abs: OverflowInt = OverflowInt(stainless.math.abs(underlying))
 
+  def toStringWrapper: StringWrapper = StringWrapper(toString)
+
   override def toString: String = {
     if (underlying == 0) return "0"
 
@@ -58,7 +60,6 @@ case class OverflowInt(underlying: BigInt) {
     while (number > 0) {
       decreases(number)
       val digit = number % 10
-      // There will be some verification error if using match pattern. I don't know why.
       val digitStr = {
         if (digit == 0) "0"
         else if (digit == 1) "1"
