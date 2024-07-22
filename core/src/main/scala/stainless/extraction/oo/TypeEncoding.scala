@@ -159,6 +159,9 @@ class TypeEncoding(override val s: Trees, override val t: Trees)
       case (_, t1, t2) if erasedBy(t1) == erasedBy(t2) => e
       case (_, t1, t2) if isObject(t1) && isObject(t2) => e
 
+      case (t.FunctionInvocation(id, tps, args), s.NothingType(), t2) if id.toString == "errorWrapper" && !isObject(t2) =>
+        t.FunctionInvocation(id, Seq(scope.transform(t2)), args)
+
       case (e, s.NothingType(), t2) if !isObject(t2) =>
         t.Error(scope.transform(t2), e match {
           case t.Error(_, descr) => descr
