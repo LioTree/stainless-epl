@@ -16,26 +16,13 @@ object DebugSectionEquivChk extends inox.DebugSection("equivchk")
 
 object DebugSectionTransformation extends inox.DebugSection("transformation")
 
-object optAssn1 extends inox.OptionDef[Boolean] {
-  val name = "assn1"
-  val default = false
-  val parser = inox.OptionParsers.booleanParser
-  val usageRhs = "true|false"
-}
+object optMatchExhaustiveness extends inox.FlagOptionDef("match-exhaustiveness", true)
 
-object optAssn2 extends inox.OptionDef[Boolean] {
-  val name = "assn2"
-  val default = false
-  val parser = inox.OptionParsers.booleanParser
-  val usageRhs = "true|false"
-}
+object optAssn1 extends inox.FlagOptionDef("assn1", true)
 
-object optTransformation extends inox.OptionDef[Boolean] {
-  val name = "transformation"
-  val default = false
-  val parser = inox.OptionParsers.booleanParser
-  val usageRhs = "true|false"
-}
+object optAssn2 extends inox.FlagOptionDef("assn2", true)
+
+object optTransformation extends inox.FlagOptionDef("transformation", true)
 
 object optExternPureDefs extends inox.OptionDef[Seq[String]] {
   val name = "externpure"
@@ -48,14 +35,14 @@ object optExtractTarget extends inox.OptionDef[Seq[String]] {
   val name = "extract"
   val default = Seq[String]()
   val parser = inox.OptionParsers.seqParser(inox.OptionParsers.stringParser)
-  val usageRhs = "f1,c2,o3"
+  val usageRhs = "f1,c2,o3..."
 }
 
-object optPublicClasses extends inox.OptionDef[Seq[String]] {
-  val name = "pubclasses"
+object optPublicDefs extends inox.OptionDef[Seq[String]] {
+  val name = "pubdefs"
   val default = Seq[String]()
   val parser = inox.OptionParsers.seqParser(inox.OptionParsers.stringParser)
-  val usageRhs = "c1,c2,..."
+  val usageRhs = "f1,c2,o3..."
 }
 
 object optCompareFuns extends inox.OptionDef[Seq[String]] {

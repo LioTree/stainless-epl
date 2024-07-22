@@ -9,6 +9,7 @@ import dotty.tools.dotc.core.Contexts.{Context as DottyContext}
 import dotty.tools.dotc.core.Names.{EmptyTermName, EmptyTypeName, TermName, TypeName, termName, typeName}
 import dotty.tools.dotc.core.Phases.*
 import dotty.tools.dotc.util.Spans.Span
+import stainless.equivchkplus.optMatchExhaustiveness
 
 import scala.collection.mutable.{ArrayBuffer, Set, Stack, Map}
 
@@ -16,11 +17,9 @@ import scala.collection.mutable.{ArrayBuffer, Set, Stack, Map}
  * This class performs the transformations on the Scala code.
  * It extends `UntypedTreeMap`, which is a class for transforming untyped trees.
  */
-class PureScalaTranslator extends ast.untpd.UntypedTreeMap {
+class PureScalaTranslator(using inoxCtx: inox.Context) extends ast.untpd.UntypedTreeMap {
 
   import ast.untpd.*
-
-  private val returnTypeStack: Stack[Tree] = Stack.empty
 
   /**
    * The main method of this class, which performs the transformations on the given tree.
@@ -41,14 +40,15 @@ class PureScalaTranslator extends ast.untpd.UntypedTreeMap {
           case name if name.isTypeName => Ident(typeName("StringWrapper"))
         }
 
-      // all Numbers are directly wrapped with OverflowInt()
+      // all Numbers are directly wrapped with OverflowInt(BigInt(n))
+      // We don't use OverflowInt(n) because it has problem in unapply
       case Number(digits, _) =>
         if (digits.contains(".")) {
           if (digits.toDouble == digits.toDouble.toInt)
-            Apply(Ident(termName("OverflowInt")), List(Number((digits.toDouble.toInt.toString), Whole(10))))
+            Apply(Ident(termName("OverflowInt")), List(Apply(Ident(termName("BigInt")), List(Number((digits.toDouble.toInt.toString), Whole(10))))))
           else
             sys.error("Unable to translate floating-point numbers with decimals.")
-        } else Apply(Ident(termName("OverflowInt")), List(tree))
+        } else Apply(Ident(termName("OverflowInt")), List(Apply(Ident(termName("BigInt")), List(tree))))
 
       // Replace Nil with Nil().
       case Ident(name) if name.toString == "Nil" => Apply(Ident(termName("Nil")), Nil)
@@ -76,7 +76,7 @@ class PureScalaTranslator extends ast.untpd.UntypedTreeMap {
         val counterVarName: String = randomVariableName(8)
         val exprVarName: String = randomVariableName(8)
         val exprDef = ValDef(termName(exprVarName), TypeTree(), transform(expr))
-        val counterDef = ValDef(termName(counterVarName), TypeTree(), Apply(Ident(termName("OverflowInt")), List(Number("0", Whole(10)))))
+        val counterDef = ValDef(termName(counterVarName), TypeTree(), Apply(Ident(termName("BigInt")), List(Number("0", Whole(10)))))
         counterDef.setMods(Modifiers(Flags.Mutable))
         val whileDo = WhileDo(
           Parens(InfixOp(Ident(termName(counterVarName)), Ident(termName("<")), Select(Ident(termName(exprVarName)), termName("length")))),
@@ -94,7 +94,7 @@ class PureScalaTranslator extends ast.untpd.UntypedTreeMap {
         )
         Block(List(exprDef, counterDef), InfixOp(Parens(whileDo), Ident(termName("invariant")),
           Parens(InfixOp(Ident(termName(counterVarName)), Ident(termName(">=")),
-          Apply(Ident(termName("OverflowInt")), List(Number("0", Whole(10))))))))
+            Apply(Ident(termName("BigInt")), List(Number("0", Whole(10))))))))
 
       // Replace Character with String.
       // It is possible to add an implicit conversion from Char to String in the stainless library, but stainless cannot verify it because it must be @extern.
@@ -105,7 +105,10 @@ class PureScalaTranslator extends ast.untpd.UntypedTreeMap {
         Apply(Ident(termName("StringWrapper")), List(Literal(constant)))
 
       case Apply(fun@Select(qualifier, name), args) if name.toString == "toString" && args.size == 0 =>
-        Select(transform(qualifier), termName("toString"))
+        Select(transform(qualifier), termName("toStringWrapper"))
+
+      case Select(qualifier, name) if name.toString == "toString" =>
+        Select(transform(qualifier), termName("toStringWrapper"))
 
       case Apply(fun@Select(qualifier, name), args) if name.toString == "length" && args.size == 0 =>
         Select(transform(qualifier), termName("length"))
@@ -126,10 +129,7 @@ class PureScalaTranslator extends ast.untpd.UntypedTreeMap {
 
       // replace sys.error() with error[Nothing]("Error message.")
       case Apply(fun@Select(qualifier: Ident, name: TermName), args) if qualifier.name.toString == "sys" && name.toString == "error" =>
-        if (returnTypeStack.top.toString == "TypeTree")
           TypeApply(Ident(termName("errorWrapper")), List(Ident(typeName("Nothing"))))
-        else
-          TypeApply(Ident(termName("errorWrapper")), List(returnTypeStack.top))
 
       // ignore println
       case Apply(fun: Ident, args) if fun.name.toString == "println" =>
@@ -138,10 +138,7 @@ class PureScalaTranslator extends ast.untpd.UntypedTreeMap {
       // Replace throw with error[Nothing]("Error message.")
       case Throw(expr) =>
         // Although stainless supports the use of Exception(), its return type is not Nothing. Therefore, we use error[Nothing] instead.
-        if (returnTypeStack.top.toString == "TypeTree")
           TypeApply(Ident(termName("errorWrapper")), List(Ident(typeName("Nothing"))))
-        else
-          TypeApply(Ident(termName("errorWrapper")), List(returnTypeStack.top))
 
       // Just make Stainless happy. It will throw an error if non-sealed classes are compared.
       case typeDef@TypeDef(name, rhs) if typeDef.mods is Flags.Abstract =>
@@ -149,10 +146,7 @@ class PureScalaTranslator extends ast.untpd.UntypedTreeMap {
         result.withMods(result.mods | Flags.Sealed)
 
       case defDef@DefDef(name, paramss, tpt, _) =>
-        returnTypeStack.push(transform(defDef.tpt))
-        val newDefDef = cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(defDef.rhs))
-        returnTypeStack.pop()
-        newDefDef
+        cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(defDef.rhs))
 
       // Add `import stainless.collection._` `import stainless.annotation._` `import stainless.lang._` to the beginning of the file.
       case PackageDef(pid, stats) =>
@@ -202,7 +196,15 @@ class PureScalaTranslator extends ast.untpd.UntypedTreeMap {
             case _ =>
               List(case_)
           })
-        cpy.Match(tree)(transform(selector), transformSub(flatCases))
+
+        inoxCtx.options.findOption(optMatchExhaustiveness) match {
+          case None | Some(true) =>
+            // Insert a `case _ => errorWrapper[Nothing]` in any case to pass match exhaustiveness verification.
+            val defaultCase = CaseDef(Ident(termName("_")), EmptyTree, TypeApply(Ident(termName("errorWrapper")), List(Ident(typeName("Nothing")))))
+            cpy.Match(tree)(transform(selector), transformSub(flatCases :+ defaultCase))
+          case _ =>
+            cpy.Match(tree)(transform(selector), transformSub(flatCases))
+        }
 
       case _ =>
         super.transform(tree)
