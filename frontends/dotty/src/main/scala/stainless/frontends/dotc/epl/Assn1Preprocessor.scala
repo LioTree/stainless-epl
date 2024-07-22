@@ -30,17 +30,9 @@ class Assn1Preprocessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) ext
               )
             )
             val newRhs = defDef.rhs match {
-              case Block(stats, expr) =>
-                Block(
-                  precondition :: stats,
-                  expr
-                )
-              case _ =>
-                // The function body originally only had one statement. Wrap it in a block.
-                Block(
-                  List(precondition),
-                  defDef.rhs
-                )
+              case Block(stats, expr) => Block(precondition :: stats, expr)
+              // The function body originally only had one statement. Wrap it in a block.
+              case _ => Block(List(precondition), defDef.rhs)
             }
             super.transform(cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(newRhs)))
 
@@ -63,17 +55,10 @@ class Assn1Preprocessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) ext
               )
             )
             val newRhs = defDef.rhs match {
-              case Block(stats, expr) =>
-                Block(
-                  precondition :: stats,
-                  expr
-                )
+              case Block(stats, expr) => Block(precondition :: stats, expr)
               case _ =>
                 // The function body originally only had one statement. Wrap it in a block.
-                Block(
-                  List(precondition),
-                  defDef.rhs
-                )
+                Block(List(precondition), defDef.rhs)
             }
             super.transform(cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(newRhs)))
 

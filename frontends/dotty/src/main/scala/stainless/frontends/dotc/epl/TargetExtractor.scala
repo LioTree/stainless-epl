@@ -18,7 +18,6 @@ class TargetExtractor(using dottyCtx: DottyContext, inoxCtx: inox.Context) exten
 
   private val depDetector = new DepDetector
   private val targets = depDetector.targets
-  private val defStack: Stack[String] = Stack.empty
 
   private def notTarget(name: String): Boolean = targets.nonEmpty && !targets.contains(name)
 

@@ -24,19 +24,11 @@ class DecreasesInference extends ast.untpd.UntypedTreeMap {
           val decreasesApplies: ArrayBuffer[Apply] = ArrayBuffer.empty
           decreaseDetector.decreases.foreach(decrease =>
             decreasesApplies += Apply(Ident(termName("decreases")), List(decrease))
-          )
+            )
           val newRhs = defDef.rhs match {
-            case Block(stats, expr) =>
-              Block(
-                decreasesApplies.toList ::: stats,
-                expr
-              )
-            case _ =>
-              // The function body originally only had one statement. Wrap it in a block.
-              Block(
-                decreasesApplies.toList,
-                defDef.rhs
-              )
+            case Block(stats, expr) => Block(decreasesApplies.toList ::: stats, expr)
+            // The function body originally only had one statement. Wrap it in a block.
+            case _ => Block(decreasesApplies.toList, defDef.rhs)
           }
           cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(newRhs))
         }
