@@ -186,6 +186,11 @@ class PureScalaTranslator(using inoxCtx: inox.Context) extends ast.untpd.Untyped
       case Select(Select(Ident(name1), name2), name3) if s"$name1.$name2.$name3" == "scala.collection.immutable" =>
         Select(Ident(termName("stainless")), termName("collection"))
 
+      // import scala.collection.immutable.Map => import stainless.lang.Map
+      // scala.collection.immutable.Map.xx => stainless.lang.Map.xx
+      case Select(Select(Select(Ident(name1), name2), name3), name4) if s"$name1.$name2.$name3.$name4" == "scala.collection.immutable.Map" =>
+        Select(Select(Ident(termName("stainless")), termName("lang")), termName("Map"))
+
       case Match(selector, cases) =>
         // Find whether there is Alternative in cases
         val flatCases = cases.flatMap(case_ =>
