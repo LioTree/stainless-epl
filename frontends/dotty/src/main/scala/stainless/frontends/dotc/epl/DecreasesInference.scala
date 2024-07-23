@@ -75,7 +75,7 @@ class DecreasesInference extends ast.untpd.UntypedTreeMap {
     override def traverse(tree: untpd.Tree)(using dottyCtx: DottyContext): Unit = {
       tree match {
         // cases like val r = reverse(l) r match {}
-        case ValDef(name, _, Apply(_, args)) =>
+        case ValDef(name, _, Apply(fun:Ident, args)) if fun.name != defDef.name =>
           args.foreach(arg =>
             arg match {
               case Ident(name2) if listParamss.contains(name2.toString) =>
