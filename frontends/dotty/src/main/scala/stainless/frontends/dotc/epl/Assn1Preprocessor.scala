@@ -50,13 +50,13 @@ class Assn1Preprocessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) ext
               else
                 sys.error("Unable to translate floating-point numbers with decimals.")
             }
-            else 
+            else
               Apply(Ident(termName("BigInt")), List(tree))
 
             // No way to add .abs for BigInt in Stainless library...
           case Select(qualifier, name) if name.toString == "abs" && translateDouble =>
             Apply(Select(Select(Ident(termName("stainless")), termName("math")), termName("abs")), List(qualifier))
-            
+
 
 //          case TypeDef(name, rhs @ Template(constr, _, self, _)) if name.toString == "Circle" && rhs.body == Nil && translateDouble =>
 //            val newBody = List(getPrecondition("r"), getPrecondition("x"), getPrecondition("y"))
@@ -98,8 +98,8 @@ class Assn1Preprocessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) ext
           case defDef@DefDef(name, paramss, tpt, _) if name.toString == "compose" && tpt.toString == "TypeTree" =>
             super.transform(cpy.DefDef(defDef)(name, transformParamss(paramss), Parens(Function(List(Ident(typeName("A"))), Ident(typeName("C")))), transform(defDef.rhs)))
 
-          case defDef@DefDef(name, paramss, tpt, _) if name.toString == "presidentListMap" && tpt.toString == "TypeTree" =>
-            super.transform(cpy.DefDef(defDef)(name, transformParamss(paramss), AppliedTypeTree(Ident(typeName("ListMap")), List(Ident(typeName("Int")), Ident(typeName("String")))), transform(defDef.rhs)))
+          case valDef@ValDef(name, tpt, _) if name.toString == "presidentListMap" && tpt.toString == "TypeTree" =>
+            super.transform(cpy.ValDef(tree)(name, AppliedTypeTree(Ident(typeName("ListMap")), List(Ident(typeName("Int")), Ident(typeName("String")))), transform(valDef.rhs)))
 
           case defDef@DefDef(name, paramss, tpt, _) if name.toString == "map12_withUpdate" && tpt.toString == "TypeTree" =>
             super.transform(cpy.DefDef(defDef)(name, transformParamss(paramss), AppliedTypeTree(Ident(typeName("ListMap")), List(Ident(typeName("Int")), Ident(typeName("String")))), transform(defDef.rhs)))
