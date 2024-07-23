@@ -28,7 +28,7 @@ class PureScalaTranslator(using inoxCtx: inox.Context) extends ast.untpd.Untyped
   override def transform(tree: Tree)(using dottyCtx: DottyContext): Tree = {
     tree match {
       // Replace Int,Integer and Double with OverflowInt
-      case Ident(name) if name.toString == "Int" || name.toString == "Integer" || name.toString == "Double" =>
+      case Ident(name) if name.toString == "Int" || name.toString == "Integer" =>
         name match {
           case name if name.isTermName => Ident(termName("OverflowInt"))
           case name if name.isTypeName => Ident(typeName("OverflowInt"))
@@ -40,15 +40,14 @@ class PureScalaTranslator(using inoxCtx: inox.Context) extends ast.untpd.Untyped
           case name if name.isTypeName => Ident(typeName("StringWrapper"))
         }
 
+      // Skip BigInt(n)
+      case Apply(Ident(name), List(Number(digits, _))) if name.toString == "BigInt" =>
+        tree
+
       // all Numbers are directly wrapped with OverflowInt(BigInt(n))
       // We don't use OverflowInt(n) because it has problem in unapply
       case Number(digits, _) =>
-        if (digits.contains(".")) {
-          if (digits.toDouble == digits.toDouble.toInt)
-            Apply(Ident(termName("OverflowInt")), List(Apply(Ident(termName("BigInt")), List(Number((digits.toDouble.toInt.toString), Whole(10))))))
-          else
-            sys.error("Unable to translate floating-point numbers with decimals.")
-        } else Apply(Ident(termName("OverflowInt")), List(Apply(Ident(termName("BigInt")), List(tree))))
+        Apply(Ident(termName("OverflowInt")), List(Apply(Ident(termName("BigInt")), List(tree))))
 
       // Replace Nil with Nil().
       case Ident(name) if name.toString == "Nil" => Apply(Ident(termName("Nil")), Nil)
@@ -129,7 +128,7 @@ class PureScalaTranslator(using inoxCtx: inox.Context) extends ast.untpd.Untyped
 
       // replace sys.error() with error[Nothing]("Error message.")
       case Apply(fun@Select(qualifier: Ident, name: TermName), args) if qualifier.name.toString == "sys" && name.toString == "error" =>
-          TypeApply(Ident(termName("errorWrapper")), List(Ident(typeName("Nothing"))))
+        TypeApply(Ident(termName("errorWrapper")), List(Ident(typeName("Nothing"))))
 
       // ignore println
       case Apply(fun: Ident, args) if fun.name.toString == "println" =>
@@ -138,7 +137,7 @@ class PureScalaTranslator(using inoxCtx: inox.Context) extends ast.untpd.Untyped
       // Replace throw with error[Nothing]("Error message.")
       case Throw(expr) =>
         // Although stainless supports the use of Exception(), its return type is not Nothing. Therefore, we use error[Nothing] instead.
-          TypeApply(Ident(termName("errorWrapper")), List(Ident(typeName("Nothing"))))
+        TypeApply(Ident(termName("errorWrapper")), List(Ident(typeName("Nothing"))))
 
       // Just make Stainless happy. It will throw an error if non-sealed classes are compared.
       case typeDef@TypeDef(name, rhs) if typeDef.mods is Flags.Abstract =>
