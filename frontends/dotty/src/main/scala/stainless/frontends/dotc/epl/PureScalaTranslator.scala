@@ -116,11 +116,19 @@ class PureScalaTranslator(using inoxCtx: inox.Context) extends ast.untpd.Untyped
       case Apply(fun, args) if (fun.isInstanceOf[Ident] && fun.asInstanceOf[Ident].name.toString == "ListMap"
         || fun.isInstanceOf[Select] && fun.asInstanceOf[Select].toString.endsWith("ListMap)")
         || fun.isInstanceOf[TypeApply] && fun.asInstanceOf[TypeApply].toString.contains("ListMap")) && args.nonEmpty =>
-        args(0) match {
-          // There is already a List wrapper.
-          case Apply(fun2@Ident(name), args2) if name.toString == "List" =>
-            Apply(transform(fun), transform(args))
-          case _ =>
+        args.size match {
+          case 1 => {
+            args(0) match
+              // There is already a List wrapper.
+              case Apply(fun2@Ident(name), args2) if name.toString == "List" =>
+                Apply(transform(fun), transform(args))
+              // There is a tuple. Like ListMap((41 -> "George H. W. Bush", 42 -> "Bill Clinton"))
+              case tuple: Tuple =>
+                Apply(transform(fun), List(Apply(Ident(termName("List")), transform(tuple.trees))))
+              case _ =>
+                sys.error("unknown pattern for ListMap initialization.")
+          }
+          case n =>
             // add List() wrapper for arguments of ListMap.
             // Adding direct support for initializing ListMap with multiple ArrowAssoc since stainless doesn't support SeqLiteral.
             Apply(transform(fun), List(Apply(Ident(termName("List")), transform(args))))
@@ -166,10 +174,6 @@ class PureScalaTranslator(using inoxCtx: inox.Context) extends ast.untpd.Untyped
           List(ImportSelector(Ident(termName("_")), EmptyTree, EmptyTree))
         )
         cpy.PackageDef(tree)(transformSub(pid), importStainless :: importAnnotation :: importCollection :: importLang :: transformStats(stats, dottyCtx.owner))
-
-      // Remove import scala.collection.immutable.Set
-      case Import(expr, selectors) if tree.show == "import scala.collection.immutable.Set" =>
-        EmptyTree
 
       // import scala.math => import stainless.math
       case Import(Ident(qualifierName), List(ImportSelector(Ident(name), EmptyTree, EmptyTree)))

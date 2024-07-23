@@ -27,10 +27,10 @@ class TransformationPhase(val inoxCtx: inox.Context) extends PluginPhase {
           given inox.Context = inoxCtx
           given givenDebugSection: DebugSectionTransformation.type = DebugSectionTransformation
 
-//          inoxCtx.reporter.whenDebug(DebugSectionTransformation) { debug =>
-//            debug(s"Before transformation:\n ${unit.untpdTree.show}")
-//            debug(s"${unit.untpdTree.toString}")
-//          }
+          inoxCtx.reporter.whenDebug(DebugSectionTransformation) { debug =>
+            debug(s"Before transformation:\n ${unit.untpdTree.show}")
+            debug(s"${unit.untpdTree.toString}")
+          }
 
           val transformers = (new TargetExtractor).transform andThen
             (new Assn1Preprocessor).transform andThen
