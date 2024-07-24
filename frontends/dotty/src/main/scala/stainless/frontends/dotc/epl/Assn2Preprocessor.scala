@@ -40,6 +40,18 @@ class Assn2Preprocessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) ext
                     case ModuleDef(name, _) if name.toString == "Main" => true
                     case DefDef(name, _, _, _) if name.toString == "main" => true
                     case _ => false
+                  }.map {
+                    case typeDef@TypeDef(name, rhs@LambdaTypeTree(tparams, body: AppliedTypeTree)) if name.toString == "Env" =>
+                      // Replace Map with ListMap to avoid https://github.com/epfl-lara/stainless/issues/1547
+                      // The exact answer to this question is currently unknown.
+                      val newBody = cpy.AppliedTypeTree(body)(Ident(typeName("ListMap")), super.transform(body.args))
+                      cpy.TypeDef(typeDef)(name, cpy.LambdaTypeTree(rhs)(transformSub(tparams), super.transform(newBody)))
+
+                    case moduleDef@ModuleDef(name, impl) if name.toString == "Gensym" =>
+                      val result = untpd.cpy.ModuleDef(moduleDef)(name, transformSub(impl))
+                      result.withAnnotations(getExternPureAnno(result.span.start))
+
+                    case other => super.transform(other)
                   }
                 case _ => List(stat)
               })

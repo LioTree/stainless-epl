@@ -27,7 +27,7 @@ class AssnProcessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends
     }
   }
 
-  private def genAnnotations(spanStart: Int): List[Apply] = {
+  protected def getExternPureAnno(spanStart: Int): List[Apply] = {
     val externIdent = Ident(typeName("extern"))
     // A very necessary step, otherwise errors will occur in the typer.
     externIdent.span = Span(spanStart, spanStart + 7)
@@ -74,15 +74,15 @@ class AssnProcessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends
       // Add @extern and @pure
       case defDef@DefDef(name, paramss, tpt, _) if externpureDefs.contains(name.toString) =>
         val result = cpy.DefDef(tree)(name, transformParamss(paramss), transform(tpt), transform(defDef.rhs))
-        result.withAnnotations(genAnnotations(result.span.start))
+        result.withAnnotations(getExternPureAnno(result.span.start))
 
       case ModuleDef(name, impl) if externpureDefs.contains(name.toString) =>
         val result = untpd.cpy.ModuleDef(tree)(name, transformSub(impl))
-        result.withAnnotations(genAnnotations(result.span.start))
+        result.withAnnotations(getExternPureAnno(result.span.start))
 
       case valDef@ValDef(name, tpt, _) if externpureDefs.contains(name.toString) =>
         val result = cpy.ValDef(tree)(name, transform(tpt), transform(valDef.rhs))
-        result.withAnnotations(genAnnotations(result.span.start))
+        result.withAnnotations(getExternPureAnno(result.span.start))
 
       case _ => super.transform(tree)
     }
