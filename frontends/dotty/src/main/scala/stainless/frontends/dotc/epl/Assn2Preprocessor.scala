@@ -28,12 +28,24 @@ class Assn2Preprocessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) ext
                 case _import: Import if _import.show == "import scala.util.parsing.combinator.syntactical.StandardTokenParsers" =>
                   List(EmptyTree)
                 case ModuleDef(name, impl) if name.toString == "Assn2" =>
-                  impl.body
+                  impl.body.filterNot {
+                    case DefDef(name, _, _, _) if name.toString == "example1" => true
+                    case DefDef(name, _, _, _) if name.toString == "example2" => true
+                    case DefDef(name, _, _, _) if name.toString == "example3" => true
+                    case DefDef(name, _, _, _) if name.toString == "example4" => true
+                    case DefDef(name, _, _, _) if name.toString == "example5" => true
+                    case DefDef(name, _, _, _) if name.toString == "example6" => true
+                    case TypeDef(name, _) if name.toString == "GiraffeParser" => true
+                    case ValDef(name, _, _) if name.toString == "parser" => true
+                    case ModuleDef(name, _) if name.toString == "Main" => true
+                    case DefDef(name, _, _, _) if name.toString == "main" => true
+                    case _ => false
+                  }
                 case _ => List(stat)
               })
             super.transform(cpy.PackageDef(tree)(pid, newStats))
 
-          case _ => sys.error("Invalid Assn2")
+          case _ => super.transform(tree)
         }
       case _ => super.transform(tree)
   }
