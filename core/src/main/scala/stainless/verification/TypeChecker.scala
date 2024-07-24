@@ -262,13 +262,13 @@ class TypeChecker(val program: StainlessProgram, val context: inox.Context, val 
   }
 
   // At the moment, we reject every non-strictly positive ADT
-//  for ((id1,sort) <- sorts) {
-//    val deps = dependencies(id1)
-//    for (id2 <- sorts.keySet if id1 == id2 || (deps.contains(id2) && dependencies(id2).contains(id1))) {
-//      if (!(polarities((id1,id2)) >= StrictlyPositive))
-//        reporter.fatalError(sort.getPos, s"ADT ${id2.asString} must appear only in strictly positive positions of ${id1.asString}")
-//    }
-//  }
+  for ((id1,sort) <- sorts) {
+    val deps = dependencies(id1)
+    for (id2 <- sorts.keySet if id1 == id2 || (deps.contains(id2) && dependencies(id2).contains(id1))) {
+      if (!(polarities((id1,id2)) >= StrictlyPositive))
+        reporter.fatalError(sort.getPos, s"ADT ${id2.asString} must appear only in strictly positive positions of ${id1.asString}")
+    }
+  }
 
 
   /* ====================================
