@@ -23,6 +23,9 @@ case class StringWrapper(val underlying: String) {
   def substring(start: OverflowInt, end: OverflowInt): StringWrapper = StringWrapper(underlying.bigSubstring(start, end))
 
   def last: StringWrapper = StringWrapper(underlying.bigSubstring(this.length - OverflowInt(1), this.length))
+
+  // StringWrapper corresponds not only to String but also to Char. Therefore, toStringWrapper is needed to correspond to Char::toString.
+  def toStringWrapper: StringWrapper = this
 }
 
 @library

@@ -47,6 +47,9 @@ case class OverflowInt(underlying: BigInt) {
 
   def abs: OverflowInt = OverflowInt(stainless.math.abs(underlying))
 
+  // OverflowInt corresponds not only to Int but also to Integer. Therefore, toOverflowInt is needed to correspond to Integer::toInt.
+  def toOverflowInt: OverflowInt = this
+
   def toStringWrapper: StringWrapper = StringWrapper(toString)
 
   override def toString: String = {

@@ -109,6 +109,9 @@ class PureScalaTranslator(using inoxCtx: inox.Context) extends ast.untpd.Untyped
       case Select(qualifier, name) if name.toString == "toString" =>
         Select(transform(qualifier), termName("toStringWrapper"))
 
+      case Select(qualifier, name) if name.toString == "toInt" =>
+        Select(transform(qualifier), termName("toOverflowInt"))
+
       case Apply(fun@Select(qualifier, name), args) if name.toString == "length" && args.size == 0 =>
         Select(transform(qualifier), termName("length"))
 
