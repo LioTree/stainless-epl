@@ -69,7 +69,7 @@ class Assn2Preprocessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) ext
     val newName = termName(prefix + baseFun.name.toString)
     val newRes = TypeApply(Ident(termName("errorWrapper")), List(Ident(typeName("Nothing"))))
     val fakeFun = cpy.DefDef(baseFun)(newName, baseFun.paramss, baseFun.tpt, newRes)
-    fakeFun.withAnnotations(getExternPureAnno(fakeFun.span.start))
+    markExternPure(fakeFun).asInstanceOf[DefDef]
   }
 
   override def transform(tree: untpd.Tree)(using DottyContext): untpd.Tree = {
@@ -112,8 +112,7 @@ class Assn2Preprocessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) ext
                       cpy.TypeDef(typeDef)(name, cpy.LambdaTypeTree(rhs)(transformSub(tparams), super.transform(newBody)))
 
                     case moduleDef@ModuleDef(name, impl) if name.toString == "Gensym" =>
-                      val result = untpd.cpy.ModuleDef(moduleDef)(name, transformSub(impl))
-                      result.withAnnotations(getExternPureAnno(result.span.start))
+                      markExternPure(untpd.cpy.ModuleDef(moduleDef)(name, transformSub(impl)))
 
                     case defDef@DefDef(name, paramss, tpt, _) if name.toString == "eval" =>
                       subFunctions = subFunctions ++ (new SubFunGenerator(defDef)).getSubFuns
