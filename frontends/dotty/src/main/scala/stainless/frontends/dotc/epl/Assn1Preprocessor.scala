@@ -106,6 +106,6 @@ class Assn1Preprocessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) ext
 
           case _ => super.transform(tree)
         }
-      case _ => super.transform(tree)
+      case _ => tree
   }
 }
