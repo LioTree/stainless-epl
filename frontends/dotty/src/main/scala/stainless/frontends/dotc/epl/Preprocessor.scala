@@ -46,7 +46,7 @@ class AssnProcessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends
         val newPackageName = extractFileName(dottyCtx.source.toString)
         val newStats = {
           if (pubDefs.nonEmpty && AssnProcessor.firstPackageName != "") {
-            val (tempNewStats, pubClassesNeed) = stats.map(stat =>
+            val (tempNewStats, pubDefsNeed) = stats.map(stat =>
               stat match
                 case DefDef(name, _, _, _) if pubDefs.contains(name.toString) =>
                   (EmptyTree, name.toString)
@@ -59,8 +59,8 @@ class AssnProcessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends
                 case _ => (stat, "")
             ).unzip
             val newImport = Import(Ident(termName(firstPackageName)),
-              pubClassesNeed.filter(_ != "").map(
-                publicClass => ImportSelector(Ident(termName(publicClass)))).toList
+              pubDefsNeed.filter(_ != "").map(
+                publicDef => ImportSelector(Ident(termName(publicDef)))).toList
             )
             newImport :: tempNewStats
           }
