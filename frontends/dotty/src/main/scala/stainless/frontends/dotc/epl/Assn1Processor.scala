@@ -57,17 +57,6 @@ class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
           case Select(qualifier, name) if name.toString == "abs" && translateDouble =>
             Apply(Select(Select(Ident(termName("stainless")), termName("math")), termName("abs")), List(qualifier))
 
-
-//          case TypeDef(name, rhs @ Template(constr, _, self, _)) if name.toString == "Circle" && rhs.body == Nil && translateDouble =>
-//            val newBody = List(getPrecondition("r"), getPrecondition("x"), getPrecondition("y"))
-//            val newRhs = cpy.Template(rhs)(transformSub(constr), transform(rhs.parents), Nil, transformSub(self), transformStats(newBody, rhs.symbol))
-//            super.transform(cpy.TypeDef(tree)(name, newRhs))
-//
-//          case TypeDef(name, rhs @ Template(constr, _, self, _)) if name.toString == "Rectangle" && rhs.body == Nil && translateDouble =>
-//            val newBody = List(getPrecondition("llx"), getPrecondition("lly"), getPrecondition("w"), getPrecondition("h"))
-//            val newRhs = cpy.Template(rhs)(transformSub(constr), transform(rhs.parents), Nil, transformSub(self), transformStats(newBody, rhs.symbol))
-//            super.transform(cpy.TypeDef(tree)(name, newRhs))
-
           case defDef@DefDef(name, paramss, tpt, _) if name.toString == "sum" || name.toString == "power" || name.toString == "suffix" =>
             val precondition = getPrecondition("n")
             val newRhs = defDef.rhs match {

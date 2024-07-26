@@ -76,7 +76,7 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
     inoxCtx.options.findOption(optAssn2) match
       case Some(true) =>
         tree match {
-          case PackageDef(pid: Ident, stats) =>
+          case PackageDef(pid: Ident, stats) if pid.name.toString == "<empty>" => {
             val newStats = stats.flatMap(
               stat => stat match {
 
@@ -108,8 +108,8 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
                   }.map {
                     // Replace Map with ListMap to avoid https://github.com/epfl-lara/stainless/issues/1547
                     case typeDef@TypeDef(name, rhs@LambdaTypeTree(tparams, body: AppliedTypeTree)) if name.toString == "Env" =>
-                      val newBody = cpy.AppliedTypeTree(body)(Ident(typeName("ListMap")), super.transform(body.args))
-                      cpy.TypeDef(typeDef)(name, cpy.LambdaTypeTree(rhs)(transformSub(tparams), super.transform(newBody)))
+                      val newBody = cpy.AppliedTypeTree(body)(Ident(typeName("ListMap")), transform(body.args))
+                      cpy.TypeDef(typeDef)(name, cpy.LambdaTypeTree(rhs)(transformSub(tparams), transform(newBody)))
 
                     case moduleDef@ModuleDef(name, impl) if name.toString == "Gensym" =>
                       markExternPure(untpd.cpy.ModuleDef(moduleDef)(name, transformSub(impl)))
@@ -117,13 +117,17 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
                     case defDef@DefDef(name, paramss, tpt, _) if name.toString == "eval" =>
                       subFunctions = subFunctions ++ (new SubFunGenerator(defDef)).getSubFuns
                       fakeFunctions = fakeFunctions :+ genFakeFun(defDef)
-                      super.transform(defDef)
+                      transform(defDef)
 
-                    case other => super.transform(other)
+                    case other => transform(other)
                   } ++ fakeFunctions ++ subFunctions
                 case _ => List(stat)
               })
             super.transform(cpy.PackageDef(tree)(pid, newStats))
+          }
+
+          case Apply(Ident(name), args) if name.toString == "ctx" || name.toString == "env" =>
+            Apply(Select(Ident(name), termName("getOrElse")), args :+ TypeApply(Ident(termName("errorWrapper")), List(Ident(typeName("Nothing")))))
 
           case _ => super.transform(tree)
         }
