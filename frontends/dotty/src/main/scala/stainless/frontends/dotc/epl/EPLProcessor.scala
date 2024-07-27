@@ -60,8 +60,10 @@ class EPLProcessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends 
                   (EmptyTree, name.toString)
                 case _ => (stat, "")
             ).unzip
+            val pubDefsNeedSet: Set[String] = pubDefsNeed.filter(_ != "").toSet
+
             val newImport = Import(Ident(termName(EPLProcessor.firstPackageName)),
-              pubDefsNeed.filter(_ != "").map(
+              pubDefsNeedSet.map(
                 publicDef => ImportSelector(Ident(termName(publicDef)))).toList
             )
             newImport :: tempNewStats
