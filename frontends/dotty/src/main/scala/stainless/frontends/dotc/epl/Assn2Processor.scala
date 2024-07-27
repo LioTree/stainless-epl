@@ -14,15 +14,17 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
 
   import ast.untpd.*
 
+  private val splitFunctions = List("eval", "tyOf", "subst", "desugar")
+  private val safeListMap = List("ctx", "env")
+  private val fakePrefix = "fake_"
+
   private class SubFunGenerator(baseFun: DefDef) extends UntypedTreeTraverser {
 
     private class RecCallRewriter extends ast.untpd.UntypedTreeMap {
-      private val prefix = "fake_"
-
       override def transform(tree: Tree)(using DottyContext): Tree =
         tree match {
           case Apply(Ident(name), args) if name.toString == baseFun.name.toString =>
-            cpy.Apply(tree)(Ident(termName(prefix + name.toString)), args)
+            cpy.Apply(tree)(Ident(termName(fakePrefix + name.toString)), args)
           case _ => super.transform(tree)
         }
     }
@@ -66,8 +68,7 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
   }
 
   def genFakeFun(baseFun: DefDef): DefDef = {
-    val prefix = "fake_"
-    val newName = termName(prefix + baseFun.name.toString)
+    val newName = termName(fakePrefix + baseFun.name.toString)
     val newRes = TypeApply(Ident(termName("errorWrapper")), List(Ident(typeName("Nothing"))))
     val fakeFun = cpy.DefDef(baseFun)(newName, baseFun.paramss, baseFun.tpt, newRes)
     markExternPure(fakeFun).asInstanceOf[DefDef]
@@ -94,7 +95,7 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
           case moduleDef@ModuleDef(name, impl) if name.toString == "Gensym" =>
             markExternPure(untpd.cpy.ModuleDef(moduleDef)(name, transformSub(impl)))
 
-          case defDef@DefDef(name, paramss, tpt, _) if name.toString == "eval" =>
+          case defDef@DefDef(name, paramss, tpt, _) if splitFunctions.contains(name.toString) =>
             subFunctions = subFunctions ++ (new SubFunGenerator(defDef)).getSubFuns
             fakeFunctions = fakeFunctions :+ genFakeFun(defDef)
             transform(defDef)
@@ -105,7 +106,7 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
         super.transform(cpy.PackageDef(tree)(pid, newStats))
       }
 
-      case Apply(Ident(name), args) if name.toString == "ctx" || name.toString == "env" =>
+      case Apply(Ident(name), args) if safeListMap.contains(name.toString) =>
         Apply(Select(Ident(name), termName("getOrElse")), args :+ TypeApply(Ident(termName("errorWrapper")), List(Ident(typeName("Nothing")))))
 
       case _ => super.transform(tree)
