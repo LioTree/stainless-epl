@@ -18,6 +18,8 @@ case class StringWrapper(val underlying: String) {
 
   def charAt(index: OverflowInt): StringWrapper = StringWrapper(underlying.bigSubstring(index, index + OverflowInt(1)))
 
+  def apply(index: OverflowInt): StringWrapper = StringWrapper(underlying.bigSubstring(index, index + OverflowInt(1)))
+
   def substring(start: OverflowInt): StringWrapper = StringWrapper(underlying.bigSubstring(start))
 
   def substring(start: OverflowInt, end: OverflowInt): StringWrapper = StringWrapper(underlying.bigSubstring(start, end))
