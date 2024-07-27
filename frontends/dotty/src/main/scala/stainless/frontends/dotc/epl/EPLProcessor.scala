@@ -1,7 +1,7 @@
 package stainless.frontends.dotc.epl
 
 import dotty.tools.dotc.*
-import dotty.tools.dotc.ast.Trees.{MemberDef => _, *}
+import dotty.tools.dotc.ast.Trees.{MemberDef as _, *}
 import dotty.tools.dotc.ast.untpd
 import dotty.tools.dotc.ast.untpd.NumberKind.{Decimal, Whole}
 import dotty.tools.dotc.core.*
@@ -10,9 +10,8 @@ import dotty.tools.dotc.core.Flags
 import dotty.tools.dotc.core.Names.{termName, typeName}
 import dotty.tools.dotc.util.Spans.Span
 import stainless.equivchkplus.{optExternPureDefs, optPublicDefs}
-import stainless.frontends.dotc.epl.AssnProcessor.firstPackageName
 
-class AssnProcessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends ast.untpd.UntypedTreeMap {
+class EPLProcessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends UntypedTransformer {
 
   import ast.untpd.*
 
@@ -48,7 +47,7 @@ class AssnProcessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends
       case PackageDef(pid, stats) if pid.name.toString == "<empty>" =>
         val newPackageName = extractFileName(dottyCtx.source.toString)
         val newStats = {
-          if (pubDefs.nonEmpty && AssnProcessor.firstPackageName != "") {
+          if (pubDefs.nonEmpty && EPLProcessor.firstPackageName != "") {
             val (tempNewStats, pubDefsNeed) = stats.map(stat =>
               stat match
                 case DefDef(name, _, _, _) if pubDefs.contains(name.toString) =>
@@ -61,14 +60,14 @@ class AssnProcessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends
                   (EmptyTree, name.toString)
                 case _ => (stat, "")
             ).unzip
-            val newImport = Import(Ident(termName(firstPackageName)),
+            val newImport = Import(Ident(termName(EPLProcessor.firstPackageName)),
               pubDefsNeed.filter(_ != "").map(
                 publicDef => ImportSelector(Ident(termName(publicDef)))).toList
             )
             newImport :: tempNewStats
           }
           else {
-            AssnProcessor.firstPackageName = newPackageName
+            EPLProcessor.firstPackageName = newPackageName
             stats
           }
         }
@@ -89,6 +88,6 @@ class AssnProcessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends
   }
 }
 
-object AssnProcessor {
+object EPLProcessor {
   var firstPackageName = ""
 }

@@ -27,16 +27,18 @@ class TransformationPhase(val inoxCtx: inox.Context) extends PluginPhase {
           given inox.Context = inoxCtx
           given givenDebugSection: DebugSectionTransformation.type = DebugSectionTransformation
 
-          inoxCtx.reporter.whenDebug(DebugSectionTransformation) { debug =>
-            debug(s"Before transformation:\n ${unit.untpdTree.show}")
-            debug(s"${unit.untpdTree.toString}")
-          }
+//          inoxCtx.reporter.whenDebug(DebugSectionTransformation) { debug =>
+//            debug(s"Before transformation:\n ${unit.untpdTree.show}")
+//            debug(s"${unit.untpdTree.toString}")
+//          }
 
-          val transformers = (new TargetExtractor).transform andThen
-            (new Assn1Preprocessor).transform andThen
-            (new Assn2Preprocessor).transform andThen
-            (new DecreasesInference).transform andThen
-            (new PureScalaTranslator).transform
+          val transformers =
+            (new Assn2Preprocessor).start andThen
+            (new TargetExtractor).start andThen
+            (new Assn1Processor).start andThen
+            (new Assn2Processor).start andThen
+            (new DecreasesInference).start andThen
+            (new PureScalaTranslator).start
 
           unit.untpdTree = transformers(unit.untpdTree)
 

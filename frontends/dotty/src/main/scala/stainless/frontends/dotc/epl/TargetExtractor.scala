@@ -12,16 +12,25 @@ import stainless.equivchkplus.optExtractTarget
 
 import scala.collection.mutable.{Map, Queue, Set, Stack}
 
-class TargetExtractor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends ast.untpd.UntypedTreeMap {
+class TargetExtractor(using inoxCtx: inox.Context) extends UntypedTransformer {
 
   import ast.untpd.*
 
-  private val depDetector = new DepDetector
-  private val targets = depDetector.targets
+  private var depDetector: DepDetector = null
+  private var targets: Set[String] = Set.empty[String]
 
   private def notTarget(name: String): Boolean = targets.nonEmpty && !targets.contains(name)
 
-  override def transform(tree: Tree)(using dottyCtx: DottyContext): Tree = {
+  override def start(tree: untpd.Tree)(using DottyContext): untpd.Tree =
+    tree match {
+      case packageDef: PackageDef =>
+        depDetector = new DepDetector(packageDef)
+        targets = depDetector.targets
+        transform(tree)
+      case _ => sys.error("No package definition found")
+    }
+
+  override def transform(tree: Tree)(using dottyCtx: DottyContext): Tree =
     tree match {
       // We only care about the top-level definitions
       case PackageDef(pid: Ident, stats) =>
@@ -40,22 +49,16 @@ class TargetExtractor(using dottyCtx: DottyContext, inoxCtx: inox.Context) exten
         cpy.PackageDef(tree)(pid, newStats)
       case _ => sys.error("Invalid Assignment")
     }
-  }
 
-  class DepDetector(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends UntypedTreeTraverser {
-    private val packageDef = dottyCtx.compilationUnit.untpdTree match {
-      case packageDef: PackageDef => packageDef
-      case _ => throw new Exception("No package definition found")
-    }
+  class DepDetector(packageDef: PackageDef)(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends UntypedTreeTraverser {
     private val elements: Map[String, List[untpd.Tree]] = Map.empty
     private val extendsMap: Map[String, List[String]] = Map.empty
 
-    def insert[T](map: Map[String, List[T]])(key: String, value: T): Unit = {
+    def insert[T](map: Map[String, List[T]])(key: String, value: T): Unit =
       map.updateWith(key) {
         case Some(existingList) => Some(value :: existingList)
         case None => Some(List(value))
       }
-    }
 
     packageDef.stats.foreach(stat =>
       stat match {
@@ -69,6 +72,9 @@ class TargetExtractor(using dottyCtx: DottyContext, inoxCtx: inox.Context) exten
           }
 
         case typeDef@TypeDef(name, rhs: LambdaTypeTree) =>
+          insert(elements)(name.toString, typeDef)
+          
+        case typeDef@TypeDef(name, rhs: Ident) =>
           insert(elements)(name.toString, typeDef)
 
         case moduleDef@ModuleDef(name, impl@Template(_, parentsOrDerived: List[Tree], _, _)) =>

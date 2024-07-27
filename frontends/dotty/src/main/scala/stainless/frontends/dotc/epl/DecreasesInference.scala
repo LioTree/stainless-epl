@@ -12,7 +12,7 @@ import dotty.tools.dotc.util.Spans.Span
 
 import scala.collection.mutable.{ArrayBuffer, Set, Stack, Map}
 
-class DecreasesInference extends ast.untpd.UntypedTreeMap {
+class DecreasesInference extends UntypedTransformer {
 
   import ast.untpd.*
 

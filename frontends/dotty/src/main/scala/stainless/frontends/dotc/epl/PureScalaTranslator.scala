@@ -5,19 +5,19 @@ import dotty.tools.dotc.ast.Trees.*
 import dotty.tools.dotc.ast.untpd
 import dotty.tools.dotc.ast.untpd.NumberKind.{Decimal, Whole}
 import dotty.tools.dotc.core.*
-import dotty.tools.dotc.core.Contexts.{Context as DottyContext}
+import dotty.tools.dotc.core.Contexts.Context as DottyContext
 import dotty.tools.dotc.core.Names.{EmptyTermName, EmptyTypeName, TermName, TypeName, termName, typeName}
 import dotty.tools.dotc.core.Phases.*
 import dotty.tools.dotc.util.Spans.Span
 import stainless.equivchkplus.optMatchExhaustiveness
 
-import scala.collection.mutable.{ArrayBuffer, Set, Stack, Map}
+import scala.collection.mutable.{ArrayBuffer, Map, Set, Stack}
 
 /**
  * This class performs the transformations on the Scala code.
  * It extends `UntypedTreeMap`, which is a class for transforming untyped trees.
  */
-class PureScalaTranslator(using inoxCtx: inox.Context) extends ast.untpd.UntypedTreeMap {
+class PureScalaTranslator(using inoxCtx: inox.Context) extends UntypedTransformer {
 
   import ast.untpd.*
 
