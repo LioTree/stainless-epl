@@ -18,10 +18,10 @@ class EPLProcessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends 
   private val pubDefs: Seq[String] = inoxCtx.options.findOption(optPublicDefs).getOrElse(Seq.empty[String])
   private val externpures: Seq[String] = inoxCtx.options.findOption(optExternPureDefs).getOrElse(Seq.empty[String])
 
-  private def extractFileName(path: String): String = {
+  protected def extractFileName(path: String): String = {
     val regex = """(?:.*/)?([^/]+)\.scala$""".r
     path match {
-      case regex(fileName) => fileName.replace("-", "_")
+      case regex(fileName) => fileName
       case _ => sys.error("Invalid file name")
     }
   }
