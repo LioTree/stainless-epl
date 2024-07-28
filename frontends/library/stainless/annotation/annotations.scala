@@ -113,3 +113,9 @@ class anyHeapRef extends Annotation
 
 @ignore
 class refEq extends Annotation
+
+/**
+ * This annotation is used to mark subfunctions when employing the strategy of using subfunctions equivalence to replace the original function equivalence in equivalence checks.
+ */
+@ignore
+class subFn(originFun: String, name: String) extends Annotation

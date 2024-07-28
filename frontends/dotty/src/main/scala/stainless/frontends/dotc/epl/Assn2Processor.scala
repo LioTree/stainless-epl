@@ -8,6 +8,7 @@ import dotty.tools.dotc.core.*
 import dotty.tools.dotc.core.Contexts.Context as DottyContext
 import dotty.tools.dotc.core.Flags
 import dotty.tools.dotc.core.Names.{termName, typeName}
+import dotty.tools.dotc.util.Spans.Span
 import stainless.equivchkplus.optAssn2
 
 class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends EPLProcessor {
@@ -18,7 +19,7 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
   private val safeListMap = List("ctx", "env")
   private val fakePrefix = "fake_"
 
-  private class SubFunGenerator(baseFun: DefDef) extends UntypedTreeTraverser {
+  private class SubFunctionGenerator(baseFun: DefDef) extends UntypedTreeTraverser {
 
     private class RecCallRewriter extends ast.untpd.UntypedTreeMap {
       override def transform(tree: Tree)(using DottyContext): Tree =
@@ -36,6 +37,19 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
     def getSubFuns(using dottyCtx: DottyContext): List[DefDef] = {
       traverse(baseFun)
       subFuns
+    }
+
+    def markSubFun(subFun: DefDef, markName: String): DefDef = {
+      val spanStart = subFun.span.start
+
+      val subFnIdent = Ident(typeName("subFn"))
+      // A very necessary step, otherwise errors will occur in the typer.
+      subFnIdent.span = Span(spanStart, spanStart + 6)
+      val subFnAnnotation = Apply(Select(New(subFnIdent), termName("<init>")),
+        List(Literal(Constants.Constant(s"${extractFileName(dottyCtx.source.toString)}$$package.${baseFun.name.toString}")), 
+        Literal(Constants.Constant(markName))))
+
+      subFun.withAnnotations(List(subFnAnnotation))
     }
 
     override def traverse(tree: untpd.Tree)(using dottyCtx: DottyContext): Unit =
@@ -56,7 +70,7 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
           }.asInstanceOf[ParamClause])
           val newRhs = cpy.Match(baseMatch)(baseMatch.selector, List(cpy.CaseDef(tree)(pat, EmptyTree, body)))
           val subFun = recCallRewriter.transform(cpy.DefDef(baseFun)(newName, newParamss, baseFun.tpt, newRhs)).asInstanceOf[DefDef]
-          subFuns = subFun :: subFuns
+          subFuns = markSubFun(subFun, fun.name.toString) :: subFuns
         }
 
         case CaseDef(Ident(name), EmptyTree, body) if name.toString == "_" =>
@@ -96,7 +110,7 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
             markExternPure(untpd.cpy.ModuleDef(moduleDef)(name, transformSub(impl)))
 
           case defDef@DefDef(name, paramss, tpt, _) if splitFunctions.contains(name.toString) =>
-            subFunctions = subFunctions ++ (new SubFunGenerator(defDef)).getSubFuns
+            subFunctions = subFunctions ++ (new SubFunctionGenerator(defDef)).getSubFuns
             fakeFunctions = fakeFunctions :+ genFakeFun(defDef)
             transform(defDef)
 
