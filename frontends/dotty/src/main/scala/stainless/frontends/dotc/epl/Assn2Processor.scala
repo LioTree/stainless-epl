@@ -25,7 +25,7 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
       override def transform(tree: Tree)(using DottyContext): Tree =
         tree match {
           case Apply(Ident(name), args) if name.toString == baseFun.name.toString =>
-            cpy.Apply(tree)(Ident(termName(fakePrefix + name.toString)), args)
+            cpy.Apply(tree)(Ident(termName(fakePrefix + name.toString)), transform(args))
           case _ => super.transform(tree)
         }
     }
@@ -45,8 +45,9 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
       val subFnIdent = Ident(typeName("subFn"))
       // A very necessary step, otherwise errors will occur in the typer.
       subFnIdent.span = Span(spanStart, spanStart + 6)
+      val fileName = extractFileName(dottyCtx.source.toString)
       val subFnAnnotation = Apply(Select(New(subFnIdent), termName("<init>")),
-        List(Literal(Constants.Constant(s"${extractFileName(dottyCtx.source.toString)}$$package.${baseFun.name.toString}")), 
+        List(Literal(Constants.Constant(s"${fileName}.${fileName}$$package.${baseFun.name.toString}")),
         Literal(Constants.Constant(markName))))
 
       subFun.withAnnotations(List(subFnAnnotation))
