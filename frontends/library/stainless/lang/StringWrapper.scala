@@ -12,6 +12,8 @@ case class StringWrapper(val underlying: String) {
 
   def +(that: OverflowInt): StringWrapper = this + that.toString
 
+  def concat(that: StringWrapper): StringWrapper = this + that
+
   def length: OverflowInt = OverflowInt(underlying.bigLength())
 
   def size: OverflowInt = length
