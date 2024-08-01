@@ -63,8 +63,11 @@ class EquivalenceChecker(override val trees: Trees,
                         (private val tests: Map[Identifier, (Seq[trees.Expr], Seq[trees.Type])],
                          val symbols: trees.Symbols)
                         (using val context: inox.Context)
-  extends Utils with stainless.utils.CtexRemapping { self =>
+  extends Utils with stainless.utils.CtexRemapping {
+  self =>
+
   import trees._
+
   require(initWeights.keySet == allModels.toSet)
 
   //region Examination and rounds ADTs
@@ -103,30 +106,36 @@ class EquivalenceChecker(override val trees: Trees,
 
   //region Final results definitions
 
-  case class Results(// Clusters
-                     equiv: Map[Identifier, Set[Identifier]],
-                     valid: Map[Identifier, ValidData],
-                     unequivalent: Map[Identifier, UnequivalentData],
-                     unsafe: Map[Identifier, UnsafeData],
-                     // Candidates that will need to be manually inspected...
-                     unknownsEquivalence: Map[Identifier, UnknownEquivalenceData],
-                     unknownsSafety: Map[Identifier, UnknownSafetyData],
-                     // Incorrect signature
-                     wrongs: Set[Identifier],
-                     weights: Map[Identifier, Int])
+  case class Results( // Clusters
+                      equiv: Map[Identifier, Set[Identifier]],
+                      valid: Map[Identifier, ValidData],
+                      unequivalent: Map[Identifier, UnequivalentData],
+                      unsafe: Map[Identifier, UnsafeData],
+                      // Candidates that will need to be manually inspected...
+                      unknownsEquivalence: Map[Identifier, UnknownEquivalenceData],
+                      unknownsSafety: Map[Identifier, UnknownSafetyData],
+                      // Incorrect signature
+                      wrongs: Set[Identifier],
+                      weights: Map[Identifier, Int])
+
   case class Eval(expected: Expr, got: Expr)
+
   case class Ctex(mapping: Seq[(ValDef, Expr)], eval: Option[Eval])
+
   case class ValidData(path: Seq[Identifier], solvingInfo: SolvingInfo)
+
   // The list of counter-examples can be empty; the candidate is still invalid but a ctex could not be extracted
   // If the solvingInfo is None, the candidate has been pruned.
   case class UnequivalentData(ctexs: Seq[Ctex], solvingInfo: Option[SolvingInfo])
 
   case class UnsafeData(self: Seq[UnsafeCtex], auxiliaries: Map[Identifier, Seq[UnsafeCtex]])
+
   case class UnsafeCtex(kind: VCKind, pos: Position, ctex: Option[Seq[(ValDef, Expr)]], solvingInfo: SolvingInfo)
 
   case class UnknownEquivalenceData(solvingInfo: SolvingInfo)
 
   case class UnknownSafetyData(self: Seq[UnknownSafetyVC], auxiliaries: Map[Identifier, Seq[UnknownSafetyVC]])
+
   case class UnknownSafetyVC(kind: VCKind, pos: Position, solvingInfo: SolvingInfo)
 
   // Note: fromCache and trivial are only relevant for valid candidates
@@ -149,7 +158,7 @@ class EquivalenceChecker(override val trees: Trees,
     case CandidateFirst
   }
 
-  case class EquivCheckStrategy(order: EquivCheckOrder, subFnsMatchingStrat: Option[SubFnsMatchingStrat]) {
+  case class EquivCheckStrategy(order: EquivCheckOrder, subFnsMatchingStrat: Option[SubFnsMatchingStrat], subFnsEquivStrat: Option[SubFnsEquivStrat] = None) {
     def pretty: String = (order, subFnsMatchingStrat) match {
       case (EquivCheckOrder.ModelFirst, None) => "model first without sublemmas"
       case (EquivCheckOrder.CandidateFirst, None) => "candidate first without sublemmas"
@@ -159,22 +168,67 @@ class EquivalenceChecker(override val trees: Trees,
   }
 
   object EquivCheckStrategy {
-    def init: EquivCheckStrategy = EquivCheckStrategy(EquivCheckOrder.ModelFirst, None)
+    def init(model: Identifier, candidate: Identifier): EquivCheckStrategy =
+      context.options.findOption(optSubFnsEquiv) match {
+        case Some(true) => {
+          val modelFullName = model.fullName
+          val candidateFullName = candidate.fullName
+
+          val modelSubFns = symbols.functions.values.flatMap { fd =>
+            fd.flags.collect {
+              case annotation@Annotation("subFn", args) if args.headOption.exists {
+                case StringLiteral(value) => value == modelFullName
+                case _ => false
+              } => fd.id
+            }
+          }
+
+          val candidateSubFns = symbols.functions.values.flatMap { fd =>
+            fd.flags.collect {
+              case annotation@Annotation("subFn", args) if args.headOption.exists {
+                case StringLiteral(value) => value == candidateFullName
+                case _ => false
+              } => fd.id
+            }
+          }
+
+          val allSubFns = modelSubFns.toList ++ candidateSubFns.toList
+          val subFnsPairs = allSubFns.map { subFn =>
+            val modelSubFn = modelSubFns.find(_.name == subFn.name) match {
+              case Some(value) => value
+              case None => null
+            }
+            val candidateSubFn = candidateSubFns.find(_.name == subFn.name) match {
+              case Some(value) => value
+              case None => null
+            }
+            (modelSubFn, candidateSubFn)
+          }
+          EquivCheckStrategy(EquivCheckOrder.ModelFirst, None, Some(SubFnsEquivStrat(subFnsPairs)))
+        }
+        case _ => EquivCheckStrategy(EquivCheckOrder.ModelFirst, None)
+      }
+  }
+
+  extension (id: Identifier) {
+    private def fullName: String = CheckFilter.fixedFullName(id)
   }
 
   // Pairs of model - candidate sub functions with argument permutation
   type SubFnsMatching = Matching[Identifier, ArgPermutation]
 
-  case class SubFnsMatchingStrat(// Matching to try next
-                                 curr: SubFnsMatching,
-                                 // *all* remaining matching (sublist of `all`), unpruned
-                                 rest: LazyList[SubFnsMatching],
-                                 // # of matching picked so far, starting at 1, for a maximum of `maxMatchingPermutation`
-                                 nbPickedMatching: Int,
-                                 // *all* generated matching, unpruned
-                                 all: LazyList[SubFnsMatching]) {
+  case class SubFnsMatchingStrat( // Matching to try next
+                                  curr: SubFnsMatching,
+                                  // *all* remaining matching (sublist of `all`), unpruned
+                                  rest: LazyList[SubFnsMatching],
+                                  // # of matching picked so far, starting at 1, for a maximum of `maxMatchingPermutation`
+                                  nbPickedMatching: Int,
+                                  // *all* generated matching, unpruned
+                                  all: LazyList[SubFnsMatching]) {
     assert(1 <= nbPickedMatching && nbPickedMatching <= maxMatchingPermutation)
   }
+
+  case class SubFnsEquivStrat(subFnsPairs: List[Tuple2[Identifier, Identifier]])
 
   extension (matching: SubFnsMatching) {
     def pretty: String = matching.pairs
@@ -204,7 +258,7 @@ class EquivalenceChecker(override val trees: Trees,
 
   private enum EquivLemmas {
     case ToGenerate
-    case Generated(eqLemma: Identifier,
+    case Generated(eqLemma: Option[Identifier],
                    proof: Option[Identifier],
                    sublemmas: Seq[Identifier])
   }
@@ -247,8 +301,10 @@ class EquivalenceChecker(override val trees: Trees,
 
   // Type -> multiplicity
   private case class UnordSig(args: Map[Type, Int])
+
   // Type -> list of values, whose length is the multiplicity of the type
   private case class UnordCtex(args: Map[Type, Seq[Expr]])
+
   private val ctexsDb = mutable.Map.empty[UnordSig, mutable.Set[UnordCtex]]
 
   // Set of model subfn - candidate subfn for which we know (by counter example falsification) that do not match
@@ -329,11 +385,11 @@ class EquivalenceChecker(override val trees: Trees,
     picked match {
       case Some(candId) =>
         val topN = models.toSeq
-            .filter { case (mod, _ ) => !candidateTestedModels(candId).contains(mod) } // Do not test models for which this candidate got an unknown
-            .sortBy(-_._2)
-            .take(N).map(_._1)
+          .filter { case (mod, _) => !candidateTestedModels(candId).contains(mod) } // Do not test models for which this candidate got an unknown
+          .sortBy(-_._2)
+          .take(N).map(_._1)
         if (topN.nonEmpty) {
-          val strat = EquivCheckStrategy.init
+          val strat = EquivCheckStrategy.init(anyModel.id, candId)
           examinationState = ExaminationState.Examining(candId, RoundState(topN.head, topN.tail, strat, EquivLemmas.ToGenerate, 0L))
           NextExamination.NewCandidate(candId, topN.head, strat, pruned.toMap)
         } else {
@@ -368,14 +424,14 @@ class EquivalenceChecker(override val trees: Trees,
     assert(roundState.equivLemmas == EquivLemmas.ToGenerate)
     val conf = EquivCheckConf(symbols.functions(roundState.model), symbols.functions(cand), roundState.strat, topLevel = true)
     val generated = equivalenceCheck(conf)
-    val equivLemmas = EquivLemmas.Generated(generated.eqLemma.id, generated.proof.map(_.id), generated.sublemmasAndReplFns.map(_.id))
+    val equivLemmas = EquivLemmas.Generated(generated.eqLemma.map(_.id), generated.proof.map(_.id), generated.sublemmasAndReplFns.map(_.id))
     examinationState = ExaminationState.Examining(cand, roundState.copy(equivLemmas = equivLemmas))
-    generated.eqLemma +: (generated.proof.toSeq ++ generated.sublemmasAndReplFns)
+    generated.eqLemma.toSeq ++ (generated.proof.toSeq ++ generated.sublemmasAndReplFns)
   }
 
   def concludeRound(analysis: VerificationAnalysis): RoundConclusion = examinationState match {
     case ExaminationState.Examining(cand, RoundState(model, remainingModels, strat, EquivLemmas.Generated(eqLemma, proof, sublemmas), currCumulativeSolvingTime)) =>
-      val solvingInfo = extractSolvingInfo(analysis, cand, eqLemma +: (proof.toSeq ++ sublemmas))
+      val solvingInfo = extractSolvingInfo(analysis, cand, eqLemma.toSeq ++ (proof.toSeq ++ sublemmas))
 
       def nextRoundOrUnknown(): RoundConclusion = {
         models(model) = models(model) - 1
@@ -446,10 +502,11 @@ class EquivalenceChecker(override val trees: Trees,
             }
         }
       }
+
       def nextModelOrUnknown(invalidPairs: Set[(Identifier, Identifier, ArgPermutation)]): RoundConclusion = {
         candidateTestedModels(cand) += model
         if (remainingModels.nonEmpty) {
-          val nextStrat = EquivCheckStrategy.init
+          val nextStrat = EquivCheckStrategy.init(remainingModels.head, cand)
           val nextRS = RoundState(remainingModels.head, remainingModels.tail, nextStrat, EquivLemmas.ToGenerate, currCumulativeSolvingTime + solvingInfo.time)
           examinationState = ExaminationState.Examining(cand, nextRS)
           RoundConclusion.NextRound(cand, remainingModels.head, nextStrat, invalidPairs)
@@ -480,7 +537,7 @@ class EquivalenceChecker(override val trees: Trees,
           // schade
           val candFd = symbols.functions(cand)
           // Take all ctex for `cand`, `eqLemma` and `proof`
-          val ctexOrderedArgs = (Seq(cand, eqLemma) ++ proof.toSeq).flatMap(id => allCtexs.getOrElse(id, Seq.empty))
+          val ctexOrderedArgs = (Seq(cand) ++ eqLemma.toSeq ++ proof.toSeq).flatMap(id => allCtexs.getOrElse(id, Seq.empty))
           val ctexsMap = ctexOrderedArgs.map { ctex =>
             val eval = evalOn(symbols.functions(model), candFd, ctex)
             Ctex(candFd.params.zip(ctex), eval)
@@ -511,27 +568,39 @@ class EquivalenceChecker(override val trees: Trees,
 
   //region Generation of functions encoding equivalence
 
-  private case class GeneratedEqLemmas(eqLemma: FunDef, proof: Option[FunDef], sublemmasAndReplFns: Seq[FunDef])
+  private case class GeneratedEqLemmas(eqLemma: Option[FunDef], proof: Option[FunDef], sublemmasAndReplFns: Seq[FunDef])
 
   // Generate eqLemma and sublemmas for the given top-level model and candidate functions
   private def equivalenceCheck(conf: EquivCheckConf): GeneratedEqLemmas = {
     import conf.{fd1, fd2}
     import exprOps._
 
-    // For the top-level model and candidate function
-    val permutation = ArgPermutation(conf.model.params.indices) // No permutation for top-level model and candidate
-    val (eqLemmaResTopLvl, topLvlRepl) = generateEqLemma(conf, permutation)
-    // For the sub-functions
-    val eqLemmasResSubs = conf.strat.subFnsMatchingStrat.toSeq.flatMap { matchingStrat =>
-      matchingStrat.curr.pairs.flatMap {
-        case ((submod, subcand), perm) =>
-          val newConf = conf.copy(model = symbols.functions(submod), candidate = symbols.functions(subcand), topLevel = false)
-          val (subres, subRepl) = generateEqLemma(newConf, perm)
-          Seq(subres.updatedFd) ++ subres.helper.toSeq ++ subRepl.toSeq
-      }
+    conf.strat.subFnsEquivStrat match {
+      case Some(subFnsEquivStrat) =>
+        val eqLemmasResSubs = subFnsEquivStrat.subFnsPairs.flatMap {
+          case (submod, subcand) =>
+            val newConf = conf.copy(model = symbols.functions(submod), candidate = symbols.functions(subcand), topLevel = false)
+            val permutation = ArgPermutation(symbols.functions(submod).params.indices) // No permutation for top-level model and candidate
+            val (subres, subRepl) = generateEqLemma(newConf, permutation)
+            Seq(subres.updatedFd) ++ subres.helper.toSeq ++ subRepl.toSeq
+        }
+        GeneratedEqLemmas(None, None, eqLemmasResSubs)
+      case None =>
+        // For the top-level model and candidate function
+        val permutation = ArgPermutation(conf.model.params.indices) // No permutation for top-level model and candidate
+        val (eqLemmaResTopLvl, topLvlRepl) = generateEqLemma(conf, permutation)
+        // For the sub-functions
+        val eqLemmasResSubs = conf.strat.subFnsMatchingStrat.toSeq.flatMap {
+          matchingStrat =>
+            matchingStrat.curr.pairs.flatMap {
+              case ((submod, subcand), perm) =>
+                val newConf = conf.copy(model = symbols.functions(submod), candidate = symbols.functions(subcand), topLevel = false)
+                val (subres, subRepl) = generateEqLemma(newConf, perm)
+                Seq(subres.updatedFd) ++ subres.helper.toSeq ++ subRepl.toSeq
+            }
+        }
+        GeneratedEqLemmas(Some(eqLemmaResTopLvl.updatedFd), eqLemmaResTopLvl.helper, topLvlRepl.toSeq ++ eqLemmasResSubs)
     }
-
-    GeneratedEqLemmas(eqLemmaResTopLvl.updatedFd, eqLemmaResTopLvl.helper, topLvlRepl.toSeq ++ eqLemmasResSubs)
   }
 
   // Generate an eqLemma for the given fd1 and fd2 functions and the given permutation for the candidate function
@@ -819,6 +888,7 @@ class EquivalenceChecker(override val trees: Trees,
           }
       }
     }
+
     val startInvPairs = invalidFunctionsPairsCache.toSet
     val (next, invalidPairs) = loop(matching, startInvPairs)
     val extra = invalidPairs -- startInvPairs
@@ -911,6 +981,7 @@ class EquivalenceChecker(override val trees: Trees,
         Matching(pairs2)
       }
     }
+
     // Interleaving `allPermsPerMatching`
     def interleaved(matchingIx: Int): LazyList[Matching[Identifier, ArgPermutation]] = {
       def nextNonEmptyIter(start: Int, curr: Int): Option[Int] = {
@@ -923,6 +994,7 @@ class EquivalenceChecker(override val trees: Trees,
           else nextNonEmptyIter(start, nxt)
         }
       }
+
       nextNonEmptyIter(matchingIx, matchingIx) match {
         case Some(matchingIx) =>
           val m = allPermsPerMatching(matchingIx).next()
@@ -931,6 +1003,7 @@ class EquivalenceChecker(override val trees: Trees,
         case None => LazyList.empty
       }
     }
+
     interleaved(0)
   }
 
@@ -1054,10 +1127,13 @@ object EquivalenceChecker {
     val trees: Trees
     val symbols: trees.Symbols
   }
+
   object Creation {
-    sealed trait Success extends Creation { self =>
-      val equivChker: EquivalenceChecker{val trees: self.trees.type; val symbols: self.symbols.type}
+    sealed trait Success extends Creation {
+      self =>
+      val equivChker: EquivalenceChecker {val trees: self.trees.type; val symbols: self.symbols.type}
     }
+
     sealed trait Failure(val reason: FailureReason) extends Creation
   }
 
@@ -1223,7 +1299,7 @@ object EquivalenceChecker {
     require(m2c.toSet == m2c.indices.toSet, "Permutations are hard")
 
     def reverse: ArgPermutation =
-    // zipWithIndex will give (candidate ix, model ix)
+      // zipWithIndex will give (candidate ix, model ix)
       ArgPermutation(m2c.zipWithIndex.sortBy(_._1).map(_._2))
   }
 
@@ -1365,6 +1441,7 @@ object EquivalenceChecker {
     }
 
     type Bdgs = Seq[(ValDef, Expr)]
+
     def peel(e: Expr, bdgs: Bdgs, samplesAcc: Seq[Expr]): Either[Expr, Seq[Expr]] = e match {
       case Let(vd, e, body) =>
         peel(body, bdgs :+ (vd, e), samplesAcc)

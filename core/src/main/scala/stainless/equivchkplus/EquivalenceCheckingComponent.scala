@@ -22,6 +22,8 @@ object optAssn1 extends inox.FlagOptionDef("assn1", true)
 
 object optAssn2 extends inox.FlagOptionDef("assn2", true)
 
+object optSubFnsEquiv extends inox.FlagOptionDef("subfns-equiv", true)
+
 object optTransformation extends inox.FlagOptionDef("transformation", true)
 
 object optExternPureDefs extends inox.OptionDef[Seq[String]] {
