@@ -295,6 +295,7 @@ class EquivalenceChecker(override val trees: Trees,
   private val unequivalent = mutable.Map.empty[Identifier, UnequivalentData]
   private val unsafe = mutable.Map.empty[Identifier, UnsafeData]
   private val unknownsEquivalence = mutable.LinkedHashMap.empty[Identifier, UnknownEquivalenceData]
+  val unknownsEquivSubFuns = mutable.LinkedHashMap.empty[Identifier, UnknownEquivalenceData]
   private val unknownsSafety = mutable.LinkedHashMap.empty[Identifier, UnknownSafetyData]
   private val signatureMismatch = mutable.ArrayBuffer.empty[Identifier]
   private val clusters = mutable.Map.empty[Identifier, mutable.ArrayBuffer[Identifier]]
@@ -433,14 +434,21 @@ class EquivalenceChecker(override val trees: Trees,
     case ExaminationState.Examining(cand, RoundState(model, remainingModels, strat, EquivLemmas.Generated(eqLemma, proof, sublemmas), currCumulativeSolvingTime)) =>
       val solvingInfo = extractSolvingInfo(analysis, cand, eqLemma.toSeq ++ (proof.toSeq ++ sublemmas))
 
-      def nextRoundOrUnknown(): RoundConclusion = {
+      def nextRoundOrUnknown(unknownIds:Seq[Identifier] = Seq.empty): RoundConclusion = {
         models(model) = models(model) - 1
         (strat.order, strat.subFnsMatchingStrat) match {
+          // When subFnsEquivStrat is enabled, only the ModelFirst strategy is required.
+          // Sub-functions equivlence checking will automatically adopt the original four strategies when comparing.
           case (EquivCheckOrder.ModelFirst, None) =>
-            val nextStrat = EquivCheckStrategy(EquivCheckOrder.CandidateFirst, None)
-            val nextRS = RoundState(model, remainingModels, nextStrat, EquivLemmas.ToGenerate, currCumulativeSolvingTime + solvingInfo.time)
-            examinationState = ExaminationState.Examining(cand, nextRS)
-            RoundConclusion.NextRound(cand, model, nextStrat, Set.empty)
+            strat.subFnsEquivStrat match {
+              case Some(subFnsEquivStrat) =>
+                nextModelOrUnknown(Set.empty, unknownIds)
+              case None =>
+                val nextStrat = EquivCheckStrategy (EquivCheckOrder.CandidateFirst, None)
+                val nextRS = RoundState (model, remainingModels, nextStrat, EquivLemmas.ToGenerate, currCumulativeSolvingTime + solvingInfo.time)
+                examinationState = ExaminationState.Examining (cand, nextRS)
+                RoundConclusion.NextRound(cand, model, nextStrat, Set.empty)
+            }
 
           case (EquivCheckOrder.CandidateFirst, None) =>
             val subFnsMatching = allSubFnsMatches(model, cand)
@@ -503,7 +511,7 @@ class EquivalenceChecker(override val trees: Trees,
         }
       }
 
-      def nextModelOrUnknown(invalidPairs: Set[(Identifier, Identifier, ArgPermutation)]): RoundConclusion = {
+      def nextModelOrUnknown(invalidPairs: Set[(Identifier, Identifier, ArgPermutation)], unknownIds: Seq[Identifier] = Seq.empty): RoundConclusion = {
         candidateTestedModels(cand) += model
         if (remainingModels.nonEmpty) {
           val nextStrat = EquivCheckStrategy.init(remainingModels.head, cand)
@@ -514,6 +522,13 @@ class EquivalenceChecker(override val trees: Trees,
           // oh no, manual inspection incoming
           examinationState = ExaminationState.PickNext
           unknownsEquivalence += cand -> UnknownEquivalenceData(solvingInfo.withAddedTime(currCumulativeSolvingTime))
+          context.options.findOption(optSubFnsEquiv) match {
+            case Some(true) =>
+              unknownIds.foreach(
+                unknownsEquivSubFuns += _ -> UnknownEquivalenceData(solvingInfo.withAddedTime(currCumulativeSolvingTime))
+              )
+            case _ =>
+          }
           RoundConclusion.CandidateClassified(cand, Classification.Unknown, invalidPairs)
         }
       }
@@ -547,7 +562,7 @@ class EquivalenceChecker(override val trees: Trees,
           RoundConclusion.CandidateClassified(cand, Classification.Invalid(ctexsMap), Set.empty)
         }
       } else if (report.totalUnknown != 0) {
-        nextRoundOrUnknown()
+        nextRoundOrUnknown(report.unknownIds)
       } else {
         assert(!models.contains(cand))
         val modelPath = valid.get(model).map(_.path).getOrElse(Seq.empty)

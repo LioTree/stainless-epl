@@ -80,6 +80,7 @@ class VerificationReport(val results: Seq[VerificationReport.Record], val source
   lazy val totalTrivial = results.count(_.status.isTrivial)
   lazy val totalInvalid = results.count(_.status.isInvalid)
   lazy val totalUnknown = results.count(_.status.isInconclusive)
+  lazy val unknownIds = results.filter(_.status.isInconclusive).map(_.id).distinctBy(_.name)
 
   override val name = VerificationComponent.name
 
