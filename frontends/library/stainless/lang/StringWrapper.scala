@@ -14,11 +14,15 @@ case class StringWrapper(val underlying: String) {
 
   def concat(that: StringWrapper): StringWrapper = this + that
 
+  def ++(that: StringWrapper): StringWrapper = this + that
+
   def length: OverflowInt = OverflowInt(underlying.bigLength())
 
   def size: OverflowInt = length
 
   def charAt(index: OverflowInt): StringWrapper = StringWrapper(underlying.bigSubstring(index, index + OverflowInt(1)))
+
+  def take(index: OverflowInt): StringWrapper = charAt(index)
 
   def apply(index: OverflowInt): StringWrapper = StringWrapper(underlying.bigSubstring(index, index + OverflowInt(1)))
 
