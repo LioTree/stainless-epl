@@ -21,14 +21,15 @@ def generate_comparefuns_models(filenames, extract):
 
     # Extract the first element from filenames for models
     if filenames:
-        filename = filenames[0].split('/')[-1].replace('.scala', '')
-        packagename = filename.replace('-', '_')
+        packagename = filenames[0].split('/')[-1].replace('.scala', '')
+        # packagename = filename.replace('-', '_')
         models.add(packagename + '.' + packagename + '$package.' + extract)
 
     # Extract the remaining elements from filenames for comparefuns
     if len(filenames) > 1:
         comparefuns.update(
-            f"{filename.replace('.scala', '').split('/')[-1].replace('-','_')}.{filename.replace('.scala', '').split('/')[-1]}$package.{extract}"
+            # f"{filename.replace('.scala', '').split('/')[-1].replace('-','_')}.{filename.replace('.scala', '').split('/')[-1]}$package.{extract}"
+            f"{filename.replace('.scala', '').split('/')[-1]}.{filename.replace('.scala', '').split('/')[-1]}$package.{extract}"
             for filename in filenames[1:])
 
     return comparefuns, models
