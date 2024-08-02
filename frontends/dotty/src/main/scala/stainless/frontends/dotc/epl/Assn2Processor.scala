@@ -9,7 +9,7 @@ import dotty.tools.dotc.core.Contexts.Context as DottyContext
 import dotty.tools.dotc.core.Flags
 import dotty.tools.dotc.core.Names.{termName, typeName}
 import dotty.tools.dotc.util.Spans.Span
-import stainless.equivchkplus.optAssn2
+import stainless.equivchkplus.{optAssn2, optExtractTarget}
 
 class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends EPLProcessor {
 
@@ -48,7 +48,7 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
       val fileName = extractFileName(dottyCtx.source.toString)
       val subFnAnnotation = Apply(Select(New(subFnIdent), termName("<init>")),
         List(Literal(Constants.Constant(s"${fileName}.${fileName}$$package.${baseFun.name.toString}")),
-        Literal(Constants.Constant(markName))))
+          Literal(Constants.Constant(markName))))
 
       subFun.withAnnotations(List(subFnAnnotation))
     }
@@ -73,6 +73,13 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
           val subFun = recCallRewriter.transform(cpy.DefDef(baseFun)(newName, newParamss, baseFun.tpt, newRhs)).asInstanceOf[DefDef]
           subFuns = markSubFun(subFun, fun.name.toString) :: subFuns
         }
+
+//        case CaseDef(pat@Tuple(List(Apply(fun1: Ident, args1), Apply(fun2: Ident, args2))), EmptyTree, body) => {
+//          val newName = termName(s"${baseFun.name.toString}_${fun1.name.toTermName}_${fun2.name.toTermName}")
+//          val newRhs = cpy.Match(baseMatch)(baseMatch.selector, List(cpy.CaseDef(tree)(pat, EmptyTree, body)))
+//          val subFun = recCallRewriter.transform(cpy.DefDef(baseFun)(newName, baseFun.paramss, baseFun.tpt, newRhs)).asInstanceOf[DefDef]
+//          subFuns = markSubFun(subFun, s"${fun1.name.toString}_${fun2.name.toString}") :: subFuns
+//        }
 
         case CaseDef(Ident(name), EmptyTree, body) if name.toString == "_" =>
 
@@ -101,21 +108,21 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
         var subFunctions = List.empty[DefDef]
         var fakeFunctions = List.empty[DefDef]
 
-        val newStats = stats.map {
+        val newStats = stats.flatMap {
           // Replace Map with ListMap to avoid https://github.com/epfl-lara/stainless/issues/1547
           case typeDef@TypeDef(name, rhs@LambdaTypeTree(tparams, body: AppliedTypeTree)) if name.toString == "Env" =>
             val newBody = cpy.AppliedTypeTree(body)(Ident(typeName("ListMap")), transform(body.args))
-            cpy.TypeDef(typeDef)(name, cpy.LambdaTypeTree(rhs)(transformSub(tparams), transform(newBody)))
+            List(cpy.TypeDef(typeDef)(name, cpy.LambdaTypeTree(rhs)(transformSub(tparams), transform(newBody))))
 
           case moduleDef@ModuleDef(name, impl) if name.toString == "Gensym" =>
-            markExternPure(untpd.cpy.ModuleDef(moduleDef)(name, transformSub(impl)))
+            List(markExternPure(untpd.cpy.ModuleDef(moduleDef)(name, transformSub(impl))))
 
           case defDef@DefDef(name, paramss, tpt, _) if splitFunctions.contains(name.toString) =>
             subFunctions = subFunctions ++ (new SubFunctionGenerator(defDef)).getSubFuns
             fakeFunctions = fakeFunctions :+ genFakeFun(defDef)
-            transform(defDef)
+            List(transform(defDef))
 
-          case other => transform(other)
+          case other => List(transform(other))
         } ++ fakeFunctions ++ subFunctions
 
         super.transform(cpy.PackageDef(tree)(pid, newStats))
