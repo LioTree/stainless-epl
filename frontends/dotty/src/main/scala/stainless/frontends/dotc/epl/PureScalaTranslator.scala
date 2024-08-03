@@ -17,7 +17,7 @@ import scala.collection.mutable.{ArrayBuffer, Map, Set, Stack}
  * This class performs the transformations on the Scala code.
  * It extends `UntypedTreeMap`, which is a class for transforming untyped trees.
  */
-class PureScalaTranslator(using inoxCtx: inox.Context) extends UntypedTransformer {
+class PureScalaTranslator(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends BaseTransformer {
 
   import ast.untpd.*
 
@@ -30,14 +30,14 @@ class PureScalaTranslator(using inoxCtx: inox.Context) extends UntypedTransforme
       // Replace Int,Integer and Double with OverflowInt
       case Ident(name) if name.toString == "Int" || name.toString == "Integer" =>
         name match {
-          case name if name.isTermName => Ident(termName("OverflowInt"))
-          case name if name.isTypeName => Ident(typeName("OverflowInt"))
+          case name if name.isTermName => termIdent("OverflowInt")
+          case name if name.isTypeName => typeIdent("OverflowInt")
         }
 
       case Ident(name) if name.toString == "String" =>
         name match {
-          case name if name.isTermName => Ident(termName("StringWrapper"))
-          case name if name.isTypeName => Ident(typeName("StringWrapper"))
+          case name if name.isTermName => termIdent("StringWrapper")
+          case name if name.isTypeName => typeIdent("StringWrapper")
         }
 
       // Skip BigInt(n)
@@ -47,24 +47,24 @@ class PureScalaTranslator(using inoxCtx: inox.Context) extends UntypedTransforme
       // all Numbers are directly wrapped with OverflowInt(BigInt(n))
       // We don't use OverflowInt(n) because it has problem in unapply
       case Number(digits, _) =>
-        Apply(Ident(termName("OverflowInt")), List(Apply(Ident(termName("BigInt")), List(tree))))
+        Apply(termIdent("OverflowInt"), List(Apply(termIdent("BigInt"), List(tree))))
 
       // Replace Nil with Nil().
-      case Ident(name) if name.toString == "Nil" => Apply(Ident(termName("Nil")), Nil)
+      case Ident(name) if name.toString == "Nil" => Apply(termIdent("Nil"), Nil)
 
       // Replace None with None().
-      case Ident(name) if name.toString == "None" => Apply(Ident(termName("None")), Nil)
+      case Ident(name) if name.toString == "None" => Apply(termIdent("None"), Nil)
 
       case InfixOp(left, op: Ident, right: Tuple) if op.name == termName("+") =>
-        InfixOp(transform(left), Ident(termName("++")), Apply(Ident(termName("List")), right.trees.map(transform)))
+        InfixOp(transform(left), termIdent("++"), Apply(termIdent("List"), right.trees.map(transform)))
 
       // Replace a until b with List.range(a,b)
       case InfixOp(left, op: Ident, right) if op.name == termName("until") =>
-        Apply(Select(Ident(termName("List")), termName("range")), List(transform(left), transform(right)))
+        Apply(Select(termIdent("List"), termName("range")), List(transform(left), transform(right)))
 
       // Replace a to b with List.rangeTo(a,b)
       case InfixOp(left, op: Ident, right) if op.name == termName("to") =>
-        Apply(Select(Ident(termName("List")), termName("rangeTo")), List(transform(left), transform(right)))
+        Apply(Select(termIdent("List"), termName("rangeTo")), List(transform(left), transform(right)))
 
       // In Scala, for comprehensions are merely syntactic sugar that get translated into calls to methods like foreach, map, and flatMap.
       // Stainless can support List's for-yield but cannot support for, because List lacks the foreach method.
@@ -75,33 +75,33 @@ class PureScalaTranslator(using inoxCtx: inox.Context) extends UntypedTransforme
         val counterVarName: String = randomVariableName(8)
         val exprVarName: String = randomVariableName(8)
         val exprDef = ValDef(termName(exprVarName), TypeTree(), transform(expr))
-        val counterDef = ValDef(termName(counterVarName), TypeTree(), Apply(Ident(termName("BigInt")), List(Number("0", Whole(10)))))
+        val counterDef = ValDef(termName(counterVarName), TypeTree(), Apply(termIdent("BigInt"), List(Number("0", Whole(10)))))
         counterDef.setMods(Modifiers(Flags.Mutable))
         val whileDo = WhileDo(
-          Parens(InfixOp(Ident(termName(counterVarName)), Ident(termName("<")), Select(Ident(termName(exprVarName)), termName("length")))),
+          Parens(InfixOp(termIdent(counterVarName), termIdent("<"), Select(termIdent(exprVarName), termName("length")))),
           Block(
             List(
-              Apply(Ident(termName("decreases")), List(InfixOp(Select(Ident(termName(exprVarName)), termName("length")),
-                Ident(termName("-")), Ident(termName(counterVarName))))),
-              ValDef(pat.asInstanceOf[Ident].name.toTermName, TypeTree(), Apply(Ident(termName(exprVarName)),
-                List(Ident(termName(counterVarName))))),
+              Apply(termIdent("decreases"), List(InfixOp(Select(termIdent(exprVarName), termName("length")),
+                termIdent("-"), termIdent(counterVarName)))),
+              ValDef(pat.asInstanceOf[Ident].name.toTermName, TypeTree(), Apply(termIdent(exprVarName),
+                List(termIdent(counterVarName)))),
               transform(body),
             ),
-            Assign(Ident(termName(counterVarName)), InfixOp(Ident(termName(counterVarName)), Ident(termName("+")),
-              Apply(Ident(termName("OverflowInt")), List(Number("1", Whole(10))))))
+            Assign(termIdent(counterVarName), InfixOp(termIdent(counterVarName), termIdent("+"),
+              Apply(termIdent("OverflowInt"), List(Number("1", Whole(10))))))
           )
         )
-        Block(List(exprDef, counterDef), InfixOp(Parens(whileDo), Ident(termName("invariant")),
-          Parens(InfixOp(Ident(termName(counterVarName)), Ident(termName(">=")),
-            Apply(Ident(termName("BigInt")), List(Number("0", Whole(10))))))))
+        Block(List(exprDef, counterDef), InfixOp(Parens(whileDo), termIdent("invariant"),
+          Parens(InfixOp(termIdent(counterVarName), termIdent(">="),
+            Apply(termIdent("BigInt"), List(Number("0", Whole(10))))))))
 
       // Replace Character with String.
       // It is possible to add an implicit conversion from Char to String in the stainless library, but stainless cannot verify it because it must be @extern.
       case Literal(constant: Constants.Constant) if constant.value.isInstanceOf[Character] =>
-        Apply(Ident(termName("StringWrapper")), List(Literal(Constants.Constant(constant.value.toString))))
+        Apply(termIdent("StringWrapper"), List(Literal(Constants.Constant(constant.value.toString))))
 
       case Literal(constant: Constants.Constant) if constant.value.isInstanceOf[String] =>
-        Apply(Ident(termName("StringWrapper")), List(Literal(constant)))
+        Apply(termIdent("StringWrapper"), List(Literal(constant)))
 
       case Apply(fun@Select(qualifier, name), args) if name.toString == "toString" && args.size == 0 =>
         Select(transform(qualifier), termName("toStringWrapper"))
@@ -127,19 +127,19 @@ class PureScalaTranslator(using inoxCtx: inox.Context) extends UntypedTransforme
                 Apply(transform(fun), transform(args))
               // There is a tuple. Like ListMap((41 -> "George H. W. Bush", 42 -> "Bill Clinton"))
               case tuple: Tuple =>
-                Apply(transform(fun), List(Apply(Ident(termName("List")), transform(tuple.trees))))
+                Apply(transform(fun), List(Apply(termIdent("List"), transform(tuple.trees))))
               case _ =>
                 sys.error("unknown pattern for ListMap initialization.")
           }
           case n =>
             // add List() wrapper for arguments of ListMap.
             // Adding direct support for initializing ListMap with multiple ArrowAssoc since stainless doesn't support SeqLiteral.
-            Apply(transform(fun), List(Apply(Ident(termName("List")), transform(args))))
+            Apply(transform(fun), List(Apply(termIdent("List"), transform(args))))
         }
 
       // replace sys.error() with error[Nothing]("Error message.")
       case Apply(fun@Select(qualifier: Ident, name: TermName), args) if qualifier.name.toString == "sys" && name.toString == "error" =>
-        TypeApply(Ident(termName("errorWrapper")), List(Ident(typeName("Nothing"))))
+        errorWrapper
 
       // ignore println
       case Apply(fun: Ident, args) if fun.name.toString == "println" =>
@@ -148,7 +148,7 @@ class PureScalaTranslator(using inoxCtx: inox.Context) extends UntypedTransforme
       // Replace throw with error[Nothing]("Error message.")
       case Throw(expr) =>
         // Although stainless supports the use of Exception(), its return type is not Nothing. Therefore, we use error[Nothing] instead.
-        TypeApply(Ident(termName("errorWrapper")), List(Ident(typeName("Nothing"))))
+        errorWrapper
 
       // Just make Stainless happy. It will throw an error if non-sealed classes are compared.
       case typeDef@TypeDef(name, rhs) if typeDef.mods is Flags.Abstract =>
@@ -161,42 +161,42 @@ class PureScalaTranslator(using inoxCtx: inox.Context) extends UntypedTransforme
       // Add `import stainless.collection._` `import stainless.annotation._` `import stainless.lang._` to the beginning of the file.
       case PackageDef(pid, stats) =>
         val importStainless = Import(
-          Ident(termName("stainless")),
-          List(ImportSelector(Ident(termName("_")), EmptyTree, EmptyTree))
+          termIdent("stainless"),
+          List(ImportSelector(termIdent("_"), EmptyTree, EmptyTree))
         )
         val importAnnotation = Import(
-          Select(Ident(termName("stainless")), termName("annotation")),
-          List(ImportSelector(Ident(termName("_")), EmptyTree, EmptyTree))
+          Select(termIdent("stainless"), termName("annotation")),
+          List(ImportSelector(termIdent("_"), EmptyTree, EmptyTree))
         )
         val importLang = Import(
-          Select(Ident(termName("stainless")), termName("lang")),
-          List(ImportSelector(Ident(termName("_")), EmptyTree, EmptyTree))
+          Select(termIdent("stainless"), termName("lang")),
+          List(ImportSelector(termIdent("_"), EmptyTree, EmptyTree))
         )
         val importCollection = Import(
-          Select(Ident(termName("stainless")), termName("collection")),
-          List(ImportSelector(Ident(termName("_")), EmptyTree, EmptyTree))
+          Select(termIdent("stainless"), termName("collection")),
+          List(ImportSelector(termIdent("_"), EmptyTree, EmptyTree))
         )
         cpy.PackageDef(tree)(transformSub(pid), importStainless :: importAnnotation :: importCollection :: importLang :: transformStats(stats, dottyCtx.owner))
 
       // import scala.math => import stainless.math
       case Import(Ident(qualifierName), List(ImportSelector(Ident(name), EmptyTree, EmptyTree)))
         if qualifierName.toString == "scala" && name.toString == "math" =>
-        Import(Ident(termName("stainless")), List(ImportSelector(Ident(name), EmptyTree, EmptyTree)))
+        Import(termIdent("stainless"), List(ImportSelector(Ident(name), EmptyTree, EmptyTree)))
 
       // import scala.math._ => import stainless.math
       // scala.math.xx() => stainless.math.xx()
       case Select(qualifier: Ident, name) if s"${qualifier.name}.$name" == "scala.math" =>
-        Select(Ident(termName("stainless")), name)
+        Select(termIdent("stainless"), name)
 
       // import scala.collection.immutable.ListMap => import stainless.collection.ListMap
       // scala.collection.immutable.ListMap.xx => stainless.collection.ListMap.xx
       case Select(Select(Ident(name1), name2), name3) if s"$name1.$name2.$name3" == "scala.collection.immutable" =>
-        Select(Ident(termName("stainless")), termName("collection"))
+        Select(termIdent("stainless"), termName("collection"))
 
       // import scala.collection.immutable.Map => import stainless.lang.Map
       // scala.collection.immutable.Map.xx => stainless.lang.Map.xx
       case Select(Select(Select(Ident(name1), name2), name3), name4) if s"$name1.$name2.$name3.$name4" == "scala.collection.immutable.Map" =>
-        Select(Select(Ident(termName("stainless")), termName("lang")), termName("Map"))
+        Select(Select(termIdent("stainless"), termName("lang")), termName("Map"))
 
       case Match(selector, cases) =>
         // Find whether there is Alternative in cases
@@ -211,7 +211,7 @@ class PureScalaTranslator(using inoxCtx: inox.Context) extends UntypedTransforme
         inoxCtx.options.findOption(optMatchExhaustiveness) match {
           case None | Some(true) =>
             // Insert a `case _ => errorWrapper[Nothing]` in any case to pass match exhaustiveness verification.
-            val defaultCase = CaseDef(Ident(termName("_")), EmptyTree, TypeApply(Ident(termName("errorWrapper")), List(Ident(typeName("Nothing")))))
+            val defaultCase = CaseDef(termIdent("_"), EmptyTree, errorWrapper)
             cpy.Match(tree)(transform(selector), transformSub(flatCases :+ defaultCase))
           case _ =>
             cpy.Match(tree)(transform(selector), transformSub(flatCases))

@@ -12,7 +12,7 @@ import stainless.equivchkplus.optExtractTarget
 
 import scala.collection.mutable.{Map, Queue, Set, Stack}
 
-class TargetExtractor(using inoxCtx: inox.Context) extends UntypedTransformer {
+class TargetExtractor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends BaseTransformer {
 
   import ast.untpd.*
 

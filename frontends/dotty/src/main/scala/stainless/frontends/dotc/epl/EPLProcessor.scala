@@ -11,7 +11,7 @@ import dotty.tools.dotc.core.Names.{termName, typeName}
 import dotty.tools.dotc.util.Spans.Span
 import stainless.equivchkplus.{optExternPureDefs, optPublicDefs}
 
-class EPLProcessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends UntypedTransformer {
+class EPLProcessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends BaseTransformer {
 
   import ast.untpd.*
 
