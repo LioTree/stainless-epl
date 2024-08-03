@@ -48,6 +48,7 @@ def run_dotty(filenames, params):
     command.append('--equivchk=true')
     command.append('--transformation=true')
     command.append('--timeout=1')
+    command.append('--unroll-bound=50')
     command.append('--equivchk-output=temp.json')
 
     print("[*] Running command:", ' '.join(command))
