@@ -33,13 +33,16 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
     private var baseMatch: Match = _
     private var subFuns = List.empty[DefDef]
     private val recCallRewriter = new RecCallRewriter
+    private var defaultSubFun = false
 
     def getSubFuns(using dottyCtx: DottyContext): List[DefDef] = {
       traverse(baseFun)
+      // try to generate the default sub-function if it is not generated
+      genDefaultSubFn(TypeApply(Ident(termName("errorWrapper")), List(Ident(typeName("Nothing")))))
       subFuns
     }
 
-    def markSubFun(subFun: DefDef, markName: String): DefDef = {
+    private def markSubFun(subFun: DefDef, markName: String): DefDef = {
       val spanStart = subFun.span.start
 
       val subFnIdent = Ident(typeName("subFn"))
@@ -53,6 +56,36 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
       subFun.withAnnotations(List(subFnAnnotation))
     }
 
+    private def genDefaultSubFn(body: untpd.Tree): Unit = {
+      def markDefaultSubFun(subFun: DefDef, markName: String): DefDef = {
+        val spanStart = subFun.span.start
+
+        val subFnIdent = Ident(typeName("subFn"))
+        // A very necessary step, otherwise errors will occur in the typer.
+        subFnIdent.span = Span(spanStart, spanStart + 6)
+        val fileName = extractFileName(dottyCtx.source.toString)
+        val subFnAnnotation = Apply(Select(New(subFnIdent), termName("<init>")),
+          List(Literal(Constants.Constant(s"${fileName}.${fileName}$$package.${baseFun.name.toString}")),
+            Literal(Constants.Constant(markName))))
+
+        val defaultSubFnIdent = Ident(typeName("defaultSubFn"))
+        defaultSubFnIdent.span = Span(spanStart, spanStart + 14)
+        val defaultSubFnAnnotation = Apply(Select(New(defaultSubFnIdent), termName("<init>")), Nil)
+
+        subFun.withAnnotations(List(subFnAnnotation, defaultSubFnAnnotation))
+      }
+
+      // Only one default sub-function is allowed
+      if(!defaultSubFun) {
+        defaultSubFun = true
+        // Default case, whatever the name it is, we just use a "_" as its name
+        val newName = termName(s"${baseFun.name.toString}__")
+        val newRhs = cpy.Match(baseMatch)(baseMatch.selector, List(CaseDef(Ident(termName("_")), EmptyTree, body)))
+        val subFun = recCallRewriter.transform(cpy.DefDef(baseFun)(newName, baseFun.paramss, baseFun.tpt, newRhs)).asInstanceOf[DefDef]
+        subFuns = markDefaultSubFun(subFun, "_") :: subFuns
+      }
+    }
+
     override def traverse(tree: untpd.Tree)(using dottyCtx: DottyContext): Unit =
       tree match {
         case defDef@DefDef(name, paramss, tpt, _) =>
@@ -62,26 +95,18 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
               traverseChildren(_match)
             case _ => sys.error("Invalid Assn2")
 
+        case CaseDef(pat@Apply(fun: Ident, args), EmptyTree, body) if fun.name.toString == "Apply" || fun.name.toString == "IfThenElse" =>
+
         case CaseDef(pat@Apply(fun: Ident, args), EmptyTree, body) => {
           val newName = termName(s"${baseFun.name.toString}_${fun.name.toTermName}")
-          val newParamss = baseFun.paramss.map(_.map {
-            case valDef@ValDef(name, tpt, _) if name.toString == baseMatch.selector.asInstanceOf[Ident].name.toString =>
-              cpy.ValDef(valDef)(name, Ident(fun.name.toTypeName), valDef.rhs)
-            case other => other
-          }.asInstanceOf[ParamClause])
           val newRhs = cpy.Match(baseMatch)(baseMatch.selector, List(cpy.CaseDef(tree)(pat, EmptyTree, body)))
-          val subFun = recCallRewriter.transform(cpy.DefDef(baseFun)(newName, newParamss, baseFun.tpt, newRhs)).asInstanceOf[DefDef]
+          val subFun = recCallRewriter.transform(cpy.DefDef(baseFun)(newName, baseFun.paramss, baseFun.tpt, newRhs)).asInstanceOf[DefDef]
           subFuns = markSubFun(subFun, fun.name.toString) :: subFuns
         }
 
-//        case CaseDef(pat@Tuple(List(Apply(fun1: Ident, args1), Apply(fun2: Ident, args2))), EmptyTree, body) => {
-//          val newName = termName(s"${baseFun.name.toString}_${fun1.name.toTermName}_${fun2.name.toTermName}")
-//          val newRhs = cpy.Match(baseMatch)(baseMatch.selector, List(cpy.CaseDef(tree)(pat, EmptyTree, body)))
-//          val subFun = recCallRewriter.transform(cpy.DefDef(baseFun)(newName, baseFun.paramss, baseFun.tpt, newRhs)).asInstanceOf[DefDef]
-//          subFuns = markSubFun(subFun, s"${fun1.name.toString}_${fun2.name.toString}") :: subFuns
-//        }
-
-        case CaseDef(Ident(name), EmptyTree, body) if name.toString == "_" =>
+        // If there is a default branch, use its body to generate the default sub-function.
+        case CaseDef(Ident(name), EmptyTree, body) =>
+          genDefaultSubFn(body)
 
         case CaseDef(_, _, _) => sys.error("Invalid Assn2")
 
@@ -130,6 +155,12 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
 
       case Apply(Ident(name), args) if safeListMap.contains(name.toString) =>
         Apply(Select(Ident(name), termName("getOrElse")), args :+ TypeApply(Ident(termName("errorWrapper")), List(Ident(typeName("Nothing")))))
+
+      case Apply(Select(Ident(name),name2), args) if (name2.toString == "apply" || name2.toString == "get") && safeListMap.contains(name.toString) =>
+        Apply(Select(Ident(name), termName("getOrElse")), args :+ TypeApply(Ident(termName("errorWrapper")), List(Ident(typeName("Nothing")))))
+
+      case Apply(Select(qualifier, name), args) if name.toString == "equals" || name.toString == "eq" =>
+        InfixOp(transform(qualifier), Ident(termName("==")), transform(args(0)))
 
       case _ => super.transform(tree)
     }

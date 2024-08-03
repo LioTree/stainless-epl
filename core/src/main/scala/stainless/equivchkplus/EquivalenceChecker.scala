@@ -183,6 +183,20 @@ class EquivalenceChecker(override val trees: Trees,
             }
           }
 
+          val modelDefaultSubFn = symbols.functions.values.find { fd =>
+            fd.flags.exists {
+              case annotation@Annotation("subFn", args) if args.headOption.exists {
+                case StringLiteral(value) => value == modelFullName
+                case _ => false
+              } => true
+              case _ => false
+            } &&
+              fd.flags.exists {
+                case Annotation("defaultSubFn", args) => true
+                case _ => false
+              }
+          }.map(_.id).getOrElse(null)
+
           val candidateSubFns = symbols.functions.values.flatMap { fd =>
             fd.flags.collect {
               case annotation@Annotation("subFn", args) if args.headOption.exists {
@@ -192,15 +206,29 @@ class EquivalenceChecker(override val trees: Trees,
             }
           }
 
+          val candidateDefaultSubFn = symbols.functions.values.find { fd =>
+            fd.flags.exists {
+              case annotation@Annotation("subFn", args) if args.headOption.exists {
+                case StringLiteral(value) => value == candidateFullName
+                case _ => false
+              } => true
+              case _ => false
+            } &&
+              fd.flags.exists {
+                case Annotation("defaultSubFn", args) => true
+                case _ => false
+              }
+          }.map(_.id).getOrElse(null)
+
           val allSubFns = modelSubFns.toList ++ candidateSubFns.toList
           val subFnsPairs = allSubFns.map { subFn =>
             val modelSubFn = modelSubFns.find(_.name == subFn.name) match {
               case Some(value) => value
-              case None => null
+              case None => modelDefaultSubFn
             }
             val candidateSubFn = candidateSubFns.find(_.name == subFn.name) match {
               case Some(value) => value
-              case None => null
+              case None => candidateDefaultSubFn
             }
             (modelSubFn, candidateSubFn)
           }

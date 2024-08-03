@@ -119,3 +119,10 @@ class refEq extends Annotation
  */
 @ignore
 class subFn(originFun: String, name: String) extends Annotation
+
+/**
+ * This annotation is used to mark default subfunction
+ * When a function has a certain sub-function, and another function does not have a corresponding sub-function, it will be used for comparison.
+ */
+@ignore
+class defaultSubFn extends Annotation
