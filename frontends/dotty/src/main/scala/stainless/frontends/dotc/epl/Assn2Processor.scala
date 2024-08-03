@@ -9,13 +9,17 @@ import dotty.tools.dotc.core.Contexts.Context as DottyContext
 import dotty.tools.dotc.core.Flags
 import dotty.tools.dotc.core.Names.{termName, typeName}
 import dotty.tools.dotc.util.Spans.Span
-import stainless.equivchkplus.{optAssn2, optExtractTarget}
+import stainless.equivchkplus.{optAssn2, optExtractTarget, optSubFnsEquiv}
 
 class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends EPLProcessor {
 
   import ast.untpd.*
 
-  private val splitFunctions = List("eval", "tyOf", "subst", "desugar")
+  private val splitFunctions = inoxCtx.options.findOption(optSubFnsEquiv) match {
+    case Some(true) =>
+      List("eval", "tyOf", "subst", "desugar")
+    case _ => Nil
+  }
   private val safeListMap = List("ctx", "env")
   private val fakePrefix = "fake_"
 
