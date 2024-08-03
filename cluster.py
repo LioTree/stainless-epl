@@ -8,6 +8,7 @@ def parse_args():
     parser.add_argument('--filenames', type=str, required=True, help='Comma-separated list of filenames')
     parser.add_argument('--assn1', type=bool, default=False, help='Boolean flag for assn1')
     parser.add_argument('--assn2', type=bool, default=False, help='Boolean flag for assn2')
+    parser.add_argument('--subfns-equiv', type=bool, default=False, help='Boolean flag for sub functions equivalence')
     parser.add_argument('--externpure', type=str, help='Comma-separated list of externpure')
     parser.add_argument('--extract', type=str, required=True, help='Comma-separated list of extract')
     parser.add_argument('--pubdefs', type=str, help='Comma-separated list of pubdefs')
@@ -46,7 +47,7 @@ def run_dotty(filenames, params):
                 command.append(f'--{key}={value}')
     command.append('--equivchk=true')
     command.append('--transformation=true')
-    command.append('--timeout=3')
+    command.append('--timeout=1')
     command.append('--equivchk-output=temp.json')
 
     print("[*] Running command:", ' '.join(command))
@@ -91,6 +92,7 @@ def main():
         'models': ','.join(models),
         'assn1': args.assn1,
         'assn2': args.assn2,
+        'subfns-equiv': args.subfns_equiv,
         'externpure': args.externpure,
         'pubdefs': args.pubdefs,
         }
