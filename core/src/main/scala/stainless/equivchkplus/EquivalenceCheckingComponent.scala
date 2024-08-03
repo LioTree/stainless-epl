@@ -26,11 +26,18 @@ object optSubFnsEquiv extends inox.FlagOptionDef("subfns-equiv", true)
 
 object optTransformation extends inox.FlagOptionDef("transformation", true)
 
-object optExternPureDefs extends inox.OptionDef[Seq[String]] {
-  val name = "externpure"
+//object optExternPureDefs extends inox.OptionDef[Seq[String]] {
+//  val name = "externpure"
+//  val default = Seq[String]()
+//  val parser = inox.OptionParsers.seqParser(inox.OptionParsers.stringParser)
+//  val usageRhs = "f1,c2,o3"
+//}
+
+object optFakeExercises extends inox.OptionDef[Seq[String]] {
+  val name = "fake-exs"
   val default = Seq[String]()
   val parser = inox.OptionParsers.seqParser(inox.OptionParsers.stringParser)
-  val usageRhs = "f1,c2,o3"
+  val usageRhs = "f1,c2,o3..."
 }
 
 object optExtractTarget extends inox.OptionDef[Seq[String]] {
@@ -40,12 +47,12 @@ object optExtractTarget extends inox.OptionDef[Seq[String]] {
   val usageRhs = "f1,c2,o3..."
 }
 
-object optPublicDefs extends inox.OptionDef[Seq[String]] {
-  val name = "pubdefs"
-  val default = Seq[String]()
-  val parser = inox.OptionParsers.seqParser(inox.OptionParsers.stringParser)
-  val usageRhs = "f1,c2,o3..."
-}
+//object optPublicDefs extends inox.OptionDef[Seq[String]] {
+//  val name = "pubdefs"
+//  val default = Seq[String]()
+//  val parser = inox.OptionParsers.seqParser(inox.OptionParsers.stringParser)
+//  val usageRhs = "f1,c2,o3..."
+//}
 
 object optCompareFuns extends inox.OptionDef[Seq[String]] {
   val name = "comparefuns"

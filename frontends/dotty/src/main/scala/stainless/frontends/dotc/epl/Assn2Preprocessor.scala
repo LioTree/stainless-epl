@@ -51,26 +51,27 @@ class Assn2Preprocessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) ext
                 case ModuleDef(name, _) if name.toString == "Main" => true
                 case DefDef(name, _, _, _) if name.toString == "main" => true
                 case _ => false
-              }.flatMap {
-                // Unwrap the object Value to prevent it from being treated as pubDefs.
-                case moduleDef@ModuleDef(name, impl) if name.toString == "Value" =>
-                  impl.body
-
-                case other => List(other)
               }
+//              .flatMap {
+//                // Unwrap the object Value to prevent it from being treated as pubDefs.
+//                case moduleDef@ModuleDef(name, impl) if name.toString == "Value" =>
+//                  impl.body
+//
+//                case other => List(other)
+//              }
 
             case _ => List(stat)
           })
         super.transform(cpy.PackageDef(tree)(pid, newStats))
       }
 
-      // fix calling to Value.xx
-      case Apply(Select(Ident(name1), name2), args) if name1.toString == "Value" =>
-        name2.toString match {
-          case "add" | "subtract" | "multiply" | "eq" | "length" | "index" | "concat" =>
-            Apply(Ident(name2), args)
-          case _ => sys.error("invalid Exercise1 in Assn2")
-        }
+//      // fix calling to Value.xx
+//      case Apply(Select(Ident(name1), name2), args) if name1.toString == "Value" =>
+//        name2.toString match {
+//          case "add" | "subtract" | "multiply" | "eq" | "length" | "index" | "concat" =>
+//            Apply(Ident(name2), args)
+//          case _ => sys.error("invalid Exercise1 in Assn2")
+//        }
 
       case _ => super.transform(tree)
     }

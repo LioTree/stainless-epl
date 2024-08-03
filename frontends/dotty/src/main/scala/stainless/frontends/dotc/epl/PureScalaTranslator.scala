@@ -60,11 +60,11 @@ class PureScalaTranslator(using dottyCtx: DottyContext, inoxCtx: inox.Context) e
 
       // Replace a until b with List.range(a,b)
       case InfixOp(left, op: Ident, right) if op.name == termName("until") =>
-        Apply(Select(termIdent("List"), termName("range")), List(transform(left), transform(right)))
+        Apply(buildSelect("List.range"), List(transform(left), transform(right)))
 
       // Replace a to b with List.rangeTo(a,b)
       case InfixOp(left, op: Ident, right) if op.name == termName("to") =>
-        Apply(Select(termIdent("List"), termName("rangeTo")), List(transform(left), transform(right)))
+        Apply(buildSelect("List.rangeTo"), List(transform(left), transform(right)))
 
       // In Scala, for comprehensions are merely syntactic sugar that get translated into calls to methods like foreach, map, and flatMap.
       // Stainless can support List's for-yield but cannot support for, because List lacks the foreach method.
@@ -159,44 +159,35 @@ class PureScalaTranslator(using dottyCtx: DottyContext, inoxCtx: inox.Context) e
         cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(defDef.rhs))
 
       // Add `import stainless.collection._` `import stainless.annotation._` `import stainless.lang._` to the beginning of the file.
-      case PackageDef(pid, stats) =>
-        val importStainless = Import(
-          termIdent("stainless"),
-          List(ImportSelector(termIdent("_"), EmptyTree, EmptyTree))
-        )
-        val importAnnotation = Import(
-          Select(termIdent("stainless"), termName("annotation")),
-          List(ImportSelector(termIdent("_"), EmptyTree, EmptyTree))
-        )
-        val importLang = Import(
-          Select(termIdent("stainless"), termName("lang")),
-          List(ImportSelector(termIdent("_"), EmptyTree, EmptyTree))
-        )
-        val importCollection = Import(
-          Select(termIdent("stainless"), termName("collection")),
-          List(ImportSelector(termIdent("_"), EmptyTree, EmptyTree))
-        )
-        cpy.PackageDef(tree)(transformSub(pid), importStainless :: importAnnotation :: importCollection :: importLang :: transformStats(stats, dottyCtx.owner))
+      case PackageDef(pid, stats) => {
+        val importStainless = buildImport("stainless._")
+        val importAnnotation = buildImport("stainless.annotation._")
+        val importLang = buildImport("stainless.lang._")
+        val importCollection = buildImport("stainless.collection._")
+
+        cpy.PackageDef(tree)(transformSub(pid), importStainless :: importAnnotation ::
+          importCollection :: importLang :: transformStats(stats, dottyCtx.owner))
+      }
 
       // import scala.math => import stainless.math
       case Import(Ident(qualifierName), List(ImportSelector(Ident(name), EmptyTree, EmptyTree)))
         if qualifierName.toString == "scala" && name.toString == "math" =>
-        Import(termIdent("stainless"), List(ImportSelector(Ident(name), EmptyTree, EmptyTree)))
+          buildImport("stainless.math")
 
       // import scala.math._ => import stainless.math
       // scala.math.xx() => stainless.math.xx()
       case Select(qualifier: Ident, name) if s"${qualifier.name}.$name" == "scala.math" =>
-        Select(termIdent("stainless"), name)
+        buildSelect("stainless.math")
 
       // import scala.collection.immutable.ListMap => import stainless.collection.ListMap
       // scala.collection.immutable.ListMap.xx => stainless.collection.ListMap.xx
       case Select(Select(Ident(name1), name2), name3) if s"$name1.$name2.$name3" == "scala.collection.immutable" =>
-        Select(termIdent("stainless"), termName("collection"))
+        buildSelect("stainless.collection")
 
       // import scala.collection.immutable.Map => import stainless.lang.Map
       // scala.collection.immutable.Map.xx => stainless.lang.Map.xx
       case Select(Select(Select(Ident(name1), name2), name3), name4) if s"$name1.$name2.$name3.$name4" == "scala.collection.immutable.Map" =>
-        Select(Select(termIdent("stainless"), termName("lang")), termName("Map"))
+        buildSelect("stainless.lang.Map")
 
       case Match(selector, cases) =>
         // Find whether there is Alternative in cases
