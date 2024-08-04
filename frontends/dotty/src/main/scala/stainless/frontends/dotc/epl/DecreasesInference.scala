@@ -12,7 +12,7 @@ import dotty.tools.dotc.util.Spans.Span
 
 import scala.collection.mutable.{ArrayBuffer, Set, Stack, Map}
 
-class DecreasesInference(using dottyCtx: DottyContext) extends BaseTransformer {
+class DecreasesInference(using dottyCtx: DottyContext) extends EPLTransformer {
 
   import ast.untpd.*
 

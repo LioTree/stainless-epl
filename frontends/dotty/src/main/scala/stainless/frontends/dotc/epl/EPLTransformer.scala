@@ -7,13 +7,29 @@ import dotty.tools.dotc.ast.{Trees, untpd}
 import dotty.tools.dotc.core.*
 import dotty.tools.dotc.core.Contexts.Context as DottyContext
 import dotty.tools.dotc.core.Names.{termName, typeName}
+import dotty.tools.dotc.util.Spans.Span
 
-trait BaseTransformer(using DottyContext) extends ast.untpd.UntypedTreeMap {
+trait EPLTransformer(using DottyContext) extends ast.untpd.UntypedTreeMap {
 
   import ast.untpd.*
 
   // `start` is used to perform some preprocessing work before calling `transform`.
   def start(tree: Tree)(using DottyContext): Tree = transform(tree)
+
+  protected def markExternPure(tree: MemberDef): MemberDef = {
+    val spanStart = tree.span.start
+
+    val externIdent = Ident(typeName("extern"))
+    // A very necessary step, otherwise errors will occur in the typer.
+    externIdent.span = Span(spanStart, spanStart + 7)
+    val externAnnotation = Apply(Select(New(externIdent), termName("<init>")), Nil)
+
+    val pureIdent = Ident(typeName("pure"))
+    pureIdent.span = Span(spanStart + 8, spanStart + 8 + 5)
+    val pureAnnotation = Apply(Select(New(pureIdent), termName("<init>")), Nil)
+
+    tree.withAnnotations(List(externAnnotation, pureAnnotation))
+  }
 
   protected def errorWrapper = TypeApply(Ident(termName("errorWrapper")), List(Ident(typeName("Nothing"))))
 

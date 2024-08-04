@@ -17,7 +17,7 @@ import scala.collection.mutable.{ArrayBuffer, Map, Set, Stack}
  * This class performs the transformations on the Scala code.
  * It extends `UntypedTreeMap`, which is a class for transforming untyped trees.
  */
-class PureScalaTranslator(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends BaseTransformer {
+class PureScalaTranslator(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends EPLTransformer {
 
   import ast.untpd.*
 

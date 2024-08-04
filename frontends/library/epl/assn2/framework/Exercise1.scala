@@ -1,11 +1,9 @@
-package stainless
-package epl
-package assn2
+package epl.assn2.framework
 
-import stainless.lang.*
 import stainless.annotation.*
+import stainless.lang.*
 
-package object framework {
+object Exercise1 {
   @library
   type Variable = StringWrapper
   @library
@@ -148,18 +146,4 @@ package object framework {
 
   @library
   case class FunTy(ty1: Type, ty2: Type) extends Type
-
-  @extern
-  @pure
-  object Gensym {
-    def gensym(s: Variable): Variable = errorWrapper[Nothing]
-  }
-
-  @extern
-  @pure
-  def swapVar(x: Variable, y: Variable, z: Variable): Variable = errorWrapper[Nothing]
-
-  @extern
-  @pure
-  def swap(e: Expr, y: Variable, z: Variable): Expr = errorWrapper[Nothing]
 }

@@ -10,7 +10,7 @@ import dotty.tools.dotc.core.Flags
 import dotty.tools.dotc.core.Names.{termName, typeName}
 import stainless.equivchkplus.optAssn2
 
-class Assn2Preprocessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends BaseTransformer {
+class Assn2Preprocessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends EPLTransformer {
 
   import ast.untpd.*
 

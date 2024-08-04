@@ -10,7 +10,7 @@ import dotty.tools.dotc.core.Flags
 import dotty.tools.dotc.core.Names.{termName, typeName}
 import stainless.equivchkplus.{optAssn1, optExtractTarget}
 
-class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends EPLProcessor {
+class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends PackageNameRewriter {
 
   import ast.untpd.*
 

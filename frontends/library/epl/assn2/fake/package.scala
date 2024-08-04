@@ -1,8 +1,7 @@
-package stainless
 package epl
 package assn2
 
-import stainless.epl.assn2.framework.*
+import epl.assn2.framework.Others.*
 import stainless.lang.*
 import stainless.annotation.*
 
@@ -37,8 +36,8 @@ package object fake {
 
   @extern
   @pure
-  def fake_subst(t: Expr, e: Expr, x: Variable): Expr = errorWrapper[Nothing]  
-  
+  def fake_subst(t: Expr, e: Expr, x: Variable): Expr = errorWrapper[Nothing]
+
   @extern
   @pure
   def subst(t: Expr, e: Expr, x: Variable): Expr = errorWrapper[Nothing]

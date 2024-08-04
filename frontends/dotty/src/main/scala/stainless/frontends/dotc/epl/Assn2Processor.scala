@@ -12,7 +12,7 @@ import dotty.tools.dotc.util.Spans.Span
 import stainless.equivchkplus.{optAssn2, optFakeExercises, optSubFnsEquiv, optExtractTarget}
 import scala.collection.immutable.Set
 
-class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends EPLProcessor {
+class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends PackageNameRewriter {
 
   import ast.untpd.*
 
@@ -65,10 +65,9 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
     "swap"
   )
 
-  private val exercises = Set("eval", "tyOf", "subst", "desugar")
-
-  private val splitFunctions = inoxCtx.options.findOption(optSubFnsEquiv) match {
-    case Some(true) => exercises
+  // Exercises requiring the generation of sub-functions for separate verification.
+  private val hardExercises = inoxCtx.options.findOption(optSubFnsEquiv) match {
+    case Some(true) => Set("eval", "tyOf", "subst", "desugar")
     case _ => Set.empty
   }
 
@@ -156,8 +155,6 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
               traverseChildren(_match)
             case _ => sys.error("Invalid Assn2")
 
-//        case CaseDef(pat@Apply(fun: Ident, args), EmptyTree, body) if fun.name.toString == "Apply" || fun.name.toString == "IfThenElse" =>
-
         case CaseDef(pat@Apply(fun: Ident, args), EmptyTree, body) => {
           val newName = termName(s"${baseFun.name.toString}_${fun.name.toTermName}")
           val newRhs = cpy.Match(baseMatch)(baseMatch.selector, List(cpy.CaseDef(tree)(pat, EmptyTree, body)))
@@ -193,17 +190,26 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
     tree match {
       case PackageDef(pid: Ident, stats) if pid.name.toString == "<empty>" => {
         var subFunctions = List.empty[DefDef]
-        val importFramework = buildImport("stainless.epl.assn2.framework._")
+        val importFramework = {
+          // Assn2 exercises1 requires retaining the StringWrapper in the framework code.
+          if (targets.contains("Value"))
+            buildImport("epl.assn2.framework.Exercise1._")
+          // The other exercises will use the BigInt version of the framework code.
+          else
+            buildImport("epl.assn2.framework.Others._")
+        }
+        // Specify the use of a dependent fake exercise. For example, exercise5 depends on exercise4, so you need to introduce fake.subst
         val importFakeExs = fakeExercises.map { exer =>
-          buildImport(s"stainless.epl.assn2.fake.${exer}")
+          buildImport(s"epl.assn2.fake.${exer}")
         }.toList
-        val importFakeCalls = targets.map { target =>
-          buildImport(s"stainless.epl.assn2.fake.${fakeCallPrefix}${target}")
+        // For the hard exercise in the target, it is necessary to introduce fake_xx to eliminate recursive calls.
+        val importFakeCalls = targets.intersect(hardExercises).map { target =>
+          buildImport(s"epl.assn2.fake.${fakeCallPrefix}${target}")
         }.toList
 
         val newStats = importFramework :: importFakeExs ++ importFakeCalls ++ stats.flatMap {
           // remove the original framework and specific exercises
-          case TypeDef(name, _) if framework.contains(name.toString) =>
+          case TypeDef(name, _) if framework.contains(name.toString) || fakeExercises.contains(name.toString) =>
             Nil
           case DefDef(name, _, _, _) if framework.contains(name.toString) || fakeExercises.contains(name.toString) =>
             Nil
@@ -213,7 +219,7 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
           case ValDef(name, _, _) if framework.contains(name.toString) || fakeExercises.contains(name.toString) =>
             Nil
 
-          case defDef@DefDef(name, paramss, tpt, _) if splitFunctions.contains(name.toString) =>
+          case defDef@DefDef(name, paramss, tpt, _) if hardExercises.contains(name.toString) =>
             subFunctions = subFunctions ++ (new SubFunctionGenerator(defDef)).getSubFuns
             List(transform(markExternPure(defDef)))
 
@@ -229,7 +235,7 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
       case Apply(Select(Ident(name), name2), args) if (name2.toString == "apply" || name2.toString == "get") && unsafeMap.contains(name.toString) =>
         Apply(Select(Ident(name), termName("getOrElse")), args :+ errorWrapper)
 
-      case untpd.AppliedTypeTree(tpt: Ident, List(arg:Ident)) if tpt.name.toString == "Env" && arg.name.toString == "Value" =>
+      case untpd.AppliedTypeTree(tpt: Ident, List(arg: Ident)) if tpt.name.toString == "Env" && arg.name.toString == "Value" =>
         cpy.AppliedTypeTree(tree)(tpt, List(typeIdent("FakeValue")))
 
       // Not sure whether we should put this into pure scala translator.

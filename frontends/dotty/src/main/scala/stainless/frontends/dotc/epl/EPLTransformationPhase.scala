@@ -11,19 +11,18 @@ import dotty.tools.dotc.{Main as _, *}
 import stainless.frontends.dotc.epl.*
 import stainless.equivchkplus.{DebugSectionTransformation, optTransformation, optAssn2}
 
-class TransformationPhase(val inoxCtx: inox.Context) extends PluginPhase {
+class EPLTransformationPhase(val inoxCtx: inox.Context) extends PluginPhase {
 
   override val phaseName = "Transformation for Programming assignments of EPL"
   override val runsAfter = Set(Parser.name)
   override val runsBefore = Set(TyperPhase.name)
-  var firstFile = true
-  var publicPackageName = ""
+  private val ignorePathPrefixs = List("/tmp/stainless", "/tmp/epl")
 
   override def run(using dottyCtx: DottyContext): Unit = {
     inoxCtx.options.findOption(optTransformation) match {
       case Some(true)  =>
         val unit = dottyCtx.compilationUnit
-        if (!unit.source.toString.startsWith("/tmp/stainless")) {
+        if (!ignorePathPrefixs.exists(unit.source.toString.startsWith)) {
           given inox.Context = inoxCtx
           given givenDebugSection: DebugSectionTransformation.type = DebugSectionTransformation
 

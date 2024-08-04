@@ -195,7 +195,8 @@ lazy val regenFilesFile = false
 
 def libraryFiles(baseDir: File): Seq[(String, File)] = {
   // Note baseDir.value is either frontends/scalac or frontends/dotty, so we need to go up two levels with / .. / .. /
-  val libFiles = ((baseDir / ".." / ".." / "frontends" / "library" / "stainless") ** "*.scala").get
+//  val libFiles = ((baseDir / ".." / ".." / "frontends" / "library" / "stainless") ** "*.scala").get
+  val libFiles = ((baseDir / ".." / ".." / "frontends" / "library") ** "*.scala").get
   val dropCount = (libFiles.head.getPath indexOfSlice "library") + ("library".size + 1 /* for separator */)
   val res : Seq[(String, File)] = libFiles.map(file => (file.getPath drop dropCount, file)) // Drop the prefix of the path (i.e. everything before "library")
   if (regenFilesFile) {
