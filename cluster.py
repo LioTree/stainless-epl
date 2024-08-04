@@ -9,9 +9,8 @@ def parse_args():
     parser.add_argument('--assn1', type=bool, default=False, help='Boolean flag for assn1')
     parser.add_argument('--assn2', type=bool, default=False, help='Boolean flag for assn2')
     parser.add_argument('--subfns-equiv', type=bool, default=False, help='Boolean flag for sub functions equivalence')
-    parser.add_argument('--externpure', type=str, help='Comma-separated list of externpure')
+    parser.add_argument('--fake-exs', type=str, required=False, help='Comma-separated list of fake exercises')
     parser.add_argument('--extract', type=str, required=True, help='Comma-separated list of extract')
-    parser.add_argument('--pubdefs', type=str, help='Comma-separated list of pubdefs')
     parser.add_argument('--output', type=str, default='result.json', help='Output JSON file name')
     parser.add_argument('--debug', type=bool, default=False, help='Show debug messages of transformation')
     return parser.parse_args()
@@ -23,13 +22,11 @@ def generate_comparefuns_models(filenames, extract):
     # Extract the first element from filenames for models
     if filenames:
         packagename = filenames[0].split('/')[-1].replace('.scala', '')
-        # packagename = filename.replace('-', '_')
-        models.add(packagename + '.' + packagename + '$package.' + extract)
+        models.add(packagename + '$package.' + extract)
 
     # Extract the remaining elements from filenames for comparefuns
     if len(filenames) > 1:
         comparefuns.update(
-            # f"{filename.replace('.scala', '').split('/')[-1].replace('-','_')}.{filename.replace('.scala', '').split('/')[-1]}$package.{extract}"
             f"{filename.replace('.scala', '').split('/')[-1]}.{filename.replace('.scala', '').split('/')[-1]}$package.{extract}"
             for filename in filenames[1:])
 
@@ -47,8 +44,7 @@ def run_dotty(filenames, params):
                 command.append(f'--{key}={value}')
     command.append('--equivchk=true')
     command.append('--transformation=true')
-    command.append('--timeout=1')
-    command.append('--unroll-bound=50')
+    command.append('--timeout=2')
     command.append('--equivchk-output=temp.json')
 
     print("[*] Running command:", ' '.join(command))
@@ -94,11 +90,11 @@ def main():
         'assn1': args.assn1,
         'assn2': args.assn2,
         'subfns-equiv': args.subfns_equiv,
-        'externpure': args.externpure,
-        'pubdefs': args.pubdefs,
         }
         if(args.debug):
             params['debug'] = "transformation"
+        if(args.fake_exs):
+            params['fake-exs'] = args.fake_exs
 
         run_dotty(args.filenames, params)
         temp_data = read_json('temp.json')
