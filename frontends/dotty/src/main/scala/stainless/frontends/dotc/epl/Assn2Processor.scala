@@ -66,8 +66,10 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
   )
 
   // Exercises requiring the generation of sub-functions for separate verification.
-  private val hardExercises = inoxCtx.options.findOption(optSubFnsEquiv) match {
-    case Some(true) => Set("eval", "tyOf", "subst", "desugar")
+  private val hardExercises = Set("eval", "tyOf", "subst", "desugar")
+  private val isHardEx = hardExercises.intersect(targets).nonEmpty
+  private val splitFuns = inoxCtx.options.findOption(optSubFnsEquiv) match {
+    case Some(true) => hardExercises
     case _ => Set.empty
   }
 
@@ -75,8 +77,8 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
     case Some(targets) => Set(targets: _*)
     case None => Set.empty
   }
-
   private val fakeCallPrefix = "fake_"
+
   private val unsafeMap = Set("ctx", "env")
 
   private class SubFunctionGenerator(baseFun: DefDef) extends UntypedTreeTraverser {
@@ -203,7 +205,7 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
           buildImport(s"epl.assn2.fake.${exer}")
         }.toList
         // For the hard exercise in the target, it is necessary to introduce fake_xx to eliminate recursive calls.
-        val importFakeCalls = targets.intersect(hardExercises).map { target =>
+        val importFakeCalls = targets.intersect(splitFuns).map { target =>
           buildImport(s"epl.assn2.fake.${fakeCallPrefix}${target}")
         }.toList
 
@@ -219,7 +221,7 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
           case ValDef(name, _, _) if framework.contains(name.toString) || fakeExercises.contains(name.toString) =>
             Nil
 
-          case defDef@DefDef(name, paramss, tpt, _) if hardExercises.contains(name.toString) =>
+          case defDef@DefDef(name, paramss, tpt, _) if splitFuns.contains(name.toString) =>
             subFunctions = subFunctions ++ (new SubFunctionGenerator(defDef)).getSubFuns
             List(transform(markExternPure(defDef)))
 
@@ -243,15 +245,30 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
       case Apply(Select(qualifier, name), List(arg)) if name.toString == "equals" || name.toString == "eq" =>
         InfixOp(transform(qualifier), termIdent("=="), transform(arg))
 
-      // Replace Int,Integer with BigInt
-      case Ident(name) if name.toString == "Int" || name.toString == "Integer" =>
+      // Only BigInt in Assn2 since OverflowInt might lead to extra performance overhead.
+      case Ident(name) if name.toString == "Int" || name.toString == "Integer" => {
         name match {
           case name if name.isTermName => termIdent("BigInt")
           case name if name.isTypeName => typeIdent("BigInt")
         }
+      }
 
       case Number(digits, _) =>
         Apply(termIdent("BigInt"), List(tree))
+
+      // No String in Assn2 exercises 2-5 since it will make verification really hard.
+      case Ident(name) if isHardEx && name.toString == "String" => {
+        name match {
+          case name if name.isTermName => termIdent("BigInt")
+          case name if name.isTypeName => typeIdent("BigInt")
+        }
+      }
+
+      case Literal(constant: Constants.Constant) if isHardEx && constant.value.isInstanceOf[Character] =>
+        buildNumber(Utils.str2Int(constant.value.asInstanceOf[Character].toString))
+
+      case Literal(constant: Constants.Constant) if isHardEx && constant.value.isInstanceOf[String] =>
+        buildNumber(Utils.str2Int(constant.value.asInstanceOf[String]))
 
       case _ => super.transform(tree)
     }
