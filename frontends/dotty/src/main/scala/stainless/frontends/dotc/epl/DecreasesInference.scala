@@ -23,7 +23,7 @@ class DecreasesInference(using dottyCtx: DottyContext) extends EPLTransformer {
         if (!decreaseDetector.decreases.isEmpty) {
           val decreasesApplies: ArrayBuffer[Apply] = ArrayBuffer.empty
           decreaseDetector.decreases.foreach(decrease =>
-            decreasesApplies += Apply(Ident(termName("decreases")), List(decrease))
+            decreasesApplies += Apply(termIdent("decreases"), List(decrease))
             )
           val newRhs = defDef.rhs match {
             case Block(stats, expr) => Block(decreasesApplies.toList ::: stats, expr)
@@ -96,7 +96,7 @@ class DecreasesInference(using dottyCtx: DottyContext) extends EPLTransformer {
         case Match(selector, cases) =>
           selector match {
             case identSelector@Ident(name) if listParamss.contains(name.toString) =>
-              matches.push(Ident(termName(var2Param(name.toString))))
+              matches.push(termIdent(var2Param(name.toString)))
               traverseChildren(tree)
               matches.pop()
             case _ =>

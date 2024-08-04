@@ -3,6 +3,7 @@ package stainless.frontends.dotc.epl
 import dotty.tools.dotc.*
 import dotty.tools.dotc.ast
 import dotty.tools.dotc.ast.Trees.*
+import dotty.tools.dotc.ast.untpd.NumberKind.Whole
 import dotty.tools.dotc.ast.{Trees, untpd}
 import dotty.tools.dotc.core.*
 import dotty.tools.dotc.core.Contexts.Context as DottyContext
@@ -36,6 +37,8 @@ trait EPLTransformer(using DottyContext) extends ast.untpd.UntypedTreeMap {
   protected def typeIdent(name: String): Ident = Ident(typeName(name))
 
   protected def termIdent(name: String): Ident = Ident(termName(name))
+
+  protected def buildNumber(n: Int): Number = Number(n.toString, Whole(10))
 
   protected def buildSelect(input: String): Select | Ident = {
     def buildSelectTree(parts: List[String]): Select | Ident =

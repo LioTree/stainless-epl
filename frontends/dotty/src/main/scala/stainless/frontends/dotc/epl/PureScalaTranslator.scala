@@ -55,7 +55,7 @@ class PureScalaTranslator(using dottyCtx: DottyContext, inoxCtx: inox.Context) e
       // Replace None with None().
       case Ident(name) if name.toString == "None" => Apply(termIdent("None"), Nil)
 
-      case InfixOp(left, op: Ident, right: Tuple) if op.name == termName("+") =>
+      case InfixOp(left, op: Ident, right: Tuple) if op.name == termName("+") => {
         def unrollPlusTuple(operands: List[Tree]): Tree = {
           operands match {
             case x :: Nil => x
@@ -63,9 +63,10 @@ class PureScalaTranslator(using dottyCtx: DottyContext, inoxCtx: inox.Context) e
             case _ => sys.error("Unrolling plus tuple failed")
           }
         }
+
         val operands = (left :: right.trees).reverse
         unrollPlusTuple(operands)
-//        InfixOp(transform(left), termIdent("++"), Apply(termIdent("List"), right.trees.map(transform)))
+      }
 
       // Replace a until b with List.range(a,b)
       case InfixOp(left, op: Ident, right) if op.name == termName("until") =>
@@ -84,7 +85,7 @@ class PureScalaTranslator(using dottyCtx: DottyContext, inoxCtx: inox.Context) e
         val counterVarName: String = randomVariableName(8)
         val exprVarName: String = randomVariableName(8)
         val exprDef = ValDef(termName(exprVarName), TypeTree(), transform(expr))
-        val counterDef = ValDef(termName(counterVarName), TypeTree(), Apply(termIdent("BigInt"), List(Number("0", Whole(10)))))
+        val counterDef = ValDef(termName(counterVarName), TypeTree(), Apply(termIdent("BigInt"), List(buildNumber(0))))
         counterDef.setMods(Modifiers(Flags.Mutable))
         val whileDo = WhileDo(
           Parens(InfixOp(termIdent(counterVarName), termIdent("<"), Select(termIdent(exprVarName), termName("length")))),
@@ -97,12 +98,12 @@ class PureScalaTranslator(using dottyCtx: DottyContext, inoxCtx: inox.Context) e
               transform(body),
             ),
             Assign(termIdent(counterVarName), InfixOp(termIdent(counterVarName), termIdent("+"),
-              Apply(termIdent("OverflowInt"), List(Number("1", Whole(10))))))
+              Apply(termIdent("OverflowInt"), List(buildNumber(1)))))
           )
         )
         Block(List(exprDef, counterDef), InfixOp(Parens(whileDo), termIdent("invariant"),
           Parens(InfixOp(termIdent(counterVarName), termIdent(">="),
-            Apply(termIdent("BigInt"), List(Number("0", Whole(10))))))))
+            Apply(termIdent("BigInt"), List(buildNumber(0)))))))
 
       // Replace Character with String.
       // It is possible to add an implicit conversion from Char to String in the stainless library, but stainless cannot verify it because it must be @extern.

@@ -33,7 +33,3 @@ class PackageNameRewriter(using dottyCtx: DottyContext, inoxCtx: inox.Context) e
     }
   }
 }
-
-object PackageNameRewriter {
-  var firstPackageName = ""
-}

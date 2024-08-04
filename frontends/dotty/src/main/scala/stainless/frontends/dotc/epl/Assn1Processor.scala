@@ -31,9 +31,9 @@ class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
       Ident(termName("require")),
       List(
         InfixOp(
-          InfixOp(Ident(termName(n)), Ident(termName(">=")), Number("0", Whole(10))),
+          InfixOp(Ident(termName(n)), Ident(termName(">=")), buildNumber(0)),
           Ident(termName("&&")),
-          InfixOp(Ident(termName(n)), Ident(termName("<=")), Number("100", Whole(10)))
+          InfixOp(Ident(termName(n)), Ident(termName("<=")), buildNumber(100))
         )
       )
     )
