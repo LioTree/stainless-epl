@@ -228,7 +228,7 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
           case other => List(transform(other))
         } ++ subFunctions
 
-        super.transform(cpy.PackageDef(tree)(pid, newStats))
+        super.transform(cpy.PackageDef(tree)(pid, transform(newStats)))
       }
 
       case Apply(Ident(name), args) if unsafeMap.contains(name.toString) =>
@@ -246,23 +246,25 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
         InfixOp(transform(qualifier), termIdent("=="), transform(arg))
 
       // Only BigInt in Assn2 since OverflowInt might lead to extra performance overhead.
-      case Ident(name) if name.toString == "Int" || name.toString == "Integer" => {
+      case Ident(name) if name.toString == "Int" || name.toString == "Integer" =>
         name match {
           case name if name.isTermName => termIdent("BigInt")
           case name if name.isTypeName => typeIdent("BigInt")
         }
-      }
+
+      // Skip BigInt(n)
+      case Apply(Ident(name), List(Number(digits, _))) if name.toString == "BigInt" =>
+        tree
 
       case Number(digits, _) =>
         Apply(termIdent("BigInt"), List(tree))
 
       // No String in Assn2 exercises 2-5 since it will make verification really hard.
-      case Ident(name) if isHardEx && name.toString == "String" => {
+      case Ident(name) if isHardEx && name.toString == "String" =>
         name match {
           case name if name.isTermName => termIdent("BigInt")
           case name if name.isTypeName => typeIdent("BigInt")
         }
-      }
 
       case Literal(constant: Constants.Constant) if isHardEx && constant.value.isInstanceOf[Character] =>
         buildNumber(Utils.str2Int(constant.value.asInstanceOf[Character].toString))
