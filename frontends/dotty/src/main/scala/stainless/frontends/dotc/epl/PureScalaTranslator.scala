@@ -56,7 +56,16 @@ class PureScalaTranslator(using dottyCtx: DottyContext, inoxCtx: inox.Context) e
       case Ident(name) if name.toString == "None" => Apply(termIdent("None"), Nil)
 
       case InfixOp(left, op: Ident, right: Tuple) if op.name == termName("+") =>
-        InfixOp(transform(left), termIdent("++"), Apply(termIdent("List"), right.trees.map(transform)))
+        def unrollPlusTuple(operands: List[Tree]): Tree = {
+          operands match {
+            case x :: Nil => x
+            case x :: xs => InfixOp(unrollPlusTuple(xs), termIdent("+"), x)
+            case _ => sys.error("Unrolling plus tuple failed")
+          }
+        }
+        val operands = (left :: right.trees).reverse
+        unrollPlusTuple(operands)
+//        InfixOp(transform(left), termIdent("++"), Apply(termIdent("List"), right.trees.map(transform)))
 
       // Replace a until b with List.range(a,b)
       case InfixOp(left, op: Ident, right) if op.name == termName("until") =>
