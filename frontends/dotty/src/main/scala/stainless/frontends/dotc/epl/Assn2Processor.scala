@@ -232,7 +232,7 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
       case Apply(Ident(name), args) if unsafeMap.contains(name.toString) =>
         Apply(Select(Ident(name), termName("getOrElse")), args :+ errorWrapper)
 
-      case Apply(Select(Ident(name), name2), args) if (name2.toString == "apply" || name2.toString == "get") && unsafeMap.contains(name.toString) =>
+      case Apply(Select(Ident(name), name2), args) if (name2.toString == "apply") && unsafeMap.contains(name.toString) =>
         Apply(Select(Ident(name), termName("getOrElse")), args :+ errorWrapper)
 
       case untpd.AppliedTypeTree(tpt: Ident, List(arg: Ident)) if tpt.name.toString == "Env" && arg.name.toString == "Value" =>
@@ -242,6 +242,16 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
       // Stainless does not support custom == equals, which may cause semantic inconsistencies.
       case Apply(Select(qualifier, name), List(arg)) if name.toString == "equals" || name.toString == "eq" =>
         InfixOp(transform(qualifier), termIdent("=="), transform(arg))
+
+      // Replace Int,Integer with BigInt
+      case Ident(name) if name.toString == "Int" || name.toString == "Integer" =>
+        name match {
+          case name if name.isTermName => termIdent("BigInt")
+          case name if name.isTypeName => typeIdent("BigInt")
+        }
+
+      case Number(digits, _) =>
+        Apply(termIdent("BigInt"), List(tree))
 
       case _ => super.transform(tree)
     }
