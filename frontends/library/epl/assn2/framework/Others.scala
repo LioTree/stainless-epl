@@ -157,7 +157,11 @@ object Others {
   @pure
   def swapVar(x: Variable, y: Variable, z: Variable): Variable = errorWrapper[Nothing]
 
-  @extern
-  @pure
-  def eplSwap(e: Expr, y: Variable, z: Variable): Expr = errorWrapper[Nothing]
+  def eplSwap(e: Expr, y: Variable, z: Variable): Expr = {
+    @extern @pure
+    def swap(e: Expr, y: Variable, z: Variable): Expr = errorWrapper[Nothing]
+
+    if(y < z) swap(e, y, z)
+    else swap(e, z, y)
+  }
 }
