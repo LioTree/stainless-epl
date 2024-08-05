@@ -88,6 +88,8 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
         tree match {
           case Apply(Ident(name), args) if name.toString == baseFun.name.toString =>
             cpy.Apply(tree)(termIdent(fakeCallPrefix + name.toString), transform(args))
+          case Apply(Select(Ident(name1), name2), args) if s"${name1.toString}.${name2.toString}" == "Gensym.gensym" =>
+            Block(List(InfixOp(termIdent("freshSym"), termIdent("+="), buildNumber(1))), termIdent("freshSym"))
           case _ => super.transform(tree)
         }
     }
@@ -159,7 +161,9 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
 
         case CaseDef(pat@Apply(fun: Ident, args), EmptyTree, body) => {
           val newName = termName(s"${baseFun.name.toString}_${fun.name.toTermName}")
-          val newRhs = cpy.Match(baseMatch)(baseMatch.selector, List(cpy.CaseDef(tree)(pat, EmptyTree, body)))
+          val freshSymDef = ValDef(termName("freshSym"), TypeTree(), Apply(termIdent("BigInt"), List(buildNumber(0))))
+          freshSymDef.setMods(Modifiers(Flags.Mutable))
+          val newRhs = Block(List(freshSymDef), cpy.Match(baseMatch)(baseMatch.selector, List(cpy.CaseDef(tree)(pat, EmptyTree, body))))
           val subFun = recCallRewriter.transform(cpy.DefDef(baseFun)(newName, baseFun.paramss, baseFun.tpt, newRhs)).asInstanceOf[DefDef]
           subFuns = markSubFun(subFun, fun.name.toString) :: subFuns
         }
