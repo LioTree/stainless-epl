@@ -360,17 +360,10 @@ class EquivalenceCheckingRun private(override val component: EquivalenceChecking
     val errns = res.unequivalent.keys.toSeq.map(_.fullName).sorted.mkString(", ")
     val unknownsSafety = res.unknownsSafety.keys.toSeq.map(_.fullName).sorted.mkString(", ")
     val unknownsEquiv = res.unknownsEquivalence.keys.toSeq.map(_.fullName).sorted.mkString(", ")
-    val unknownsEquivSubFuns = ec.unknownsEquivSubFuns.keys.toSeq.map(_.fullName).sorted.mkString(", ")
     val wrongs = res.wrongs.toSeq.map(_.fullName).sorted.mkString(", ")
     info(s"List of erroneous functions: $errns")
     info(s"List of timed-out functions (safety): $unknownsSafety")
     info(s"List of timed-out functions (equivalence): $unknownsEquiv")
-    context.options.findOption(optSubFnsEquiv) match {
-      case Some(true) =>
-        info (s"List of timed-out functions (equivalence): $unknownsEquiv")
-        info (s"List of timed-out sub functions (equivalence): $unknownsEquivSubFuns")
-      case _ =>
-    }
     info(s"List of wrong functions: $wrongs")
     info(s"Printing the final state:")
     res.valid.foreach { case (cand, data) =>
@@ -433,7 +426,6 @@ class EquivalenceCheckingRun private(override val component: EquivalenceChecking
     val equivs = res.equiv.map { case (m, l) => m.fullName -> l.map(_.fullName).toSeq.sorted }
       .toSeq.sortBy(_._1)
     val unknownsEquiv = res.unknownsEquivalence.keys.toSeq.map(_.fullName).sorted
-    val unknownsEquivSubFuns = ec.unknownsEquivSubFuns.keys.toSeq.map(_.fullName).sorted
     val wrongs = res.wrongs.toSeq.map(_.fullName).sorted
     val weights = res.weights.map { case (mod, w) => mod.fullName -> w }.toSeq
       .sortBy { case (mod, w) => (-w, mod) }
@@ -474,7 +466,6 @@ class EquivalenceCheckingRun private(override val component: EquivalenceChecking
         ))
       }),
       "unknownEquivalence" -> Json.fromValues(unknownsEquiv.sorted.map(Json.fromString)),
-      "unknownEquivSubFuns" -> Json.fromValues(unknownsEquivSubFuns.sorted.map(Json.fromString)),
       "wrong" -> Json.fromValues(wrongs.sorted.map(Json.fromString)),
       "weights" -> Json.fromFields(weights.map { case (mod, w) => mod -> Json.fromInt(w) })
     ))

@@ -132,7 +132,7 @@ class EquivalenceChecker(override val trees: Trees,
 
   case class UnsafeCtex(kind: VCKind, pos: Position, ctex: Option[Seq[(ValDef, Expr)]], solvingInfo: SolvingInfo)
 
-  case class UnknownEquivalenceData(solvingInfo: SolvingInfo)
+  case class UnknownEquivalenceData(solvingInfo: SolvingInfo, subUnknown: Seq[Identifier] = Seq.empty[Identifier])
 
   case class UnknownSafetyData(self: Seq[UnknownSafetyVC], auxiliaries: Map[Identifier, Seq[UnknownSafetyVC]])
 
@@ -323,7 +323,6 @@ class EquivalenceChecker(override val trees: Trees,
   private val unequivalent = mutable.Map.empty[Identifier, UnequivalentData]
   private val unsafe = mutable.Map.empty[Identifier, UnsafeData]
   private val unknownsEquivalence = mutable.LinkedHashMap.empty[Identifier, UnknownEquivalenceData]
-  val unknownsEquivSubFuns = mutable.LinkedHashMap.empty[Identifier, UnknownEquivalenceData]
   private val unknownsSafety = mutable.LinkedHashMap.empty[Identifier, UnknownSafetyData]
   private val signatureMismatch = mutable.ArrayBuffer.empty[Identifier]
   private val clusters = mutable.Map.empty[Identifier, mutable.ArrayBuffer[Identifier]]
@@ -552,13 +551,11 @@ class EquivalenceChecker(override val trees: Trees,
         } else {
           // oh no, manual inspection incoming
           examinationState = ExaminationState.PickNext
-          unknownsEquivalence += cand -> UnknownEquivalenceData(solvingInfo.withAddedTime(currCumulativeSolvingTime))
           context.options.findOption(optSubFnsEquiv) match {
             case Some(true) =>
-              unknownIds.foreach(
-                unknownsEquivSubFuns += _ -> UnknownEquivalenceData(solvingInfo.withAddedTime(currCumulativeSolvingTime))
-              )
+              unknownsEquivalence += cand -> UnknownEquivalenceData(solvingInfo.withAddedTime(currCumulativeSolvingTime), unknownIds)
             case _ =>
+              unknownsEquivalence += cand -> UnknownEquivalenceData(solvingInfo.withAddedTime(currCumulativeSolvingTime))
           }
           RoundConclusion.CandidateClassified(cand, Classification.Unknown, invalidPairs)
         }
