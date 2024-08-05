@@ -159,5 +159,5 @@ object Others {
 
   @extern
   @pure
-  def swap(e: Expr, y: Variable, z: Variable): Expr = errorWrapper[Nothing]
+  def eplSwap(e: Expr, y: Variable, z: Variable): Expr = errorWrapper[Nothing]
 }

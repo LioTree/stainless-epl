@@ -272,6 +272,9 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
       case Literal(constant: Constants.Constant) if isHardEx && constant.value.isInstanceOf[String] =>
         buildNumber(Utils.str2Int(constant.value.asInstanceOf[String]))
 
+      case Apply(Ident(name), args) if name.toString == "swap" =>
+        cpy.Apply(tree)(termIdent("eplSwap"), transform(args))
+
       case _ => super.transform(tree)
     }
 }
