@@ -581,12 +581,12 @@ class EquivalenceChecker(override val trees: Trees,
           // Take all ctex for `sublemmas`
           val ctexOrderedArgsWithSubFns = sublemmas.flatMap(id => allCtexs.getOrElse(id, Seq.empty).flatMap(
             ctex => subEqLemma2SubFns.get(id).map((ctex, _))
-          ))
+          )).toSet
           val ctexsMap = ctexOrderedArgsWithSubFns.map { case (ctex, SubFnPair(subMod, subCand)) =>
             val subCandFd = symbols.functions(subCand)
             val eval = evalOn(symbols.functions(subMod), subCandFd, ctex)
             Ctex(subCandFd.params.zip(ctex), eval)
-          }
+          }.toSeq
           unequivalent += cand -> UnequivalentData(ctexsMap, Some(solvingInfo.withAddedTime(currCumulativeSolvingTime)))
           examinationState = ExaminationState.PickNext
           RoundConclusion.CandidateClassified(cand, Classification.Invalid(ctexsMap), Set.empty)
