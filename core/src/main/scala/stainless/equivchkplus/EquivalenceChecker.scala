@@ -181,7 +181,7 @@ class EquivalenceChecker(override val trees: Trees,
                 case _ => false
               } => fd.id
             }
-          }
+          }.toSeq
 
           val modelDefaultSubFn = symbols.functions.values.find { fd =>
             fd.flags.exists {
@@ -195,7 +195,7 @@ class EquivalenceChecker(override val trees: Trees,
                 case Annotation("defaultSubFn", args) => true
                 case _ => false
               }
-          }.map(_.id).getOrElse(null)
+          }.map(_.id).getOrElse(sys.error("No default sub function of model found"))
 
           val candidateSubFns = symbols.functions.values.flatMap { fd =>
             fd.flags.collect {
@@ -204,7 +204,7 @@ class EquivalenceChecker(override val trees: Trees,
                 case _ => false
               } => fd.id
             }
-          }
+          }.toSeq
 
           val candidateDefaultSubFn = symbols.functions.values.find { fd =>
             fd.flags.exists {
@@ -218,7 +218,7 @@ class EquivalenceChecker(override val trees: Trees,
                 case Annotation("defaultSubFn", args) => true
                 case _ => false
               }
-          }.map(_.id).getOrElse(null)
+          }.map(_.id).getOrElse(sys.error("No default sub function of candidate found"))
 
           val allSubFns = modelSubFns.toList ++ candidateSubFns.toList
           val subFnsPairs = allSubFns.map { subFn =>
@@ -327,6 +327,9 @@ class EquivalenceChecker(override val trees: Trees,
   private val unknownsSafety = mutable.LinkedHashMap.empty[Identifier, UnknownSafetyData]
   private val signatureMismatch = mutable.ArrayBuffer.empty[Identifier]
   private val clusters = mutable.Map.empty[Identifier, mutable.ArrayBuffer[Identifier]]
+  private val subEqLemma2SubFns = mutable.Map.empty[Identifier, SubFnPair]
+
+  private case class SubFnPair(submod: Identifier, subcand: Identifier)
 
   // Type -> multiplicity
   private case class UnordSig(args: Map[Type, Int])
@@ -576,7 +579,22 @@ class EquivalenceChecker(override val trees: Trees,
         }
         if (strat.subFnsMatchingStrat.isDefined) {
           nextRoundOrUnknown()
-        } else {
+        }
+        else if(strat.subFnsEquivStrat.isDefined) {
+          // Take all ctex for `sublemmas`
+          val ctexOrderedArgsWithSubFns = sublemmas.flatMap(id => allCtexs.getOrElse(id, Seq.empty).flatMap(
+            ctex => subEqLemma2SubFns.get(id).map((ctex, _))
+          ))
+          val ctexsMap = ctexOrderedArgsWithSubFns.map { case (ctex, SubFnPair(subMod, subCand)) =>
+            val subCandFd = symbols.functions(subCand)
+            val eval = evalOn(symbols.functions(subMod), subCandFd, ctex)
+            Ctex(subCandFd.params.zip(ctex), eval)
+          }
+          unequivalent += cand -> UnequivalentData(ctexsMap, Some(solvingInfo.withAddedTime(currCumulativeSolvingTime)))
+          examinationState = ExaminationState.PickNext
+          RoundConclusion.CandidateClassified(cand, Classification.Invalid(ctexsMap), Set.empty)
+        }
+        else {
           // schade
           val candFd = symbols.functions(cand)
           // Take all ctex for `cand`, `eqLemma` and `proof`
@@ -625,7 +643,10 @@ class EquivalenceChecker(override val trees: Trees,
             val newConf = conf.copy(model = symbols.functions(submod), candidate = symbols.functions(subcand), topLevel = false)
             val permutation = ArgPermutation(symbols.functions(submod).params.indices) // No permutation for top-level model and candidate
             val (subres, subRepl) = generateEqLemma(newConf, permutation)
-            Seq(subres.updatedFd) ++ subres.helper.toSeq ++ subRepl.toSeq
+            val eqLemmasResSub = Seq(subres.updatedFd) ++ subres.helper.toSeq ++ subRepl.toSeq
+            for (elem <- eqLemmasResSub)
+              subEqLemma2SubFns(elem.id) = SubFnPair(submod, subcand)
+            eqLemmasResSub
         }
         GeneratedEqLemmas(None, None, eqLemmasResSubs)
       case None =>
