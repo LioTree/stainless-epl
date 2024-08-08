@@ -9,7 +9,7 @@ import dotty.tools.dotc.core.Contexts.Context as DottyContext
 import dotty.tools.dotc.core.Names.{EmptyTermName, EmptyTypeName, TermName, TypeName, termName, typeName}
 import dotty.tools.dotc.core.Phases.*
 import dotty.tools.dotc.util.Spans.Span
-import stainless.equivchkplus.optMatchExhaustiveness
+import stainless.equivchk.optMatchExhaustiveness
 
 import scala.collection.mutable.{ArrayBuffer, Map, Set, Stack}
 

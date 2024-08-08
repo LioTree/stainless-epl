@@ -8,7 +8,7 @@ import dotty.tools.dotc.core.*
 import dotty.tools.dotc.core.Contexts.Context as DottyContext
 import dotty.tools.dotc.core.Flags
 import dotty.tools.dotc.core.Names.{termName, typeName}
-import stainless.equivchkplus.optExtractTarget
+import stainless.equivchk.optExtractTarget
 
 import scala.collection.mutable.{Map, Queue, Set, Stack}
 

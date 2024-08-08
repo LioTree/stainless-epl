@@ -9,7 +9,7 @@ import dotty.tools.dotc.core.Contexts.Context as DottyContext
 import dotty.tools.dotc.core.Flags
 import dotty.tools.dotc.core.Names.{termName, typeName}
 import dotty.tools.dotc.util.Spans.Span
-import stainless.equivchkplus.{optAssn2, optFakeExercises, optSubFnsEquiv, optExtractTarget}
+import stainless.equivchk.{optAssn2, optFakeExercises, optSubFnsEquiv, optExtractTarget}
 import scala.collection.immutable.Set
 
 class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends PackageNameRewriter {

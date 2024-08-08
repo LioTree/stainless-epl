@@ -8,7 +8,7 @@ import dotty.tools.dotc.core.*
 import dotty.tools.dotc.core.Contexts.Context as DottyContext
 import dotty.tools.dotc.core.Flags
 import dotty.tools.dotc.core.Names.{termName, typeName}
-import stainless.equivchkplus.{optAssn1, optExtractTarget}
+import stainless.equivchk.{optAssn1, optExtractTarget}
 
 class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends PackageNameRewriter {
 

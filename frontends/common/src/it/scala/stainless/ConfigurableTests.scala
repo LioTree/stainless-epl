@@ -3,7 +3,7 @@ package stainless
 import _root_.io.circe.{JsonObject, Json}
 import inox.{OptionValue, TestSilentReporter}
 import org.scalatest.funsuite.AnyFunSuite
-import stainless.equivchkplus.EquivalenceCheckingReport.Status
+import stainless.equivchk.EquivalenceCheckingReport.Status
 import stainless.extraction.utils.DebugSymbols
 import stainless.extraction.xlang.{TreeSanitizer, trees as xt}
 import stainless.utils.{CheckFilter, JsonUtils, YesNoOnly}
