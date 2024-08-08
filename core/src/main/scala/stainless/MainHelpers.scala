@@ -80,15 +80,13 @@ trait MainHelpers extends inox.MainHelpers { self =>
     utils.Caches.optCacheDir -> Description(General, "Specify the directory in which cache files should be stored"),
     testgen.optOutputFile -> Description(TestsGeneration, "Specify the output file"),
     testgen.optGenCIncludes -> Description(TestsGeneration, "(GenC variant only) Specify header includes"),
-    equivchk.optMatchExhaustiveness -> Description(EquivChk, "Ensure Match exhaustiveness"),
-    equivchk.optAssn1 -> Description(EquivChk, "Preprocess assignment1 of EPL"),
-    equivchk.optAssn2 -> Description(EquivChk, "Preprocess assignment2 of EPL"),
+    epl.optMatchExhaustiveness -> Description(EquivChk, "Ensure Match exhaustiveness"),
+    epl.optAssn1 -> Description(EquivChk, "Preprocess assignment1 of EPL"),
+    epl.optAssn2 -> Description(EquivChk, "Preprocess assignment2 of EPL"),
+    epl.optTransformation -> Description(EquivChk, "Translation to use for equivalence checking"),
+    epl.optFakeExercises -> Description(EquivChk, "Use fake exercises f1, o2 ..."),
+    epl.optExtractTarget -> Description(EquivChk, "Extract f1, c2, o3 and its dependencies"),
     equivchk.optSubFnsEquiv -> Description(EquivChk, "Using the equivalence of the marked subfunctions to replace the equivalence of the original function"),
-    equivchk.optTransformation -> Description(EquivChk, "Translation to use for equivalence checking"),
-//    equivchk.optExternPureDefs -> Description(EquivChk, "Consider f1, c2, o3 ... as extern and pure functions"),
-    equivchk.optFakeExercises -> Description(EquivChk, "Use fake exercises f1, o2 ..."),
-    equivchk.optExtractTarget -> Description(EquivChk, "Extract f1, c2, o3 and its dependencies"),
-//    equivchk.optPublicDefs -> Description(EquivChk, "Consider definitions f1, c2, o3 … as public definitions"),
     equivchk.optCompareFuns -> Description(EquivChk, "Only consider functions f1,f2,... for equivalence checking"),
     equivchk.optModels -> Description(EquivChk, "Consider functions f1, f2, ... as model functions for equivalence checking"),
     equivchk.optNorm -> Description(EquivChk, "Use function f as normalization function for equivalence checking"),
@@ -97,7 +95,6 @@ trait MainHelpers extends inox.MainHelpers { self =>
     equivchk.optInitScore -> Description(EquivChk, "Initial score for models"),
     equivchk.optInitWeights -> Description(EquivChk, "Initial weights for models, overriding the initial score"),
     equivchk.optMaxPerm -> Description(EquivChk, "Maximum number of permutations to be tested when matching auxiliary functions"),
-    cluster.optFrameworkFile -> Description(Cluster, "Specify the empty framework file to know functions and classes to extract"),
   ) ++ MainHelpers.components.map { component =>
     val option = inox.FlagOptionDef(component.name, default = false)
     option -> Description(Pipelines, component.description)
@@ -130,7 +127,7 @@ trait MainHelpers extends inox.MainHelpers { self =>
     frontend.DebugSectionExtraDeps,
     genc.DebugSectionGenC,
     equivchk.DebugSectionEquivChk,
-    equivchk.DebugSectionTransformation
+    epl.DebugSectionTransformation
   )
 
   override protected def displayVersion(reporter: inox.Reporter): Unit = {

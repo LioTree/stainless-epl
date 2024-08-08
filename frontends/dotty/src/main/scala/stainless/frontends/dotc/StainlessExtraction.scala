@@ -15,7 +15,6 @@ import typer._
 import extraction.xlang.{trees => xt}
 import frontend.{CallBack, Frontend, FrontendFactory, ThreadedFrontend, UnsupportedCodeException}
 import Utils._
-import stainless.cluster.optFrameworkFile
 import scala.sys
 
 case class ExtractedUnit(file: String, unit: xt.UnitDef, classes: Seq[xt.ClassDef], functions: Seq[xt.FunDef], typeDefs: Seq[xt.TypeDef])
@@ -37,16 +36,6 @@ class StainlessExtraction(val inoxCtx: inox.Context) {
         val id = lst.collectFirst { case PackageDef(ref, _) => ref } match {
           case Some(ref) => extractRef(ref)
           case None => FreshIdentifier(unit.source.file.name.replaceFirst("[.][^.]+$", ""))
-        }
-        // If the --framework-file parameter exists, extract the names of the to-do functions
-        // contained in the specified file, and then ignore it.
-        inoxCtx.options.findOption(optFrameworkFile) match {
-          case Some(to) =>
-            if (to.exists(_.contains(unit.source.toString))) {
-              TodoExtractor.traverse(pd.stats)
-              return None
-            }
-          case None =>
         }
         (id, pd.stats)
       case _ =>

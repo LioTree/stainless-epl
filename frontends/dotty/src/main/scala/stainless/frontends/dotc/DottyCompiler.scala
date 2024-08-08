@@ -15,7 +15,6 @@ import transform.*
 import typer.*
 import frontend.{CallBack, Frontend, FrontendFactory, ThreadedFrontend}
 import Utils.*
-import stainless.cluster.optFrameworkFile
 import stainless.frontends.dotc.epl.EPLTransformationPhase
 
 import java.io.File
@@ -158,12 +157,7 @@ object DottyCompiler {
 
           val cps = Seq(scala213Lib, scala3Lib).distinct.mkString(java.io.File.pathSeparator)
           val flags = Seq("-color:never", "-language:implicitConversions", "-Ysafe-init", s"-cp:$cps")
-          ctx.options.findOption(optFrameworkFile) match {
-            case Some(to) =>
-              to.toSeq ++ allCompilerArguments(ctx, compilerArgs) ++ flags
-            case None =>
-              allCompilerArguments(ctx, compilerArgs) ++ flags
-          }
+          allCompilerArguments(ctx, compilerArgs) ++ flags
         }
         val compiler: DottyCompiler = new DottyCompiler(ctx, this.callback)
 

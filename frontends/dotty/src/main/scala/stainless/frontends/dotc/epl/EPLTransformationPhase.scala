@@ -9,7 +9,7 @@ import dotty.tools.dotc.plugins.*
 import dotty.tools.dotc.typer.TyperPhase
 import dotty.tools.dotc.{Main as _, *}
 import stainless.frontends.dotc.epl.*
-import stainless.equivchk.{DebugSectionTransformation, optTransformation, optAssn2}
+import stainless.epl.{DebugSectionTransformation, optTransformation, optAssn2}
 
 class EPLTransformationPhase(val inoxCtx: inox.Context) extends PluginPhase {
 

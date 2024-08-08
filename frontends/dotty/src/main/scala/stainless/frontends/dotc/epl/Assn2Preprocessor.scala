@@ -8,7 +8,7 @@ import dotty.tools.dotc.core.*
 import dotty.tools.dotc.core.Contexts.Context as DottyContext
 import dotty.tools.dotc.core.Flags
 import dotty.tools.dotc.core.Names.{termName, typeName}
-import stainless.equivchk.optAssn2
+import stainless.epl.optAssn2
 
 class Assn2Preprocessor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends EPLTransformer {
 
