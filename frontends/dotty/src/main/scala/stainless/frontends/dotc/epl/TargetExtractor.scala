@@ -16,16 +16,14 @@ class TargetExtractor(using dottyCtx: DottyContext, inoxCtx: inox.Context) exten
 
   import ast.untpd.*
 
-  private var depDetector: DepDetector = null
-  private var targets: Set[String] = Set.empty[String]
+  private var targets = Set.empty[String]
 
   private def notTarget(name: String): Boolean = targets.nonEmpty && !targets.contains(name)
 
   override def start(tree: untpd.Tree)(using DottyContext): untpd.Tree =
     tree match {
       case packageDef: PackageDef =>
-        depDetector = new DepDetector(packageDef)
-        targets = depDetector.targets
+        targets = (new DepDetector).start(packageDef)
         transform(tree)
       case _ => sys.error("No package definition found")
     }
@@ -36,23 +34,34 @@ class TargetExtractor(using dottyCtx: DottyContext, inoxCtx: inox.Context) exten
       case PackageDef(pid: Ident, stats) =>
         val newStats = stats.flatMap(
           stat => stat match {
-            case TypeDef(name, _) if notTarget(name.toString) =>
-              List(EmptyTree)
+            case TypeDef(name, _) if notTarget(name.toString) => 
+              Nil
             case DefDef(name, _, _, _) if notTarget(name.toString) =>
-              List(EmptyTree)
+              Nil
             case ModuleDef(name, _) if notTarget(name.toString) =>
-              List(EmptyTree)
+              Nil
             case ValDef(name, _, _) if notTarget(name.toString) =>
-              List(EmptyTree)
+              Nil
             case _ => List(stat)
           })
         cpy.PackageDef(tree)(pid, newStats)
       case _ => sys.error("Invalid Assignment")
     }
 
-  class DepDetector(packageDef: PackageDef)(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends UntypedTreeTraverser {
-    private val elements: Map[String, List[untpd.Tree]] = Map.empty
+  class DepDetector(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends UntypedTreeTraverser {
+    private val definitions: Map[String, List[untpd.Tree]] = Map.empty
     private val extendsMap: Map[String, List[String]] = Map.empty
+    val targets: Set[String] = inoxCtx.options.findOption(optExtractTarget) match {
+      case Some(targets) => Set(targets: _*)
+      case None => Set.empty
+    }
+    private val worklist: Queue[Tree] = Queue.empty
+
+    def addWorklist(name: String): Unit =
+      if (definitions.contains(name) && !targets.contains(name)) {
+        targets.add(name)
+        worklist ++= definitions(name)
+      }
 
     def insert[T](map: Map[String, List[T]])(key: String, value: T): Unit =
       map.updateWith(key) {
@@ -60,57 +69,43 @@ class TargetExtractor(using dottyCtx: DottyContext, inoxCtx: inox.Context) exten
         case None => Some(List(value))
       }
 
-    packageDef.stats.foreach(stat =>
-      stat match {
-        case defDef: DefDef => insert(elements)(defDef.name.toString, defDef)
+    def start(packageDef: PackageDef): Set[String] = {
+      packageDef.stats.foreach(stat =>
+        stat match {
+          case defDef: DefDef => insert(definitions)(defDef.name.toString, defDef)
 
-        case typeDef@TypeDef(name, rhs@Template(_, parentsOrDerived: List[Tree], _, _)) =>
-          insert(elements)(name.toString, typeDef)
-          parentsOrDerived.foreach {
-            case Ident(parentName) => insert(extendsMap)(parentName.toString, name.toString)
-            case _ =>
-          }
+          case typeDef@TypeDef(name, rhs@Template(_, parentsOrDerived: List[Tree], _, _)) =>
+            insert(definitions)(name.toString, typeDef)
+            parentsOrDerived.foreach {
+              case Ident(parentName) => insert(extendsMap)(parentName.toString, name.toString)
+              case _ =>
+            }
 
-        case typeDef@TypeDef(name, rhs: LambdaTypeTree) =>
-          insert(elements)(name.toString, typeDef)
-          
-        case typeDef@TypeDef(name, rhs: Ident) =>
-          insert(elements)(name.toString, typeDef)
+          case typeDef@TypeDef(name, rhs: LambdaTypeTree) =>
+            insert(definitions)(name.toString, typeDef)
 
-        case moduleDef@ModuleDef(name, impl@Template(_, parentsOrDerived: List[Tree], _, _)) =>
-          insert(elements)(name.toString, moduleDef)
-          parentsOrDerived.foreach {
-            case Ident(parentName) => insert(extendsMap)(parentName.toString, name.toString)
-            case _ =>
-          }
+          case typeDef@TypeDef(name, rhs: Ident) =>
+            insert(definitions)(name.toString, typeDef)
 
-        case valDef: ValDef => insert(elements)(valDef.name.toString, valDef)
+          case moduleDef@ModuleDef(name, impl@Template(_, parentsOrDerived: List[Tree], _, _)) =>
+            insert(definitions)(name.toString, moduleDef)
+            parentsOrDerived.foreach {
+              case Ident(parentName) => insert(extendsMap)(parentName.toString, name.toString)
+              case _ =>
+            }
 
-        case _ =>
-      })
+          case valDef: ValDef => insert(definitions)(valDef.name.toString, valDef)
 
-    val targets: Set[String] = inoxCtx.options.findOption(optExtractTarget) match {
-      case Some(targets) => Set(targets: _*)
-      case None => Set.empty
-    }
-    private val worklist: Queue[Tree] = Queue.empty
+          case _ =>
+        })
 
-    if (targets.nonEmpty) {
-      worklist ++= targets.map(elements).flatten
-
-      while (worklist.nonEmpty) {
+      worklist ++= targets.map(definitions).flatten
+      while (worklist.nonEmpty)
         traverse(worklist.dequeue)
-      }
+      targets
     }
 
-    def addWorklist(name: String): Unit = {
-      if (elements.contains(name) && !targets.contains(name)) {
-        targets.add(name)
-        worklist ++= elements(name)
-      }
-    }
-
-    override def traverse(tree: untpd.Tree)(using DottyContext): Unit = {
+    override def traverse(tree: untpd.Tree)(using DottyContext): Unit =
       tree match {
         case Apply(Ident(name), args) =>
           addWorklist(name.toString)
@@ -138,13 +133,11 @@ class TargetExtractor(using dottyCtx: DottyContext, inoxCtx: inox.Context) exten
           traverseChildren(tree)
 
         case TypeDef(name, _) =>
-          if (extendsMap.contains(name.toString))
-            extendsMap(name.toString).foreach(addWorklist)
+          extendsMap.getOrElse(name.toString, Nil).foreach(addWorklist)
           traverseChildren(tree)
 
         case ModuleDef(name, _) =>
-          if (extendsMap.contains(name.toString))
-            extendsMap(name.toString).foreach(addWorklist)
+          extendsMap.getOrElse(name.toString, Nil).foreach(addWorklist)
           traverseChildren(tree)
 
         case Template(_, parentsOrDerived: List[Tree], _, _) =>
@@ -157,6 +150,5 @@ class TargetExtractor(using dottyCtx: DottyContext, inoxCtx: inox.Context) exten
 
         case _ => traverseChildren(tree)
       }
-    }
   }
 }
