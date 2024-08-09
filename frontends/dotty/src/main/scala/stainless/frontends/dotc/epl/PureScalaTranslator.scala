@@ -81,29 +81,29 @@ class PureScalaTranslator(using dottyCtx: DottyContext, inoxCtx: inox.Context) e
       // Adding foreach is certainly simple, but Stainless cannot handle lambda functions with side effects.
       // This means scenarios like var result = 0; for (i <- list) { result += i } cannot be supported even List::foreach is added.
       // Therefore, we convert for loops directly into while loops for processing, and Stainless will transform them into recursive functions.
-      case ForDo(List(GenFrom(pat, expr, checkMode)), body) =>
-        val counterVarName: String = randomVariableName(8)
-        val exprVarName: String = randomVariableName(8)
-        val exprDef = ValDef(termName(exprVarName), TypeTree(), transform(expr))
-        val counterDef = ValDef(termName(counterVarName), TypeTree(), Apply(termIdent("BigInt"), List(buildNumber(0))))
-        counterDef.setMods(Modifiers(Flags.Mutable))
-        val whileDo = WhileDo(
-          Parens(InfixOp(termIdent(counterVarName), termIdent("<"), Select(termIdent(exprVarName), termName("length")))),
-          Block(
-            List(
-              Apply(termIdent("decreases"), List(InfixOp(Select(termIdent(exprVarName), termName("length")),
-                termIdent("-"), termIdent(counterVarName)))),
-              ValDef(pat.asInstanceOf[Ident].name.toTermName, TypeTree(), Apply(termIdent(exprVarName),
-                List(termIdent(counterVarName)))),
-              transform(body),
-            ),
-            Assign(termIdent(counterVarName), InfixOp(termIdent(counterVarName), termIdent("+"),
-              Apply(termIdent("OverflowInt"), List(buildNumber(1)))))
-          )
-        )
-        Block(List(exprDef, counterDef), InfixOp(Parens(whileDo), termIdent("invariant"),
-          Parens(InfixOp(termIdent(counterVarName), termIdent(">="),
-            Apply(termIdent("BigInt"), List(buildNumber(0)))))))
+//      case ForDo(List(GenFrom(pat, expr, checkMode)), body) =>
+//        val counterVarName: String = randomVariableName(8)
+//        val exprVarName: String = randomVariableName(8)
+//        val exprDef = ValDef(termName(exprVarName), TypeTree(), transform(expr))
+//        val counterDef = ValDef(termName(counterVarName), TypeTree(), Apply(termIdent("BigInt"), List(buildNumber(0))))
+//        counterDef.setMods(Modifiers(Flags.Mutable))
+//        val whileDo = WhileDo(
+//          Parens(InfixOp(termIdent(counterVarName), termIdent("<"), Select(termIdent(exprVarName), termName("length")))),
+//          Block(
+//            List(
+//              Apply(termIdent("decreases"), List(InfixOp(Select(termIdent(exprVarName), termName("length")),
+//                termIdent("-"), termIdent(counterVarName)))),
+//              ValDef(pat.asInstanceOf[Ident].name.toTermName, TypeTree(), Apply(termIdent(exprVarName),
+//                List(termIdent(counterVarName)))),
+//              transform(body),
+//            ),
+//            Assign(termIdent(counterVarName), InfixOp(termIdent(counterVarName), termIdent("+"),
+//              Apply(termIdent("OverflowInt"), List(buildNumber(1)))))
+//          )
+//        )
+//        Block(List(exprDef, counterDef), InfixOp(Parens(whileDo), termIdent("invariant"),
+//          Parens(InfixOp(termIdent(counterVarName), termIdent(">="),
+//            Apply(termIdent("BigInt"), List(buildNumber(0)))))))
 
       // Replace Character with String.
       // It is possible to add an implicit conversion from Char to String in the stainless library, but stainless cannot verify it because it must be @extern.

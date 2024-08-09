@@ -544,6 +544,13 @@ sealed abstract class List[T] {
     case Cons(h, t) => f(h) ++ t.flatMap(f)
   }
 
+  def foreach(f: T => Unit): Unit = this match {
+      case Nil() =>
+      case Cons(h, t) =>
+        f(h)
+        t.foreach(f)
+  }
+
   def filter(p: T => Boolean): List[T] = { this match {
     case Nil() => Nil[T]()
     case Cons(h, t) if p(h) => Cons(h, t.filter(p))
