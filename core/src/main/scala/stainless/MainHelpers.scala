@@ -80,7 +80,6 @@ trait MainHelpers extends inox.MainHelpers { self =>
     utils.Caches.optCacheDir -> Description(General, "Specify the directory in which cache files should be stored"),
     testgen.optOutputFile -> Description(TestsGeneration, "Specify the output file"),
     testgen.optGenCIncludes -> Description(TestsGeneration, "(GenC variant only) Specify header includes"),
-    epl.optMatchExhaustiveness -> Description(EquivChk, "Ensure Match exhaustiveness"),
     epl.optAssn1 -> Description(EquivChk, "Preprocess assignment1 of EPL"),
     epl.optAssn2 -> Description(EquivChk, "Preprocess assignment2 of EPL"),
     epl.optTransformation -> Description(EquivChk, "Translation to use for equivalence checking"),

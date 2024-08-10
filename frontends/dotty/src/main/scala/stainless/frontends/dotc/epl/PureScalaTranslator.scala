@@ -9,7 +9,6 @@ import dotty.tools.dotc.core.Contexts.Context as DottyContext
 import dotty.tools.dotc.core.Names.{EmptyTermName, EmptyTypeName, TermName, TypeName, termName, typeName}
 import dotty.tools.dotc.core.Phases.*
 import dotty.tools.dotc.util.Spans.Span
-import stainless.epl.optMatchExhaustiveness
 
 import scala.collection.mutable.{ArrayBuffer, Map, Set, Stack}
 
@@ -147,7 +146,7 @@ class PureScalaTranslator(using dottyCtx: DottyContext, inoxCtx: inox.Context) e
             Apply(transform(fun), List(Apply(termIdent("List"), transform(args))))
         }
 
-      // replace sys.error() with error[Nothing]("Error message.")
+      // replace sys.error() with errorWrapper[Nothing]
       case Apply(fun@Select(qualifier: Ident, name: TermName), args) if qualifier.name.toString == "sys" && name.toString == "error" =>
         errorWrapper
 
@@ -209,14 +208,9 @@ class PureScalaTranslator(using dottyCtx: DottyContext, inoxCtx: inox.Context) e
               List(case_)
           })
 
-        inoxCtx.options.findOption(optMatchExhaustiveness) match {
-          case None | Some(true) =>
-            // Insert a `case _ => errorWrapper[Nothing]` in any case to pass match exhaustiveness verification.
-            val defaultCase = CaseDef(termIdent("_"), EmptyTree, errorWrapper)
-            cpy.Match(tree)(transform(selector), transformSub(flatCases :+ defaultCase))
-          case _ =>
-            cpy.Match(tree)(transform(selector), transformSub(flatCases))
-        }
+        // Insert a `case _ => errorWrapper[Nothing]` in any case to pass match exhaustiveness verification.
+        val defaultCase = CaseDef(termIdent("_"), EmptyTree, errorWrapper)
+        cpy.Match(tree)(transform(selector), transformSub(flatCases :+ defaultCase))
 
       case _ =>
         super.transform(tree)

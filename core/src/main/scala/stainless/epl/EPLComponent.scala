@@ -5,8 +5,6 @@ import stainless.extraction.StainlessPipeline
 
 object DebugSectionTransformation extends inox.DebugSection("transformation")
 
-object optMatchExhaustiveness extends inox.FlagOptionDef("match-exhaustiveness", true)
-
 object optAssn1 extends inox.FlagOptionDef("assn1", true)
 
 object optAssn2 extends inox.FlagOptionDef("assn2", true)
