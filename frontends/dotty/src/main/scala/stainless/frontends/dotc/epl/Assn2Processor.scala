@@ -164,7 +164,8 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
           val newName = termName(s"${baseFun.name.toString}_${fun.name.toTermName}")
           val freshSymDef = ValDef(termName("freshSym"), TypeTree(), Apply(termIdent("BigInt"), List(buildNumber(0))))
           freshSymDef.setMods(Modifiers(Flags.Mutable))
-          val newRhs = Block(List(freshSymDef), cpy.Match(baseMatch)(baseMatch.selector, List(cpy.CaseDef(tree)(pat, EmptyTree, body))))
+          val defaultCase = CaseDef(termIdent("_"), EmptyTree, errorWrapper) // pass match exhaustiveness verification.
+          val newRhs = Block(List(freshSymDef), cpy.Match(baseMatch)(baseMatch.selector, List(cpy.CaseDef(tree)(pat, EmptyTree, body), defaultCase)))
           val subFun = recCallRewriter.transform(cpy.DefDef(baseFun)(newName, baseFun.paramss, baseFun.tpt, newRhs)).asInstanceOf[DefDef]
           subFuns = markSubFun(subFun, fun.name.toString) :: subFuns
         }
@@ -251,26 +252,20 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
         InfixOp(transform(qualifier), termIdent("=="), transform(arg))
 
       // Only BigInt in Assn2 since OverflowInt might lead to extra performance overhead.
-      case Ident(name) if name.toString == "Int" || name.toString == "Integer" =>
+      case Ident(name) if name.toString == "OverflowInt" =>
         name match {
           case name if name.isTermName => termIdent("BigInt")
           case name if name.isTypeName => typeIdent("BigInt")
         }
-
-      // Skip BigInt(n)
-      case Apply(Ident(name), List(Number(digits, _))) if name.toString == "BigInt" =>
-        tree
-
-      case Number(digits, _) =>
-        Apply(termIdent("BigInt"), List(tree))
 
       // No String in Assn2 exercises 2-5 since it will make verification really hard.
-      case Ident(name) if isHardEx && name.toString == "String" =>
+      case Ident(name) if isHardEx && name.toString == "StringWrapper" =>
         name match {
           case name if name.isTermName => termIdent("BigInt")
           case name if name.isTypeName => typeIdent("BigInt")
         }
 
+      // transform string and char literals to numbers
       case Literal(constant: Constants.Constant) if isHardEx && constant.value.isInstanceOf[Character] =>
         buildNumber(Utils.str2Int(constant.value.asInstanceOf[Character].toString))
 

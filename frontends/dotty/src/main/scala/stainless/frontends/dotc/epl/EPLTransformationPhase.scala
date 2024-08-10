@@ -34,10 +34,10 @@ class EPLTransformationPhase(val inoxCtx: inox.Context) extends PluginPhase {
           val transformers =
             (new Assn2Preprocessor).start andThen
             (new TargetExtractor).start andThen
-            (new Assn1Processor).start andThen
-            (new Assn2Processor).start andThen
             (new DecreasesInference).start andThen
-            (new PureScalaTranslator).start
+            (new PureScalaTranslator).start andThen
+            (new Assn1Processor).start andThen
+            (new Assn2Processor).start
 
           unit.untpdTree = transformers(unit.untpdTree)
 
