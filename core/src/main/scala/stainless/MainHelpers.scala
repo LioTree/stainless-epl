@@ -83,6 +83,7 @@ trait MainHelpers extends inox.MainHelpers { self =>
     epl.optAssn1 -> Description(EquivChk, "Preprocess assignment1 of EPL"),
     epl.optAssn2 -> Description(EquivChk, "Preprocess assignment2 of EPL"),
     epl.optTransformation -> Description(EquivChk, "Translation to use for equivalence checking"),
+    epl.optGenSubFuns -> Description(EquivChk, "Generate a sub-function, and when subfns-equiv is true, this option will also automatically be true."),
     epl.optFakeExercises -> Description(EquivChk, "Use fake exercises f1, o2 ..."),
     epl.optExtractTarget -> Description(EquivChk, "Extract f1, c2, o3 and its dependencies"),
     equivchk.optSubFnsEquiv -> Description(EquivChk, "Using the equivalence of the marked subfunctions to replace the equivalence of the original function"),

@@ -11,6 +11,8 @@ object optAssn2 extends inox.FlagOptionDef("assn2", true)
 
 object optTransformation extends inox.FlagOptionDef("transformation", true)
 
+object optGenSubFuns extends inox.FlagOptionDef("gen-subfns", true)
+
 object optFakeExercises extends inox.OptionDef[Seq[String]] {
   val name = "fake-exs"
   val default = Seq[String]()

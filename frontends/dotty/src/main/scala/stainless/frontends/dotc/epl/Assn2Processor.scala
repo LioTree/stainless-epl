@@ -9,8 +9,9 @@ import dotty.tools.dotc.core.Contexts.Context as DottyContext
 import dotty.tools.dotc.core.Flags
 import dotty.tools.dotc.core.Names.{termName, typeName}
 import dotty.tools.dotc.util.Spans.Span
+import inox.OptionValue
 import stainless.equivchk.optSubFnsEquiv
-import stainless.epl.{optAssn2, optFakeExercises, optExtractTarget}
+import stainless.epl.{optAssn2, optFakeExercises, optExtractTarget, optGenSubFuns}
 import scala.collection.immutable.Set
 
 class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends PackageNameRewriter {
@@ -69,7 +70,11 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
   // Exercises requiring the generation of sub-functions for separate verification.
   private val hardExercises = Set("eval", "tyOf", "subst", "desugar")
   private val isHardEx = hardExercises.intersect(targets).nonEmpty
-  private val splitFuns = inoxCtx.options.findOption(optSubFnsEquiv) match {
+  inoxCtx.options.findOption(optSubFnsEquiv) match {
+    case Some(true) => inoxCtx.options + OptionValue(optGenSubFuns)(true)
+    case _ =>
+  }
+  private val splitFuns = inoxCtx.options.findOption(optGenSubFuns) match {
     case Some(true) => hardExercises
     case _ => Set.empty
   }
