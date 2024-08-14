@@ -8,13 +8,27 @@ import dotty.tools.dotc.core.*
 import dotty.tools.dotc.core.Contexts.Context as DottyContext
 import dotty.tools.dotc.core.Flags
 import dotty.tools.dotc.core.Names.{termName, typeName}
-import stainless.epl.{optAssn1, optExtractTarget}
+import stainless.epl.{optAssn1, optExtractTarget, optFakeExercises}
 
 class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends PackageNameRewriter {
 
   import ast.untpd.*
 
+  private val framework = Set(
+    "power",
+    "Colour",
+    "Red",
+    "Green",
+    "Blue",
+    "Shape",
+    "Circle",
+    "Rectangle",
+  )
   private val extractTargets = inoxCtx.options.findOption(optExtractTarget) match {
+    case Some(targets) => Set(targets: _*)
+    case None => Set.empty
+  }
+  private val fakeExercises = inoxCtx.options.findOption(optFakeExercises) match {
     case Some(targets) => Set(targets: _*)
     case None => Set.empty
   }
@@ -26,41 +40,66 @@ class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
       case _ => tree
     }
 
-  private def getPrecondition(n: String): Apply =
+  private def getPrecondition(n: String): Apply = {
+    val overflowInt0 = Apply(termIdent("OverflowInt"), List(Apply(termIdent("BigInt"), List(buildNumber(0)))))
+    val overflowInt100 = Apply(termIdent("OverflowInt"), List(Apply(termIdent("BigInt"), List(buildNumber(100)))))
     Apply(
       Ident(termName("require")),
       List(
         InfixOp(
-          InfixOp(Ident(termName(n)), Ident(termName(">=")), buildNumber(0)),
-          Ident(termName("&&")),
-          InfixOp(Ident(termName(n)), Ident(termName("<=")), buildNumber(100))
+          InfixOp(termIdent(n), termIdent(">="), overflowInt0),
+          termIdent("&&"),
+          InfixOp(termIdent(n), termIdent("<="), overflowInt100)
         )
       )
     )
+  }
 
   override def transform(tree: untpd.Tree)(using DottyContext): untpd.Tree =
     tree match {
-      case Ident(name) if name.toString == "Double" && translateDouble =>
-        name match {
-          case name if name.isTermName => Ident(termName("BigInt"))
-          case name if name.isTypeName => Ident(typeName("BigInt"))
+      case PackageDef(pid: Ident, stats) if pid.name.toString == "<empty>" => {
+        val importFramework = buildImport("epl.assn1.framework._")
+        val importFakeExs = fakeExercises.map { exer =>
+          buildImport(s"epl.assn1.fake.${exer}")
+        }.toList
+        val newStats = importFramework :: importFakeExs ++ stats.flatMap{
+          // remove the original framework and specific exercises
+          case TypeDef(name, _) if framework.contains(name.toString) || fakeExercises.contains(name.toString) =>
+            Nil
+          case DefDef(name, _, _, _) if framework.contains(name.toString) || fakeExercises.contains(name.toString) =>
+            Nil
+          case ModuleDef(name, _) if framework.contains(name.toString) || fakeExercises.contains(name.toString) =>
+            Nil
+          case ValDef(name, _, _) if framework.contains(name.toString) || fakeExercises.contains(name.toString) =>
+            Nil
+          case other => List(other)
         }
 
-      case Number(digits, _) if translateDouble =>
+        super.transform(cpy.PackageDef(tree)(pid, newStats))
+      }
+
+      case Ident(name) if name.toString == "Double" && translateDouble =>
+        name match {
+          case name if name.isTermName => termIdent("BigInt")
+          case name if name.isTypeName => typeIdent("BigInt")
+        }
+
+      case Number(digits, _) if translateDouble => {
         if (digits.contains(".")) {
           if (digits.toDouble == digits.toDouble.toInt)
-            Apply(Ident(termName("BigInt")), List(Number((digits.toDouble.toInt.toString), Whole(10))))
+            Apply(termIdent("BigInt"), List(buildNumber(digits.toDouble.toInt)))
           else
             sys.error("Unable to translate floating-point numbers with decimals.")
         }
         else
-          Apply(Ident(termName("BigInt")), List(tree))
+          Apply(termIdent("BigInt"), List(tree))
+      }
 
       // No way to add .abs for BigInt in Stainless library...
       case Select(qualifier, name) if name.toString == "abs" && translateDouble =>
-        Apply(Select(Select(Ident(termName("stainless")), termName("math")), termName("abs")), List(qualifier))
+        Apply(Select(Select(termIdent("stainless"), termName("math")), termName("abs")), List(qualifier))
 
-      case defDef@DefDef(name, paramss, tpt, _) if name.toString == "sum" || name.toString == "power" || name.toString == "suffix" =>
+      case defDef@DefDef(name, paramss, tpt, _) if name.toString == "sum" || name.toString == "suffix" => {
         val precondition = getPrecondition("n")
         val newRhs = defDef.rhs match {
           case Block(stats, expr) => Block(precondition :: stats, expr)
@@ -68,8 +107,9 @@ class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
           case _ => Block(List(precondition), defDef.rhs)
         }
         super.transform(cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(newRhs)))
+      }
 
-      case defDef@DefDef(name, paramss, tpt, _) if name.toString == "p" =>
+      case defDef@DefDef(name, paramss, tpt, _) if name.toString == "p" => {
         val precondition_x = getPrecondition("x")
         val precondition_y = getPrecondition("y")
 
@@ -80,21 +120,22 @@ class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
             Block(List(precondition_x, precondition_y), defDef.rhs)
         }
         super.transform(cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(newRhs)))
+      }
 
       case defDef@DefDef(name, paramss, tpt, _) if name.toString == "mayOverlap" && tpt.toString == "TypeTree" =>
-        super.transform(cpy.DefDef(defDef)(name, transformParamss(paramss), Ident(typeName("Boolean")), transform(defDef.rhs)))
+        super.transform(cpy.DefDef(defDef)(name, transformParamss(paramss), typeIdent("Boolean"), transform(defDef.rhs)))
 
       case defDef@DefDef(name, paramss, tpt, _) if name.toString == "compose1" && tpt.toString == "TypeTree" =>
-        super.transform(cpy.DefDef(defDef)(name, transformParamss(paramss), Ident(typeName("C")), transform(defDef.rhs)))
+        super.transform(cpy.DefDef(defDef)(name, transformParamss(paramss), typeIdent("C"), transform(defDef.rhs)))
 
       case defDef@DefDef(name, paramss, tpt, _) if name.toString == "compose" && tpt.toString == "TypeTree" =>
-        super.transform(cpy.DefDef(defDef)(name, transformParamss(paramss), Parens(Function(List(Ident(typeName("A"))), Ident(typeName("C")))), transform(defDef.rhs)))
+        super.transform(cpy.DefDef(defDef)(name, transformParamss(paramss), Parens(Function(List(typeIdent("A")), typeIdent("C"))), transform(defDef.rhs)))
 
       case valDef@ValDef(name, tpt, _) if name.toString == "presidentListMap" && tpt.toString == "TypeTree" =>
-        super.transform(cpy.ValDef(tree)(name, AppliedTypeTree(Ident(typeName("ListMap")), List(Ident(typeName("Int")), Ident(typeName("String")))), transform(valDef.rhs)))
+        super.transform(cpy.ValDef(tree)(name, AppliedTypeTree(typeIdent("ListMap"), List(typeIdent("Int"), typeIdent("String"))), transform(valDef.rhs)))
 
       case defDef@DefDef(name, paramss, tpt, _) if name.toString == "map12_withUpdate" && tpt.toString == "TypeTree" =>
-        super.transform(cpy.DefDef(defDef)(name, transformParamss(paramss), AppliedTypeTree(Ident(typeName("ListMap")), List(Ident(typeName("Int")), Ident(typeName("String")))), transform(defDef.rhs)))
+        super.transform(cpy.DefDef(defDef)(name, transformParamss(paramss), AppliedTypeTree(typeIdent("ListMap"), List(typeIdent("Int"), typeIdent("String"))), transform(defDef.rhs)))
 
       case _ => super.transform(tree)
     }

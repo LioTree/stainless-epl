@@ -42,6 +42,8 @@ stainless/annotation/cCode.scala
 stainless/proof/BoundedQuantifiers.scala
 stainless/proof/Internal.scala
 stainless/proof/package.scala
+epl/assn1/framework/package.scala
+epl/assn1/fake/package.scala
 epl/assn2/framework/Exercise1.scala
 epl/assn2/framework/Others.scala
 epl/assn2/fake/package.scala
