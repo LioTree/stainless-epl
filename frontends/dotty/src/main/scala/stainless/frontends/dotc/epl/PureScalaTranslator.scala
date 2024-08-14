@@ -57,8 +57,8 @@ class PureScalaTranslator(using dottyCtx: DottyContext, inoxCtx: inox.Context) e
       case InfixOp(left, op: Ident, right: Tuple) if op.name == termName("+") => {
         def unrollPlusTuple(operands: List[Tree]): Tree = {
           operands match {
-            case x :: Nil => x
-            case x :: xs => InfixOp(unrollPlusTuple(xs), termIdent("+"), x)
+            case x :: Nil => transform(x)
+            case x :: xs => InfixOp(unrollPlusTuple(xs), termIdent("+"), transform(x))
             case _ => sys.error("Unrolling plus tuple failed")
           }
         }

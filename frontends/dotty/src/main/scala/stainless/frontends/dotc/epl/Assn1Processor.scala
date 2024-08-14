@@ -132,10 +132,10 @@ class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
         super.transform(cpy.DefDef(defDef)(name, transformParamss(paramss), Parens(Function(List(typeIdent("A")), typeIdent("C"))), transform(defDef.rhs)))
 
       case valDef@ValDef(name, tpt, _) if name.toString == "presidentListMap" && tpt.toString == "TypeTree" =>
-        super.transform(cpy.ValDef(tree)(name, AppliedTypeTree(typeIdent("ListMap"), List(typeIdent("Int"), typeIdent("String"))), transform(valDef.rhs)))
+        super.transform(cpy.ValDef(tree)(name, AppliedTypeTree(typeIdent("ListMap"), List(typeIdent("OverflowInt"), typeIdent("StringWrapper"))), transform(valDef.rhs)))
 
       case defDef@DefDef(name, paramss, tpt, _) if name.toString == "map12_withUpdate" && tpt.toString == "TypeTree" =>
-        super.transform(cpy.DefDef(defDef)(name, transformParamss(paramss), AppliedTypeTree(typeIdent("ListMap"), List(typeIdent("Int"), typeIdent("String"))), transform(defDef.rhs)))
+        super.transform(cpy.DefDef(defDef)(name, transformParamss(paramss), AppliedTypeTree(typeIdent("ListMap"), List(typeIdent("OverflowInt"), typeIdent("StringWrapper"))), transform(defDef.rhs)))
 
       case _ => super.transform(tree)
     }
