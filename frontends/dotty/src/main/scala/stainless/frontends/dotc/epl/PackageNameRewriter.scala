@@ -27,7 +27,7 @@ class PackageNameRewriter(using dottyCtx: DottyContext, inoxCtx: inox.Context) e
       // Package Name Rewrite
       case PackageDef(pid, stats) if pid.name.toString == "<empty>" =>
         val newPackageName = extractFileName(dottyCtx.source.toString)
-        cpy.PackageDef(tree)(Ident(termName(newPackageName)), transformStats(stats, dottyCtx.owner))
+        cpy.PackageDef(tree)(termIdent(newPackageName), transformStats(stats, dottyCtx.owner))
 
       case _ => super.transform(tree)
     }

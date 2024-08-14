@@ -234,12 +234,12 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
 
           case defDef@DefDef(name, paramss, tpt, _) if splitFuns.contains(name.toString) =>
             subFunctions = subFunctions ++ (new SubFunctionGenerator(defDef)).getSubFuns
-            List(transform(markExternPure(defDef)))
+            List(markExternPure(defDef))
 
-          case other => List(transform(other))
+          case other => List(other)
         } ++ subFunctions
 
-        super.transform(cpy.PackageDef(tree)(pid, transform(newStats)))
+        super.transform(cpy.PackageDef(tree)(pid, newStats))
       }
 
       case Apply(Ident(name), args) if unsafeMap.contains(name.toString) =>
