@@ -33,6 +33,7 @@ class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
     case None => Set.empty
   }
   private val translateDouble: Boolean = extractTargets.contains("boundingBox") || extractTargets.contains("mayOverlap")
+  private val useMap: Boolean = extractTargets.contains("reverse") || extractTargets.contains("list2map") || extractTargets.contains("election")
 
   override def start(tree: untpd.Tree)(using DottyContext): untpd.Tree =
     inoxCtx.options.findOption(optAssn1) match {
@@ -62,7 +63,7 @@ class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
         val importFakeExs = fakeExercises.map { exer =>
           buildImport(s"epl.assn1.fake.${exer}")
         }.toList
-        val newStats = importFramework :: importFakeExs ++ stats.flatMap{
+        val newStats = importFramework :: importFakeExs ++ stats.flatMap {
           // remove the original framework and specific exercises
           case TypeDef(name, _) if framework.contains(name.toString) || fakeExercises.contains(name.toString) =>
             Nil
@@ -84,15 +85,14 @@ class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
           case name if name.isTypeName => typeIdent("BigInt")
         }
 
-      case Number(digits, _) if translateDouble => {
-        if (digits.contains(".")) {
-          if (digits.toDouble == digits.toDouble.toInt)
-            Apply(termIdent("BigInt"), List(buildNumber(digits.toDouble.toInt)))
-          else
-            sys.error("Unable to translate floating-point numbers with decimals.")
-        }
+      case Apply(Ident(name), List(Apply(Ident(name2), List(num:Number)))) if translateDouble && name == termName("OverflowInt") && name2 == termName("BigInt") =>
+        Apply(Ident(termName("BigInt")), List(transform(num)))
+
+      case Number(digits, _) if digits.contains(".") && translateDouble => {
+        if (digits.toDouble == digits.toDouble.toInt)
+          buildNumber(digits.toDouble.toInt)
         else
-          Apply(termIdent("BigInt"), List(tree))
+          sys.error("Unable to translate floating-point numbers with decimals.")
       }
 
       // No way to add .abs for BigInt in Stainless library...
