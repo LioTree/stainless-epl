@@ -139,10 +139,10 @@ class PureScalaTranslator(using dottyCtx: DottyContext, inoxCtx: inox.Context) e
               case Apply(fun2@Ident(name), args2) if name.toString == "List" =>
                 Apply(transform(fun), transform(args))
               // There is a tuple. Like ListMap((41 -> "George H. W. Bush", 42 -> "Bill Clinton"))
-              case tuple: Tuple =>
+              case tuple: Tuple if tuple.trees.size > 2 =>
                 Apply(transform(fun), List(Apply(termIdent("List"), transform(tuple.trees))))
               case _ =>
-                sys.error("unknown pattern for ListMap initialization.")
+                Apply(transform(fun), List(Apply(termIdent("List"), transform(args))))
           }
           case n =>
             // add List() wrapper for arguments of ListMap.
