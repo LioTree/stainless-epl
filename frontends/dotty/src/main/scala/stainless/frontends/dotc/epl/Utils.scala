@@ -10,4 +10,12 @@ object Utils {
 
     BigInt(shortHashBytes).toInt
   }
+
+  def extractFileName(path: String): String = {
+    val regex = """(?:.*/)?([^/]+)\.scala$""".r
+    path match {
+      case regex(fileName) => fileName
+      case _ => sys.error("Invalid file name")
+    }
+  }
 }

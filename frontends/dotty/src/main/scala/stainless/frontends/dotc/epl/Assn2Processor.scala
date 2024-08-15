@@ -123,7 +123,7 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
       val subFnIdent = typeIdent("subFn")
       // A very necessary step, otherwise errors will occur in the typer.
       subFnIdent.span = Span(spanStart, spanStart + 6)
-      val fileName = extractFileName(dottyCtx.source.toString)
+      val fileName = Utils.extractFileName(dottyCtx.source.toString)
       val subFnAnnotation = Apply(Select(New(subFnIdent), termName("<init>")),
         List(Literal(Constants.Constant(s"${fileName}.${fileName}$$package.${baseFun.name.toString}")),
           Literal(Constants.Constant(markName))))
@@ -138,7 +138,7 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
         val subFnIdent = typeIdent("subFn")
         // A very necessary step, otherwise errors will occur in the typer.
         subFnIdent.span = Span(spanStart, spanStart + 6)
-        val fileName = extractFileName(dottyCtx.source.toString)
+        val fileName = Utils.extractFileName(dottyCtx.source.toString)
         val subFnAnnotation = Apply(Select(New(subFnIdent), termName("<init>")),
           List(Literal(Constants.Constant(s"${fileName}.${fileName}$$package.${baseFun.name.toString}")),
             Literal(Constants.Constant(markName))))

@@ -14,19 +14,11 @@ class PackageNameRewriter(using dottyCtx: DottyContext, inoxCtx: inox.Context) e
 
   import ast.untpd.*
 
-  protected def extractFileName(path: String): String = {
-    val regex = """(?:.*/)?([^/]+)\.scala$""".r
-    path match {
-      case regex(fileName) => fileName
-      case _ => sys.error("Invalid file name")
-    }
-  }
-
   override def transform(tree: Tree)(using dottyCtx: DottyContext): Tree = {
     tree match {
       // Package Name Rewrite
       case PackageDef(pid, stats) if pid.name.toString == "<empty>" =>
-        val newPackageName = extractFileName(dottyCtx.source.toString)
+        val newPackageName = Utils.extractFileName(dottyCtx.source.toString)
         cpy.PackageDef(tree)(termIdent(newPackageName), transformStats(stats, dottyCtx.owner))
 
       case _ => super.transform(tree)
