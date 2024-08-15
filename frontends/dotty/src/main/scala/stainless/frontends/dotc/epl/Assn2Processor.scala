@@ -15,8 +15,8 @@ import stainless.epl.{optAssn2, optFakeExercises, optExtractTarget, optGenSubFun
 import scala.collection.immutable.Set
 
 class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
-  extends EPLTransformer
-  with AssnContext {
+  extends PureScalaTranslator
+    with AssnContext {
 
   import ast.untpd.*
 
@@ -66,7 +66,9 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
 
   // Exercises requiring the generation of sub-functions for separate verification.
   private val hardExercises = Set("eval", "tyOf", "subst", "desugar")
+
   private val isHardEx = hardExercises.intersect(targets).nonEmpty
+
   private val splitFuns = genSubFuns match {
     case true => hardExercises
     case _ => Set.empty
@@ -174,12 +176,12 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
       }
   }
 
-  override def start(tree: untpd.Tree)(using DottyContext): untpd.Tree =
-    inoxCtx.options.findOption(optAssn2) match {
-      case Some(true) => transform(tree)
-      case _ => tree
-    }
-
+  override def start(tree: untpd.Tree)(using DottyContext): untpd.Tree = {
+    if (assn2)
+      transform(tree)
+    else
+      tree
+  }
 
   private def genFakeFun(baseFun: DefDef): DefDef = {
     val newName = termName(fakeCallPrefix + baseFun.name.toString)
@@ -190,6 +192,7 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
 
   override def transform(tree: untpd.Tree)(using DottyContext): untpd.Tree =
     tree match {
+      /* Import and subFuns generation */
       case PackageDef(pid: Ident, stats) if pid.name.toString == "<empty>" => {
         var subFunctions = List.empty[DefDef]
         val importFramework = {
@@ -229,9 +232,11 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
         } ++ subFunctions
 
         val newPackageName = Utils.extractFileName(dottyCtx.source.toString)
-        cpy.PackageDef(tree)(termIdent(newPackageName), super.transform(newStats))
+        super.transform(cpy.PackageDef(tree)(termIdent(newPackageName), newStats))
       }
 
+
+      /* unsafeMap */
       case Apply(Ident(name), args) if unsafeMap.contains(name.toString) =>
         Apply(Select(Ident(name), termName("getOrElse")), args :+ errorWrapper)
 
@@ -241,20 +246,21 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
       case untpd.AppliedTypeTree(tpt: Ident, List(arg: Ident)) if tpt.name.toString == "Env" && arg.name.toString == "Value" =>
         cpy.AppliedTypeTree(tree)(tpt, List(typeIdent("FakeValue")))
 
-      // Not sure whether we should put this into pure scala translator.
-      // Stainless does not support custom == equals, which may cause semantic inconsistencies.
-      case Apply(Select(qualifier, name), List(arg)) if name.toString == "equals" || name.toString == "eq" =>
-        InfixOp(transform(qualifier), termIdent("=="), transform(arg))
 
-      // Only BigInt in Assn2 since OverflowInt might lead to extra performance overhead.
-      case Apply(Ident(name), List(Apply(Ident(name2), List(num:Number)))) if name == termName("OverflowInt") && name2 == termName("BigInt") =>
-        Apply(Ident(termName("BigInt")), List(transform(num)))
+      /* Performance optimization for Int, Integer */
+      case Ident(name) if name.toString == "Int" || name.toString == "Integer" =>
+        name match {
+          case name if name.isTermName => termIdent("BigInt")
+          case name if name.isTypeName => typeIdent("BigInt")
+        }
 
-      case Ident(name) if name == typeName("OverflowInt") =>
-        typeIdent("BigInt")
+      case Number(digits, _) =>
+        buildBigIntLiteral(digits.toInt)
 
-      // No String in Assn2 exercises 2-5 since it will make verification really hard.
-      case Ident(name) if isHardEx && name.toString == "StringWrapper" =>
+
+      /* Performance optimization for String in Assn2 exercises 2-5 */
+      /* isHardEx */
+      case Ident(name) if isHardEx && name.toString == "String" =>
         name match {
           case name if name.isTermName => termIdent("BigInt")
           case name if name.isTypeName => typeIdent("BigInt")
@@ -262,13 +268,21 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
 
       // transform string and char literals to numbers
       case Literal(constant: Constants.Constant) if isHardEx && constant.value.isInstanceOf[Character] =>
-        buildNumber(Utils.str2Int(constant.value.asInstanceOf[Character].toString))
+        buildBigIntLiteral(Utils.str2Int(constant.value.asInstanceOf[Character].toString))
 
       case Literal(constant: Constants.Constant) if isHardEx && constant.value.isInstanceOf[String] =>
-        buildNumber(Utils.str2Int(constant.value.asInstanceOf[String]))
+        buildBigIntLiteral(Utils.str2Int(constant.value.asInstanceOf[String]))
 
+
+      /* Others */
       case Apply(Ident(name), args) if name.toString == "swap" =>
         cpy.Apply(tree)(termIdent("eplSwap"), transform(args))
+
+      // Not sure whether we should put this into pure scala translator.
+      // Stainless does not support custom == equals, which may cause semantic inconsistencies.
+      case Apply(Select(qualifier, name), List(arg)) if name.toString == "equals" || name.toString == "eq" =>
+        InfixOp(transform(qualifier), termIdent("=="), transform(arg))
+
 
       case _ => super.transform(tree)
     }

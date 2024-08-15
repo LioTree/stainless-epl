@@ -26,19 +26,25 @@ class PureScalaTranslator(using dottyCtx: DottyContext, inoxCtx: inox.Context) e
    */
   override def transform(tree: Tree)(using dottyCtx: DottyContext): Tree = {
     tree match {
+      /* Import */
+      // Add `import stainless.collection._` `import stainless.annotation._` `import stainless.lang._` to the beginning of the file.
+      case PackageDef(pid, stats) => {
+        val importStainless = buildImport("stainless._")
+        val importAnnotation = buildImport("stainless.annotation._")
+        val importLang = buildImport("stainless.lang._")
+        val importCollection = buildImport("stainless.collection._")
+
+        cpy.PackageDef(tree)(transformSub(pid), importStainless :: importAnnotation ::
+          importCollection :: importLang :: transformStats(stats, dottyCtx.owner))
+      }      
+      
+      
       /* Basic Type Int and String */
       // Replace Int,Integer with OverflowInt
       case Ident(name) if name.toString == "Int" || name.toString == "Integer" =>
         name match {
           case name if name.isTermName => termIdent("OverflowInt")
           case name if name.isTypeName => typeIdent("OverflowInt")
-        }
-
-      // Replace String with StringWrapper
-      case Ident(name) if name.toString == "String" =>
-        name match {
-          case name if name.isTermName => termIdent("StringWrapper")
-          case name if name.isTypeName => typeIdent("StringWrapper")
         }
 
       // Skip BigInt(n)
@@ -50,6 +56,13 @@ class PureScalaTranslator(using dottyCtx: DottyContext, inoxCtx: inox.Context) e
       case Number(digits, _) =>
         buildOverflowIntLiteral(digits.toInt)
 
+      // Replace String with StringWrapper
+      case Ident(name) if name.toString == "String" =>
+        name match {
+          case name if name.isTermName => termIdent("StringWrapper")
+          case name if name.isTypeName => typeIdent("StringWrapper")
+        }
+        
       // 'a' -> StringWrapper("a")
       // It is possible to add an implicit conversion from Char to String in the stainless library, but stainless cannot verify it because it must be @extern.
       case Literal(constant: Constants.Constant) if constant.value.isInstanceOf[Character] =>
@@ -181,17 +194,6 @@ class PureScalaTranslator(using dottyCtx: DottyContext, inoxCtx: inox.Context) e
 
 
       /* Others */
-      // Add `import stainless.collection._` `import stainless.annotation._` `import stainless.lang._` to the beginning of the file.
-      case PackageDef(pid, stats) => {
-        val importStainless = buildImport("stainless._")
-        val importAnnotation = buildImport("stainless.annotation._")
-        val importLang = buildImport("stainless.lang._")
-        val importCollection = buildImport("stainless.collection._")
-
-        cpy.PackageDef(tree)(transformSub(pid), importStainless :: importAnnotation ::
-          importCollection :: importLang :: transformStats(stats, dottyCtx.owner))
-      }
-
       // ignore println
       case Apply(fun: Ident, args) if fun.name.toString == "println" =>
         EmptyTree

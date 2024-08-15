@@ -29,11 +29,14 @@ class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
   private val translateDouble: Boolean = targets.contains("boundingBox") || targets.contains("mayOverlap")
   private val useMap: Boolean = targets.contains("list2map") || targets.contains("election")
 
-  override def start(tree: untpd.Tree)(using DottyContext): untpd.Tree =
+  override def start(tree: untpd.Tree)(using DottyContext): untpd.Tree = {
     if (assn1)
       transform(tree)
-    else
+    else if(!assn2)
       super.transform(tree)
+    else
+      tree
+  }
 
   private def getPrecondition(n: String): Apply = {
     val overflowInt0 = buildOverflowIntLiteral(0)
@@ -52,6 +55,7 @@ class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
 
   override def transform(tree: untpd.Tree)(using DottyContext): untpd.Tree =
     tree match {
+      /* Import */
       // add import statements related to Assn1, remove framework and fake exercises definition
       case PackageDef(pid: Ident, stats) if pid.name.toString == "<empty>" => {
         val importFramework = buildImport("epl.assn1.framework._")
@@ -110,7 +114,7 @@ class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
           case name if name.isTermName => termIdent("Map")
           case name if name.isTypeName => typeIdent("Map")
         }
-      
+
 
       /* Add precondition for sum, suffix and p */
       case defDef@DefDef(name, paramss, tpt, _) if name.toString == "sum" || name.toString == "suffix" => {
