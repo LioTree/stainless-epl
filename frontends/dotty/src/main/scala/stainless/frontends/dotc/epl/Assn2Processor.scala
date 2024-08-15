@@ -14,14 +14,11 @@ import stainless.equivchk.optSubFnsEquiv
 import stainless.epl.{optAssn2, optFakeExercises, optExtractTarget, optGenSubFuns}
 import scala.collection.immutable.Set
 
-class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends PackageNameRewriter {
+class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) 
+  extends PackageNameRewriter 
+  with AssnContext {
 
   import ast.untpd.*
-
-  private val targets = inoxCtx.options.findOption(optExtractTarget) match {
-    case Some(targets) => Set(targets: _*)
-    case None => Set.empty
-  }
 
   private val framework = Set(
     "Variable",
@@ -70,24 +67,11 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
   // Exercises requiring the generation of sub-functions for separate verification.
   private val hardExercises = Set("eval", "tyOf", "subst", "desugar")
   private val isHardEx = hardExercises.intersect(targets).nonEmpty
-  private var genSubFuns = false
-  inoxCtx.options.findOption(optGenSubFuns) match {
-    case Some(true) => genSubFuns = true
-    case _ =>
-  }  
-  inoxCtx.options.findOption(optSubFnsEquiv) match {
-    case Some(true) => genSubFuns = true
-    case _ =>
-  }
   private val splitFuns = genSubFuns match {
     case true => hardExercises
     case _ => Set.empty
   }
 
-  private val fakeExercises = inoxCtx.options.findOption(optFakeExercises) match {
-    case Some(targets) => Set(targets: _*)
-    case None => Set.empty
-  }
   private val fakeCallPrefix = "fake_"
 
   private val unsafeMap = Set("ctx", "env")

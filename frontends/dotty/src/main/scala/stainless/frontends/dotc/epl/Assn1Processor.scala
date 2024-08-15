@@ -8,9 +8,10 @@ import dotty.tools.dotc.core.*
 import dotty.tools.dotc.core.Contexts.Context as DottyContext
 import dotty.tools.dotc.core.Flags
 import dotty.tools.dotc.core.Names.{termName, typeName}
-import stainless.epl.{optAssn1, optExtractTarget, optFakeExercises}
 
-class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extends PackageNameRewriter {
+class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
+  extends PackageNameRewriter
+    with AssnContext {
 
   import ast.untpd.*
 
@@ -24,22 +25,15 @@ class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
     "Circle",
     "Rectangle",
   )
-  private val extractTargets = inoxCtx.options.findOption(optExtractTarget) match {
-    case Some(targets) => Set(targets: _*)
-    case None => Set.empty
-  }
-  private val fakeExercises = inoxCtx.options.findOption(optFakeExercises) match {
-    case Some(targets) => Set(targets: _*)
-    case None => Set.empty
-  }
-  private val translateDouble: Boolean = extractTargets.contains("boundingBox") || extractTargets.contains("mayOverlap")
-  private val useMap: Boolean = extractTargets.contains("list2map") || extractTargets.contains("election")
+
+  private val translateDouble: Boolean = targets.contains("boundingBox") || targets.contains("mayOverlap")
+  private val useMap: Boolean = targets.contains("list2map") || targets.contains("election")
 
   override def start(tree: untpd.Tree)(using DottyContext): untpd.Tree =
-    inoxCtx.options.findOption(optAssn1) match {
-      case Some(true) => transform(tree)
-      case _ => tree
-    }
+    if (assn1)
+      transform(tree)
+    else 
+      tree
 
   private def getPrecondition(n: String): Apply = {
     val overflowInt0 = buildOverflowIntLiteral(0)
@@ -99,7 +93,7 @@ class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
           case name if name.isTypeName => typeIdent("BigInt")
         }
 
-      case Apply(Ident(name), List(Apply(Ident(name2), List(num:Number)))) if translateDouble && name == termName("OverflowInt") && name2 == termName("BigInt") =>
+      case Apply(Ident(name), List(Apply(Ident(name2), List(num: Number)))) if translateDouble && name == termName("OverflowInt") && name2 == termName("BigInt") =>
         Apply(Ident(termName("BigInt")), List(transform(num)))
 
       case Number(digits, _) if digits.contains(".") && translateDouble => {
