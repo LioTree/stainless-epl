@@ -37,6 +37,9 @@ trait EPLTransformer(using DottyContext) extends ast.untpd.UntypedTreeMap {
   protected def typeIdent(name: String): Ident = Ident(typeName(name))
 
   protected def termIdent(name: String): Ident = Ident(termName(name))
+  
+  protected def buildOverflowIntLiteral(n: Int): Apply =
+    Apply(termIdent("OverflowInt"), List(Apply(termIdent("BigInt"), List(buildNumber(n)))))
 
   protected def buildNumber(n: Int): Number = Number(n.toString, Whole(10))
 

@@ -42,8 +42,8 @@ class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
     }
 
   private def getPrecondition(n: String): Apply = {
-    val overflowInt0 = Apply(termIdent("OverflowInt"), List(Apply(termIdent("BigInt"), List(buildNumber(0)))))
-    val overflowInt100 = Apply(termIdent("OverflowInt"), List(Apply(termIdent("BigInt"), List(buildNumber(100)))))
+    val overflowInt0 = buildOverflowIntLiteral(0)
+    val overflowInt100 = buildOverflowIntLiteral(100)
     Apply(
       Ident(termName("require")),
       List(

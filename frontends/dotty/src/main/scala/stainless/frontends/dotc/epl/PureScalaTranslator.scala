@@ -45,10 +45,10 @@ class PureScalaTranslator(using dottyCtx: DottyContext, inoxCtx: inox.Context) e
       case Apply(Ident(name), List(Number(digits, _))) if name == termName("BigInt") =>
         tree
 
-      // all Numbers are directly wrapped with OverflowInt(BigInt(n))
+      // all Numbers will be directly wrapped with OverflowInt(BigInt(n))
       // We don't use OverflowInt(n) because it has problem in unapply
       case Number(digits, _) =>
-        Apply(termIdent("OverflowInt"), List(Apply(termIdent("BigInt"), List(tree))))
+        buildOverflowIntLiteral(digits.toInt)
 
       // 'a' -> StringWrapper("a")
       // It is possible to add an implicit conversion from Char to String in the stainless library, but stainless cannot verify it because it must be @extern.
