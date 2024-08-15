@@ -33,7 +33,7 @@ class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
     case None => Set.empty
   }
   private val translateDouble: Boolean = extractTargets.contains("boundingBox") || extractTargets.contains("mayOverlap")
-  private val useMap: Boolean = extractTargets.contains("reverse") || extractTargets.contains("list2map") || extractTargets.contains("election")
+  private val useMap: Boolean = extractTargets.contains("list2map") || extractTargets.contains("election")
 
   override def start(tree: untpd.Tree)(using DottyContext): untpd.Tree =
     inoxCtx.options.findOption(optAssn1) match {
@@ -78,6 +78,20 @@ class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
 
         super.transform(cpy.PackageDef(tree)(pid, newStats))
       }
+
+      case Select(Select(Ident(name1), name2), name3) if useMap && s"$name1.$name2.$name3" == "stainless.collection.ListMap" =>
+        buildSelect("stainless.lang.Map")
+
+      case Ident(name) if useMap && name.toString == "ListMap" =>
+        name match {
+          case name if name.isTermName => termIdent("Map")
+          case name if name.isTypeName => typeIdent("Map")
+        }
+
+      case Apply(fun, List(Apply(Ident(name), args))) if (fun.isInstanceOf[Ident] && fun.asInstanceOf[Ident].name.toString == "ListMap"
+        || fun.isInstanceOf[Select] && fun.asInstanceOf[Select].toString.endsWith("ListMap)")
+        || fun.isInstanceOf[TypeApply] && fun.asInstanceOf[TypeApply].toString.contains("ListMap")) && name.toString == "List" && useMap =>
+        Apply(Ident(termName("Map")), super.transform(args))
 
       case Ident(name) if name.toString == "Double" && translateDouble =>
         name match {
