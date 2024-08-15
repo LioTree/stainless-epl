@@ -257,11 +257,11 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
         InfixOp(transform(qualifier), termIdent("=="), transform(arg))
 
       // Only BigInt in Assn2 since OverflowInt might lead to extra performance overhead.
-      case Ident(name) if name.toString == "OverflowInt" =>
-        name match {
-          case name if name.isTermName => termIdent("BigInt")
-          case name if name.isTypeName => typeIdent("BigInt")
-        }
+      case Apply(Ident(name), List(Apply(Ident(name2), List(num:Number)))) if name == termName("OverflowInt") && name2 == termName("BigInt") =>
+        Apply(Ident(termName("BigInt")), List(transform(num)))
+
+      case Ident(name) if name == typeName("OverflowInt") =>
+        typeIdent("BigInt")
 
       // No String in Assn2 exercises 2-5 since it will make verification really hard.
       case Ident(name) if isHardEx && name.toString == "StringWrapper" =>
