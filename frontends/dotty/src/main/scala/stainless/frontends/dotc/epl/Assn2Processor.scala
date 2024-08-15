@@ -70,12 +70,17 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) extend
   // Exercises requiring the generation of sub-functions for separate verification.
   private val hardExercises = Set("eval", "tyOf", "subst", "desugar")
   private val isHardEx = hardExercises.intersect(targets).nonEmpty
+  private var genSubFuns = false
+  inoxCtx.options.findOption(optGenSubFuns) match {
+    case Some(true) => genSubFuns = true
+    case _ =>
+  }  
   inoxCtx.options.findOption(optSubFnsEquiv) match {
-    case Some(true) => inoxCtx.options + OptionValue(optGenSubFuns)(true)
+    case Some(true) => genSubFuns = true
     case _ =>
   }
-  private val splitFuns = inoxCtx.options.findOption(optGenSubFuns) match {
-    case Some(true) => hardExercises
+  private val splitFuns = genSubFuns match {
+    case true => hardExercises
     case _ => Set.empty
   }
 
