@@ -14,8 +14,8 @@ import stainless.equivchk.optSubFnsEquiv
 import stainless.epl.{optAssn2, optFakeExercises, optExtractTarget, optGenSubFuns}
 import scala.collection.immutable.Set
 
-class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context) 
-  extends PackageNameRewriter 
+class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
+  extends EPLTransformer
   with AssnContext {
 
   import ast.untpd.*
@@ -228,7 +228,8 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
           case other => List(other)
         } ++ subFunctions
 
-        super.transform(cpy.PackageDef(tree)(pid, newStats))
+        val newPackageName = Utils.extractFileName(dottyCtx.source.toString)
+        cpy.PackageDef(tree)(termIdent(newPackageName), super.transform(newStats))
       }
 
       case Apply(Ident(name), args) if unsafeMap.contains(name.toString) =>

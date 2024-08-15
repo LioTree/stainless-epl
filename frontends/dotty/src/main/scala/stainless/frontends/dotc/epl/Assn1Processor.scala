@@ -10,7 +10,7 @@ import dotty.tools.dotc.core.Flags
 import dotty.tools.dotc.core.Names.{termName, typeName}
 
 class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
-  extends PackageNameRewriter
+    extends EPLTransformer 
     with AssnContext {
 
   import ast.untpd.*
@@ -32,7 +32,7 @@ class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
   override def start(tree: untpd.Tree)(using DottyContext): untpd.Tree =
     if (assn1)
       transform(tree)
-    else 
+    else
       tree
 
   private def getPrecondition(n: String): Apply = {
@@ -70,7 +70,8 @@ class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
           case other => List(other)
         }
 
-        super.transform(cpy.PackageDef(tree)(pid, newStats))
+        val newPackageName = Utils.extractFileName(dottyCtx.source.toString)
+        cpy.PackageDef(tree)(termIdent(newPackageName), super.transform(newStats))
       }
 
       case Select(Select(Ident(name1), name2), name3) if useMap && s"$name1.$name2.$name3" == "stainless.collection.ListMap" =>
