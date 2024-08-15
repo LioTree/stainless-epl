@@ -1442,7 +1442,7 @@ object EquivalenceChecker {
     case Some(paths) =>
       // Support wildcard `_` as specified in the documentation.
       // A leading wildcard is always assumed.
-      val path: Path = CheckFilter.fullNameToPath(CheckFilter.fixedFullName(fid))
+      val path: Path = CheckFilter.fullNameToPath(CheckFilter.fixedFullName(fid)).map(_.replace("$package", ""))
       val ix = paths indexWhere { p =>
         if (p endsWith Seq("_")) path containsSlice p.init
         else path endsWith p
