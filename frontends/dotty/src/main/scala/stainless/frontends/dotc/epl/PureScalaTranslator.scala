@@ -192,12 +192,6 @@ class PureScalaTranslator(using dottyCtx: DottyContext, inoxCtx: inox.Context) e
           importCollection :: importLang :: transformStats(stats, dottyCtx.owner))
       }
 
-      // Just make Stainless happy. It will throw an error if non-sealed classes are compared.
-      // Abstract Expr -> sealed Abstract Expr
-      case typeDef@TypeDef(name, rhs) if typeDef.mods is Flags.Abstract =>
-        val result = cpy.TypeDef(tree)(name, transform(rhs))
-        result.withMods(result.mods | Flags.Sealed)
-
       // ignore println
       case Apply(fun: Ident, args) if fun.name.toString == "println" =>
         EmptyTree

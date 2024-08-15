@@ -10,7 +10,7 @@ import dotty.tools.dotc.core.Flags
 import dotty.tools.dotc.core.Names.{termName, typeName}
 
 class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
-    extends EPLTransformer 
+  extends PureScalaTranslator
     with AssnContext {
 
   import ast.untpd.*
@@ -33,7 +33,7 @@ class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
     if (assn1)
       transform(tree)
     else
-      tree
+      super.transform(tree)
 
   private def getPrecondition(n: String): Apply = {
     val overflowInt0 = buildOverflowIntLiteral(0)
@@ -52,6 +52,7 @@ class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
 
   override def transform(tree: untpd.Tree)(using DottyContext): untpd.Tree =
     tree match {
+      // add import statements related to Assn1, remove framework and fake exercises definition
       case PackageDef(pid: Ident, stats) if pid.name.toString == "<empty>" => {
         val importFramework = buildImport("epl.assn1.framework._")
         val importFakeExs = fakeExercises.map { exer =>
@@ -71,10 +72,37 @@ class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
         }
 
         val newPackageName = Utils.extractFileName(dottyCtx.source.toString)
-        cpy.PackageDef(tree)(termIdent(newPackageName), super.transform(newStats))
+        super.transform(cpy.PackageDef(tree)(termIdent(newPackageName), newStats))
       }
 
-      case Select(Select(Ident(name1), name2), name3) if useMap && s"$name1.$name2.$name3" == "stainless.collection.ListMap" =>
+
+      /* translateDouble */
+      case Ident(name) if name.toString == "Double" && translateDouble =>
+        name match {
+          case name if name.isTermName => termIdent("BigInt")
+          case name if name.isTypeName => typeIdent("BigInt")
+        }
+
+      case Number(digits, _) if translateDouble => {
+        if (digits.toDouble == digits.toDouble.toInt)
+          buildBigIntLiteral(digits.toDouble.toInt)
+        else
+          sys.error("Unable to translate floating-point numbers to BigInt number.")
+      }
+
+      // No way to add .abs for BigInt in Stainless library...
+      case Select(qualifier, name) if name.toString == "abs" && translateDouble =>
+        Apply(Select(Select(termIdent("stainless"), termName("math")), termName("abs")), List(qualifier))
+
+
+      /* Use Map instead of ListMap */
+      // Handling ListMap initialization
+      case Apply(fun, List(Apply(Ident(name), args))) if useMap && (fun.isInstanceOf[Ident] && fun.asInstanceOf[Ident].name.toString == "ListMap"
+        || fun.isInstanceOf[Select] && fun.asInstanceOf[Select].toString.endsWith("ListMap)")
+        || fun.isInstanceOf[TypeApply] && fun.asInstanceOf[TypeApply].toString.contains("ListMap")) && name.toString == "List" =>
+        Apply(Ident(termName("Map")), super.transform(args))
+
+      case Select(Select(Select(Ident(name1), name2), name3), name4) if s"$name1.$name2.$name3.$name4" == "scala.collection.immutable.ListMap" =>
         buildSelect("stainless.lang.Map")
 
       case Ident(name) if useMap && name.toString == "ListMap" =>
@@ -82,32 +110,9 @@ class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
           case name if name.isTermName => termIdent("Map")
           case name if name.isTypeName => typeIdent("Map")
         }
+      
 
-      case Apply(fun, List(Apply(Ident(name), args))) if (fun.isInstanceOf[Ident] && fun.asInstanceOf[Ident].name.toString == "ListMap"
-        || fun.isInstanceOf[Select] && fun.asInstanceOf[Select].toString.endsWith("ListMap)")
-        || fun.isInstanceOf[TypeApply] && fun.asInstanceOf[TypeApply].toString.contains("ListMap")) && name.toString == "List" && useMap =>
-        Apply(Ident(termName("Map")), super.transform(args))
-
-      case Ident(name) if name.toString == "Double" && translateDouble =>
-        name match {
-          case name if name.isTermName => termIdent("BigInt")
-          case name if name.isTypeName => typeIdent("BigInt")
-        }
-
-      case Apply(Ident(name), List(Apply(Ident(name2), List(num: Number)))) if translateDouble && name == termName("OverflowInt") && name2 == termName("BigInt") =>
-        Apply(Ident(termName("BigInt")), List(transform(num)))
-
-      case Number(digits, _) if digits.contains(".") && translateDouble => {
-        if (digits.toDouble == digits.toDouble.toInt)
-          buildNumber(digits.toDouble.toInt)
-        else
-          sys.error("Unable to translate floating-point numbers with decimals.")
-      }
-
-      // No way to add .abs for BigInt in Stainless library...
-      case Select(qualifier, name) if name.toString == "abs" && translateDouble =>
-        Apply(Select(Select(termIdent("stainless"), termName("math")), termName("abs")), List(qualifier))
-
+      /* Add precondition for sum, suffix and p */
       case defDef@DefDef(name, paramss, tpt, _) if name.toString == "sum" || name.toString == "suffix" => {
         val precondition = getPrecondition("n")
         val newRhs = defDef.rhs match {
@@ -131,6 +136,8 @@ class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
         super.transform(cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(newRhs)))
       }
 
+
+      /* Add return type for some exercises without explicit return type */
       case defDef@DefDef(name, paramss, tpt, _) if name.toString == "mayOverlap" && tpt.toString == "TypeTree" =>
         super.transform(cpy.DefDef(defDef)(name, transformParamss(paramss), typeIdent("Boolean"), transform(defDef.rhs)))
 

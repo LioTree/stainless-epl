@@ -37,19 +37,20 @@ trait EPLTransformer(using DottyContext) extends ast.untpd.UntypedTreeMap {
   protected def typeIdent(name: String): Ident = Ident(typeName(name))
 
   protected def termIdent(name: String): Ident = Ident(termName(name))
-  
-  protected def buildOverflowIntLiteral(n: Int): Apply =
-    Apply(termIdent("OverflowInt"), List(Apply(termIdent("BigInt"), List(buildNumber(n)))))
+
+  protected def buildOverflowIntLiteral(n: Int): Apply = Apply(termIdent("OverflowInt"), List(buildBigIntLiteral(n)))
+
+  protected def buildBigIntLiteral(n: Int): Apply = Apply(termIdent("BigInt"), List(buildNumber(n)))
 
   protected def buildNumber(n: Int): Number = Number(n.toString, Whole(10))
 
   protected def buildSelect(input: String): Select | Ident = {
     def buildSelectTree(parts: List[String]): Select | Ident =
-    parts match {
-      case Nil => sys.error("Select tree cannot be empty")
-      case head :: Nil => termIdent(head)
-      case head :: tail => Select(buildSelectTree(tail), termName(head))
-    }
+      parts match {
+        case Nil => sys.error("Select tree cannot be empty")
+        case head :: Nil => termIdent(head)
+        case head :: tail => Select(buildSelectTree(tail), termName(head))
+      }
 
     val parts = input.split("\\.")
     buildSelectTree(parts.toList.reverse)
