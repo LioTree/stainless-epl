@@ -37,7 +37,7 @@ def generate_comparefuns_models(filenames, extract):
 
 
 def run_dotty(filenames, params):
-    command = ['/home/liontree/source/scala/stainless-epl/frontends/dotty/target/universal/stage/bin/stainless-dotty']
+    command = [os.path.dirname(os.path.abspath(__file__)) + '/frontends/dotty/target/universal/stage/bin/stainless-dotty']
     command.extend(filenames.split(','))
     for key, value in params.items():
         if value:
