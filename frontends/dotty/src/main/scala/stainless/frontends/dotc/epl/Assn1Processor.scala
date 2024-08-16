@@ -11,7 +11,7 @@ import dotty.tools.dotc.core.Names.{termName, typeName}
 
 class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
   extends PureScalaTranslator
-    with AssnContext {
+    with TransformContext {
 
   import ast.untpd.*
 
@@ -106,7 +106,7 @@ class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
         || fun.isInstanceOf[TypeApply] && fun.asInstanceOf[TypeApply].toString.contains("ListMap")) && name.toString == "List" =>
         Apply(Ident(termName("Map")), super.transform(args))
 
-      case Select(Select(Select(Ident(name1), name2), name3), name4) if s"$name1.$name2.$name3.$name4" == "scala.collection.immutable.ListMap" =>
+      case Select(Select(Select(Ident(name1), name2), name3), name4) if useMap && s"$name1.$name2.$name3.$name4" == "scala.collection.immutable.ListMap" =>
         buildSelect("stainless.lang.Map")
 
       case Ident(name) if useMap && name.toString == "ListMap" =>

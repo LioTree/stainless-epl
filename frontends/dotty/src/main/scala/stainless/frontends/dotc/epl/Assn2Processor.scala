@@ -16,7 +16,7 @@ import scala.collection.immutable.Set
 
 class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
   extends PureScalaTranslator
-    with AssnContext {
+    with TransformContext {
 
   import ast.untpd.*
 

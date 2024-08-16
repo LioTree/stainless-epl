@@ -3,7 +3,7 @@ package stainless.frontends.dotc.epl
 import stainless.epl.{optExtractTarget, optFakeExercises, optGenSubFuns, optAssn1, optAssn2}
 import stainless.equivchk.optSubFnsEquiv
 
-trait AssnContext(using inoxCtx: inox.Context) {
+trait TransformContext(using inoxCtx: inox.Context) {
   protected val targets = inoxCtx.options.findOption(optExtractTarget) match {
     case Some(targets) => Set(targets: _*)
     case None => Set.empty
