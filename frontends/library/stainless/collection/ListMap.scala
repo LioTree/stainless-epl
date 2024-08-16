@@ -51,7 +51,8 @@ case class ListMap[A, B](toList: List[(A, B)]) {
     ListSpecs.noDuplicateMapFilter(toList, (kv: (A, B)) => kv._1 != keyValue._1, (kv: (A, B)) => kv._1) // gives us:
     assert(ListSpecs.noDuplicate(toList.filter(_._1 != keyValue._1).map(_._1)))
 
-    ListMap(keyValue :: toList.filter(_._1 != keyValue._1))
+//    ListMap(keyValue :: toList.filter(_._1 != keyValue._1))
+    ListMap(toList.filter(_._1 != keyValue._1) ++ List(keyValue))
   }.ensuring(res => res.contains(keyValue._1) && res(keyValue._1) == keyValue._2)
 
   def ++(keyValues: List[(A, B)]): ListMap[A, B] = {
