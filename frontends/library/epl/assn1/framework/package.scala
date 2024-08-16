@@ -25,7 +25,11 @@ package object framework {
   @library
   sealed abstract class Shape
   @library
-  case class Circle(r: BigInt, x: BigInt, y: BigInt) extends Shape
+  case class Circle(r: BigInt, x: BigInt, y: BigInt) extends Shape {
+    require(r >= 0 && x >= r && y >= r)
+  }
   @library
-  case class Rectangle(llx: BigInt, lly: BigInt, w: BigInt, h: BigInt) extends Shape
+  case class Rectangle(llx: BigInt, lly: BigInt, w: BigInt, h: BigInt) extends Shape {
+    require(llx >= 0 && lly >= 0 && w >= 0 && h >= 0)
+  }
 }
