@@ -147,10 +147,9 @@ object Others {
   @library
   case class FunTy(ty1: Type, ty2: Type) extends Type
 
-  @extern
-  @pure
+  @library
   object Gensym {
-    def gensym(s: Variable): Variable = errorWrapper[Nothing]
+    def gensym(s: Variable, id: BigInt): Variable = s + id
   }
 
   @extern

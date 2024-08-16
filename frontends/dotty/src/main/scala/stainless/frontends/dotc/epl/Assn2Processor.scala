@@ -85,8 +85,6 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
         tree match {
           case Apply(Ident(name), args) if name.toString == baseFun.name.toString =>
             cpy.Apply(tree)(termIdent(fakeCallPrefix + name.toString), transform(args))
-          case Apply(Select(Ident(name1), name2), args) if s"${name1.toString}.${name2.toString}" == "Gensym.gensym" =>
-            Block(List(InfixOp(termIdent("freshSym"), termIdent("+="), buildNumber(1))), termIdent("freshSym"))
           case _ => super.transform(tree)
         }
     }
@@ -158,10 +156,10 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
 
         case CaseDef(pat@Apply(fun: Ident, args), EmptyTree, body) => {
           val newName = termName(s"${baseFun.name.toString}_${fun.name.toTermName}")
-          val freshSymDef = ValDef(termName("freshSym"), TypeTree(), Apply(termIdent("BigInt"), List(buildNumber(0))))
-          freshSymDef.setMods(Modifiers(Flags.Mutable))
+          val freshIdDef = ValDef(termName("freshId"), TypeTree(), Apply(termIdent("BigInt"), List(buildNumber(0))))
+          freshIdDef.setMods(Modifiers(Flags.Mutable))
           val defaultCase = CaseDef(termIdent("_"), EmptyTree, errorWrapper) // pass match exhaustiveness verification.
-          val newRhs = Block(List(freshSymDef), cpy.Match(baseMatch)(baseMatch.selector, List(cpy.CaseDef(tree)(pat, EmptyTree, body), defaultCase)))
+          val newRhs = Block(List(freshIdDef), cpy.Match(baseMatch)(baseMatch.selector, List(cpy.CaseDef(tree)(pat, EmptyTree, body), defaultCase)))
           val subFun = recCallRewriter.transform(cpy.DefDef(baseFun)(newName, baseFun.paramss, baseFun.tpt, newRhs)).asInstanceOf[DefDef]
           subFuns = markSubFun(subFun, fun.name.toString) :: subFuns
         }
@@ -226,7 +224,11 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
 
           case defDef@DefDef(name, paramss, tpt, _) if splitFuns.contains(name.toString) =>
             subFunctions = subFunctions ++ (new SubFunctionGenerator(defDef)).getSubFuns
-            List(markExternPure(defDef))
+            val freshIdDef = ValDef(termName("freshId"), TypeTree(), Apply(termIdent("BigInt"), List(buildNumber(0))))
+            freshIdDef.setMods(Modifiers(Flags.Mutable))
+            val newRhs = Block(List(freshIdDef), defDef.rhs)
+            val newDefDef = cpy.DefDef(defDef)(name, paramss, tpt, newRhs)
+            List(markExternPure(newDefDef))
 
           case other => List(other)
         } ++ subFunctions
@@ -283,6 +285,10 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
       case Apply(Select(qualifier, name), List(arg)) if name.toString == "equals" || name.toString == "eq" =>
         InfixOp(transform(qualifier), termIdent("=="), transform(arg))
 
+      case Apply(Select(Ident(name1), name2), args) if s"${name1.toString}.${name2.toString}" == "Gensym.gensym" => {
+        val applyGensym = Apply(Select(termIdent("Gensym"), termName("gensym")), args :+ termIdent("freshId"))
+        Block(List(InfixOp(termIdent("freshId"), termIdent("+="), buildNumber(1))), applyGensym)
+      }
 
       case _ => super.transform(tree)
     }
