@@ -5,9 +5,9 @@ package equivchk
 
 import inox.utils.Position
 import io.circe.{Json, JsonObject}
-import stainless.equivchk.EquivalenceChecker._
-import stainless.extraction.trace._
-import stainless.verification._
+import stainless.equivchk.EquivalenceChecker.{Path, *}
+import stainless.extraction.trace.*
+import stainless.verification.*
 import stainless.utils.{CheckFilter, JsonUtils}
 import stainless.verification.{VCResult, VCStatus, VerificationAnalysis}
 import stainless.{FreshIdentifier, Identifier, Program, StainlessProgram, evaluators}
@@ -1184,8 +1184,8 @@ object EquivalenceChecker {
 
   enum FailureReason {
     case IllFormedTests(invalid: Map[Identifier, TestExtractionFailure])
-    case NoModels
-    case NoFunctions
+    case NoModels(models: Option[Seq[Path]])
+    case NoFunctions(candidates: Option[Seq[Path]])
     case ModelsSignatureMismatch(m1: Identifier, m2: Identifier)
     case OverlappingModelsAndFunctions(overlapping: Set[Identifier])
     case MultipleNormFunctions(norms: Set[Identifier])
@@ -1249,10 +1249,10 @@ object EquivalenceChecker {
     }.toSeq.distinct.sorted.map(_._2)
 
     if (models.isEmpty) {
-      return failure(FailureReason.NoModels)
+      return failure(FailureReason.NoModels(pathsOptModels))
     }
     if (functions.isEmpty) {
-      return failure(FailureReason.NoFunctions)
+      return failure(FailureReason.NoFunctions(pathsOptCandidates))
     }
 
     val overlapping = models.toSet.intersect(functions.toSet)

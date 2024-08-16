@@ -460,8 +460,8 @@ class EquivalenceCheckingRun private(override val component: EquivalenceChecking
       case EquivalenceChecker.FailureReason.IllFormedTests(invalid) =>
         val msg = invalid.map { case (id, reason) => s"  ${id.fullName}: ${pretty(reason)}" }
         s"the following tests are ill-formed:\n${msg.mkString("\n")}"
-      case EquivalenceChecker.FailureReason.NoModels => "there are no specified models"
-      case EquivalenceChecker.FailureReason.NoFunctions => "there are no specified candidate functions"
+      case EquivalenceChecker.FailureReason.NoModels(models) => "there are no specified models " + models.toString
+      case EquivalenceChecker.FailureReason.NoFunctions(candidates) => "there are no specified candidate functions " + candidates.toString
       case EquivalenceChecker.FailureReason.ModelsSignatureMismatch(m1, m2) =>
         s"models ${m1.fullName} and ${m2.fullName} signatures do not match"
       case EquivalenceChecker.FailureReason.OverlappingModelsAndFunctions(overlapping) =>

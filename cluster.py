@@ -10,6 +10,7 @@ def parse_args():
     parser.add_argument('--assn1', type=bool, default=False, help='Boolean flag for assn1')
     parser.add_argument('--assn2', type=bool, default=False, help='Boolean flag for assn2')
     parser.add_argument('--subfns-equiv', type=bool, default=False, help='Boolean flag for sub functions equivalence')
+    parser.add_argument('--gen-subfns', type=bool, default=False, help='Boolean flag for generating sub functions')
     parser.add_argument('--fake-exs', type=str, required=False, help='Comma-separated list of fake exercises')
     parser.add_argument('--extract', type=str, required=True, help='Comma-separated list of extract')
     parser.add_argument('--compare', type=str, required=False, help='Comma-separated list of compare funs')
@@ -97,7 +98,7 @@ def main():
 
     temp_json_results = []
 
-    while comparefuns:
+    while comparefuns and models:
         params = {
         'extract': args.extract,
         'comparefuns': ','.join(comparefuns),
@@ -105,6 +106,7 @@ def main():
         'assn1': args.assn1,
         'assn2': args.assn2,
         'subfns-equiv': args.subfns_equiv,
+        'gen-subfns': args.gen_subfns,
         }
         if(args.debug):
             params['debug'] = "transformation"
@@ -112,24 +114,30 @@ def main():
             params['fake-exs'] = args.fake_exs
 
         run_dotty(args.filenames, params)
-        temp_data = normalize_id(read_json('temp.json'))
-        if(len(temp_data['equivalent']) == 0):
-            temp_data['equivalent'].append({'model': list(models), 'functions': []})
+        if(os.path.exists('temp.json')):
+            temp_data = normalize_id(read_json('temp.json'))
+            if(len(temp_data['equivalent']) == 0):
+                temp_data['equivalent'].append({'model': list(models), 'functions': []})
+            else:
+                temp_data['equivalent'][0]['model'] = list(models)
+            temp_json_results.append(temp_data)
+
+            update_comparefuns(comparefuns, models, temp_data)
+
+            print("[*] new comparefuns:", comparefuns)
+            print("[*] new models:", models)
+            os.remove('temp.json')
         else:
-            temp_data['equivalent'][0]['model'] = list(models)
-        temp_json_results.append(temp_data)
-
-        update_comparefuns(comparefuns, models, temp_data)
-
-        print("[*] new comparefuns:", comparefuns)
-        print("[*] new models:", models)
+            break
 
     if models:
         temp_json_results.append({'equivalent': [{"models": list(models), "functions": []}]})
 
+    if comparefuns:
+        temp_json_results.append({'specific function not found': list(comparefuns)})
+
     with open(args.output, 'w') as f:
         json.dump(temp_json_results, f, indent=4)
-    os.remove('temp.json')
 
 if __name__ == "__main__":
     main()
