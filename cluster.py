@@ -4,6 +4,7 @@ import argparse
 import os
 import re
 
+
 def parse_args():
     parser = argparse.ArgumentParser(description="Run stainless-dotty with various parameters.")
     parser.add_argument('--filenames', type=str, required=True, help='Comma-separated list of filenames')
@@ -17,6 +18,7 @@ def parse_args():
     parser.add_argument('--output', type=str, default='result.json', help='Output JSON file name')
     parser.add_argument('--debug', type=bool, default=False, help='Show debug messages of transformation')
     return parser.parse_args()
+
 
 def generate_comparefuns_models(filenames, extract):
     comparefuns = set()
@@ -37,7 +39,8 @@ def generate_comparefuns_models(filenames, extract):
 
 
 def run_dotty(filenames, params):
-    command = [os.path.dirname(os.path.abspath(__file__)) + '/frontends/dotty/target/universal/stage/bin/stainless-dotty']
+    command = [
+        os.path.dirname(os.path.abspath(__file__)) + '/frontends/dotty/target/universal/stage/bin/stainless-dotty']
     command.extend(filenames.split(','))
     for key, value in params.items():
         if value:
@@ -53,9 +56,11 @@ def run_dotty(filenames, params):
     print("[*] Running command:", ' '.join(command))
     subprocess.run(command)
 
+
 def read_json(filename):
     with open(filename, 'r') as f:
         return json.load(f)
+
 
 def update_comparefuns(comparefuns, models, temp_data):
     models.clear()
@@ -77,6 +82,7 @@ def update_comparefuns(comparefuns, models, temp_data):
         models.add(unequivalent_functions[0])
         comparefuns.discard(unequivalent_functions[0])
 
+
 def normalize_id(obj):
     if isinstance(obj, dict):
         return {normalize_id(key): normalize_id(value) for key, value in obj.items()}
@@ -87,36 +93,37 @@ def normalize_id(obj):
     else:
         return obj
 
+
 def main():
     args = parse_args()
-    if(args.compare):
+    if (args.compare):
         comparefuns, models = generate_comparefuns_models(args.filenames.split(','), args.compare)
     else:
         comparefuns, models = generate_comparefuns_models(args.filenames.split(','), args.extract.split(',')[0])
     print("[*] comparefuns:", comparefuns)
-    print("[*] models:", models) 
+    print("[*] models:", models)
 
     temp_json_results = []
 
     while comparefuns and models:
         params = {
-        'extract': args.extract,
-        'comparefuns': ','.join(comparefuns),
-        'models': ','.join(models),
-        'assn1': args.assn1,
-        'assn2': args.assn2,
-        'subfns-equiv': args.subfns_equiv,
-        'gen-subfns': args.gen_subfns,
+            'extract': args.extract,
+            'comparefuns': ','.join(comparefuns),
+            'models': ','.join(models),
+            'assn1': args.assn1,
+            'assn2': args.assn2,
+            'subfns-equiv': args.subfns_equiv,
+            'gen-subfns': args.gen_subfns,
         }
-        if(args.debug):
+        if (args.debug):
             params['debug'] = "transformation"
-        if(args.fake_exs):
+        if (args.fake_exs):
             params['fake-exs'] = args.fake_exs
 
         run_dotty(args.filenames, params)
-        if(os.path.exists('temp.json')):
+        if (os.path.exists('temp.json')):
             temp_data = normalize_id(read_json('temp.json'))
-            if(len(temp_data['equivalent']) == 0):
+            if (len(temp_data['equivalent']) == 0):
                 temp_data['equivalent'].append({'model': list(models), 'functions': []})
             else:
                 temp_data['equivalent'][0]['model'] = list(models)
@@ -134,10 +141,11 @@ def main():
         temp_json_results.append({'equivalent': [{"models": list(models), "functions": []}]})
 
     if comparefuns:
-        temp_json_results.append({'specific function not found': list(comparefuns)})
+        temp_json_results.append({"equivalent": [{'specific function not found': list(comparefuns)}]})
 
     with open(args.output, 'w') as f:
         json.dump(temp_json_results, f, indent=4)
+
 
 if __name__ == "__main__":
     main()
