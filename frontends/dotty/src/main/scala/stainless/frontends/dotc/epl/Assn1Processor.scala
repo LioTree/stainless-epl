@@ -32,7 +32,7 @@ class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
   override def start(tree: untpd.Tree)(using DottyContext): untpd.Tree = {
     if (assn1)
       transform(tree)
-    else if(!assn2)
+    else if (!assn2)
       super.transform(tree)
     else
       tree
@@ -101,9 +101,9 @@ class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
 
       /* Use Map instead of ListMap */
       // Handling ListMap initialization
-      case Apply(fun, List(Apply(Ident(name), args))) if useMap && (fun.isInstanceOf[Ident] && fun.asInstanceOf[Ident].name.toString == "ListMap"
+      case Apply(fun, args) if useMap && (fun.isInstanceOf[Ident] && fun.asInstanceOf[Ident].name.toString == "ListMap"
         || fun.isInstanceOf[Select] && fun.asInstanceOf[Select].toString.endsWith("ListMap)")
-        || fun.isInstanceOf[TypeApply] && fun.asInstanceOf[TypeApply].toString.contains("ListMap")) && name.toString == "List" =>
+        || fun.isInstanceOf[TypeApply] && fun.asInstanceOf[TypeApply].toString.contains("ListMap")) && args.nonEmpty =>
         Apply(Ident(termName("Map")), super.transform(args))
 
       case Select(Select(Select(Ident(name1), name2), name3), name4) if useMap && s"$name1.$name2.$name3.$name4" == "scala.collection.immutable.ListMap" =>
@@ -114,6 +114,11 @@ class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
           case name if name.isTermName => termIdent("Map")
           case name if name.isTypeName => typeIdent("Map")
         }
+
+      // Solve part of "Can't extract map union with non-finite map" restriction for list2map and election exercises.
+      // scala.collection.immutable.ListMap(k -> v) ++ list2map(xs) -> list2map(xs) + Map(k -> v)
+      case InfixOp(left, op@Ident(opName), right@Apply(Ident(funName), args)) if useMap && opName == termName("++") && (funName == termName("list2map") || funName == termName("election")) =>
+        InfixOp(transform(right), op, transform(left))
 
 
       /* Add precondition for sum, suffix and p */
