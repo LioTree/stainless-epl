@@ -194,8 +194,8 @@ class PureScalaTranslator(using dottyCtx: DottyContext, inoxCtx: inox.Context) e
 
 
       /* Others */
-      // ignore println
-      case Apply(fun: Ident, args) if fun.name.toString == "println" =>
+      // ignore println and print
+      case Apply(fun: Ident, args) if fun.name.toString == "println" || fun.name.toString == "print" =>
         EmptyTree
       case _ =>
         super.transform(tree)
