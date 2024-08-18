@@ -69,11 +69,6 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
 
   private val isHardEx = hardExercises.intersect(targets).nonEmpty
 
-  private val splitFuns = genSubFuns match {
-    case true => hardExercises
-    case _ => Set.empty
-  }
-
   private val fakeCallPrefix = "fake_"
 
   private val unsafeMap = Set("ctx", "env")
@@ -156,11 +151,17 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
 
         case CaseDef(pat@Apply(fun: Ident, args), EmptyTree, body) => {
           val newName = termName(s"${baseFun.name.toString}_${fun.name.toTermName}")
+          // To pass Inner refinement lifting verification
+          val newParamss = baseFun.paramss.map(_.map {
+            case valDef@ValDef(name, tpt, _) if name.toString == baseMatch.selector.asInstanceOf[Ident].name.toString =>
+              cpy.ValDef(valDef)(name, Ident(fun.name.toTypeName), valDef.rhs)
+            case other => other
+          }.asInstanceOf[ParamClause])
           val freshIdDef = ValDef(termName("freshId"), TypeTree(), Apply(termIdent("BigInt"), List(buildNumber(0))))
           freshIdDef.setMods(Modifiers(Flags.Mutable))
           val defaultCase = CaseDef(termIdent("_"), EmptyTree, errorWrapper) // pass match exhaustiveness verification.
           val newRhs = Block(List(freshIdDef), cpy.Match(baseMatch)(baseMatch.selector, List(cpy.CaseDef(tree)(pat, EmptyTree, body), defaultCase)))
-          val subFun = recCallRewriter.transform(cpy.DefDef(baseFun)(newName, baseFun.paramss, baseFun.tpt, newRhs)).asInstanceOf[DefDef]
+          val subFun = recCallRewriter.transform(cpy.DefDef(baseFun)(newName, newParamss, baseFun.tpt, newRhs)).asInstanceOf[DefDef]
           subFuns = markSubFun(subFun, fun.name.toString) :: subFuns
         }
 
@@ -181,13 +182,6 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
       tree
   }
 
-  private def genFakeFun(baseFun: DefDef): DefDef = {
-    val newName = termName(fakeCallPrefix + baseFun.name.toString)
-    val newRes = errorWrapper
-    val fakeFun = cpy.DefDef(baseFun)(newName, baseFun.paramss, baseFun.tpt, newRes)
-    markExternPure(fakeFun).asInstanceOf[DefDef]
-  }
-
   override def transform(tree: untpd.Tree)(using DottyContext): untpd.Tree =
     tree match {
       /* Import and subFuns generation */
@@ -206,7 +200,7 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
           buildImport(s"epl.assn2.fake.${exer}")
         }.toList
         // For the hard exercise in the target, it is necessary to introduce fake_xx to eliminate recursive calls.
-        val importFakeCalls = targets.intersect(splitFuns).map { target =>
+        val importFakeCalls = targets.intersect(hardExercises).map { target =>
           buildImport(s"epl.assn2.fake.${fakeCallPrefix}${target}")
         }.toList
 
@@ -222,13 +216,20 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
           case ValDef(name, _, _) if framework.contains(name.toString) || fakeExercises.contains(name.toString) =>
             Nil
 
-          case defDef@DefDef(name, paramss, tpt, _) if splitFuns.contains(name.toString) =>
-            subFunctions = subFunctions ++ (new SubFunctionGenerator(defDef)).getSubFuns
+          case defDef@DefDef(name, paramss, tpt, _) if hardExercises.contains(name.toString) => {
+
             val freshIdDef = ValDef(termName("freshId"), TypeTree(), Apply(termIdent("BigInt"), List(buildNumber(0))))
             freshIdDef.setMods(Modifiers(Flags.Mutable))
             val newRhs = Block(List(freshIdDef), defDef.rhs)
             val newDefDef = cpy.DefDef(defDef)(name, paramss, tpt, newRhs)
-            List(markExternPure(newDefDef))
+
+            if (genSubFuns) {
+              subFunctions = subFunctions ++ (new SubFunctionGenerator(defDef)).getSubFuns
+              List(markExternPure(newDefDef))
+            }
+            else
+              List(newDefDef)
+          }
 
           case other => List(other)
         } ++ subFunctions
@@ -286,7 +287,7 @@ class Assn2Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
         InfixOp(transform(qualifier), termIdent("=="), transform(arg))
 
       case Apply(Select(Ident(name1), name2), args) if s"${name1.toString}.${name2.toString}" == "Gensym.gensym" => {
-        val applyGensym = Apply(Select(termIdent("Gensym"), termName("gensym")), args :+ termIdent("freshId"))
+        val applyGensym = Apply(Select(termIdent("Gensym"), termName("gensym")), super.transform(args) :+ termIdent("freshId"))
         Block(List(InfixOp(termIdent("freshId"), termIdent("+="), buildNumber(1))), applyGensym)
       }
 
