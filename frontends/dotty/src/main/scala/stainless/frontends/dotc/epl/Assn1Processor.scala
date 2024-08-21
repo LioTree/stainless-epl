@@ -129,7 +129,7 @@ class Assn1Processor(using dottyCtx: DottyContext, inoxCtx: inox.Context)
           // The function body originally only had one statement. Wrap it in a block.
           case _ => Block(List(precondition), defDef.rhs)
         }
-        super.transform(cpy.DefDef(defDef)(name, transformParamss(paramss), transform(tpt), transform(newRhs)))
+        super.transform(cpy.DefDef(defDef)(name, paramss, tpt, newRhs))
       }
 
       case defDef@DefDef(name, paramss, tpt, _) if name.toString == "p" => {
