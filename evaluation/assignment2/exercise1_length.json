@@ -1,0 +1,71 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2Solution_fixed.Value.length"
+                ],
+                "functions": [
+                    "Assn2-2023-10.Value.length",
+                    "Assn2-2023-11.Value.length",
+                    "Assn2-2023-13.Value.length",
+                    "Assn2-2023-14.Value.length",
+                    "Assn2-2023-15.Value.length",
+                    "Assn2-2023-16.Value.length",
+                    "Assn2-2023-17.Value.length",
+                    "Assn2-2023-18.Value.length",
+                    "Assn2-2023-19.Value.length",
+                    "Assn2-2023-2.Value.length",
+                    "Assn2-2023-20.Value.length",
+                    "Assn2-2023-22.Value.length",
+                    "Assn2-2023-23.Value.length",
+                    "Assn2-2023-24.Value.length",
+                    "Assn2-2023-25.Value.length",
+                    "Assn2-2023-26.Value.length",
+                    "Assn2-2023-27.Value.length",
+                    "Assn2-2023-28.Value.length",
+                    "Assn2-2023-30.Value.length",
+                    "Assn2-2023-4.Value.length",
+                    "Assn2-2023-5.Value.length",
+                    "Assn2-2023-6.Value.length",
+                    "Assn2-2023-7.Value.length",
+                    "Assn2-2023-8.Value.length",
+                    "Assn2-2023-9.Value.length"
+                ]
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2Solution_fixed.Value.length": 700,
+            "Assn2-2023-10.Value.length": 0,
+            "Assn2-2023-11.Value.length": 0,
+            "Assn2-2023-13.Value.length": 0,
+            "Assn2-2023-14.Value.length": 0,
+            "Assn2-2023-15.Value.length": 0,
+            "Assn2-2023-16.Value.length": 0,
+            "Assn2-2023-17.Value.length": 0,
+            "Assn2-2023-18.Value.length": 0,
+            "Assn2-2023-19.Value.length": 0,
+            "Assn2-2023-2.Value.length": 0,
+            "Assn2-2023-20.Value.length": 0,
+            "Assn2-2023-22.Value.length": 0,
+            "Assn2-2023-23.Value.length": 0,
+            "Assn2-2023-24.Value.length": 0,
+            "Assn2-2023-25.Value.length": 0,
+            "Assn2-2023-26.Value.length": 0,
+            "Assn2-2023-27.Value.length": 0,
+            "Assn2-2023-28.Value.length": 0,
+            "Assn2-2023-30.Value.length": 0,
+            "Assn2-2023-4.Value.length": 0,
+            "Assn2-2023-5.Value.length": 0,
+            "Assn2-2023-6.Value.length": 0,
+            "Assn2-2023-7.Value.length": 0,
+            "Assn2-2023-8.Value.length": 0,
+            "Assn2-2023-9.Value.length": 0
+        }
+    }
+]

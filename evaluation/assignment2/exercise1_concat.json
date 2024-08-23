@@ -1,0 +1,71 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2Solution_fixed.Value.concat"
+                ],
+                "functions": [
+                    "Assn2-2023-10.Value.concat",
+                    "Assn2-2023-11.Value.concat",
+                    "Assn2-2023-13.Value.concat",
+                    "Assn2-2023-14.Value.concat",
+                    "Assn2-2023-15.Value.concat",
+                    "Assn2-2023-16.Value.concat",
+                    "Assn2-2023-17.Value.concat",
+                    "Assn2-2023-18.Value.concat",
+                    "Assn2-2023-19.Value.concat",
+                    "Assn2-2023-2.Value.concat",
+                    "Assn2-2023-20.Value.concat",
+                    "Assn2-2023-22.Value.concat",
+                    "Assn2-2023-23.Value.concat",
+                    "Assn2-2023-24.Value.concat",
+                    "Assn2-2023-25.Value.concat",
+                    "Assn2-2023-26.Value.concat",
+                    "Assn2-2023-27.Value.concat",
+                    "Assn2-2023-28.Value.concat",
+                    "Assn2-2023-30.Value.concat",
+                    "Assn2-2023-4.Value.concat",
+                    "Assn2-2023-5.Value.concat",
+                    "Assn2-2023-6.Value.concat",
+                    "Assn2-2023-7.Value.concat",
+                    "Assn2-2023-8.Value.concat",
+                    "Assn2-2023-9.Value.concat"
+                ]
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2Solution_fixed.Value.concat": 700,
+            "Assn2-2023-10.Value.concat": 0,
+            "Assn2-2023-11.Value.concat": 0,
+            "Assn2-2023-13.Value.concat": 0,
+            "Assn2-2023-14.Value.concat": 0,
+            "Assn2-2023-15.Value.concat": 0,
+            "Assn2-2023-16.Value.concat": 0,
+            "Assn2-2023-17.Value.concat": 0,
+            "Assn2-2023-18.Value.concat": 0,
+            "Assn2-2023-19.Value.concat": 0,
+            "Assn2-2023-2.Value.concat": 0,
+            "Assn2-2023-20.Value.concat": 0,
+            "Assn2-2023-22.Value.concat": 0,
+            "Assn2-2023-23.Value.concat": 0,
+            "Assn2-2023-24.Value.concat": 0,
+            "Assn2-2023-25.Value.concat": 0,
+            "Assn2-2023-26.Value.concat": 0,
+            "Assn2-2023-27.Value.concat": 0,
+            "Assn2-2023-28.Value.concat": 0,
+            "Assn2-2023-30.Value.concat": 0,
+            "Assn2-2023-4.Value.concat": 0,
+            "Assn2-2023-5.Value.concat": 0,
+            "Assn2-2023-6.Value.concat": 0,
+            "Assn2-2023-7.Value.concat": 0,
+            "Assn2-2023-8.Value.concat": 0,
+            "Assn2-2023-9.Value.concat": 0
+        }
+    }
+]

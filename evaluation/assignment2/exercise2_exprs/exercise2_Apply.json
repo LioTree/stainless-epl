@@ -1,0 +1,522 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2Solution_fixed.eval_Apply"
+                ],
+                "functions": [
+                    "Assn2-2023-11.eval_Apply",
+                    "Assn2-2023-14.eval_Apply",
+                    "Assn2-2023-15.eval_Apply",
+                    "Assn2-2023-18.eval_Apply",
+                    "Assn2-2023-19.eval_Apply",
+                    "Assn2-2023-20.eval_Apply",
+                    "Assn2-2023-23.eval_Apply",
+                    "Assn2-2023-24.eval_Apply",
+                    "Assn2-2023-25.eval_Apply",
+                    "Assn2-2023-26.eval_Apply",
+                    "Assn2-2023-27.eval_Apply",
+                    "Assn2-2023-28.eval_Apply",
+                    "Assn2-2023-29.eval_Apply",
+                    "Assn2-2023-3.eval_Apply",
+                    "Assn2-2023-4.eval_Apply",
+                    "Assn2-2023-6.eval_Apply",
+                    "Assn2-2023-7.eval_Apply",
+                    "Assn2-2023-9.eval_Apply"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-5.eval_Apply",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{6 -> Some[FakeValue](FakeValue()), 8 -> Some[FakeValue](FakeValue()), * -> None[FakeValue]()}",
+                            "e": "Apply(Var(13), Var(14))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-10.eval_Apply",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{6 -> Some[FakeValue](FakeValue()), * -> None[FakeValue]()}",
+                            "e": "Apply(Var(14), Var(13))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-12.eval_Apply",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{* -> None[FakeValue]()}",
+                            "e": "Apply(Var(17), Var(18))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-13.eval_Apply",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{6 -> Some[FakeValue](FakeValue()), * -> None[FakeValue]()}",
+                            "e": "Apply(Var(12), Var(13))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.eval_Apply",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{8 -> Some[FakeValue](FakeValue()), 5 -> Some[FakeValue](FakeValue()), * -> None[FakeValue]()}",
+                            "e": "Apply(Var(13), Var(12))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.eval_Apply",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{* -> None[FakeValue]()}",
+                            "e": "Apply(Var(9), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.eval_Apply",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{6 -> Some[FakeValue](FakeValue()), * -> None[FakeValue]()}",
+                            "e": "Apply(Var(13), Var(14))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [
+            {
+                "function": "Assn2-2023-8.eval_Apply",
+                "self": [
+                    {
+                        "kind": "body assertion: Choose satisfiability",
+                        "position": "185:14",
+                        "ctex": {
+                            "args": {
+                                "env": "{* -> Some[FakeValue](FakeValue())}",
+                                "e": "Apply(Var(2), Var(5))"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "body assertion: Choose satisfiability",
+                        "position": "184:14",
+                        "ctex": {
+                            "args": {
+                                "env": "{* -> None[FakeValue]()}",
+                                "e": "Apply(Var(2), Var(3))"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            }
+        ],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2Solution_fixed.eval_Apply": 560,
+            "Assn2-2023-11.eval_Apply": 0,
+            "Assn2-2023-14.eval_Apply": 0,
+            "Assn2-2023-15.eval_Apply": 0,
+            "Assn2-2023-18.eval_Apply": 0,
+            "Assn2-2023-19.eval_Apply": 0,
+            "Assn2-2023-20.eval_Apply": 0,
+            "Assn2-2023-23.eval_Apply": 0,
+            "Assn2-2023-24.eval_Apply": 0,
+            "Assn2-2023-25.eval_Apply": 0,
+            "Assn2-2023-26.eval_Apply": 0,
+            "Assn2-2023-27.eval_Apply": 0,
+            "Assn2-2023-28.eval_Apply": 0,
+            "Assn2-2023-29.eval_Apply": 0,
+            "Assn2-2023-3.eval_Apply": 0,
+            "Assn2-2023-4.eval_Apply": 0,
+            "Assn2-2023-6.eval_Apply": 0,
+            "Assn2-2023-7.eval_Apply": 0,
+            "Assn2-2023-9.eval_Apply": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-5.eval_Apply"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-10.eval_Apply",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{5 -> Some[FakeValue](FakeValue()), * -> None[FakeValue]()}",
+                            "e": "Apply(Var(12), Var(13))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-12.eval_Apply",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{6 -> Some[FakeValue](FakeValue()), 5 -> Some[FakeValue](FakeValue()), * -> None[FakeValue]()}",
+                            "e": "Apply(Var(15), Var(16))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-13.eval_Apply",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{5 -> Some[FakeValue](FakeValue()), * -> None[FakeValue]()}",
+                            "e": "Apply(Var(13), Var(14))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.eval_Apply",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{* -> None[FakeValue]()}",
+                            "e": "Apply(Var(11), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.eval_Apply",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{2 -> Some[FakeValue](FakeValue()), * -> None[FakeValue]()}",
+                            "e": "Apply(Var(14), Var(15))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.eval_Apply",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{6 -> Some[FakeValue](FakeValue()), 4 -> Some[FakeValue](FakeValue()), 7 -> Some[FakeValue](FakeValue()), * -> None[FakeValue]()}",
+                            "e": "Apply(Var(16), Var(17))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-5.eval_Apply": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-10.eval_Apply"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-12.eval_Apply",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{* -> None[FakeValue]()}",
+                            "e": "Apply(Var(12), Var(11))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-13.eval_Apply",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{9 -> Some[FakeValue](FakeValue()), 6 -> Some[FakeValue](FakeValue()), 14 -> Some[FakeValue](FakeValue()), * -> None[FakeValue]()}",
+                            "e": "Apply(Var(19), Var(20))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.eval_Apply",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{11 -> Some[FakeValue](FakeValue()), 5 -> Some[FakeValue](FakeValue()), * -> None[FakeValue]()}",
+                            "e": "Apply(Var(16), Var(17))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.eval_Apply",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{5 -> Some[FakeValue](FakeValue()), 7 -> Some[FakeValue](FakeValue()), 3 -> Some[FakeValue](FakeValue()), * -> None[FakeValue]()}",
+                            "e": "Apply(Var(13), Var(12))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.eval_Apply",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{5 -> Some[FakeValue](FakeValue()), 4 -> Some[FakeValue](FakeValue()), 3 -> Some[FakeValue](FakeValue()), * -> None[FakeValue]()}",
+                            "e": "Apply(Var(11), Var(12))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-10.eval_Apply": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-12.eval_Apply"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-13.eval_Apply",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{3 -> Some[FakeValue](FakeValue()), 4 -> Some[FakeValue](FakeValue()), * -> None[FakeValue]()}",
+                            "e": "Apply(Var(11), Var(12))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.eval_Apply",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{3 -> Some[FakeValue](FakeValue()), * -> None[FakeValue]()}",
+                            "e": "Apply(Var(12), Var(13))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.eval_Apply",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{4 -> Some[FakeValue](FakeValue()), * -> None[FakeValue]()}",
+                            "e": "Apply(Var(12), Var(13))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.eval_Apply",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{9 -> Some[FakeValue](FakeValue()), 8 -> Some[FakeValue](FakeValue()), * -> None[FakeValue]()}",
+                            "e": "Apply(Var(13), Var(12))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-12.eval_Apply": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-13.eval_Apply"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-16.eval_Apply",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{11 -> Some[FakeValue](FakeValue()), * -> None[FakeValue]()}",
+                            "e": "Apply(Var(13), Var(12))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.eval_Apply",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{4 -> Some[FakeValue](FakeValue()), * -> None[FakeValue]()}",
+                            "e": "Apply(Var(10), Var(11))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.eval_Apply",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{6 -> Some[FakeValue](FakeValue()), * -> None[FakeValue]()}",
+                            "e": "Apply(Var(16), Var(15))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-13.eval_Apply": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-16.eval_Apply"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-17.eval_Apply",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{6 -> Some[FakeValue](FakeValue()), * -> None[FakeValue]()}",
+                            "e": "Apply(Var(13), Var(12))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.eval_Apply",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{6 -> Some[FakeValue](FakeValue()), * -> None[FakeValue]()}",
+                            "e": "Apply(Var(14), Var(13))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-16.eval_Apply": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-17.eval_Apply"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-21.eval_Apply",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{7 -> Some[FakeValue](FakeValue()), * -> None[FakeValue]()}",
+                            "e": "Apply(Var(15), Var(16))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-17.eval_Apply": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "models": [
+                    "Assn2-2023-21.eval_Apply"
+                ],
+                "functions": []
+            }
+        ]
+    },
+    {
+        "equivalent": [{"specific function not found": [ 
+            "Assn2-2023-30.eval_Apply"
+         ] }]
+    }
+]

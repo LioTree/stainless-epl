@@ -1,0 +1,77 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2Solution_fixed.subst_Plus"
+                ],
+                "functions": [
+                    "Assn2-2023-10.subst_Plus",
+                    "Assn2-2023-11.subst_Plus",
+                    "Assn2-2023-12.subst_Plus",
+                    "Assn2-2023-13.subst_Plus",
+                    "Assn2-2023-14.subst_Plus",
+                    "Assn2-2023-15.subst_Plus",
+                    "Assn2-2023-16.subst_Plus",
+                    "Assn2-2023-17.subst_Plus",
+                    "Assn2-2023-18.subst_Plus",
+                    "Assn2-2023-19.subst_Plus",
+                    "Assn2-2023-2.subst_Plus",
+                    "Assn2-2023-20.subst_Plus",
+                    "Assn2-2023-21.subst_Plus",
+                    "Assn2-2023-23.subst_Plus",
+                    "Assn2-2023-24.subst_Plus",
+                    "Assn2-2023-25.subst_Plus",
+                    "Assn2-2023-26.subst_Plus",
+                    "Assn2-2023-27.subst_Plus",
+                    "Assn2-2023-28.subst_Plus",
+                    "Assn2-2023-29.subst_Plus",
+                    "Assn2-2023-3.subst_Plus",
+                    "Assn2-2023-30.subst_Plus",
+                    "Assn2-2023-4.subst_Plus",
+                    "Assn2-2023-5.subst_Plus",
+                    "Assn2-2023-6.subst_Plus",
+                    "Assn2-2023-7.subst_Plus",
+                    "Assn2-2023-8.subst_Plus",
+                    "Assn2-2023-9.subst_Plus"
+                ]
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2Solution_fixed.subst_Plus": 760,
+            "Assn2-2023-10.subst_Plus": 0,
+            "Assn2-2023-11.subst_Plus": 0,
+            "Assn2-2023-12.subst_Plus": 0,
+            "Assn2-2023-13.subst_Plus": 0,
+            "Assn2-2023-14.subst_Plus": 0,
+            "Assn2-2023-15.subst_Plus": 0,
+            "Assn2-2023-16.subst_Plus": 0,
+            "Assn2-2023-17.subst_Plus": 0,
+            "Assn2-2023-18.subst_Plus": 0,
+            "Assn2-2023-19.subst_Plus": 0,
+            "Assn2-2023-2.subst_Plus": 0,
+            "Assn2-2023-20.subst_Plus": 0,
+            "Assn2-2023-21.subst_Plus": 0,
+            "Assn2-2023-23.subst_Plus": 0,
+            "Assn2-2023-24.subst_Plus": 0,
+            "Assn2-2023-25.subst_Plus": 0,
+            "Assn2-2023-26.subst_Plus": 0,
+            "Assn2-2023-27.subst_Plus": 0,
+            "Assn2-2023-28.subst_Plus": 0,
+            "Assn2-2023-29.subst_Plus": 0,
+            "Assn2-2023-3.subst_Plus": 0,
+            "Assn2-2023-30.subst_Plus": 0,
+            "Assn2-2023-4.subst_Plus": 0,
+            "Assn2-2023-5.subst_Plus": 0,
+            "Assn2-2023-6.subst_Plus": 0,
+            "Assn2-2023-7.subst_Plus": 0,
+            "Assn2-2023-8.subst_Plus": 0,
+            "Assn2-2023-9.subst_Plus": 0
+        }
+    }
+]

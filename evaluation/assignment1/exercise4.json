@@ -1,0 +1,361 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1Solution.suffix"
+                ],
+                "functions": [
+                    "Assn1-2023-1.suffix",
+                    "Assn1-2023-10.suffix",
+                    "Assn1-2023-11.suffix",
+                    "Assn1-2023-12.suffix",
+                    "Assn1-2023-13.suffix",
+                    "Assn1-2023-15.suffix",
+                    "Assn1-2023-16.suffix",
+                    "Assn1-2023-19.suffix",
+                    "Assn1-2023-2.suffix",
+                    "Assn1-2023-21.suffix",
+                    "Assn1-2023-23.suffix",
+                    "Assn1-2023-25.suffix",
+                    "Assn1-2023-26.suffix",
+                    "Assn1-2023-27.suffix",
+                    "Assn1-2023-28.suffix",
+                    "Assn1-2023-29.suffix",
+                    "Assn1-2023-31.suffix",
+                    "Assn1-2023-32.suffix",
+                    "Assn1-2023-33.suffix",
+                    "Assn1-2023-34.suffix",
+                    "Assn1-2023-35.suffix",
+                    "Assn1-2023-36.suffix",
+                    "Assn1-2023-37.suffix",
+                    "Assn1-2023-38.suffix",
+                    "Assn1-2023-4.suffix",
+                    "Assn1-2023-5.suffix",
+                    "Assn1-2023-6.suffix",
+                    "Assn1-2023-9.suffix"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-3.suffix",
+                "ctexs": [
+                    {
+                        "args": {
+                            "n": "OverflowInt(11)"
+                        },
+                        "expected": "StringWrapper(\"th\")",
+                        "got": "StringWrapper(\"st\")"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-7.suffix",
+                "ctexs": [
+                    {
+                        "args": {
+                            "n": "OverflowInt(11)"
+                        },
+                        "expected": "StringWrapper(\"th\")",
+                        "got": "StringWrapper(\"st\")"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-8.suffix",
+                "ctexs": [
+                    {
+                        "args": {
+                            "n": "OverflowInt(11)"
+                        },
+                        "expected": "StringWrapper(\"th\")",
+                        "got": "StringWrapper(\"st\")"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-14.suffix",
+                "ctexs": [
+                    {
+                        "args": {
+                            "n": "OverflowInt(91)"
+                        },
+                        "expected": "StringWrapper(\"st\")",
+                        "got": "StringWrapper(\"th\")"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-17.suffix",
+                "ctexs": [
+                    {
+                        "args": {
+                            "n": "OverflowInt(13)"
+                        },
+                        "expected": "StringWrapper(\"th\")",
+                        "got": "StringWrapper(\"rd\")"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-18.suffix",
+                "ctexs": [
+                    {
+                        "args": {
+                            "n": "OverflowInt(0)"
+                        },
+                        "expected": "StringWrapper(\"th\")",
+                        "got": "StringWrapper(\"Enter a natural number.\")"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-20.suffix",
+                "ctexs": [
+                    {
+                        "args": {
+                            "n": "OverflowInt(11)"
+                        },
+                        "expected": "StringWrapper(\"th\")",
+                        "got": "StringWrapper(\"st\")"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-24.suffix",
+                "ctexs": [
+                    {
+                        "args": {
+                            "n": "OverflowInt(11)"
+                        },
+                        "expected": "StringWrapper(\"th\")",
+                        "got": "StringWrapper(\"st\")"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-30.suffix",
+                "ctexs": [
+                    {
+                        "args": {
+                            "n": "OverflowInt(13)"
+                        },
+                        "expected": "StringWrapper(\"th\")",
+                        "got": "StringWrapper(\"rd\")"
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1Solution.suffix": 760,
+            "Assn1-2023-1.suffix": 0,
+            "Assn1-2023-10.suffix": 0,
+            "Assn1-2023-11.suffix": 0,
+            "Assn1-2023-12.suffix": 0,
+            "Assn1-2023-13.suffix": 0,
+            "Assn1-2023-15.suffix": 0,
+            "Assn1-2023-16.suffix": 0,
+            "Assn1-2023-19.suffix": 0,
+            "Assn1-2023-2.suffix": 0,
+            "Assn1-2023-21.suffix": 0,
+            "Assn1-2023-23.suffix": 0,
+            "Assn1-2023-25.suffix": 0,
+            "Assn1-2023-26.suffix": 0,
+            "Assn1-2023-27.suffix": 0,
+            "Assn1-2023-28.suffix": 0,
+            "Assn1-2023-29.suffix": 0,
+            "Assn1-2023-31.suffix": 0,
+            "Assn1-2023-32.suffix": 0,
+            "Assn1-2023-33.suffix": 0,
+            "Assn1-2023-34.suffix": 0,
+            "Assn1-2023-35.suffix": 0,
+            "Assn1-2023-36.suffix": 0,
+            "Assn1-2023-37.suffix": 0,
+            "Assn1-2023-38.suffix": 0,
+            "Assn1-2023-4.suffix": 0,
+            "Assn1-2023-5.suffix": 0,
+            "Assn1-2023-6.suffix": 0,
+            "Assn1-2023-9.suffix": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-3.suffix"
+                ],
+                "functions": [
+                    "Assn1-2023-20.suffix",
+                    "Assn1-2023-24.suffix",
+                    "Assn1-2023-7.suffix",
+                    "Assn1-2023-8.suffix"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-14.suffix",
+                "ctexs": [
+                    {
+                        "args": {
+                            "n": "OverflowInt(11)"
+                        },
+                        "expected": "StringWrapper(\"st\")",
+                        "got": "StringWrapper(\"th\")"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-17.suffix",
+                "ctexs": [
+                    {
+                        "args": {
+                            "n": "OverflowInt(11)"
+                        },
+                        "expected": "StringWrapper(\"st\")",
+                        "got": "StringWrapper(\"th\")"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-18.suffix",
+                "ctexs": [
+                    {
+                        "args": {
+                            "n": "OverflowInt(11)"
+                        },
+                        "expected": "StringWrapper(\"st\")",
+                        "got": "StringWrapper(\"th\")"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-30.suffix",
+                "ctexs": [
+                    {
+                        "args": {
+                            "n": "OverflowInt(11)"
+                        },
+                        "expected": "StringWrapper(\"st\")",
+                        "got": "StringWrapper(\"th\")"
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-3.suffix": 280,
+            "Assn1-2023-20.suffix": 0,
+            "Assn1-2023-24.suffix": 0,
+            "Assn1-2023-7.suffix": 0,
+            "Assn1-2023-8.suffix": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-14.suffix"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-17.suffix",
+                "ctexs": [
+                    {
+                        "args": {
+                            "n": "OverflowInt(91)"
+                        },
+                        "expected": "StringWrapper(\"th\")",
+                        "got": "StringWrapper(\"st\")"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-18.suffix",
+                "ctexs": [
+                    {
+                        "args": {
+                            "n": "OverflowInt(91)"
+                        },
+                        "expected": "StringWrapper(\"th\")",
+                        "got": "StringWrapper(\"st\")"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-30.suffix",
+                "ctexs": [
+                    {
+                        "args": {
+                            "n": "OverflowInt(91)"
+                        },
+                        "expected": "StringWrapper(\"th\")",
+                        "got": "StringWrapper(\"st\")"
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-14.suffix": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-17.suffix"
+                ],
+                "functions": [
+                    "Assn1-2023-30.suffix"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-18.suffix",
+                "ctexs": [
+                    {
+                        "args": {
+                            "n": "OverflowInt(0)"
+                        },
+                        "expected": "StringWrapper(\"th\")",
+                        "got": "StringWrapper(\"Enter a natural number.\")"
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-17.suffix": 220,
+            "Assn1-2023-30.suffix": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "models": [
+                    "Assn1-2023-18.suffix"
+                ],
+                "functions": []
+            }
+        ]
+    }
+]

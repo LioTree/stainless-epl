@@ -1,0 +1,139 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2Solution_fixed.subst_First"
+                ],
+                "functions": [
+                    "Assn2-2023-10.subst_First",
+                    "Assn2-2023-11.subst_First",
+                    "Assn2-2023-12.subst_First",
+                    "Assn2-2023-14.subst_First",
+                    "Assn2-2023-15.subst_First",
+                    "Assn2-2023-16.subst_First",
+                    "Assn2-2023-17.subst_First",
+                    "Assn2-2023-18.subst_First",
+                    "Assn2-2023-19.subst_First",
+                    "Assn2-2023-2.subst_First",
+                    "Assn2-2023-20.subst_First",
+                    "Assn2-2023-21.subst_First",
+                    "Assn2-2023-25.subst_First",
+                    "Assn2-2023-26.subst_First",
+                    "Assn2-2023-27.subst_First",
+                    "Assn2-2023-28.subst_First",
+                    "Assn2-2023-29.subst_First",
+                    "Assn2-2023-3.subst_First",
+                    "Assn2-2023-30.subst_First",
+                    "Assn2-2023-5.subst_First",
+                    "Assn2-2023-6.subst_First",
+                    "Assn2-2023-9.subst_First"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-7.subst_First",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "First(Var(2))",
+                            "e2": "First(First(Var(3)))",
+                            "x": "4"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-8.subst_First",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "First(Pair(Var(3), Var(2)))",
+                            "e2": "First(Var(3))",
+                            "x": "5"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2Solution_fixed.subst_First": 640,
+            "Assn2-2023-10.subst_First": 0,
+            "Assn2-2023-11.subst_First": 0,
+            "Assn2-2023-12.subst_First": 0,
+            "Assn2-2023-14.subst_First": 0,
+            "Assn2-2023-15.subst_First": 0,
+            "Assn2-2023-16.subst_First": 0,
+            "Assn2-2023-17.subst_First": 0,
+            "Assn2-2023-18.subst_First": 0,
+            "Assn2-2023-19.subst_First": 0,
+            "Assn2-2023-2.subst_First": 0,
+            "Assn2-2023-20.subst_First": 0,
+            "Assn2-2023-21.subst_First": 0,
+            "Assn2-2023-25.subst_First": 0,
+            "Assn2-2023-26.subst_First": 0,
+            "Assn2-2023-27.subst_First": 0,
+            "Assn2-2023-28.subst_First": 0,
+            "Assn2-2023-29.subst_First": 0,
+            "Assn2-2023-3.subst_First": 0,
+            "Assn2-2023-30.subst_First": 0,
+            "Assn2-2023-5.subst_First": 0,
+            "Assn2-2023-6.subst_First": 0,
+            "Assn2-2023-9.subst_First": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-7.subst_First"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-8.subst_First",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "First(First(Var(2)))",
+                            "e2": "Times(Var(2), Var(2))",
+                            "x": "3"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-7.subst_First": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "models": [
+                    "Assn2-2023-8.subst_First"
+                ],
+                "functions": []
+            }
+        ]
+    },
+    {
+        "equivalent": [{"specific function not found": [ 
+            "Assn2-2023-24.subst_First",
+            "Assn2-2023-23.subst_First",
+            "Assn2-2023-4.subst_First",
+            "Assn2-2023-13.subst_First"
+         ] }]
+    }
+]

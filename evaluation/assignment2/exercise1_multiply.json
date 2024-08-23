@@ -1,0 +1,71 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2Solution_fixed.Value.multiply"
+                ],
+                "functions": [
+                    "Assn2-2023-10.Value.multiply",
+                    "Assn2-2023-11.Value.multiply",
+                    "Assn2-2023-13.Value.multiply",
+                    "Assn2-2023-14.Value.multiply",
+                    "Assn2-2023-15.Value.multiply",
+                    "Assn2-2023-16.Value.multiply",
+                    "Assn2-2023-17.Value.multiply",
+                    "Assn2-2023-18.Value.multiply",
+                    "Assn2-2023-19.Value.multiply",
+                    "Assn2-2023-2.Value.multiply",
+                    "Assn2-2023-20.Value.multiply",
+                    "Assn2-2023-22.Value.multiply",
+                    "Assn2-2023-23.Value.multiply",
+                    "Assn2-2023-24.Value.multiply",
+                    "Assn2-2023-25.Value.multiply",
+                    "Assn2-2023-26.Value.multiply",
+                    "Assn2-2023-27.Value.multiply",
+                    "Assn2-2023-28.Value.multiply",
+                    "Assn2-2023-30.Value.multiply",
+                    "Assn2-2023-4.Value.multiply",
+                    "Assn2-2023-5.Value.multiply",
+                    "Assn2-2023-6.Value.multiply",
+                    "Assn2-2023-7.Value.multiply",
+                    "Assn2-2023-8.Value.multiply",
+                    "Assn2-2023-9.Value.multiply"
+                ]
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2Solution_fixed.Value.multiply": 700,
+            "Assn2-2023-10.Value.multiply": 0,
+            "Assn2-2023-11.Value.multiply": 0,
+            "Assn2-2023-13.Value.multiply": 0,
+            "Assn2-2023-14.Value.multiply": 0,
+            "Assn2-2023-15.Value.multiply": 0,
+            "Assn2-2023-16.Value.multiply": 0,
+            "Assn2-2023-17.Value.multiply": 0,
+            "Assn2-2023-18.Value.multiply": 0,
+            "Assn2-2023-19.Value.multiply": 0,
+            "Assn2-2023-2.Value.multiply": 0,
+            "Assn2-2023-20.Value.multiply": 0,
+            "Assn2-2023-22.Value.multiply": 0,
+            "Assn2-2023-23.Value.multiply": 0,
+            "Assn2-2023-24.Value.multiply": 0,
+            "Assn2-2023-25.Value.multiply": 0,
+            "Assn2-2023-26.Value.multiply": 0,
+            "Assn2-2023-27.Value.multiply": 0,
+            "Assn2-2023-28.Value.multiply": 0,
+            "Assn2-2023-30.Value.multiply": 0,
+            "Assn2-2023-4.Value.multiply": 0,
+            "Assn2-2023-5.Value.multiply": 0,
+            "Assn2-2023-6.Value.multiply": 0,
+            "Assn2-2023-7.Value.multiply": 0,
+            "Assn2-2023-8.Value.multiply": 0,
+            "Assn2-2023-9.Value.multiply": 0
+        }
+    }
+]

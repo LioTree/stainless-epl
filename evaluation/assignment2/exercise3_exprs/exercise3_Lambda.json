@@ -1,0 +1,126 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2Solution_fixed.tyOf_Lambda"
+                ],
+                "functions": [
+                    "Assn2-2023-11.tyOf_Lambda",
+                    "Assn2-2023-12.tyOf_Lambda",
+                    "Assn2-2023-14.tyOf_Lambda",
+                    "Assn2-2023-15.tyOf_Lambda",
+                    "Assn2-2023-16.tyOf_Lambda",
+                    "Assn2-2023-17.tyOf_Lambda",
+                    "Assn2-2023-19.tyOf_Lambda",
+                    "Assn2-2023-21.tyOf_Lambda",
+                    "Assn2-2023-23.tyOf_Lambda",
+                    "Assn2-2023-25.tyOf_Lambda",
+                    "Assn2-2023-26.tyOf_Lambda",
+                    "Assn2-2023-27.tyOf_Lambda",
+                    "Assn2-2023-28.tyOf_Lambda",
+                    "Assn2-2023-3.tyOf_Lambda",
+                    "Assn2-2023-4.tyOf_Lambda",
+                    "Assn2-2023-6.tyOf_Lambda",
+                    "Assn2-2023-8.tyOf_Lambda",
+                    "Assn2-2023-9.tyOf_Lambda"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-5.tyOf_Lambda",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(StringTy(), StringTy())), * -> None[Type]()}",
+                            "e": "Lambda(2, StringTy(), Var(3))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-24.tyOf_Lambda",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(StringTy(), StringTy())), * -> None[Type]()}",
+                            "e": "Lambda(2, StringTy(), Var(3))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2Solution_fixed.tyOf_Lambda": 560,
+            "Assn2-2023-11.tyOf_Lambda": 0,
+            "Assn2-2023-12.tyOf_Lambda": 0,
+            "Assn2-2023-14.tyOf_Lambda": 0,
+            "Assn2-2023-15.tyOf_Lambda": 0,
+            "Assn2-2023-16.tyOf_Lambda": 0,
+            "Assn2-2023-17.tyOf_Lambda": 0,
+            "Assn2-2023-19.tyOf_Lambda": 0,
+            "Assn2-2023-21.tyOf_Lambda": 0,
+            "Assn2-2023-23.tyOf_Lambda": 0,
+            "Assn2-2023-25.tyOf_Lambda": 0,
+            "Assn2-2023-26.tyOf_Lambda": 0,
+            "Assn2-2023-27.tyOf_Lambda": 0,
+            "Assn2-2023-28.tyOf_Lambda": 0,
+            "Assn2-2023-3.tyOf_Lambda": 0,
+            "Assn2-2023-4.tyOf_Lambda": 0,
+            "Assn2-2023-6.tyOf_Lambda": 0,
+            "Assn2-2023-8.tyOf_Lambda": 0,
+            "Assn2-2023-9.tyOf_Lambda": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-5.tyOf_Lambda"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-24.tyOf_Lambda",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](FunTy(StringTy(), StringTy())), * -> None[Type]()}",
+                            "e": "Lambda(2, StringTy(), Var(3))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-5.tyOf_Lambda": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "models": [
+                    "Assn2-2023-24.tyOf_Lambda"
+                ],
+                "functions": []
+            }
+        ]
+    },
+    {
+        "equivalent": [{"specific function not found": [ 
+            "Assn2-2023-29.tyOf_Lambda",
+            "Assn2-2023-2.tyOf_Lambda"
+         ] }]
+    }
+]

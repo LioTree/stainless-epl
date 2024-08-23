@@ -1,0 +1,189 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1Solution.keys"
+                ],
+                "functions": [
+                    "Assn1-2023-32.keys",
+                    "Assn1-2023-37.keys",
+                    "Assn1-2023-4.keys",
+                    "Assn1-2023-7.keys"
+                ]
+            },
+            {
+                "model": "Assn1Solution.keys",
+                "functions": [
+                    "Assn1-2023-1.keys",
+                    "Assn1-2023-10.keys",
+                    "Assn1-2023-12.keys",
+                    "Assn1-2023-13.keys",
+                    "Assn1-2023-14.keys",
+                    "Assn1-2023-15.keys",
+                    "Assn1-2023-17.keys",
+                    "Assn1-2023-19.keys",
+                    "Assn1-2023-2.keys",
+                    "Assn1-2023-20.keys",
+                    "Assn1-2023-22.keys",
+                    "Assn1-2023-23.keys",
+                    "Assn1-2023-25.keys",
+                    "Assn1-2023-26.keys",
+                    "Assn1-2023-27.keys",
+                    "Assn1-2023-28.keys",
+                    "Assn1-2023-29.keys",
+                    "Assn1-2023-3.keys",
+                    "Assn1-2023-30.keys",
+                    "Assn1-2023-31.keys",
+                    "Assn1-2023-34.keys",
+                    "Assn1-2023-35.keys",
+                    "Assn1-2023-36.keys",
+                    "Assn1-2023-5.keys",
+                    "Assn1-2023-6.keys",
+                    "Assn1-2023-8.keys",
+                    "Assn1-2023-9.keys"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-16.keys",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]())"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-18.keys",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]())"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-24.keys",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]())"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-33.keys",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]())"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-38.keys",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]())"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [
+            "Assn1-2023-21.keys"
+        ],
+        "wrong": [],
+        "weights": {
+            "Assn1Solution.keys": 728,
+            "Assn1-2023-9.keys": 158,
+            "Assn1-2023-1.keys": 0,
+            "Assn1-2023-10.keys": 0,
+            "Assn1-2023-12.keys": 0,
+            "Assn1-2023-13.keys": 0,
+            "Assn1-2023-14.keys": 0,
+            "Assn1-2023-15.keys": 0,
+            "Assn1-2023-17.keys": 0,
+            "Assn1-2023-19.keys": 0,
+            "Assn1-2023-2.keys": 0,
+            "Assn1-2023-22.keys": 0,
+            "Assn1-2023-25.keys": 0,
+            "Assn1-2023-26.keys": 0,
+            "Assn1-2023-27.keys": 0,
+            "Assn1-2023-28.keys": 0,
+            "Assn1-2023-29.keys": 0,
+            "Assn1-2023-3.keys": 0,
+            "Assn1-2023-31.keys": 0,
+            "Assn1-2023-32.keys": 0,
+            "Assn1-2023-34.keys": 0,
+            "Assn1-2023-35.keys": 0,
+            "Assn1-2023-36.keys": 0,
+            "Assn1-2023-37.keys": 0,
+            "Assn1-2023-4.keys": 0,
+            "Assn1-2023-5.keys": 0,
+            "Assn1-2023-7.keys": 0,
+            "Assn1-2023-8.keys": 0,
+            "Assn1-2023-20.keys": -2,
+            "Assn1-2023-23.keys": -2,
+            "Assn1-2023-30.keys": -2,
+            "Assn1-2023-6.keys": -2
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-16.keys"
+                ],
+                "functions": [
+                    "Assn1-2023-18.keys",
+                    "Assn1-2023-24.keys",
+                    "Assn1-2023-33.keys",
+                    "Assn1-2023-38.keys"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-21.keys",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-16.keys": 280,
+            "Assn1-2023-18.keys": 0,
+            "Assn1-2023-24.keys": 0,
+            "Assn1-2023-33.keys": 0,
+            "Assn1-2023-38.keys": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "models": [
+                    "Assn1-2023-21.keys"
+                ],
+                "functions": []
+            }
+        ]
+    }
+]

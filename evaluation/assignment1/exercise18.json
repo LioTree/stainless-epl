@@ -1,0 +1,292 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1Solution.map12_withUpdate"
+                ],
+                "functions": [
+                    "Assn1-2023-1.map12_withUpdate",
+                    "Assn1-2023-11.map12_withUpdate",
+                    "Assn1-2023-14.map12_withUpdate",
+                    "Assn1-2023-17.map12_withUpdate",
+                    "Assn1-2023-2.map12_withUpdate",
+                    "Assn1-2023-20.map12_withUpdate",
+                    "Assn1-2023-21.map12_withUpdate",
+                    "Assn1-2023-22.map12_withUpdate",
+                    "Assn1-2023-25.map12_withUpdate",
+                    "Assn1-2023-26.map12_withUpdate",
+                    "Assn1-2023-27.map12_withUpdate",
+                    "Assn1-2023-28.map12_withUpdate",
+                    "Assn1-2023-29.map12_withUpdate",
+                    "Assn1-2023-3.map12_withUpdate",
+                    "Assn1-2023-30.map12_withUpdate",
+                    "Assn1-2023-31.map12_withUpdate",
+                    "Assn1-2023-32.map12_withUpdate",
+                    "Assn1-2023-34.map12_withUpdate",
+                    "Assn1-2023-35.map12_withUpdate",
+                    "Assn1-2023-36.map12_withUpdate",
+                    "Assn1-2023-37.map12_withUpdate",
+                    "Assn1-2023-4.map12_withUpdate",
+                    "Assn1-2023-5.map12_withUpdate",
+                    "Assn1-2023-6.map12_withUpdate",
+                    "Assn1-2023-7.map12_withUpdate",
+                    "Assn1-2023-8.map12_withUpdate",
+                    "Assn1-2023-9.map12_withUpdate"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-10.map12_withUpdate",
+                "ctexs": [
+                    {
+                        "args": {},
+                        "expected": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(1), StringWrapper(\"a\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(2), StringWrapper(\"b\")), Nil[(OverflowInt, StringWrapper)]())))",
+                        "got": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(1), StringWrapper(\"one\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(2), StringWrapper(\"two\")), Nil[(OverflowInt, StringWrapper)]())))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-12.map12_withUpdate",
+                "ctexs": [
+                    {
+                        "args": {},
+                        "expected": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(1), StringWrapper(\"a\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(2), StringWrapper(\"b\")), Nil[(OverflowInt, StringWrapper)]())))",
+                        "got": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(1), StringWrapper(\"b\")), Nil[(OverflowInt, StringWrapper)]()))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-13.map12_withUpdate",
+                "ctexs": [
+                    {
+                        "args": {},
+                        "expected": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(1), StringWrapper(\"a\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(2), StringWrapper(\"b\")), Nil[(OverflowInt, StringWrapper)]())))",
+                        "got": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Nil[(OverflowInt, StringWrapper)]()))))))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-16.map12_withUpdate",
+                "ctexs": [
+                    {
+                        "args": {}
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-18.map12_withUpdate",
+                "ctexs": [
+                    {
+                        "args": {}
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-24.map12_withUpdate",
+                "ctexs": [
+                    {
+                        "args": {}
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-33.map12_withUpdate",
+                "ctexs": [
+                    {
+                        "args": {}
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-38.map12_withUpdate",
+                "ctexs": [
+                    {
+                        "args": {}
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1Solution.map12_withUpdate": 740,
+            "Assn1-2023-1.map12_withUpdate": 0,
+            "Assn1-2023-11.map12_withUpdate": 0,
+            "Assn1-2023-14.map12_withUpdate": 0,
+            "Assn1-2023-17.map12_withUpdate": 0,
+            "Assn1-2023-2.map12_withUpdate": 0,
+            "Assn1-2023-20.map12_withUpdate": 0,
+            "Assn1-2023-21.map12_withUpdate": 0,
+            "Assn1-2023-22.map12_withUpdate": 0,
+            "Assn1-2023-25.map12_withUpdate": 0,
+            "Assn1-2023-26.map12_withUpdate": 0,
+            "Assn1-2023-27.map12_withUpdate": 0,
+            "Assn1-2023-28.map12_withUpdate": 0,
+            "Assn1-2023-29.map12_withUpdate": 0,
+            "Assn1-2023-3.map12_withUpdate": 0,
+            "Assn1-2023-30.map12_withUpdate": 0,
+            "Assn1-2023-31.map12_withUpdate": 0,
+            "Assn1-2023-32.map12_withUpdate": 0,
+            "Assn1-2023-34.map12_withUpdate": 0,
+            "Assn1-2023-35.map12_withUpdate": 0,
+            "Assn1-2023-36.map12_withUpdate": 0,
+            "Assn1-2023-37.map12_withUpdate": 0,
+            "Assn1-2023-4.map12_withUpdate": 0,
+            "Assn1-2023-5.map12_withUpdate": 0,
+            "Assn1-2023-6.map12_withUpdate": 0,
+            "Assn1-2023-7.map12_withUpdate": 0,
+            "Assn1-2023-8.map12_withUpdate": 0,
+            "Assn1-2023-9.map12_withUpdate": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-10.map12_withUpdate"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [
+            "Assn1-2023-12.map12_withUpdate",
+            "Assn1-2023-13.map12_withUpdate",
+            "Assn1-2023-16.map12_withUpdate",
+            "Assn1-2023-18.map12_withUpdate",
+            "Assn1-2023-24.map12_withUpdate",
+            "Assn1-2023-33.map12_withUpdate",
+            "Assn1-2023-38.map12_withUpdate"
+        ],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-10.map12_withUpdate": 186
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-12.map12_withUpdate"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-13.map12_withUpdate",
+                "ctexs": [
+                    {
+                        "args": {},
+                        "expected": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(1), StringWrapper(\"b\")), Nil[(OverflowInt, StringWrapper)]()))",
+                        "got": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Nil[(OverflowInt, StringWrapper)]()))))))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-16.map12_withUpdate",
+                "ctexs": [
+                    {
+                        "args": {}
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-18.map12_withUpdate",
+                "ctexs": [
+                    {
+                        "args": {}
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-24.map12_withUpdate",
+                "ctexs": [
+                    {
+                        "args": {}
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-33.map12_withUpdate",
+                "ctexs": [
+                    {
+                        "args": {}
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-38.map12_withUpdate",
+                "ctexs": [
+                    {
+                        "args": {}
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-12.map12_withUpdate": 199
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-13.map12_withUpdate"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [
+            "Assn1-2023-16.map12_withUpdate",
+            "Assn1-2023-18.map12_withUpdate",
+            "Assn1-2023-24.map12_withUpdate",
+            "Assn1-2023-33.map12_withUpdate",
+            "Assn1-2023-38.map12_withUpdate"
+        ],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-13.map12_withUpdate": 190
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-16.map12_withUpdate"
+                ],
+                "functions": [
+                    "Assn1-2023-18.map12_withUpdate",
+                    "Assn1-2023-24.map12_withUpdate",
+                    "Assn1-2023-33.map12_withUpdate",
+                    "Assn1-2023-38.map12_withUpdate"
+                ]
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-16.map12_withUpdate": 280,
+            "Assn1-2023-18.map12_withUpdate": 0,
+            "Assn1-2023-24.map12_withUpdate": 0,
+            "Assn1-2023-33.map12_withUpdate": 0,
+            "Assn1-2023-38.map12_withUpdate": 0
+        }
+    }
+]

@@ -1,0 +1,805 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2Solution_fixed.subst_Let"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [
+            {
+                "function": "Assn2-2023-2.subst_Let",
+                "self": [
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(5), Var(5))",
+                                "x": "6"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(5), Var(5))",
+                                "x": "6"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn2-2023-3.subst_Let",
+                "self": [
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(5), Var(5))",
+                                "x": "6"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(5), Var(5))",
+                                "x": "6"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn2-2023-4.subst_Let",
+                "self": [
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(5), Var(5))",
+                                "x": "6"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(3), Var(3))",
+                                "x": "6"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn2-2023-5.subst_Let",
+                "self": [
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "First(First(Var(3)))",
+                                "x": "6"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(3), Var(3))",
+                                "x": "6"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn2-2023-6.subst_Let",
+                "self": [
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(5), Var(5))",
+                                "x": "6"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(3), Var(3))",
+                                "x": "6"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn2-2023-7.subst_Let",
+                "self": [
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(5), Var(5))",
+                                "x": "6"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(5), Var(5))",
+                                "x": "6"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn2-2023-8.subst_Let",
+                "self": [
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "First(First(Var(3)))",
+                                "x": "6"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(3), Var(3))",
+                                "x": "6"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn2-2023-9.subst_Let",
+                "self": [
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(3), Var(3))",
+                                "x": "6"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(5), Var(5))",
+                                "x": "6"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn2-2023-10.subst_Let",
+                "self": [
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(5), Var(5))",
+                                "x": "6"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(5), Var(5))",
+                                "x": "6"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn2-2023-11.subst_Let",
+                "self": [
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(5), Var(5))",
+                                "x": "6"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "First(First(Var(3)))",
+                                "x": "6"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn2-2023-12.subst_Let",
+                "self": [
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(5), Var(5))",
+                                "x": "6"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "First(First(Var(3)))",
+                                "x": "6"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn2-2023-13.subst_Let",
+                "self": [
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(5), Var(5))",
+                                "x": "6"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(5), Var(5))",
+                                "x": "6"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn2-2023-14.subst_Let",
+                "self": [
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "exp": "Var(2)",
+                                "to": "First(Times(Var(3), Var(3)))",
+                                "x": "6"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "exp": "Var(2)",
+                                "to": "Eq(Let(38, Var(4), Var(3)), Let(38, Var(4), Var(3)))",
+                                "x": "6"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn2-2023-15.subst_Let",
+                "self": [
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(3), Var(3))",
+                                "x": "6"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(3), Var(3))",
+                                "x": "6"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn2-2023-16.subst_Let",
+                "self": [
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(5), Var(5))",
+                                "x": "6"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(5), Var(5))",
+                                "x": "6"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn2-2023-17.subst_Let",
+                "self": [
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(5), Var(5))",
+                                "x": "6"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(5), Var(5))",
+                                "x": "6"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn2-2023-18.subst_Let",
+                "self": [
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "First(First(Var(3)))",
+                                "x": "6"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(5), Var(5))",
+                                "x": "6"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn2-2023-19.subst_Let",
+                "self": [
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "origExpr": "Var(2)",
+                                "substExpr": "First(First(Var(3)))",
+                                "x": "6"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "origExpr": "Var(2)",
+                                "substExpr": "Times(Var(3), Var(3))",
+                                "x": "6"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn2-2023-20.subst_Let",
+                "self": [
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "First(First(Var(3)))",
+                                "x": "6"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(3), Var(3))",
+                                "x": "6"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn2-2023-21.subst_Let",
+                "self": [
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(3), Var(3))",
+                                "x": "6"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(5), Var(5))",
+                                "x": "6"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn2-2023-23.subst_Let",
+                "self": [
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(5), Var(5))",
+                                "x": "6"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(3), Var(3))",
+                                "x": "6"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn2-2023-24.subst_Let",
+                "self": [
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(5), Var(5))",
+                                "x": "6"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(3), Var(3))",
+                                "x": "6"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn2-2023-25.subst_Let",
+                "self": [
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(3), Var(3))",
+                                "x": "6"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(3), Var(3))",
+                                "x": "6"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn2-2023-26.subst_Let",
+                "self": [
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(3), Var(3))",
+                                "x": "6"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(5), Var(5))",
+                                "x": "6"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn2-2023-27.subst_Let",
+                "self": [
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(3), Var(3))",
+                                "x": "6"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(5), Var(5))",
+                                "x": "6"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn2-2023-28.subst_Let",
+                "self": [
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(5), Var(5))",
+                                "x": "6"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(5), Var(5))",
+                                "x": "6"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn2-2023-29.subst_Let",
+                "self": [
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "First(First(Var(3)))",
+                                "x": "6"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(5), Var(5))",
+                                "x": "6"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn2-2023-30.subst_Let",
+                "self": [
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "Times(Var(3), Var(3))",
+                                "x": "6"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "body assertion: Inner refinement lifting",
+                        "position": "-1:-1",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(2)",
+                                "e2": "First(First(Var(3)))",
+                                "x": "6"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            }
+        ],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2Solution_fixed.subst_Let": 200
+        }
+    }
+]

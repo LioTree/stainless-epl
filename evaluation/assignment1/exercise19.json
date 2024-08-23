@@ -1,0 +1,244 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1Solution.list2map"
+                ],
+                "functions": [
+                    "Assn1-2023-1.list2map",
+                    "Assn1-2023-11.list2map",
+                    "Assn1-2023-12.list2map",
+                    "Assn1-2023-13.list2map",
+                    "Assn1-2023-17.list2map",
+                    "Assn1-2023-19.list2map",
+                    "Assn1-2023-20.list2map",
+                    "Assn1-2023-23.list2map",
+                    "Assn1-2023-3.list2map",
+                    "Assn1-2023-30.list2map",
+                    "Assn1-2023-31.list2map",
+                    "Assn1-2023-32.list2map",
+                    "Assn1-2023-36.list2map",
+                    "Assn1-2023-37.list2map",
+                    "Assn1-2023-8.list2map",
+                    "Assn1-2023-9.list2map"
+                ]
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [
+            {
+                "function": "Assn1-2023-14.list2map",
+                "self": [
+                    {
+                        "kind": "measure missing",
+                        "position": "231:5",
+                        "ctex": {
+                            "args": {
+                                "l": "Nil[(BigInt, BigInt)]()"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {
+                    "Assn1-2023-14.turnIntoMap": [
+                        {
+                            "kind": "measure missing",
+                            "position": "227:5",
+                            "ctex": {
+                                "args": {
+                                    "l": "Nil[(BigInt, BigInt)]()"
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "function": "Assn1-2023-28.list2map",
+                "self": [
+                    {
+                        "kind": "measure missing",
+                        "position": "246:5",
+                        "ctex": {
+                            "args": {
+                                "l": "Nil[(BigInt, BigInt)]()"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            }
+        ],
+        "unknownSafety": [],
+        "unknownEquivalence": [
+            "Assn1-2023-10.list2map",
+            "Assn1-2023-15.list2map",
+            "Assn1-2023-16.list2map",
+            "Assn1-2023-18.list2map",
+            "Assn1-2023-2.list2map",
+            "Assn1-2023-21.list2map",
+            "Assn1-2023-24.list2map",
+            "Assn1-2023-25.list2map",
+            "Assn1-2023-26.list2map",
+            "Assn1-2023-27.list2map",
+            "Assn1-2023-33.list2map",
+            "Assn1-2023-35.list2map",
+            "Assn1-2023-38.list2map",
+            "Assn1-2023-4.list2map",
+            "Assn1-2023-5.list2map",
+            "Assn1-2023-6.list2map",
+            "Assn1-2023-7.list2map"
+        ],
+        "wrong": [],
+        "weights": {
+            "Assn1Solution.list2map": 486,
+            "Assn1-2023-1.list2map": -10,
+            "Assn1-2023-11.list2map": -10,
+            "Assn1-2023-12.list2map": -10,
+            "Assn1-2023-13.list2map": -10,
+            "Assn1-2023-17.list2map": -10,
+            "Assn1-2023-19.list2map": -10,
+            "Assn1-2023-20.list2map": -10,
+            "Assn1-2023-23.list2map": -10,
+            "Assn1-2023-3.list2map": -10,
+            "Assn1-2023-30.list2map": -10,
+            "Assn1-2023-31.list2map": -10,
+            "Assn1-2023-32.list2map": -10,
+            "Assn1-2023-36.list2map": -10,
+            "Assn1-2023-37.list2map": -10,
+            "Assn1-2023-8.list2map": -10,
+            "Assn1-2023-9.list2map": -10
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-10.list2map"
+                ],
+                "functions": [
+                    "Assn1-2023-15.list2map",
+                    "Assn1-2023-2.list2map",
+                    "Assn1-2023-25.list2map",
+                    "Assn1-2023-26.list2map",
+                    "Assn1-2023-27.list2map",
+                    "Assn1-2023-5.list2map",
+                    "Assn1-2023-6.list2map"
+                ]
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [
+            "Assn1-2023-16.list2map",
+            "Assn1-2023-18.list2map",
+            "Assn1-2023-21.list2map",
+            "Assn1-2023-24.list2map",
+            "Assn1-2023-33.list2map",
+            "Assn1-2023-35.list2map",
+            "Assn1-2023-38.list2map",
+            "Assn1-2023-4.list2map",
+            "Assn1-2023-7.list2map"
+        ],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-10.list2map": 322,
+            "Assn1-2023-15.list2map": -12,
+            "Assn1-2023-26.list2map": -12,
+            "Assn1-2023-5.list2map": -12,
+            "Assn1-2023-6.list2map": -12,
+            "Assn1-2023-2.list2map": -14,
+            "Assn1-2023-25.list2map": -14,
+            "Assn1-2023-27.list2map": -14
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-16.list2map"
+                ],
+                "functions": [
+                    "Assn1-2023-18.list2map",
+                    "Assn1-2023-24.list2map",
+                    "Assn1-2023-33.list2map",
+                    "Assn1-2023-38.list2map"
+                ]
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [
+            "Assn1-2023-21.list2map",
+            "Assn1-2023-35.list2map",
+            "Assn1-2023-4.list2map",
+            "Assn1-2023-7.list2map"
+        ],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-16.list2map": 272,
+            "Assn1-2023-18.list2map": -6,
+            "Assn1-2023-24.list2map": -8,
+            "Assn1-2023-33.list2map": -8,
+            "Assn1-2023-38.list2map": -8
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-21.list2map"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [
+            "Assn1-2023-35.list2map",
+            "Assn1-2023-4.list2map",
+            "Assn1-2023-7.list2map"
+        ],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-21.list2map": 190
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-35.list2map"
+                ],
+                "functions": [
+                    "Assn1-2023-4.list2map"
+                ]
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [
+            "Assn1-2023-7.list2map"
+        ],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-35.list2map": 216,
+            "Assn1-2023-4.list2map": -2
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "models": [
+                    "Assn1-2023-7.list2map"
+                ],
+                "functions": []
+            }
+        ]
+    }
+]

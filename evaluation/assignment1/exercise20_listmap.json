@@ -1,0 +1,233 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1Solution.election"
+                ],
+                "functions": [
+                    "Assn1-2023-11.election",
+                    "Assn1-2023-12.election",
+                    "Assn1-2023-13.election",
+                    "Assn1-2023-14.election",
+                    "Assn1-2023-19.election",
+                    "Assn1-2023-20.election",
+                    "Assn1-2023-23.election",
+                    "Assn1-2023-3.election",
+                    "Assn1-2023-30.election",
+                    "Assn1-2023-31.election",
+                    "Assn1-2023-32.election",
+                    "Assn1-2023-34.election",
+                    "Assn1-2023-8.election",
+                    "Assn1-2023-9.election"
+                ]
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [
+            "Assn1-2023-1.election",
+            "Assn1-2023-16.election",
+            "Assn1-2023-18.election",
+            "Assn1-2023-2.election",
+            "Assn1-2023-21.election",
+            "Assn1-2023-24.election",
+            "Assn1-2023-26.election",
+            "Assn1-2023-27.election",
+            "Assn1-2023-28.election",
+            "Assn1-2023-33.election",
+            "Assn1-2023-35.election",
+            "Assn1-2023-37.election",
+            "Assn1-2023-38.election",
+            "Assn1-2023-5.election",
+            "Assn1-2023-6.election",
+            "Assn1-2023-7.election"
+        ],
+        "wrong": [],
+        "weights": {
+            "Assn1Solution.election": 448,
+            "Assn1-2023-14.election": -10,
+            "Assn1-2023-3.election": -10,
+            "Assn1-2023-30.election": -10,
+            "Assn1-2023-9.election": -10,
+            "Assn1-2023-11.election": -12,
+            "Assn1-2023-12.election": -12,
+            "Assn1-2023-13.election": -12,
+            "Assn1-2023-19.election": -12,
+            "Assn1-2023-20.election": -12,
+            "Assn1-2023-23.election": -12,
+            "Assn1-2023-31.election": -12,
+            "Assn1-2023-32.election": -12,
+            "Assn1-2023-34.election": -12,
+            "Assn1-2023-8.election": -12
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-1.election"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [
+            "Assn1-2023-16.election",
+            "Assn1-2023-18.election",
+            "Assn1-2023-2.election",
+            "Assn1-2023-21.election",
+            "Assn1-2023-24.election",
+            "Assn1-2023-26.election",
+            "Assn1-2023-27.election",
+            "Assn1-2023-28.election",
+            "Assn1-2023-33.election",
+            "Assn1-2023-35.election",
+            "Assn1-2023-37.election",
+            "Assn1-2023-38.election",
+            "Assn1-2023-5.election",
+            "Assn1-2023-6.election",
+            "Assn1-2023-7.election"
+        ],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-1.election": 170
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-16.election"
+                ],
+                "functions": [
+                    "Assn1-2023-18.election",
+                    "Assn1-2023-24.election",
+                    "Assn1-2023-28.election",
+                    "Assn1-2023-33.election",
+                    "Assn1-2023-38.election"
+                ]
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [
+            "Assn1-2023-2.election",
+            "Assn1-2023-21.election",
+            "Assn1-2023-26.election",
+            "Assn1-2023-27.election",
+            "Assn1-2023-35.election",
+            "Assn1-2023-37.election",
+            "Assn1-2023-5.election",
+            "Assn1-2023-6.election",
+            "Assn1-2023-7.election"
+        ],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-16.election": 282,
+            "Assn1-2023-18.election": -14,
+            "Assn1-2023-28.election": -14,
+            "Assn1-2023-33.election": -14,
+            "Assn1-2023-24.election": -16,
+            "Assn1-2023-38.election": -16
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-2.election"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [
+            "Assn1-2023-21.election",
+            "Assn1-2023-26.election",
+            "Assn1-2023-27.election",
+            "Assn1-2023-35.election",
+            "Assn1-2023-37.election",
+            "Assn1-2023-5.election",
+            "Assn1-2023-6.election",
+            "Assn1-2023-7.election"
+        ],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-2.election": 184
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-21.election"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [
+            "Assn1-2023-26.election",
+            "Assn1-2023-27.election",
+            "Assn1-2023-35.election",
+            "Assn1-2023-37.election",
+            "Assn1-2023-5.election",
+            "Assn1-2023-6.election",
+            "Assn1-2023-7.election"
+        ],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-21.election": 174
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-26.election"
+                ],
+                "functions": [
+                    "Assn1-2023-35.election",
+                    "Assn1-2023-37.election",
+                    "Assn1-2023-5.election",
+                    "Assn1-2023-6.election",
+                    "Assn1-2023-7.election"
+                ]
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [
+            "Assn1-2023-27.election"
+        ],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-26.election": 288,
+            "Assn1-2023-35.election": -2,
+            "Assn1-2023-37.election": -2,
+            "Assn1-2023-5.election": -2,
+            "Assn1-2023-6.election": -2,
+            "Assn1-2023-7.election": -2
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "models": [
+                    "Assn1-2023-27.election"
+                ],
+                "functions": []
+            }
+        ]
+    }
+]

@@ -1,0 +1,88 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2Solution_fixed.tyOf_Index"
+                ],
+                "functions": [
+                    "Assn2-2023-11.tyOf_Index",
+                    "Assn2-2023-12.tyOf_Index",
+                    "Assn2-2023-14.tyOf_Index",
+                    "Assn2-2023-15.tyOf_Index",
+                    "Assn2-2023-16.tyOf_Index",
+                    "Assn2-2023-17.tyOf_Index",
+                    "Assn2-2023-19.tyOf_Index",
+                    "Assn2-2023-23.tyOf_Index",
+                    "Assn2-2023-24.tyOf_Index",
+                    "Assn2-2023-25.tyOf_Index",
+                    "Assn2-2023-26.tyOf_Index",
+                    "Assn2-2023-27.tyOf_Index",
+                    "Assn2-2023-28.tyOf_Index",
+                    "Assn2-2023-29.tyOf_Index",
+                    "Assn2-2023-3.tyOf_Index",
+                    "Assn2-2023-4.tyOf_Index",
+                    "Assn2-2023-5.tyOf_Index",
+                    "Assn2-2023-6.tyOf_Index",
+                    "Assn2-2023-8.tyOf_Index",
+                    "Assn2-2023-9.tyOf_Index"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-21.tyOf_Index",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "Index(Var(3), Var(2))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2Solution_fixed.tyOf_Index": 600,
+            "Assn2-2023-11.tyOf_Index": 0,
+            "Assn2-2023-12.tyOf_Index": 0,
+            "Assn2-2023-14.tyOf_Index": 0,
+            "Assn2-2023-15.tyOf_Index": 0,
+            "Assn2-2023-16.tyOf_Index": 0,
+            "Assn2-2023-17.tyOf_Index": 0,
+            "Assn2-2023-19.tyOf_Index": 0,
+            "Assn2-2023-23.tyOf_Index": 0,
+            "Assn2-2023-24.tyOf_Index": 0,
+            "Assn2-2023-25.tyOf_Index": 0,
+            "Assn2-2023-26.tyOf_Index": 0,
+            "Assn2-2023-27.tyOf_Index": 0,
+            "Assn2-2023-28.tyOf_Index": 0,
+            "Assn2-2023-29.tyOf_Index": 0,
+            "Assn2-2023-3.tyOf_Index": 0,
+            "Assn2-2023-4.tyOf_Index": 0,
+            "Assn2-2023-5.tyOf_Index": 0,
+            "Assn2-2023-6.tyOf_Index": 0,
+            "Assn2-2023-8.tyOf_Index": 0,
+            "Assn2-2023-9.tyOf_Index": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "models": [
+                    "Assn2-2023-21.tyOf_Index"
+                ],
+                "functions": []
+            }
+        ]
+    },
+    {
+        "equivalent": [{"specific function not found": [ 
+            "Assn2-2023-2.tyOf_Index"
+         ] }]
+    }
+]

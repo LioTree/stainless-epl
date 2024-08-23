@@ -1,0 +1,75 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2Solution_fixed.eval_Times"
+                ],
+                "functions": [
+                    "Assn2-2023-10.eval_Times",
+                    "Assn2-2023-11.eval_Times",
+                    "Assn2-2023-12.eval_Times",
+                    "Assn2-2023-13.eval_Times",
+                    "Assn2-2023-14.eval_Times",
+                    "Assn2-2023-15.eval_Times",
+                    "Assn2-2023-16.eval_Times",
+                    "Assn2-2023-17.eval_Times",
+                    "Assn2-2023-18.eval_Times",
+                    "Assn2-2023-19.eval_Times",
+                    "Assn2-2023-20.eval_Times",
+                    "Assn2-2023-21.eval_Times",
+                    "Assn2-2023-23.eval_Times",
+                    "Assn2-2023-24.eval_Times",
+                    "Assn2-2023-25.eval_Times",
+                    "Assn2-2023-26.eval_Times",
+                    "Assn2-2023-27.eval_Times",
+                    "Assn2-2023-28.eval_Times",
+                    "Assn2-2023-29.eval_Times",
+                    "Assn2-2023-3.eval_Times",
+                    "Assn2-2023-30.eval_Times",
+                    "Assn2-2023-4.eval_Times",
+                    "Assn2-2023-5.eval_Times",
+                    "Assn2-2023-6.eval_Times",
+                    "Assn2-2023-7.eval_Times",
+                    "Assn2-2023-8.eval_Times",
+                    "Assn2-2023-9.eval_Times"
+                ]
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2Solution_fixed.eval_Times": 740,
+            "Assn2-2023-10.eval_Times": 0,
+            "Assn2-2023-11.eval_Times": 0,
+            "Assn2-2023-12.eval_Times": 0,
+            "Assn2-2023-13.eval_Times": 0,
+            "Assn2-2023-14.eval_Times": 0,
+            "Assn2-2023-15.eval_Times": 0,
+            "Assn2-2023-16.eval_Times": 0,
+            "Assn2-2023-17.eval_Times": 0,
+            "Assn2-2023-18.eval_Times": 0,
+            "Assn2-2023-19.eval_Times": 0,
+            "Assn2-2023-20.eval_Times": 0,
+            "Assn2-2023-21.eval_Times": 0,
+            "Assn2-2023-23.eval_Times": 0,
+            "Assn2-2023-24.eval_Times": 0,
+            "Assn2-2023-25.eval_Times": 0,
+            "Assn2-2023-26.eval_Times": 0,
+            "Assn2-2023-27.eval_Times": 0,
+            "Assn2-2023-28.eval_Times": 0,
+            "Assn2-2023-29.eval_Times": 0,
+            "Assn2-2023-3.eval_Times": 0,
+            "Assn2-2023-30.eval_Times": 0,
+            "Assn2-2023-4.eval_Times": 0,
+            "Assn2-2023-5.eval_Times": 0,
+            "Assn2-2023-6.eval_Times": 0,
+            "Assn2-2023-7.eval_Times": 0,
+            "Assn2-2023-8.eval_Times": 0,
+            "Assn2-2023-9.eval_Times": 0
+        }
+    }
+]

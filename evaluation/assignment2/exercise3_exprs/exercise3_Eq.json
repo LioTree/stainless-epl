@@ -1,0 +1,326 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2Solution_fixed.tyOf_Eq"
+                ],
+                "functions": [
+                    "Assn2-2023-15.tyOf_Eq"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-3.tyOf_Eq",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "Eq(Var(3), Var(2))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-4.tyOf_Eq",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "exp": "Eq(Var(3), Var(2))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-5.tyOf_Eq",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "Eq(Var(3), Var(2))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-6.tyOf_Eq",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "Eq(Var(3), Var(2))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-8.tyOf_Eq",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "Eq(Var(2), Var(3))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-9.tyOf_Eq",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "Eq(Var(3), Var(2))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-11.tyOf_Eq",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "Eq(Var(3), Var(2))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-12.tyOf_Eq",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "Eq(Var(3), Var(2))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.tyOf_Eq",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "Eq(Var(3), Var(2))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.tyOf_Eq",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "Eq(Var(2), Var(3))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.tyOf_Eq",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "Eq(Var(2), Var(3))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-19.tyOf_Eq",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "Eq(Var(2), Var(3))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.tyOf_Eq",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "Eq(Var(3), Var(2))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-23.tyOf_Eq",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "Eq(Var(2), Var(3))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-24.tyOf_Eq",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "Eq(Var(3), Var(2))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-25.tyOf_Eq",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "Eq(Var(3), Var(2))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-26.tyOf_Eq",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "Eq(Var(3), Var(2))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-27.tyOf_Eq",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "Eq(Var(3), Var(2))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-28.tyOf_Eq",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "Eq(Var(3), Var(2))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-29.tyOf_Eq",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "Eq(Var(3), Var(2))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2Solution_fixed.tyOf_Eq": 220,
+            "Assn2-2023-15.tyOf_Eq": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-3.tyOf_Eq"
+                ],
+                "functions": [
+                    "Assn2-2023-11.tyOf_Eq",
+                    "Assn2-2023-12.tyOf_Eq",
+                    "Assn2-2023-14.tyOf_Eq",
+                    "Assn2-2023-16.tyOf_Eq",
+                    "Assn2-2023-17.tyOf_Eq",
+                    "Assn2-2023-19.tyOf_Eq",
+                    "Assn2-2023-21.tyOf_Eq",
+                    "Assn2-2023-23.tyOf_Eq",
+                    "Assn2-2023-24.tyOf_Eq",
+                    "Assn2-2023-25.tyOf_Eq",
+                    "Assn2-2023-26.tyOf_Eq",
+                    "Assn2-2023-27.tyOf_Eq",
+                    "Assn2-2023-28.tyOf_Eq",
+                    "Assn2-2023-4.tyOf_Eq",
+                    "Assn2-2023-5.tyOf_Eq",
+                    "Assn2-2023-6.tyOf_Eq",
+                    "Assn2-2023-8.tyOf_Eq",
+                    "Assn2-2023-9.tyOf_Eq"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-29.tyOf_Eq",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "Eq(Var(3), Var(2))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-3.tyOf_Eq": 560,
+            "Assn2-2023-11.tyOf_Eq": 0,
+            "Assn2-2023-12.tyOf_Eq": 0,
+            "Assn2-2023-14.tyOf_Eq": 0,
+            "Assn2-2023-16.tyOf_Eq": 0,
+            "Assn2-2023-17.tyOf_Eq": 0,
+            "Assn2-2023-19.tyOf_Eq": 0,
+            "Assn2-2023-21.tyOf_Eq": 0,
+            "Assn2-2023-23.tyOf_Eq": 0,
+            "Assn2-2023-24.tyOf_Eq": 0,
+            "Assn2-2023-25.tyOf_Eq": 0,
+            "Assn2-2023-26.tyOf_Eq": 0,
+            "Assn2-2023-27.tyOf_Eq": 0,
+            "Assn2-2023-28.tyOf_Eq": 0,
+            "Assn2-2023-4.tyOf_Eq": 0,
+            "Assn2-2023-5.tyOf_Eq": 0,
+            "Assn2-2023-6.tyOf_Eq": 0,
+            "Assn2-2023-8.tyOf_Eq": 0,
+            "Assn2-2023-9.tyOf_Eq": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "models": [
+                    "Assn2-2023-29.tyOf_Eq"
+                ],
+                "functions": []
+            }
+        ]
+    },
+    {
+        "equivalent": [{"specific function not found": [ 
+            "Assn2-2023-2.tyOf_Eq"
+         ] }]
+    }
+]

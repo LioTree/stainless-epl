@@ -1,0 +1,971 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2Solution_fixed.subst_Rec"
+                ],
+                "functions": [
+                    "Assn2-2023-28.subst_Rec",
+                    "Assn2-2023-5.subst_Rec",
+                    "Assn2-2023-6.subst_Rec"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-2.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(21237, -10158, StringTy(), StringTy(), Var(5))",
+                            "e2": "First(Rec(21238, -10156, StringTy(), StringTy(), Var(3)))",
+                            "x": "21237"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-3.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(-1, -2, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Rec(-1, -2, StringTy(), StringTy(), Var(6)))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-7.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(11292, 33034, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Var(5))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-8.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(7718, 36, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Var(5))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-9.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(28956, 2435, StringTy(), StringTy(), Var(4))",
+                            "e2": "First(Rec(28956, 2435, StringTy(), StringTy(), Var(4)))",
+                            "x": "2435"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-10.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(16573, 23673, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Rec(16573, 23673, StringTy(), StringTy(), Var(6)))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-11.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(-1, -2, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Var(5))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-12.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(21237, 7717, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Rec(21238, 7719, StringTy(), StringTy(), Var(4)))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "exp": "Rec(-1, -2, StringTy(), StringTy(), Var(6))",
+                            "to": "First(Var(5))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-15.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(16572, 23675, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Rec(16572, 23675, StringTy(), StringTy(), Var(6)))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(23674, 7757, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Var(5))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(-1, -2, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Rec(0, 0, StringTy(), StringTy(), Var(4)))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-18.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(20651, 2436, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Var(5))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-19.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "origExpr": "Rec(17218, 14232, StringTy(), StringTy(), Var(6))",
+                            "substExpr": "First(Var(4))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-20.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(37, -2, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Var(6))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(23674, 20652, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Rec(23674, 20652, StringTy(), StringTy(), Var(6)))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-25.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(-1, 28955, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Var(4))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-26.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(11290, 11795, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Rec(11292, 11796, StringTy(), StringTy(), Var(4)))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-27.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(23675, 7718, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Rec(23675, 7718, StringTy(), StringTy(), Var(6)))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-29.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(23674, 7718, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Rec(23674, 7719, StringTy(), StringTy(), Var(4)))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2Solution_fixed.subst_Rec": 260,
+            "Assn2-2023-28.subst_Rec": 0,
+            "Assn2-2023-5.subst_Rec": 0,
+            "Assn2-2023-6.subst_Rec": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-2.subst_Rec"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-3.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(41437, 33071, StringTy(), StringTy(), Var(5))",
+                            "e2": "First(Rec(41438, 33073, StringTy(), StringTy(), Var(4)))",
+                            "x": "33071"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-7.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(-492, 31792, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Rec(-492, 31792, StringTy(), StringTy(), Var(6)))",
+                            "x": "-492"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-8.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(65331, 65332, StringTy(), StringTy(), Var(5))",
+                            "e2": "First(Rec(65332, 65334, StringTy(), StringTy(), Var(3)))",
+                            "x": "65332"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-9.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(37, 38, StringTy(), StringTy(), Var(4))",
+                            "e2": "First(Rec(37, 38, StringTy(), StringTy(), Var(4)))",
+                            "x": "37"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-10.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(11290, 11291, StringTy(), StringTy(), Var(3))",
+                            "e2": "First(Rec(21238, 7719, StringTy(), StringTy(), Var(5)))",
+                            "x": "11290"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-11.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(-2400, 18251, StringTy(), StringTy(), Var(5))",
+                            "e2": "First(Var(6))",
+                            "x": "18251"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-12.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(20161, 11290, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Var(5))",
+                            "x": "20161"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "exp": "Rec(8854, 7719, StringTy(), StringTy(), Var(5))",
+                            "to": "First(Rec(2437, 21238, StringTy(), StringTy(), Var(6)))",
+                            "x": "8854"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-15.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(-30095, 14233, StringTy(), StringTy(), Var(5))",
+                            "e2": "First(Rec(7719, 38, StringTy(), StringTy(), Var(6)))",
+                            "x": "14233"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(37322, 37321, StringTy(), StringTy(), Var(3))",
+                            "e2": "First(Rec(37322, 37321, StringTy(), StringTy(), Var(3)))",
+                            "x": "37322"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(37201, 71155, StringTy(), StringTy(), Var(5))",
+                            "e2": "First(Rec(8365, 11797, StringTy(), StringTy(), Var(6)))",
+                            "x": "37201"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-18.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(22597, 22596, StringTy(), StringTy(), Var(5))",
+                            "e2": "First(Var(5))",
+                            "x": "22597"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-19.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "origExpr": "Rec(606, 603, StringTy(), StringTy(), Var(4))",
+                            "substExpr": "First(Var(5))",
+                            "x": "606"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-20.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(23674, 7717, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Rec(11797, 8855, StringTy(), StringTy(), Var(4)))",
+                            "x": "23674"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(31452, 31453, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Var(5))",
+                            "x": "31452"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-25.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(2436, -28959, StringTy(), StringTy(), Var(4))",
+                            "e2": "First(Rec(11797, 8855, StringTy(), StringTy(), Var(6)))",
+                            "x": "2436"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-26.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(38331, 38330, StringTy(), StringTy(), Var(4))",
+                            "e2": "First(Var(4))",
+                            "x": "38331"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-27.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(-18803, -18804, StringTy(), StringTy(), Var(4))",
+                            "e2": "First(Var(4))",
+                            "x": "-18803"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-29.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(7719, -8856, StringTy(), StringTy(), Var(5))",
+                            "e2": "First(Rec(7719, -8855, StringTy(), StringTy(), Var(3)))",
+                            "x": "7719"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-2.subst_Rec": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-3.subst_Rec"
+                ],
+                "functions": [
+                    "Assn2-2023-11.subst_Rec",
+                    "Assn2-2023-12.subst_Rec",
+                    "Assn2-2023-14.subst_Rec",
+                    "Assn2-2023-17.subst_Rec",
+                    "Assn2-2023-20.subst_Rec",
+                    "Assn2-2023-25.subst_Rec",
+                    "Assn2-2023-8.subst_Rec"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-7.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(11292, 21236, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Rec(11294, 21237, StringTy(), StringTy(), Var(4)))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-9.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(11291, 36, StringTy(), StringTy(), Var(4))",
+                            "e2": "First(Rec(11291, 36, StringTy(), StringTy(), Var(4)))",
+                            "x": "36"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-10.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(21237, 7757, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Rec(21237, 7758, StringTy(), StringTy(), Var(3)))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-15.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(2436, 20651, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Var(5))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(7756, 23675, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Rec(7756, 23675, StringTy(), StringTy(), Var(6)))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-18.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(21236, 11292, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Rec(21238, 11293, StringTy(), StringTy(), Var(4)))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-19.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "origExpr": "Rec(28957, 2435, StringTy(), StringTy(), Var(6))",
+                            "substExpr": "First(Rec(28957, 2435, StringTy(), StringTy(), Var(6)))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(10801, 20651, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Var(5))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-26.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(16573, 23675, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Rec(16575, 23676, StringTy(), StringTy(), Var(3)))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-27.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(21236, 11292, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Rec(21237, 11294, StringTy(), StringTy(), Var(3)))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-29.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(11292, 33033, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Rec(11292, 33033, StringTy(), StringTy(), Var(6)))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-3.subst_Rec": 340,
+            "Assn2-2023-11.subst_Rec": 0,
+            "Assn2-2023-12.subst_Rec": 0,
+            "Assn2-2023-14.subst_Rec": 0,
+            "Assn2-2023-17.subst_Rec": 0,
+            "Assn2-2023-20.subst_Rec": 0,
+            "Assn2-2023-25.subst_Rec": 0,
+            "Assn2-2023-8.subst_Rec": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-7.subst_Rec"
+                ],
+                "functions": [
+                    "Assn2-2023-15.subst_Rec",
+                    "Assn2-2023-18.subst_Rec",
+                    "Assn2-2023-26.subst_Rec",
+                    "Assn2-2023-27.subst_Rec"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-9.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(23673, 7718, StringTy(), StringTy(), Var(4))",
+                            "e2": "First(Rec(23675, 7719, StringTy(), StringTy(), Var(6)))",
+                            "x": "7718"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-10.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(36, -1, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Var(5))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(36, -1, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Var(5))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-19.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "origExpr": "Rec(-2, -1, StringTy(), StringTy(), Var(6))",
+                            "substExpr": "First(Var(5))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(-2, -1, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Var(5))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-29.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(11290, 28956, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Rec(11290, 28957, StringTy(), StringTy(), Var(4)))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-7.subst_Rec": 280,
+            "Assn2-2023-15.subst_Rec": 0,
+            "Assn2-2023-18.subst_Rec": 0,
+            "Assn2-2023-26.subst_Rec": 0,
+            "Assn2-2023-27.subst_Rec": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-9.subst_Rec"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-10.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(3, -23676, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Var(5))",
+                            "x": "-23676"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(3, 28956, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Var(5))",
+                            "x": "28956"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-19.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "origExpr": "Rec(36, 28956, StringTy(), StringTy(), Var(4))",
+                            "substExpr": "First(Var(6))",
+                            "x": "28956"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(11290, -21239, StringTy(), StringTy(), Var(5))",
+                            "e2": "First(Var(5))",
+                            "x": "-21239"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-29.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(21236, 7718, StringTy(), StringTy(), Var(4))",
+                            "e2": "First(Rec(21236, 7719, StringTy(), StringTy(), Var(3)))",
+                            "x": "7718"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-9.subst_Rec": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-10.subst_Rec"
+                ],
+                "functions": [
+                    "Assn2-2023-16.subst_Rec"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-19.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "origExpr": "Rec(36, -1, StringTy(), StringTy(), Var(6))",
+                            "substExpr": "First(Var(5))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(7755, -1, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Var(5))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-29.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(28957, -1, StringTy(), StringTy(), Var(6))",
+                            "e2": "First(Var(5))",
+                            "x": "7"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-10.subst_Rec": 220,
+            "Assn2-2023-16.subst_Rec": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-19.subst_Rec"
+                ],
+                "functions": [
+                    "Assn2-2023-21.subst_Rec"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-29.subst_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Rec(23673, -1, StringTy(), StringTy(), Var(5))",
+                            "e2": "First(Var(5))",
+                            "x": "6"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-19.subst_Rec": 220,
+            "Assn2-2023-21.subst_Rec": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "models": [
+                    "Assn2-2023-29.subst_Rec"
+                ],
+                "functions": []
+            }
+        ]
+    },
+    {
+        "equivalent": [{"specific function not found": [ 
+            "Assn2-2023-23.subst_Rec",
+            "Assn2-2023-13.subst_Rec",
+            "Assn2-2023-4.subst_Rec",
+            "Assn2-2023-24.subst_Rec",
+            "Assn2-2023-30.subst_Rec"
+         ] }]
+    }
+]

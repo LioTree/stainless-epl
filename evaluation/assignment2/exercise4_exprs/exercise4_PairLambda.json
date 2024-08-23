@@ -1,0 +1,44 @@
+[
+    {
+        "equivalent": [
+            {
+                "models": [
+                    "Assn2Solution_fixed.subst_PairLambda"
+                ],
+                "functions": []
+            }
+        ]
+    },
+    {
+        "equivalent": [{"specific function not found": [ 
+            "Assn2-2023-5.subst_PairLambda",
+            "Assn2-2023-21.subst_PairLambda",
+            "Assn2-2023-25.subst_PairLambda",
+            "Assn2-2023-29.subst_PairLambda",
+            "Assn2-2023-3.subst_PairLambda",
+            "Assn2-2023-16.subst_PairLambda",
+            "Assn2-2023-12.subst_PairLambda",
+            "Assn2-2023-13.subst_PairLambda",
+            "Assn2-2023-28.subst_PairLambda",
+            "Assn2-2023-20.subst_PairLambda",
+            "Assn2-2023-15.subst_PairLambda",
+            "Assn2-2023-7.subst_PairLambda",
+            "Assn2-2023-26.subst_PairLambda",
+            "Assn2-2023-2.subst_PairLambda",
+            "Assn2-2023-27.subst_PairLambda",
+            "Assn2-2023-14.subst_PairLambda",
+            "Assn2-2023-19.subst_PairLambda",
+            "Assn2-2023-24.subst_PairLambda",
+            "Assn2-2023-11.subst_PairLambda",
+            "Assn2-2023-18.subst_PairLambda",
+            "Assn2-2023-6.subst_PairLambda",
+            "Assn2-2023-17.subst_PairLambda",
+            "Assn2-2023-4.subst_PairLambda",
+            "Assn2-2023-8.subst_PairLambda",
+            "Assn2-2023-10.subst_PairLambda",
+            "Assn2-2023-30.subst_PairLambda",
+            "Assn2-2023-9.subst_PairLambda",
+            "Assn2-2023-23.subst_PairLambda"
+         ] }]
+    }
+]

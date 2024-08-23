@@ -1,0 +1,1461 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2Solution_fixed.tyOf_Rec"
+                ],
+                "functions": [
+                    "Assn2-2023-25.tyOf_Rec",
+                    "Assn2-2023-27.tyOf_Rec"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-3.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](PairTy(PairTy(PairTy(StringTy(), StringTy()), StringTy()), PairTy(PairTy(StringTy(), StringTy()), StringTy()))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), PairTy(PairTy(StringTy(), StringTy()), StringTy()), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-4.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](FunTy(PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "exp": "Rec(2, 3, StringTy(), FunTy(StringTy(), StringTy()), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-5.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(StringTy(), StringTy())), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-6.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> None[Type](), 3 -> Some[Type](FunTy(StringTy(), FunTy(StringTy(), StringTy()))), * -> Some[Type](PairTy(StringTy(), StringTy()))}",
+                            "e": "Rec(3, 3, StringTy(), FunTy(StringTy(), StringTy()), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-8.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](PairTy(FunTy(StringTy(), FunTy(StringTy(), StringTy())), FunTy(StringTy(), FunTy(StringTy(), StringTy())))), * -> None[Type]()}",
+                            "e": "Rec(3, 2, StringTy(), FunTy(StringTy(), StringTy()), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-9.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](FunTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-11.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(PairTy(StringTy(), PairTy(StringTy(), StringTy())), PairTy(StringTy(), PairTy(StringTy(), StringTy())))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), PairTy(StringTy(), StringTy()), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-12.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(PairTy(FunTy(StringTy(), FunTy(StringTy(), StringTy())), FunTy(StringTy(), FunTy(StringTy(), StringTy()))), PairTy(FunTy(StringTy(), FunTy(StringTy(), StringTy())), FunTy(StringTy(), FunTy(StringTy(), StringTy()))))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), FunTy(StringTy(), StringTy()), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](IntTy()), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-15.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(StringTy(), StringTy())), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> None[Type](), 3 -> Some[Type](IntTy()), 4 -> Some[Type](StringTy()), * -> Some[Type](BoolTy())}",
+                            "e": "Rec(2, 4, StringTy(), StringTy(), Var(5))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-19.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](StringTy()), * -> None[Type]()}",
+                            "e": "Rec(2, 2, StringTy(), StringTy(), Var(3))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](FunTy(PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-23.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](FunTy(FunTy(StringTy(), FunTy(StringTy(), StringTy())), FunTy(StringTy(), FunTy(StringTy(), StringTy())))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), FunTy(StringTy(), StringTy()), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-24.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-26.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> None[Type](), 3 -> Some[Type](FunTy(StringTy(), FunTy(PairTy(StringTy(), StringTy()), StringTy()))), * -> Some[Type](PairTy(FunTy(PairTy(StringTy(), StringTy()), StringTy()), FunTy(PairTy(StringTy(), StringTy()), StringTy())))}",
+                            "e": "Rec(3, 3, StringTy(), FunTy(PairTy(StringTy(), StringTy()), StringTy()), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-28.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](PairTy(StringTy(), StringTy())), 2 -> None[Type](), * -> Some[Type](FunTy(StringTy(), StringTy()))}",
+                            "e": "Rec(3, 3, PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy()), Var(4))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2Solution_fixed.tyOf_Rec": 240,
+            "Assn2-2023-25.tyOf_Rec": 0,
+            "Assn2-2023-27.tyOf_Rec": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-3.tyOf_Rec"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-4.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(StringTy(), StringTy())), * -> None[Type]()}",
+                            "exp": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-5.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](FunTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-6.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> None[Type](), 2 -> Some[Type](PairTy(StringTy(), StringTy())), * -> Some[Type](FunTy(StringTy(), StringTy()))}",
+                            "e": "Rec(2, 2, PairTy(StringTy(), StringTy()), PairTy(StringTy(), PairTy(StringTy(), StringTy())), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-8.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> None[Type](), * -> Some[Type](IntTy())}",
+                            "e": "Rec(3, 2, FunTy(StringTy(), StringTy()), FunTy(FunTy(PairTy(StringTy(), StringTy()), StringTy()), StringTy()), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-9.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](PairTy(FunTy(StringTy(), FunTy(StringTy(), StringTy())), FunTy(StringTy(), FunTy(StringTy(), StringTy())))), 2 -> Some[Type](FunTy(FunTy(StringTy(), FunTy(StringTy(), StringTy())), FunTy(StringTy(), FunTy(StringTy(), StringTy())))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), FunTy(StringTy(), StringTy()), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-11.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(StringTy(), StringTy())), 3 -> None[Type](), * -> Some[Type](PairTy(PairTy(StringTy(), PairTy(StringTy(), StringTy())), PairTy(StringTy(), PairTy(StringTy(), StringTy()))))}",
+                            "e": "Rec(2, 2, PairTy(StringTy(), StringTy()), PairTy(StringTy(), PairTy(StringTy(), StringTy())), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-12.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), FunTy(StringTy(), StringTy()), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-15.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](BoolTy()), * -> None[Type]()}",
+                            "e": "Rec(2, 2, StringTy(), PairTy(StringTy(), StringTy()), Var(3))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-19.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](PairTy(FunTy(StringTy(), FunTy(StringTy(), StringTy())), FunTy(StringTy(), FunTy(StringTy(), StringTy())))), 2 -> Some[Type](PairTy(PairTy(FunTy(StringTy(), FunTy(StringTy(), StringTy())), FunTy(StringTy(), FunTy(StringTy(), StringTy()))), PairTy(FunTy(StringTy(), FunTy(StringTy(), StringTy())), FunTy(StringTy(), FunTy(StringTy(), StringTy()))))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), FunTy(StringTy(), StringTy()), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](PairTy(StringTy(), StringTy())), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), FunTy(StringTy(), StringTy()), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-23.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](PairTy(StringTy(), StringTy())), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-24.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(StringTy(), StringTy())), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-26.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(FunTy(PairTy(PairTy(StringTy(), StringTy()), StringTy()), PairTy(StringTy(), StringTy())), FunTy(PairTy(PairTy(StringTy(), StringTy()), StringTy()), PairTy(StringTy(), StringTy())))), * -> None[Type]()}",
+                            "e": "Rec(2, 2, PairTy(PairTy(StringTy(), StringTy()), StringTy()), PairTy(StringTy(), StringTy()), Var(3))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-28.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](PairTy(StringTy(), StringTy())), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-3.tyOf_Rec": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-4.tyOf_Rec"
+                ],
+                "functions": [
+                    "Assn2-2023-12.tyOf_Rec",
+                    "Assn2-2023-23.tyOf_Rec"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-5.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(StringTy(), StringTy())), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-6.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(StringTy(), StringTy())), * -> None[Type]()}",
+                            "e": "Rec(2, 2, StringTy(), StringTy(), Var(3))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-8.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](FunTy(PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy()))), 3 -> Some[Type](PairTy(PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "Rec(3, 2, FunTy(PairTy(StringTy(), StringTy()), StringTy()), FunTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-9.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> None[Type](), * -> Some[Type](PairTy(StringTy(), StringTy()))}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-11.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](FunTy(StringTy(), StringTy())), * -> None[Type]()}",
+                            "e": "Rec(2, 3, PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy()), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(FunTy(PairTy(StringTy(), StringTy()), StringTy()), FunTy(PairTy(StringTy(), StringTy()), StringTy()))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), FunTy(PairTy(StringTy(), StringTy()), StringTy()), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-15.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](IntTy()), * -> None[Type]()}",
+                            "e": "Rec(2, 2, StringTy(), StringTy(), Var(3))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-19.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(FunTy(StringTy(), FunTy(PairTy(StringTy(), StringTy()), StringTy())), FunTy(StringTy(), FunTy(PairTy(StringTy(), StringTy()), StringTy())))), * -> None[Type]()}",
+                            "e": "Rec(2, 2, StringTy(), FunTy(PairTy(StringTy(), StringTy()), StringTy()), Var(3))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(FunTy(PairTy(StringTy(), StringTy()), StringTy()), FunTy(PairTy(StringTy(), StringTy()), StringTy()))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), FunTy(PairTy(StringTy(), StringTy()), StringTy()), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-24.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-26.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "Rec(2, 2, StringTy(), StringTy(), Var(3))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-28.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](IntTy()), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-4.tyOf_Rec": 240,
+            "Assn2-2023-12.tyOf_Rec": 0,
+            "Assn2-2023-23.tyOf_Rec": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-5.tyOf_Rec"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-6.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> None[Type](), * -> Some[Type](PairTy(StringTy(), StringTy()))}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-8.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](PairTy(PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())), PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())))), * -> None[Type]()}",
+                            "e": "Rec(3, 2, StringTy(), FunTy(StringTy(), StringTy()), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-9.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](FunTy(PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())), PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())))), * -> None[Type]()}",
+                            "e": "Rec(2, 2, StringTy(), StringTy(), Var(3))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-11.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](FunTy(PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](FunTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-15.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](FunTy(PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](BoolTy()), * -> None[Type]()}",
+                            "e": "Rec(2, 2, StringTy(), StringTy(), Var(3))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-19.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> None[Type](), * -> Some[Type](PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())))}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](PairTy(PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-24.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())), PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-26.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> None[Type](), * -> Some[Type](PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())))}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-28.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](BoolTy()), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-5.tyOf_Rec": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-6.tyOf_Rec"
+                ],
+                "functions": [
+                    "Assn2-2023-26.tyOf_Rec"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-8.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](PairTy(FunTy(FunTy(StringTy(), StringTy()), FunTy(FunTy(StringTy(), PairTy(StringTy(), StringTy())), FunTy(StringTy(), StringTy()))), FunTy(FunTy(StringTy(), StringTy()), FunTy(FunTy(StringTy(), PairTy(StringTy(), StringTy())), FunTy(StringTy(), StringTy()))))), 2 -> Some[Type](FunTy(FunTy(FunTy(StringTy(), StringTy()), FunTy(FunTy(StringTy(), PairTy(StringTy(), StringTy())), FunTy(StringTy(), StringTy()))), FunTy(FunTy(StringTy(), StringTy()), FunTy(FunTy(StringTy(), PairTy(StringTy(), StringTy())), FunTy(StringTy(), StringTy()))))), * -> None[Type]()}",
+                            "e": "Rec(3, 2, FunTy(StringTy(), StringTy()), FunTy(FunTy(StringTy(), PairTy(StringTy(), StringTy())), FunTy(StringTy(), StringTy())), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-9.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> None[Type](), * -> Some[Type](FunTy(StringTy(), StringTy()))}",
+                            "e": "Rec(3, 2, StringTy(), PairTy(StringTy(), StringTy()), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-11.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](PairTy(PairTy(PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy())), PairTy(PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy())))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy()), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(StringTy(), StringTy())), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), FunTy(StringTy(), StringTy()), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-15.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> None[Type](), * -> Some[Type](PairTy(StringTy(), StringTy()))}",
+                            "e": "Rec(3, 2, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](BoolTy()), 3 -> Some[Type](IntTy()), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-19.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](FunTy(FunTy(StringTy(), FunTy(StringTy(), StringTy())), FunTy(StringTy(), FunTy(StringTy(), StringTy())))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), FunTy(StringTy(), StringTy()), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](PairTy(FunTy(PairTy(StringTy(), StringTy()), StringTy()), FunTy(PairTy(StringTy(), StringTy()), StringTy()))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), FunTy(PairTy(StringTy(), StringTy()), StringTy()), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-24.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-28.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](FunTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))), 2 -> Some[Type](IntTy()), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-6.tyOf_Rec": 220,
+            "Assn2-2023-26.tyOf_Rec": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-8.tyOf_Rec"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-9.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](BoolTy()), 3 -> Some[Type](IntTy()), * -> None[Type]()}",
+                            "e": "Rec(3, 2, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-11.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(StringTy(), StringTy())), * -> None[Type]()}",
+                            "e": "Rec(3, 2, FunTy(StringTy(), StringTy()), FunTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "Rec(3, 2, StringTy(), FunTy(StringTy(), StringTy()), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-15.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())), PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())))), * -> None[Type]()}",
+                            "e": "Rec(3, 2, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](IntTy()), 2 -> Some[Type](FunTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "Rec(3, 2, StringTy(), FunTy(StringTy(), StringTy()), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-19.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](FunTy(FunTy(StringTy(), FunTy(StringTy(), StringTy())), FunTy(StringTy(), FunTy(StringTy(), StringTy())))), * -> None[Type]()}",
+                            "e": "Rec(3, 2, StringTy(), FunTy(StringTy(), StringTy()), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](PairTy(StringTy(), StringTy())), * -> None[Type]()}",
+                            "e": "Rec(3, 2, StringTy(), FunTy(StringTy(), StringTy()), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-24.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](FunTy(StringTy(), StringTy())), * -> None[Type]()}",
+                            "e": "Rec(3, 2, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-28.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](PairTy(StringTy(), StringTy())), * -> None[Type]()}",
+                            "e": "Rec(3, 2, StringTy(), FunTy(StringTy(), StringTy()), Var(4))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-8.tyOf_Rec": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-9.tyOf_Rec"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-11.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(StringTy(), StringTy())), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), FunTy(StringTy(), StringTy()), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](IntTy()), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-15.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> None[Type](), * -> Some[Type](IntTy())}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](IntTy()), 3 -> Some[Type](FunTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-19.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> None[Type](), * -> Some[Type](PairTy(PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())), PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))))}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](FunTy(PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-24.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-28.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](IntTy()), 3 -> Some[Type](BoolTy()), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-9.tyOf_Rec": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-11.tyOf_Rec"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-14.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](PairTy(FunTy(PairTy(StringTy(), StringTy()), StringTy()), FunTy(PairTy(StringTy(), StringTy()), StringTy()))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), FunTy(PairTy(StringTy(), StringTy()), StringTy()), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-15.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](IntTy()), 2 -> Some[Type](BoolTy()), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](FunTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-19.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](PairTy(StringTy(), StringTy())), 2 -> Some[Type](IntTy()), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), FunTy(StringTy(), StringTy()), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(PairTy(StringTy(), FunTy(StringTy(), StringTy())), PairTy(StringTy(), FunTy(StringTy(), StringTy())))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), FunTy(StringTy(), StringTy()), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-24.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](FunTy(StringTy(), StringTy())), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-28.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](BoolTy()), 2 -> Some[Type](PairTy(PairTy(BoolTy(), BoolTy()), PairTy(BoolTy(), BoolTy()))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-11.tyOf_Rec": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-14.tyOf_Rec"
+                ],
+                "functions": [
+                    "Assn2-2023-21.tyOf_Rec"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-15.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](IntTy()), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-19.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](BoolTy()), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-24.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        },
+                        "expected": "FunTy(StringTy(), StringTy())",
+                        "got": "StringTy()"
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-28.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](FunTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-14.tyOf_Rec": 220,
+            "Assn2-2023-21.tyOf_Rec": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-15.tyOf_Rec"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-16.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](BoolTy()), 3 -> Some[Type](IntTy()), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-19.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](BoolTy()), * -> None[Type]()}",
+                            "e": "Rec(2, 2, StringTy(), StringTy(), Var(3))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-24.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](FunTy(PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-28.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())), PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())))), 3 -> Some[Type](FunTy(PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())), PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-15.tyOf_Rec": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-16.tyOf_Rec"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-19.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](IntTy()), 3 -> Some[Type](FunTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-24.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-28.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](IntTy()), 2 -> Some[Type](FunTy(PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())), PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-16.tyOf_Rec": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-19.tyOf_Rec"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-24.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](PairTy(StringTy(), StringTy())), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-28.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())), PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())))), 3 -> Some[Type](FunTy(PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())), PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())))), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-19.tyOf_Rec": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-24.tyOf_Rec"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-28.tyOf_Rec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](FunTy(StringTy(), StringTy())), * -> None[Type]()}",
+                            "e": "Rec(2, 3, StringTy(), StringTy(), Var(4))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-24.tyOf_Rec": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "models": [
+                    "Assn2-2023-28.tyOf_Rec"
+                ],
+                "functions": []
+            }
+        ]
+    },
+    {
+        "equivalent": [{"specific function not found": [ 
+            "Assn2-2023-17.tyOf_Rec",
+            "Assn2-2023-29.tyOf_Rec",
+            "Assn2-2023-2.tyOf_Rec"
+         ] }]
+    }
+]

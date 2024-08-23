@@ -1,0 +1,127 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2Solution_fixed.tyOf_First"
+                ],
+                "functions": [
+                    "Assn2-2023-11.tyOf_First",
+                    "Assn2-2023-12.tyOf_First",
+                    "Assn2-2023-14.tyOf_First",
+                    "Assn2-2023-15.tyOf_First",
+                    "Assn2-2023-16.tyOf_First",
+                    "Assn2-2023-17.tyOf_First",
+                    "Assn2-2023-19.tyOf_First",
+                    "Assn2-2023-21.tyOf_First",
+                    "Assn2-2023-23.tyOf_First",
+                    "Assn2-2023-24.tyOf_First",
+                    "Assn2-2023-25.tyOf_First",
+                    "Assn2-2023-26.tyOf_First",
+                    "Assn2-2023-28.tyOf_First",
+                    "Assn2-2023-29.tyOf_First",
+                    "Assn2-2023-3.tyOf_First",
+                    "Assn2-2023-4.tyOf_First",
+                    "Assn2-2023-5.tyOf_First",
+                    "Assn2-2023-6.tyOf_First",
+                    "Assn2-2023-9.tyOf_First"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-8.tyOf_First",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> Some[Type](StringTy())}",
+                            "e": "First(Pair(Var(3), Var(4)))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-27.tyOf_First",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "First(Pair(Var(3), Var(2)))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2Solution_fixed.tyOf_First": 580,
+            "Assn2-2023-11.tyOf_First": 0,
+            "Assn2-2023-12.tyOf_First": 0,
+            "Assn2-2023-14.tyOf_First": 0,
+            "Assn2-2023-15.tyOf_First": 0,
+            "Assn2-2023-16.tyOf_First": 0,
+            "Assn2-2023-17.tyOf_First": 0,
+            "Assn2-2023-19.tyOf_First": 0,
+            "Assn2-2023-21.tyOf_First": 0,
+            "Assn2-2023-23.tyOf_First": 0,
+            "Assn2-2023-24.tyOf_First": 0,
+            "Assn2-2023-25.tyOf_First": 0,
+            "Assn2-2023-26.tyOf_First": 0,
+            "Assn2-2023-28.tyOf_First": 0,
+            "Assn2-2023-29.tyOf_First": 0,
+            "Assn2-2023-3.tyOf_First": 0,
+            "Assn2-2023-4.tyOf_First": 0,
+            "Assn2-2023-5.tyOf_First": 0,
+            "Assn2-2023-6.tyOf_First": 0,
+            "Assn2-2023-9.tyOf_First": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-8.tyOf_First"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-27.tyOf_First",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "First(Var(2))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-8.tyOf_First": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "models": [
+                    "Assn2-2023-27.tyOf_First"
+                ],
+                "functions": []
+            }
+        ]
+    },
+    {
+        "equivalent": [{"specific function not found": [ 
+            "Assn2-2023-2.tyOf_First"
+         ] }]
+    }
+]

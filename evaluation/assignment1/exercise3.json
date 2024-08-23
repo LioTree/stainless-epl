@@ -1,0 +1,115 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1Solution.cycle"
+                ],
+                "functions": [
+                    "Assn1-2023-10.cycle",
+                    "Assn1-2023-11.cycle",
+                    "Assn1-2023-12.cycle",
+                    "Assn1-2023-13.cycle",
+                    "Assn1-2023-14.cycle",
+                    "Assn1-2023-15.cycle",
+                    "Assn1-2023-16.cycle",
+                    "Assn1-2023-18.cycle",
+                    "Assn1-2023-19.cycle",
+                    "Assn1-2023-2.cycle",
+                    "Assn1-2023-20.cycle",
+                    "Assn1-2023-21.cycle",
+                    "Assn1-2023-22.cycle",
+                    "Assn1-2023-23.cycle",
+                    "Assn1-2023-24.cycle",
+                    "Assn1-2023-25.cycle",
+                    "Assn1-2023-26.cycle",
+                    "Assn1-2023-27.cycle",
+                    "Assn1-2023-28.cycle",
+                    "Assn1-2023-3.cycle",
+                    "Assn1-2023-30.cycle",
+                    "Assn1-2023-31.cycle",
+                    "Assn1-2023-32.cycle",
+                    "Assn1-2023-34.cycle",
+                    "Assn1-2023-35.cycle",
+                    "Assn1-2023-36.cycle",
+                    "Assn1-2023-37.cycle",
+                    "Assn1-2023-38.cycle",
+                    "Assn1-2023-4.cycle",
+                    "Assn1-2023-5.cycle",
+                    "Assn1-2023-7.cycle",
+                    "Assn1-2023-8.cycle",
+                    "Assn1-2023-9.cycle"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-33.cycle",
+                "ctexs": [
+                    {
+                        "args": {
+                            "q": "(OverflowInt(-2147483610), OverflowInt(0), OverflowInt(-2147475929))"
+                        },
+                        "expected": "(OverflowInt(0), OverflowInt(-2147475929), OverflowInt(-2147483610))",
+                        "got": "(OverflowInt(-2147475929), OverflowInt(-2147483610), OverflowInt(0))"
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [
+            "Assn1-2023-17.cycle",
+            "Assn1-2023-2.cycle",
+            "Assn1-2023-29.cycle",
+            "Assn1-2023-6.cycle"
+        ],
+        "weights": {
+            "Assn1Solution.cycle": 860,
+            "Assn1-2023-10.cycle": 0,
+            "Assn1-2023-11.cycle": 0,
+            "Assn1-2023-12.cycle": 0,
+            "Assn1-2023-13.cycle": 0,
+            "Assn1-2023-14.cycle": 0,
+            "Assn1-2023-15.cycle": 0,
+            "Assn1-2023-16.cycle": 0,
+            "Assn1-2023-18.cycle": 0,
+            "Assn1-2023-19.cycle": 0,
+            "Assn1-2023-2.cycle": 0,
+            "Assn1-2023-20.cycle": 0,
+            "Assn1-2023-21.cycle": 0,
+            "Assn1-2023-22.cycle": 0,
+            "Assn1-2023-23.cycle": 0,
+            "Assn1-2023-24.cycle": 0,
+            "Assn1-2023-25.cycle": 0,
+            "Assn1-2023-26.cycle": 0,
+            "Assn1-2023-27.cycle": 0,
+            "Assn1-2023-28.cycle": 0,
+            "Assn1-2023-3.cycle": 0,
+            "Assn1-2023-30.cycle": 0,
+            "Assn1-2023-31.cycle": 0,
+            "Assn1-2023-32.cycle": 0,
+            "Assn1-2023-34.cycle": 0,
+            "Assn1-2023-35.cycle": 0,
+            "Assn1-2023-36.cycle": 0,
+            "Assn1-2023-37.cycle": 0,
+            "Assn1-2023-38.cycle": 0,
+            "Assn1-2023-4.cycle": 0,
+            "Assn1-2023-5.cycle": 0,
+            "Assn1-2023-7.cycle": 0,
+            "Assn1-2023-8.cycle": 0,
+            "Assn1-2023-9.cycle": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "models": [
+                    "Assn1-2023-33.cycle"
+                ],
+                "functions": []
+            }
+        ]
+    }
+]

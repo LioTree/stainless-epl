@@ -1,0 +1,1431 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2Solution_fixed.desugar_LetPair"
+                ],
+                "functions": [
+                    "Assn2-2023-15.desugar_LetPair",
+                    "Assn2-2023-26.desugar_LetPair",
+                    "Assn2-2023-27.desugar_LetPair",
+                    "Assn2-2023-3.desugar_LetPair"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-5.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(11), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-6.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(13), Var(12))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-7.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(28957, 2, Var(10), Var(9))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-8.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(28957, 2, Var(6), Var(11))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-9.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(11), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-10.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(11), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-11.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(7718, 2, Var(10), Var(9))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-12.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(8), Var(12))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "exp": "LetPair(2, 3, Var(11), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(12), Var(11))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(11), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-18.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 28957, Var(11), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-19.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(11), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-20.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(7718, 2, Var(10), Var(9))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(11), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-25.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(38, 7719, Var(10), Var(9))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-28.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(7718, 2, Var(10), Var(9))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-30.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(13), Var(9))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [
+            {
+                "function": "Assn2-2023-29.desugar_LetPair",
+                "self": [
+                    {
+                        "kind": "body assertion: Expression of type Nothing: require(e is LetPair)\nval freshId: BigInt = 0\nval t: ({ x: Object | @dropConjunct false }, BigInt) = e match {\n  case LetPair(x, y, e1, e2) =>\n    val freshId: BigInt = freshId + 1\n    val tmp: Unit = ()\n    val p: BigInt = gensym(1347049, freshId)\n    val freshId: BigInt = freshId + 1\n    val tmp: Unit = ()\n    val z: BigInt = gensym(x, freshId)\n    val freshId: BigInt = freshId + 1\n    val tmp: Unit = ()\n    val c: BigInt = gensym(y, freshId)\n    (errorWrapper[{ x: Object | @dropConjunct false }], freshId)\n  case _ =>\n    (errorWrapper[{ x: Object | @dropConjunct false }], freshId)\n  case _ =>\n    (errorWrapper[{ x: Object | @dropConjunct false }], freshId)\n}\nval res: { x: Object | @dropConjunct false } = t._1\nval freshId: BigInt = t._2\nres",
+                        "position": "432:15",
+                        "ctex": {
+                            "args": {
+                                "e": "Var(0)"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            }
+        ],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2Solution_fixed.desugar_LetPair": 280,
+            "Assn2-2023-15.desugar_LetPair": 0,
+            "Assn2-2023-26.desugar_LetPair": 0,
+            "Assn2-2023-27.desugar_LetPair": 0,
+            "Assn2-2023-3.desugar_LetPair": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-5.desugar_LetPair"
+                ],
+                "functions": [
+                    "Assn2-2023-19.desugar_LetPair",
+                    "Assn2-2023-21.desugar_LetPair",
+                    "Assn2-2023-9.desugar_LetPair"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-6.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(11), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-7.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(28957, 2, Var(10), Var(9))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-8.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(28957, 2, Var(6), Var(11))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-10.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(10), Var(9))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-11.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(7718, 2, Var(10), Var(9))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-12.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(7), Var(11))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "exp": "LetPair(2, 3, Var(13), Var(12))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(10), Var(9))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(11), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-18.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 28957, Var(11), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-20.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(28957, 2, Var(11), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-25.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(38, 7719, Var(10), Var(9))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-28.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(28957, 2, Var(12), Var(11))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-30.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(13), Var(9))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-5.desugar_LetPair": 260,
+            "Assn2-2023-19.desugar_LetPair": 0,
+            "Assn2-2023-21.desugar_LetPair": 0,
+            "Assn2-2023-9.desugar_LetPair": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-6.desugar_LetPair"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-7.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(28957, 2, Var(10), Var(9))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-8.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(28957, 2, Var(7), Var(12))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-10.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(11), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-11.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(28957, 2, Var(10), Var(9))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-12.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(7), Var(11))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "exp": "LetPair(2, 3, Var(13), Var(12))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(10), Var(9))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(12), Var(11))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-18.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 7718, Var(10), Var(9))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-20.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(28957, 2, Var(10), Var(9))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-25.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(38, 7719, Var(11), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-28.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(28957, 2, Var(10), Var(9))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-30.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(12), Var(8))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-6.desugar_LetPair": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-7.desugar_LetPair"
+                ],
+                "functions": [
+                    "Assn2-2023-28.desugar_LetPair"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-8.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(23675, 2, Var(4), Var(9))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-10.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(28957, 2, Var(9), Var(8))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-11.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(23675, 2, Var(8), Var(7))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-12.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(28957, 2, Var(6), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "exp": "LetPair(28957, 2, Var(10), Var(9))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(28957, 2, Var(9), Var(8))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(28957, 2, Var(9), Var(8))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-18.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(8854, 23675, Var(11), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-20.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(23675, 2, Var(11), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-25.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(38, 7719, Var(11), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-30.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(28957, 2, Var(13), Var(9))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-7.desugar_LetPair": 220,
+            "Assn2-2023-28.desugar_LetPair": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-8.desugar_LetPair"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-10.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(28957, 2, Var(8), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-11.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(23675, 2, Var(6), Var(8))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-12.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(28957, 2, Var(6), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "exp": "LetPair(28957, 2, Var(9), Var(11))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(28957, 2, Var(7), Var(9))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(28957, 2, Var(8), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-18.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(8854, 23675, Var(8), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-20.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(23675, 2, Var(10), Var(12))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-25.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(38, 4360678, Var(9), Var(11))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-30.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(28957, 2, Var(10), Var(7))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-8.desugar_LetPair": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-10.desugar_LetPair"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-11.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(7718, 2, Var(10), Var(9))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-12.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(8), Var(11))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "exp": "LetPair(2, 3, Var(7), Var(8))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(4), Var(5))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(4), Var(5))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-18.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 28957, Var(10), Var(9))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-20.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(28957, 2, Var(9), Var(8))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-25.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(4359415, 7719, Var(10), Var(9))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-30.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(7), Var(8))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-10.desugar_LetPair": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-11.desugar_LetPair"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-12.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(28957, 2, Var(6), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "exp": "LetPair(7718, 2, Var(11), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(7718, 2, Var(10), Var(9))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(28957, 2, Var(9), Var(8))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-18.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(8854, 23675, Var(10), Var(9))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-20.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(23675, 2, Var(11), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-25.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(38, 7719, Var(11), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-30.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(7718, 2, Var(11), Var(7))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-11.desugar_LetPair": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-12.desugar_LetPair"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-14.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "exp": "LetPair(2, 3, Var(11), Var(12))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(9), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(10), Var(11))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-18.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 28957, Var(9), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-20.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(28957, 2, Var(9), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-25.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(38, 7719, Var(10), Var(11))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-30.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(13), Var(10))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-12.desugar_LetPair": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-14.desugar_LetPair"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-16.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(7), Var(8))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(6), Var(7))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-18.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 7718, Var(11), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-20.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(28957, 2, Var(11), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-25.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(38, 7719, Var(11), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-30.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(8), Var(9))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-14.desugar_LetPair": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-16.desugar_LetPair"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-17.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(4), Var(5))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-18.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 28957, Var(10), Var(9))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-20.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(7718, 2, Var(11), Var(10))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-25.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(38, 7719, Var(9), Var(8))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-30.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(6), Var(7))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-16.desugar_LetPair": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-17.desugar_LetPair"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-18.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 28957, Var(9), Var(8))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-20.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(28957, 2, Var(10), Var(9))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-25.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(4359415, 7719, Var(10), Var(9))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-30.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 3, Var(6), Var(7))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-17.desugar_LetPair": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-18.desugar_LetPair"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-20.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(23675, 8854, Var(9), Var(8))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-25.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(38, 7719, Var(10), Var(9))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-30.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(2, 28957, Var(10), Var(6))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-18.desugar_LetPair": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-20.desugar_LetPair"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-25.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(38, 4360678, Var(10), Var(9))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-30.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(7718, 2, Var(11), Var(7))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-20.desugar_LetPair": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-25.desugar_LetPair"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-30.desugar_LetPair",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetPair(38, 7719, Var(12), Var(8))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-25.desugar_LetPair": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "models": [
+                    "Assn2-2023-30.desugar_LetPair"
+                ],
+                "functions": []
+            }
+        ]
+    },
+    {
+        "equivalent": [{"specific function not found": [ 
+            "Assn2-2023-24.desugar_LetPair",
+            "Assn2-2023-13.desugar_LetPair",
+            "Assn2-2023-4.desugar_LetPair",
+            "Assn2-2023-23.desugar_LetPair"
+         ] }]
+    }
+]

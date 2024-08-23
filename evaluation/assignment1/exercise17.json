@@ -1,0 +1,451 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1Solution.presidentListMap"
+                ],
+                "functions": [
+                    "Assn1-2023-21.presidentListMap",
+                    "Assn1-2023-22.presidentListMap",
+                    "Assn1-2023-23.presidentListMap",
+                    "Assn1-2023-25.presidentListMap",
+                    "Assn1-2023-27.presidentListMap",
+                    "Assn1-2023-37.presidentListMap",
+                    "Assn1-2023-4.presidentListMap",
+                    "Assn1-2023-9.presidentListMap"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-1.presidentListMap",
+                "ctexs": [
+                    {
+                        "args": {},
+                        "expected": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(46), StringWrapper(\"Joseph R. Biden\")), Nil[(OverflowInt, StringWrapper)]())))))))",
+                        "got": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Nil[(OverflowInt, StringWrapper)]()))))))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-2.presidentListMap",
+                "ctexs": [
+                    {
+                        "args": {},
+                        "expected": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(46), StringWrapper(\"Joseph R. Biden\")), Nil[(OverflowInt, StringWrapper)]())))))))",
+                        "got": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Nil[(OverflowInt, StringWrapper)]()))))))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-3.presidentListMap",
+                "ctexs": [
+                    {
+                        "args": {},
+                        "expected": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(46), StringWrapper(\"Joseph R. Biden\")), Nil[(OverflowInt, StringWrapper)]())))))))",
+                        "got": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Nil[(OverflowInt, StringWrapper)]()))))))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-5.presidentListMap",
+                "ctexs": [
+                    {
+                        "args": {},
+                        "expected": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(46), StringWrapper(\"Joseph R. Biden\")), Nil[(OverflowInt, StringWrapper)]())))))))",
+                        "got": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Nil[(OverflowInt, StringWrapper)]()))))))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-12.presidentListMap",
+                "ctexs": [
+                    {
+                        "args": {},
+                        "expected": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(46), StringWrapper(\"Joseph R. Biden\")), Nil[(OverflowInt, StringWrapper)]())))))))",
+                        "got": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Nil[(OverflowInt, StringWrapper)]()))))))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-13.presidentListMap",
+                "ctexs": [
+                    {
+                        "args": {},
+                        "expected": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(46), StringWrapper(\"Joseph R. Biden\")), Nil[(OverflowInt, StringWrapper)]())))))))",
+                        "got": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Nil[(OverflowInt, StringWrapper)]()))))))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-16.presidentListMap",
+                "ctexs": [
+                    {
+                        "args": {},
+                        "expected": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(46), StringWrapper(\"Joseph R. Biden\")), Nil[(OverflowInt, StringWrapper)]())))))))",
+                        "got": "ListMap[OverflowInt, StringWrapper](Nil[(OverflowInt, StringWrapper)]())"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-17.presidentListMap",
+                "ctexs": [
+                    {
+                        "args": {},
+                        "expected": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(46), StringWrapper(\"Joseph R. Biden\")), Nil[(OverflowInt, StringWrapper)]())))))))",
+                        "got": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Nil[(OverflowInt, StringWrapper)]()))))))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-18.presidentListMap",
+                "ctexs": [
+                    {
+                        "args": {},
+                        "expected": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(46), StringWrapper(\"Joseph R. Biden\")), Nil[(OverflowInt, StringWrapper)]())))))))",
+                        "got": "ListMap[OverflowInt, StringWrapper](Nil[(OverflowInt, StringWrapper)]())"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-20.presidentListMap",
+                "ctexs": [
+                    {
+                        "args": {},
+                        "expected": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(46), StringWrapper(\"Joseph R. Biden\")), Nil[(OverflowInt, StringWrapper)]())))))))",
+                        "got": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Nil[(OverflowInt, StringWrapper)]()))))))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-24.presidentListMap",
+                "ctexs": [
+                    {
+                        "args": {},
+                        "expected": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(46), StringWrapper(\"Joseph R. Biden\")), Nil[(OverflowInt, StringWrapper)]())))))))",
+                        "got": "ListMap[OverflowInt, StringWrapper](Nil[(OverflowInt, StringWrapper)]())"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-28.presidentListMap",
+                "ctexs": [
+                    {
+                        "args": {},
+                        "expected": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(46), StringWrapper(\"Joseph R. Biden\")), Nil[(OverflowInt, StringWrapper)]())))))))",
+                        "got": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Nil[(OverflowInt, StringWrapper)]()))))))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-29.presidentListMap",
+                "ctexs": [
+                    {
+                        "args": {},
+                        "expected": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(46), StringWrapper(\"Joseph R. Biden\")), Nil[(OverflowInt, StringWrapper)]())))))))",
+                        "got": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barrack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(46), StringWrapper(\"Joseph R. Biden\")), Nil[(OverflowInt, StringWrapper)]())))))))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-30.presidentListMap",
+                "ctexs": [
+                    {
+                        "args": {},
+                        "expected": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(46), StringWrapper(\"Joseph R. Biden\")), Nil[(OverflowInt, StringWrapper)]())))))))",
+                        "got": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Nil[(OverflowInt, StringWrapper)]()))))))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-31.presidentListMap",
+                "ctexs": [
+                    {
+                        "args": {},
+                        "expected": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(46), StringWrapper(\"Joseph R. Biden\")), Nil[(OverflowInt, StringWrapper)]())))))))",
+                        "got": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Nil[(OverflowInt, StringWrapper)]()))))))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-32.presidentListMap",
+                "ctexs": [
+                    {
+                        "args": {},
+                        "expected": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(46), StringWrapper(\"Joseph R. Biden\")), Nil[(OverflowInt, StringWrapper)]())))))))",
+                        "got": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Nil[(OverflowInt, StringWrapper)]()))))))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-33.presidentListMap",
+                "ctexs": [
+                    {
+                        "args": {},
+                        "expected": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(46), StringWrapper(\"Joseph R. Biden\")), Nil[(OverflowInt, StringWrapper)]())))))))",
+                        "got": "ListMap[OverflowInt, StringWrapper](Nil[(OverflowInt, StringWrapper)]())"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-34.presidentListMap",
+                "ctexs": [
+                    {
+                        "args": {},
+                        "expected": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(46), StringWrapper(\"Joseph R. Biden\")), Nil[(OverflowInt, StringWrapper)]())))))))",
+                        "got": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Nil[(OverflowInt, StringWrapper)]()))))))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-35.presidentListMap",
+                "ctexs": [
+                    {
+                        "args": {},
+                        "expected": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(46), StringWrapper(\"Joseph R. Biden\")), Nil[(OverflowInt, StringWrapper)]())))))))",
+                        "got": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Nil[(OverflowInt, StringWrapper)]()))))))"
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [
+            {
+                "function": "Assn1-2023-6.presidentListMap",
+                "self": [
+                    {
+                        "kind": "class invariant",
+                        "position": "230:24"
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn1-2023-8.presidentListMap",
+                "self": [
+                    {
+                        "kind": "class invariant",
+                        "position": "212:24"
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn1-2023-10.presidentListMap",
+                "self": [
+                    {
+                        "kind": "class invariant",
+                        "position": "227:23"
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn1-2023-14.presidentListMap",
+                "self": [
+                    {
+                        "kind": "class invariant",
+                        "position": "221:24"
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn1-2023-15.presidentListMap",
+                "self": [
+                    {
+                        "kind": "class invariant",
+                        "position": "235:24"
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn1-2023-26.presidentListMap",
+                "self": [
+                    {
+                        "kind": "class invariant",
+                        "position": "234:24"
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn1-2023-36.presidentListMap",
+                "self": [
+                    {
+                        "kind": "class invariant",
+                        "position": "324:24"
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn1-2023-38.presidentListMap",
+                "self": [
+                    {
+                        "kind": "class invariant",
+                        "position": "217:24"
+                    }
+                ],
+                "auxiliaries": {}
+            }
+        ],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1Solution.presidentListMap": 360,
+            "Assn1-2023-21.presidentListMap": 0,
+            "Assn1-2023-22.presidentListMap": 0,
+            "Assn1-2023-23.presidentListMap": 0,
+            "Assn1-2023-25.presidentListMap": 0,
+            "Assn1-2023-27.presidentListMap": 0,
+            "Assn1-2023-37.presidentListMap": 0,
+            "Assn1-2023-4.presidentListMap": 0,
+            "Assn1-2023-9.presidentListMap": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-1.presidentListMap"
+                ],
+                "functions": [
+                    "Assn1-2023-12.presidentListMap",
+                    "Assn1-2023-13.presidentListMap",
+                    "Assn1-2023-17.presidentListMap",
+                    "Assn1-2023-2.presidentListMap",
+                    "Assn1-2023-20.presidentListMap",
+                    "Assn1-2023-28.presidentListMap",
+                    "Assn1-2023-3.presidentListMap",
+                    "Assn1-2023-30.presidentListMap",
+                    "Assn1-2023-31.presidentListMap",
+                    "Assn1-2023-32.presidentListMap",
+                    "Assn1-2023-34.presidentListMap",
+                    "Assn1-2023-35.presidentListMap",
+                    "Assn1-2023-5.presidentListMap"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-16.presidentListMap",
+                "ctexs": [
+                    {
+                        "args": {},
+                        "expected": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Nil[(OverflowInt, StringWrapper)]()))))))",
+                        "got": "ListMap[OverflowInt, StringWrapper](Nil[(OverflowInt, StringWrapper)]())"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-18.presidentListMap",
+                "ctexs": [
+                    {
+                        "args": {},
+                        "expected": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Nil[(OverflowInt, StringWrapper)]()))))))",
+                        "got": "ListMap[OverflowInt, StringWrapper](Nil[(OverflowInt, StringWrapper)]())"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-24.presidentListMap",
+                "ctexs": [
+                    {
+                        "args": {},
+                        "expected": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Nil[(OverflowInt, StringWrapper)]()))))))",
+                        "got": "ListMap[OverflowInt, StringWrapper](Nil[(OverflowInt, StringWrapper)]())"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-29.presidentListMap",
+                "ctexs": [
+                    {
+                        "args": {},
+                        "expected": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Nil[(OverflowInt, StringWrapper)]()))))))",
+                        "got": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barrack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(46), StringWrapper(\"Joseph R. Biden\")), Nil[(OverflowInt, StringWrapper)]())))))))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-33.presidentListMap",
+                "ctexs": [
+                    {
+                        "args": {},
+                        "expected": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Nil[(OverflowInt, StringWrapper)]()))))))",
+                        "got": "ListMap[OverflowInt, StringWrapper](Nil[(OverflowInt, StringWrapper)]())"
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-1.presidentListMap": 460,
+            "Assn1-2023-12.presidentListMap": 0,
+            "Assn1-2023-13.presidentListMap": 0,
+            "Assn1-2023-17.presidentListMap": 0,
+            "Assn1-2023-2.presidentListMap": 0,
+            "Assn1-2023-20.presidentListMap": 0,
+            "Assn1-2023-28.presidentListMap": 0,
+            "Assn1-2023-3.presidentListMap": 0,
+            "Assn1-2023-30.presidentListMap": 0,
+            "Assn1-2023-31.presidentListMap": 0,
+            "Assn1-2023-32.presidentListMap": 0,
+            "Assn1-2023-34.presidentListMap": 0,
+            "Assn1-2023-35.presidentListMap": 0,
+            "Assn1-2023-5.presidentListMap": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-16.presidentListMap"
+                ],
+                "functions": [
+                    "Assn1-2023-18.presidentListMap",
+                    "Assn1-2023-24.presidentListMap",
+                    "Assn1-2023-33.presidentListMap"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-29.presidentListMap",
+                "ctexs": [
+                    {
+                        "args": {},
+                        "expected": "ListMap[OverflowInt, StringWrapper](Nil[(OverflowInt, StringWrapper)]())",
+                        "got": "ListMap[OverflowInt, StringWrapper](Cons[(OverflowInt, StringWrapper)]((OverflowInt(41), StringWrapper(\"George H. W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(42), StringWrapper(\"Bill Clinton\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(43), StringWrapper(\"George W. Bush\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(44), StringWrapper(\"Barrack Obama\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(45), StringWrapper(\"Donald J. Trump\")), Cons[(OverflowInt, StringWrapper)]((OverflowInt(46), StringWrapper(\"Joseph R. Biden\")), Nil[(OverflowInt, StringWrapper)]())))))))"
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-16.presidentListMap": 260,
+            "Assn1-2023-18.presidentListMap": 0,
+            "Assn1-2023-24.presidentListMap": 0,
+            "Assn1-2023-33.presidentListMap": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "models": [
+                    "Assn1-2023-29.presidentListMap"
+                ],
+                "functions": []
+            }
+        ]
+    }
+]

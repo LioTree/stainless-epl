@@ -1,0 +1,261 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2Solution_fixed.tyOf_IfThenElse"
+                ],
+                "functions": [
+                    "Assn2-2023-11.tyOf_IfThenElse",
+                    "Assn2-2023-12.tyOf_IfThenElse",
+                    "Assn2-2023-15.tyOf_IfThenElse",
+                    "Assn2-2023-16.tyOf_IfThenElse",
+                    "Assn2-2023-17.tyOf_IfThenElse",
+                    "Assn2-2023-19.tyOf_IfThenElse",
+                    "Assn2-2023-23.tyOf_IfThenElse",
+                    "Assn2-2023-25.tyOf_IfThenElse",
+                    "Assn2-2023-26.tyOf_IfThenElse",
+                    "Assn2-2023-27.tyOf_IfThenElse",
+                    "Assn2-2023-28.tyOf_IfThenElse",
+                    "Assn2-2023-29.tyOf_IfThenElse",
+                    "Assn2-2023-3.tyOf_IfThenElse",
+                    "Assn2-2023-5.tyOf_IfThenElse",
+                    "Assn2-2023-6.tyOf_IfThenElse",
+                    "Assn2-2023-9.tyOf_IfThenElse"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-4.tyOf_IfThenElse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "exp": "IfThenElse(Var(3), Var(2), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-8.tyOf_IfThenElse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "IfThenElse(Var(2), Var(4), Var(3))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.tyOf_IfThenElse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "IfThenElse(Var(4), Var(2), Var(3))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.tyOf_IfThenElse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "IfThenElse(Var(4), Var(2), Var(3))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-24.tyOf_IfThenElse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "IfThenElse(Var(2), Var(3), Var(4))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2Solution_fixed.tyOf_IfThenElse": 520,
+            "Assn2-2023-11.tyOf_IfThenElse": 0,
+            "Assn2-2023-12.tyOf_IfThenElse": 0,
+            "Assn2-2023-15.tyOf_IfThenElse": 0,
+            "Assn2-2023-16.tyOf_IfThenElse": 0,
+            "Assn2-2023-17.tyOf_IfThenElse": 0,
+            "Assn2-2023-19.tyOf_IfThenElse": 0,
+            "Assn2-2023-23.tyOf_IfThenElse": 0,
+            "Assn2-2023-25.tyOf_IfThenElse": 0,
+            "Assn2-2023-26.tyOf_IfThenElse": 0,
+            "Assn2-2023-27.tyOf_IfThenElse": 0,
+            "Assn2-2023-28.tyOf_IfThenElse": 0,
+            "Assn2-2023-29.tyOf_IfThenElse": 0,
+            "Assn2-2023-3.tyOf_IfThenElse": 0,
+            "Assn2-2023-5.tyOf_IfThenElse": 0,
+            "Assn2-2023-6.tyOf_IfThenElse": 0,
+            "Assn2-2023-9.tyOf_IfThenElse": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-4.tyOf_IfThenElse"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-8.tyOf_IfThenElse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "IfThenElse(Var(3), Var(2), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.tyOf_IfThenElse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "IfThenElse(Var(4), Var(2), Var(3))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.tyOf_IfThenElse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "IfThenElse(Var(3), Var(2), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-24.tyOf_IfThenElse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "IfThenElse(Var(3), Var(2), Var(4))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-4.tyOf_IfThenElse": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-8.tyOf_IfThenElse"
+                ],
+                "functions": [
+                    "Assn2-2023-21.tyOf_IfThenElse"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-14.tyOf_IfThenElse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "IfThenElse(Var(2), Var(4), Var(3))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-24.tyOf_IfThenElse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "IfThenElse(Var(3), Var(4), Var(2))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-8.tyOf_IfThenElse": 220,
+            "Assn2-2023-21.tyOf_IfThenElse": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-14.tyOf_IfThenElse"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-24.tyOf_IfThenElse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{* -> None[Type]()}",
+                            "e": "IfThenElse(Var(2), Var(4), Var(3))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-14.tyOf_IfThenElse": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "models": [
+                    "Assn2-2023-24.tyOf_IfThenElse"
+                ],
+                "functions": []
+            }
+        ]
+    },
+    {
+        "equivalent": [{"specific function not found": [ 
+            "Assn2-2023-2.tyOf_IfThenElse"
+         ] }]
+    }
+]

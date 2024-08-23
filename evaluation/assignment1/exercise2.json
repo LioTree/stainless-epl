@@ -1,0 +1,233 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1Solution.sum"
+                ],
+                "functions": [
+                    "Assn1-2023-1.sum",
+                    "Assn1-2023-10.sum",
+                    "Assn1-2023-11.sum",
+                    "Assn1-2023-12.sum",
+                    "Assn1-2023-13.sum",
+                    "Assn1-2023-16.sum",
+                    "Assn1-2023-18.sum",
+                    "Assn1-2023-2.sum",
+                    "Assn1-2023-20.sum",
+                    "Assn1-2023-22.sum",
+                    "Assn1-2023-23.sum",
+                    "Assn1-2023-26.sum",
+                    "Assn1-2023-27.sum",
+                    "Assn1-2023-28.sum",
+                    "Assn1-2023-29.sum",
+                    "Assn1-2023-3.sum",
+                    "Assn1-2023-30.sum",
+                    "Assn1-2023-31.sum",
+                    "Assn1-2023-32.sum",
+                    "Assn1-2023-33.sum",
+                    "Assn1-2023-34.sum",
+                    "Assn1-2023-35.sum",
+                    "Assn1-2023-37.sum",
+                    "Assn1-2023-4.sum",
+                    "Assn1-2023-5.sum",
+                    "Assn1-2023-7.sum",
+                    "Assn1-2023-8.sum",
+                    "Assn1-2023-9.sum"
+                ]
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [
+            {
+                "function": "Assn1-2023-6.sum",
+                "self": [
+                    {
+                        "kind": "precond. (call sum(m))",
+                        "position": "45:29",
+                        "ctex": {
+                            "args": {
+                                "n": "OverflowInt(0)"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "measure decreases",
+                        "position": "45:29",
+                        "ctex": {
+                            "args": {
+                                "n": "OverflowInt(0)"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn1-2023-14.sum",
+                "self": [
+                    {
+                        "kind": "precond. (call sum(n - apply(BigInt(\"1\"))))",
+                        "position": "41:25",
+                        "ctex": {
+                            "args": {
+                                "n": "OverflowInt(0)"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "measure decreases",
+                        "position": "41:25",
+                        "ctex": {
+                            "args": {
+                                "n": "OverflowInt(2)"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn1-2023-15.sum",
+                "self": [
+                    {
+                        "kind": "measure decreases",
+                        "position": "42:29",
+                        "ctex": {
+                            "args": {
+                                "n": "OverflowInt(0)"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "precond. (call sum(n - apply(BigInt(\"1\"))))",
+                        "position": "42:29",
+                        "ctex": {
+                            "args": {
+                                "n": "OverflowInt(0)"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn1-2023-19.sum",
+                "self": [
+                    {
+                        "kind": "measure missing",
+                        "position": "40:5",
+                        "ctex": null
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn1-2023-21.sum",
+                "self": [
+                    {
+                        "kind": "precond. (call sum(n - apply(BigInt(\"1\"))))",
+                        "position": "42:27",
+                        "ctex": {
+                            "args": {
+                                "n": "OverflowInt(0)"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "measure decreases",
+                        "position": "42:27",
+                        "ctex": {
+                            "args": {
+                                "n": "OverflowInt(0)"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn1-2023-25.sum",
+                "self": [
+                    {
+                        "kind": "precond. (call sum(n - apply(BigInt(\"1\"))))",
+                        "position": "40:50",
+                        "ctex": {
+                            "args": {
+                                "n": "OverflowInt(0)"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "measure decreases",
+                        "position": "40:50",
+                        "ctex": {
+                            "args": {
+                                "n": "OverflowInt(2)"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn1-2023-36.sum",
+                "self": [
+                    {
+                        "kind": "measure decreases",
+                        "position": "82:29",
+                        "ctex": {
+                            "args": {
+                                "n": "OverflowInt(0)"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "precond. (call sum(m))",
+                        "position": "82:29",
+                        "ctex": {
+                            "args": {
+                                "n": "OverflowInt(0)"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            }
+        ],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1Solution.sum": 760,
+            "Assn1-2023-1.sum": 0,
+            "Assn1-2023-10.sum": 0,
+            "Assn1-2023-11.sum": 0,
+            "Assn1-2023-12.sum": 0,
+            "Assn1-2023-13.sum": 0,
+            "Assn1-2023-16.sum": 0,
+            "Assn1-2023-18.sum": 0,
+            "Assn1-2023-2.sum": 0,
+            "Assn1-2023-20.sum": 0,
+            "Assn1-2023-22.sum": 0,
+            "Assn1-2023-23.sum": 0,
+            "Assn1-2023-26.sum": 0,
+            "Assn1-2023-27.sum": 0,
+            "Assn1-2023-28.sum": 0,
+            "Assn1-2023-29.sum": 0,
+            "Assn1-2023-3.sum": 0,
+            "Assn1-2023-30.sum": 0,
+            "Assn1-2023-31.sum": 0,
+            "Assn1-2023-32.sum": 0,
+            "Assn1-2023-33.sum": 0,
+            "Assn1-2023-34.sum": 0,
+            "Assn1-2023-35.sum": 0,
+            "Assn1-2023-37.sum": 0,
+            "Assn1-2023-4.sum": 0,
+            "Assn1-2023-5.sum": 0,
+            "Assn1-2023-7.sum": 0,
+            "Assn1-2023-8.sum": 0,
+            "Assn1-2023-9.sum": 0
+        }
+    }
+]

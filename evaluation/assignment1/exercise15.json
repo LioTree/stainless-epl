@@ -1,0 +1,1491 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1Solution.update"
+                ],
+                "functions": [
+                    "Assn1-2023-10.update",
+                    "Assn1-2023-12.update",
+                    "Assn1-2023-13.update",
+                    "Assn1-2023-17.update",
+                    "Assn1-2023-23.update",
+                    "Assn1-2023-25.update",
+                    "Assn1-2023-26.update",
+                    "Assn1-2023-28.update",
+                    "Assn1-2023-3.update",
+                    "Assn1-2023-30.update",
+                    "Assn1-2023-31.update",
+                    "Assn1-2023-34.update",
+                    "Assn1-2023-36.update",
+                    "Assn1-2023-6.update",
+                    "Assn1-2023-7.update",
+                    "Assn1-2023-8.update"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-2.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "12",
+                            "v": "9"
+                        },
+                        "expected": "Cons[(BigInt, BigInt)]((12, 9), Nil[(BigInt, BigInt)]())",
+                        "got": "Nil[(BigInt, BigInt)]()"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-4.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Cons[(BigInt, BigInt)]((4, 11), Nil[(BigInt, BigInt)]()))",
+                            "k": "4",
+                            "v": "9"
+                        }
+                    },
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]())",
+                            "k": "8",
+                            "v": "11"
+                        }
+                    },
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "12",
+                            "v": "9"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-9.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]())",
+                            "k": "10",
+                            "v": "9"
+                        },
+                        "expected": "Cons[(BigInt, BigInt)]((4, 7), Cons[(BigInt, BigInt)]((10, 9), Nil[(BigInt, BigInt)]()))",
+                        "got": "Cons[(BigInt, BigInt)]((10, 9), Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]()))"
+                    },
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Cons[(BigInt, BigInt)]((4, 11), Nil[(BigInt, BigInt)]()))",
+                            "k": "4",
+                            "v": "9"
+                        },
+                        "expected": "Cons[(BigInt, BigInt)]((4, 9), Cons[(BigInt, BigInt)]((4, 11), Nil[(BigInt, BigInt)]()))",
+                        "got": "Cons[(BigInt, BigInt)]((4, 9), Nil[(BigInt, BigInt)]())"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-11.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "4",
+                            "v": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-15.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((6, 11), Cons[(BigInt, BigInt)]((6, 15), Nil[(BigInt, BigInt)]()))",
+                            "k": "6",
+                            "v": "13"
+                        },
+                        "expected": "Cons[(BigInt, BigInt)]((6, 13), Cons[(BigInt, BigInt)]((6, 15), Nil[(BigInt, BigInt)]()))",
+                        "got": "Cons[(BigInt, BigInt)]((6, 13), Cons[(BigInt, BigInt)]((6, 13), Nil[(BigInt, BigInt)]()))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-16.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "4",
+                            "v": "7"
+                        }
+                    },
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]())",
+                            "k": "8",
+                            "v": "11"
+                        }
+                    },
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Cons[(BigInt, BigInt)]((4, 11), Nil[(BigInt, BigInt)]()))",
+                            "k": "4",
+                            "v": "9"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-18.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Cons[(BigInt, BigInt)]((4, 11), Nil[(BigInt, BigInt)]()))",
+                            "k": "4",
+                            "v": "9"
+                        }
+                    },
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]())",
+                            "k": "8",
+                            "v": "11"
+                        }
+                    },
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "4",
+                            "v": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-19.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "8",
+                            "v": "11"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-20.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]())",
+                            "k": "8",
+                            "v": "11"
+                        },
+                        "expected": "Cons[(BigInt, BigInt)]((4, 7), Cons[(BigInt, BigInt)]((8, 11), Nil[(BigInt, BigInt)]()))",
+                        "got": "Cons[(BigInt, BigInt)]((8, 11), Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]()))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-22.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "12",
+                            "v": "9"
+                        },
+                        "expected": "Cons[(BigInt, BigInt)]((12, 9), Nil[(BigInt, BigInt)]())",
+                        "got": "Nil[(BigInt, BigInt)]()"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-24.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]())",
+                            "k": "16",
+                            "v": "9"
+                        }
+                    },
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Cons[(BigInt, BigInt)]((4, 11), Nil[(BigInt, BigInt)]()))",
+                            "k": "4",
+                            "v": "9"
+                        }
+                    },
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "12",
+                            "v": "9"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-27.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "4",
+                            "v": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-29.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "8",
+                            "v": "11"
+                        },
+                        "expected": "Cons[(BigInt, BigInt)]((8, 11), Nil[(BigInt, BigInt)]())",
+                        "got": "Nil[(BigInt, BigInt)]()"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-32.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((6, 11), Cons[(BigInt, BigInt)]((6, 15), Nil[(BigInt, BigInt)]()))",
+                            "k": "6",
+                            "v": "13"
+                        },
+                        "expected": "Cons[(BigInt, BigInt)]((6, 13), Cons[(BigInt, BigInt)]((6, 15), Nil[(BigInt, BigInt)]()))",
+                        "got": "Cons[(BigInt, BigInt)]((6, 13), Nil[(BigInt, BigInt)]())"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-33.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "12",
+                            "v": "9"
+                        }
+                    },
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]())",
+                            "k": "8",
+                            "v": "11"
+                        }
+                    },
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Cons[(BigInt, BigInt)]((4, 11), Nil[(BigInt, BigInt)]()))",
+                            "k": "4",
+                            "v": "9"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-35.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "8",
+                            "v": "11"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-37.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "10",
+                            "v": "9"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-38.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((6, 11), Cons[(BigInt, BigInt)]((6, 15), Nil[(BigInt, BigInt)]()))",
+                            "k": "6",
+                            "v": "13"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1Solution.update": 518,
+            "Assn1-2023-12.update": 0,
+            "Assn1-2023-13.update": 0,
+            "Assn1-2023-17.update": 0,
+            "Assn1-2023-23.update": 0,
+            "Assn1-2023-25.update": 0,
+            "Assn1-2023-26.update": 0,
+            "Assn1-2023-28.update": 0,
+            "Assn1-2023-3.update": 0,
+            "Assn1-2023-30.update": 0,
+            "Assn1-2023-31.update": 0,
+            "Assn1-2023-34.update": 0,
+            "Assn1-2023-36.update": 0,
+            "Assn1-2023-6.update": 0,
+            "Assn1-2023-7.update": 0,
+            "Assn1-2023-8.update": 0,
+            "Assn1-2023-10.update": -2
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-2.update"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-4.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((6, 5), Nil[(BigInt, BigInt)]())",
+                            "k": "6",
+                            "v": "9"
+                        }
+                    },
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]())",
+                            "k": "8",
+                            "v": "11"
+                        }
+                    },
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "8",
+                            "v": "11"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-9.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "8",
+                            "v": "11"
+                        },
+                        "expected": "Nil[(BigInt, BigInt)]()",
+                        "got": "Cons[(BigInt, BigInt)]((8, 11), Nil[(BigInt, BigInt)]())"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-11.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((6, 5), Cons[(BigInt, BigInt)]((6, 11), Nil[(BigInt, BigInt)]()))",
+                            "k": "6",
+                            "v": "9"
+                        },
+                        "expected": "Cons[(BigInt, BigInt)]((6, 9), Cons[(BigInt, BigInt)]((6, 9), Nil[(BigInt, BigInt)]()))",
+                        "got": "Cons[(BigInt, BigInt)]((6, 9), Cons[(BigInt, BigInt)]((6, 11), Nil[(BigInt, BigInt)]()))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-15.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "8",
+                            "v": "11"
+                        },
+                        "expected": "Nil[(BigInt, BigInt)]()",
+                        "got": "Cons[(BigInt, BigInt)]((8, 11), Nil[(BigInt, BigInt)]())"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-16.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "8",
+                            "v": "11"
+                        }
+                    },
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((6, 5), Nil[(BigInt, BigInt)]())",
+                            "k": "6",
+                            "v": "9"
+                        }
+                    },
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]())",
+                            "k": "8",
+                            "v": "11"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-18.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((6, 5), Nil[(BigInt, BigInt)]())",
+                            "k": "6",
+                            "v": "9"
+                        }
+                    },
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]())",
+                            "k": "8",
+                            "v": "11"
+                        }
+                    },
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "8",
+                            "v": "11"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-19.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((6, 5), Cons[(BigInt, BigInt)]((6, 11), Nil[(BigInt, BigInt)]()))",
+                            "k": "6",
+                            "v": "9"
+                        },
+                        "expected": "Cons[(BigInt, BigInt)]((6, 9), Cons[(BigInt, BigInt)]((6, 9), Nil[(BigInt, BigInt)]()))",
+                        "got": "Cons[(BigInt, BigInt)]((6, 9), Cons[(BigInt, BigInt)]((6, 11), Nil[(BigInt, BigInt)]()))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-20.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "8",
+                            "v": "11"
+                        },
+                        "expected": "Nil[(BigInt, BigInt)]()",
+                        "got": "Cons[(BigInt, BigInt)]((8, 11), Nil[(BigInt, BigInt)]())"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-22.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((6, 5), Cons[(BigInt, BigInt)]((6, 11), Nil[(BigInt, BigInt)]()))",
+                            "k": "6",
+                            "v": "9"
+                        },
+                        "expected": "Cons[(BigInt, BigInt)]((6, 9), Cons[(BigInt, BigInt)]((6, 9), Nil[(BigInt, BigInt)]()))",
+                        "got": "Cons[(BigInt, BigInt)]((6, 9), Cons[(BigInt, BigInt)]((6, 11), Nil[(BigInt, BigInt)]()))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-24.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((6, 5), Nil[(BigInt, BigInt)]())",
+                            "k": "6",
+                            "v": "9"
+                        }
+                    },
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]())",
+                            "k": "8",
+                            "v": "11"
+                        }
+                    },
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "4",
+                            "v": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-27.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "8",
+                            "v": "11"
+                        }
+                    },
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((6, 5), Cons[(BigInt, BigInt)]((6, 11), Nil[(BigInt, BigInt)]()))",
+                            "k": "6",
+                            "v": "9"
+                        },
+                        "expected": "Cons[(BigInt, BigInt)]((6, 9), Cons[(BigInt, BigInt)]((6, 9), Nil[(BigInt, BigInt)]()))",
+                        "got": "Cons[(BigInt, BigInt)]((6, 9), Cons[(BigInt, BigInt)]((6, 11), Nil[(BigInt, BigInt)]()))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-29.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((6, 5), Cons[(BigInt, BigInt)]((6, 11), Nil[(BigInt, BigInt)]()))",
+                            "k": "6",
+                            "v": "9"
+                        },
+                        "expected": "Cons[(BigInt, BigInt)]((6, 9), Cons[(BigInt, BigInt)]((6, 9), Nil[(BigInt, BigInt)]()))",
+                        "got": "Cons[(BigInt, BigInt)]((6, 9), Cons[(BigInt, BigInt)]((6, 11), Nil[(BigInt, BigInt)]()))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-32.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "8",
+                            "v": "11"
+                        },
+                        "expected": "Nil[(BigInt, BigInt)]()",
+                        "got": "Cons[(BigInt, BigInt)]((8, 11), Nil[(BigInt, BigInt)]())"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-33.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]())",
+                            "k": "8",
+                            "v": "11"
+                        }
+                    },
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((6, 5), Nil[(BigInt, BigInt)]())",
+                            "k": "6",
+                            "v": "9"
+                        }
+                    },
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "4",
+                            "v": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-35.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((6, 5), Cons[(BigInt, BigInt)]((6, 11), Nil[(BigInt, BigInt)]()))",
+                            "k": "6",
+                            "v": "9"
+                        },
+                        "expected": "Cons[(BigInt, BigInt)]((6, 9), Cons[(BigInt, BigInt)]((6, 9), Nil[(BigInt, BigInt)]()))",
+                        "got": "Cons[(BigInt, BigInt)]((6, 9), Cons[(BigInt, BigInt)]((6, 11), Nil[(BigInt, BigInt)]()))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-37.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((6, 5), Cons[(BigInt, BigInt)]((6, 11), Nil[(BigInt, BigInt)]()))",
+                            "k": "6",
+                            "v": "9"
+                        },
+                        "expected": "Cons[(BigInt, BigInt)]((6, 9), Cons[(BigInt, BigInt)]((6, 9), Nil[(BigInt, BigInt)]()))",
+                        "got": "Cons[(BigInt, BigInt)]((6, 9), Cons[(BigInt, BigInt)]((6, 11), Nil[(BigInt, BigInt)]()))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-38.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "8",
+                            "v": "11"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-2.update": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-4.update"
+                ],
+                "functions": [
+                    "Assn1-2023-16.update",
+                    "Assn1-2023-18.update",
+                    "Assn1-2023-24.update",
+                    "Assn1-2023-33.update"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-9.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "4",
+                            "v": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-11.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Cons[(BigInt, BigInt)]((4, 11), Nil[(BigInt, BigInt)]()))",
+                            "k": "4",
+                            "v": "9"
+                        }
+                    },
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]())",
+                            "k": "8",
+                            "v": "11"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-15.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]())",
+                            "k": "8",
+                            "v": "11"
+                        }
+                    },
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "4",
+                            "v": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-19.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]())",
+                            "k": "8",
+                            "v": "11"
+                        }
+                    },
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Cons[(BigInt, BigInt)]((4, 11), Nil[(BigInt, BigInt)]()))",
+                            "k": "4",
+                            "v": "9"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-20.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "4",
+                            "v": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-22.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "8",
+                            "v": "11"
+                        }
+                    },
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Cons[(BigInt, BigInt)]((4, 11), Nil[(BigInt, BigInt)]()))",
+                            "k": "4",
+                            "v": "9"
+                        }
+                    },
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]())",
+                            "k": "8",
+                            "v": "11"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-27.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]())",
+                            "k": "10",
+                            "v": "13"
+                        }
+                    },
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Cons[(BigInt, BigInt)]((4, 11), Nil[(BigInt, BigInt)]()))",
+                            "k": "4",
+                            "v": "9"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-29.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Cons[(BigInt, BigInt)]((4, 11), Nil[(BigInt, BigInt)]()))",
+                            "k": "4",
+                            "v": "9"
+                        }
+                    },
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "18",
+                            "v": "9"
+                        }
+                    },
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]())",
+                            "k": "14",
+                            "v": "9"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-32.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "6",
+                            "v": "9"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-35.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]())",
+                            "k": "14",
+                            "v": "9"
+                        }
+                    },
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Cons[(BigInt, BigInt)]((4, 11), Nil[(BigInt, BigInt)]()))",
+                            "k": "4",
+                            "v": "9"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-37.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((10, 9), Nil[(BigInt, BigInt)]())",
+                            "k": "10",
+                            "v": "21"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-38.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((12, 15), Nil[(BigInt, BigInt)]())",
+                            "k": "12",
+                            "v": "11"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-4.update": 280,
+            "Assn1-2023-16.update": 0,
+            "Assn1-2023-18.update": 0,
+            "Assn1-2023-24.update": 0,
+            "Assn1-2023-33.update": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-9.update"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-11.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Cons[(BigInt, BigInt)]((4, 11), Nil[(BigInt, BigInt)]()))",
+                            "k": "4",
+                            "v": "9"
+                        },
+                        "expected": "Cons[(BigInt, BigInt)]((4, 9), Nil[(BigInt, BigInt)]())",
+                        "got": "Cons[(BigInt, BigInt)]((4, 9), Cons[(BigInt, BigInt)]((4, 11), Nil[(BigInt, BigInt)]()))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-15.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]())",
+                            "k": "8",
+                            "v": "11"
+                        },
+                        "expected": "Cons[(BigInt, BigInt)]((8, 11), Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]()))",
+                        "got": "Cons[(BigInt, BigInt)]((4, 7), Cons[(BigInt, BigInt)]((8, 11), Nil[(BigInt, BigInt)]()))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-19.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Cons[(BigInt, BigInt)]((4, 11), Nil[(BigInt, BigInt)]()))",
+                            "k": "4",
+                            "v": "9"
+                        },
+                        "expected": "Cons[(BigInt, BigInt)]((4, 9), Nil[(BigInt, BigInt)]())",
+                        "got": "Cons[(BigInt, BigInt)]((4, 9), Cons[(BigInt, BigInt)]((4, 11), Nil[(BigInt, BigInt)]()))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-22.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((10, 13), Cons[(BigInt, BigInt)]((26, 29), Nil[(BigInt, BigInt)]()))",
+                            "k": "26",
+                            "v": "23"
+                        },
+                        "expected": "Cons[(BigInt, BigInt)]((26, 23), Cons[(BigInt, BigInt)]((10, 13), Nil[(BigInt, BigInt)]()))",
+                        "got": "Cons[(BigInt, BigInt)]((10, 13), Cons[(BigInt, BigInt)]((26, 23), Nil[(BigInt, BigInt)]()))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-27.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "4",
+                            "v": "7"
+                        }
+                    },
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Cons[(BigInt, BigInt)]((4, 11), Nil[(BigInt, BigInt)]()))",
+                            "k": "4",
+                            "v": "9"
+                        },
+                        "expected": "Cons[(BigInt, BigInt)]((4, 9), Nil[(BigInt, BigInt)]())",
+                        "got": "Cons[(BigInt, BigInt)]((4, 9), Cons[(BigInt, BigInt)]((4, 11), Nil[(BigInt, BigInt)]()))"
+                    },
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]())",
+                            "k": "8",
+                            "v": "11"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-29.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]())",
+                            "k": "8",
+                            "v": "11"
+                        },
+                        "expected": "Cons[(BigInt, BigInt)]((8, 11), Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]()))",
+                        "got": "Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]())"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-35.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((10, 13), Cons[(BigInt, BigInt)]((26, 29), Nil[(BigInt, BigInt)]()))",
+                            "k": "26",
+                            "v": "23"
+                        },
+                        "expected": "Cons[(BigInt, BigInt)]((26, 23), Cons[(BigInt, BigInt)]((10, 13), Nil[(BigInt, BigInt)]()))",
+                        "got": "Cons[(BigInt, BigInt)]((10, 13), Cons[(BigInt, BigInt)]((26, 23), Nil[(BigInt, BigInt)]()))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-37.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]())",
+                            "k": "8",
+                            "v": "11"
+                        },
+                        "expected": "Cons[(BigInt, BigInt)]((8, 11), Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]()))",
+                        "got": "Cons[(BigInt, BigInt)]((4, 7), Cons[(BigInt, BigInt)]((8, 11), Nil[(BigInt, BigInt)]()))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-38.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((10, 13), Cons[(BigInt, BigInt)]((26, 29), Nil[(BigInt, BigInt)]()))",
+                            "k": "26",
+                            "v": "23"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [
+            "Assn1-2023-20.update",
+            "Assn1-2023-32.update"
+        ],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-9.update": 196
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-11.update"
+                ],
+                "functions": [
+                    "Assn1-2023-19.update",
+                    "Assn1-2023-27.update",
+                    "Assn1-2023-35.update"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-15.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "4",
+                            "v": "7"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-20.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "8",
+                            "v": "11"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-22.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "8",
+                            "v": "11"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-29.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "10",
+                            "v": "9"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-32.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((38, 9), Cons[(BigInt, BigInt)]((38, 13), Nil[(BigInt, BigInt)]()))",
+                            "k": "38",
+                            "v": "11"
+                        },
+                        "expected": "Cons[(BigInt, BigInt)]((38, 11), Cons[(BigInt, BigInt)]((38, 13), Nil[(BigInt, BigInt)]()))",
+                        "got": "Cons[(BigInt, BigInt)]((38, 11), Nil[(BigInt, BigInt)]())"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-38.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "12",
+                            "v": "7"
+                        }
+                    },
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((38, 9), Cons[(BigInt, BigInt)]((38, 13), Nil[(BigInt, BigInt)]()))",
+                            "k": "38",
+                            "v": "11"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [
+            "Assn1-2023-37.update"
+        ],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-11.update": 258,
+            "Assn1-2023-19.update": -2,
+            "Assn1-2023-27.update": -2,
+            "Assn1-2023-35.update": -2
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-15.update"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-20.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((6, 9), Nil[(BigInt, BigInt)]())",
+                            "k": "290",
+                            "v": "11"
+                        },
+                        "expected": "Cons[(BigInt, BigInt)]((6, 9), Cons[(BigInt, BigInt)]((290, 11), Nil[(BigInt, BigInt)]()))",
+                        "got": "Cons[(BigInt, BigInt)]((290, 11), Cons[(BigInt, BigInt)]((6, 9), Nil[(BigInt, BigInt)]()))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-22.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((6, 9), Nil[(BigInt, BigInt)]())",
+                            "k": "290",
+                            "v": "11"
+                        },
+                        "expected": "Cons[(BigInt, BigInt)]((6, 9), Cons[(BigInt, BigInt)]((290, 11), Nil[(BigInt, BigInt)]()))",
+                        "got": "Cons[(BigInt, BigInt)]((6, 9), Nil[(BigInt, BigInt)]())"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-29.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "4",
+                            "v": "7"
+                        },
+                        "expected": "Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]())",
+                        "got": "Nil[(BigInt, BigInt)]()"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-32.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((6, 9), Nil[(BigInt, BigInt)]())",
+                            "k": "290",
+                            "v": "11"
+                        },
+                        "expected": "Cons[(BigInt, BigInt)]((6, 9), Cons[(BigInt, BigInt)]((290, 11), Nil[(BigInt, BigInt)]()))",
+                        "got": "Cons[(BigInt, BigInt)]((290, 11), Cons[(BigInt, BigInt)]((6, 9), Nil[(BigInt, BigInt)]()))"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-37.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "4",
+                            "v": "7"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [
+            "Assn1-2023-38.update"
+        ],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-15.update": 196
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-20.update"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-22.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "4",
+                            "v": "7"
+                        },
+                        "expected": "Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]())",
+                        "got": "Nil[(BigInt, BigInt)]()"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-29.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "4",
+                            "v": "7"
+                        },
+                        "expected": "Cons[(BigInt, BigInt)]((4, 7), Nil[(BigInt, BigInt)]())",
+                        "got": "Nil[(BigInt, BigInt)]()"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-37.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "12",
+                            "v": "15"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [
+            "Assn1-2023-32.update",
+            "Assn1-2023-38.update"
+        ],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-20.update": 196
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-22.update"
+                ],
+                "functions": [
+                    "Assn1-2023-29.update"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-32.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((8, 11), Cons[(BigInt, BigInt)]((8, 17), Nil[(BigInt, BigInt)]()))",
+                            "k": "8",
+                            "v": "13"
+                        },
+                        "expected": "Cons[(BigInt, BigInt)]((8, 13), Cons[(BigInt, BigInt)]((8, 17), Nil[(BigInt, BigInt)]()))",
+                        "got": "Cons[(BigInt, BigInt)]((8, 13), Nil[(BigInt, BigInt)]())"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-37.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "10",
+                            "v": "9"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-38.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "4",
+                            "v": "9"
+                        }
+                    },
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((8, 11), Cons[(BigInt, BigInt)]((8, 17), Nil[(BigInt, BigInt)]()))",
+                            "k": "8",
+                            "v": "13"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-22.update": 220,
+            "Assn1-2023-29.update": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-32.update"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-37.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "6",
+                            "v": "5"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-38.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((14, 11), Cons[(BigInt, BigInt)]((20, 23), Nil[(BigInt, BigInt)]()))",
+                            "k": "20",
+                            "v": "9"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-32.update": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-37.update"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-38.update",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Nil[(BigInt, BigInt)]()",
+                            "k": "16",
+                            "v": "13"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-37.update": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "models": [
+                    "Assn1-2023-38.update"
+                ],
+                "functions": []
+            }
+        ]
+    }
+]

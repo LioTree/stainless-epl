@@ -1,0 +1,157 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2Solution_fixed.eval_First"
+                ],
+                "functions": [
+                    "Assn2-2023-10.eval_First",
+                    "Assn2-2023-12.eval_First",
+                    "Assn2-2023-13.eval_First",
+                    "Assn2-2023-14.eval_First",
+                    "Assn2-2023-15.eval_First",
+                    "Assn2-2023-16.eval_First",
+                    "Assn2-2023-17.eval_First",
+                    "Assn2-2023-19.eval_First",
+                    "Assn2-2023-20.eval_First",
+                    "Assn2-2023-21.eval_First",
+                    "Assn2-2023-23.eval_First",
+                    "Assn2-2023-24.eval_First",
+                    "Assn2-2023-25.eval_First",
+                    "Assn2-2023-26.eval_First",
+                    "Assn2-2023-27.eval_First",
+                    "Assn2-2023-28.eval_First",
+                    "Assn2-2023-3.eval_First",
+                    "Assn2-2023-4.eval_First",
+                    "Assn2-2023-5.eval_First",
+                    "Assn2-2023-6.eval_First",
+                    "Assn2-2023-7.eval_First",
+                    "Assn2-2023-9.eval_First"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-11.eval_First",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{* -> None[FakeValue]()}",
+                            "e": "First(Pair(Var(5), Var(6)))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-29.eval_First",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{* -> None[FakeValue]()}",
+                            "e": "First(Var(5))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [
+            {
+                "function": "Assn2-2023-8.eval_First",
+                "self": [
+                    {
+                        "kind": "body assertion: Choose satisfiability",
+                        "position": "166:14",
+                        "ctex": {
+                            "args": {
+                                "env": "{* -> None[FakeValue]()}",
+                                "e": "First(Var(2))"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn2-2023-18.eval_First",
+                "self": [
+                    {
+                        "kind": "precond. (call get[FakeValue](env((scrut.x): @DropVC...)",
+                        "position": "157:43",
+                        "ctex": {
+                            "args": {
+                                "env": "{* -> None[FakeValue]()}",
+                                "e": "First(Var(2))"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "body assertion: Choose satisfiability",
+                        "position": "158:35",
+                        "ctex": {
+                            "args": {
+                                "env": "{* -> None[FakeValue]()}",
+                                "e": "First(Var(2))"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            }
+        ],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2Solution_fixed.eval_First": 640,
+            "Assn2-2023-10.eval_First": 0,
+            "Assn2-2023-12.eval_First": 0,
+            "Assn2-2023-13.eval_First": 0,
+            "Assn2-2023-14.eval_First": 0,
+            "Assn2-2023-15.eval_First": 0,
+            "Assn2-2023-16.eval_First": 0,
+            "Assn2-2023-17.eval_First": 0,
+            "Assn2-2023-19.eval_First": 0,
+            "Assn2-2023-20.eval_First": 0,
+            "Assn2-2023-21.eval_First": 0,
+            "Assn2-2023-23.eval_First": 0,
+            "Assn2-2023-24.eval_First": 0,
+            "Assn2-2023-25.eval_First": 0,
+            "Assn2-2023-26.eval_First": 0,
+            "Assn2-2023-27.eval_First": 0,
+            "Assn2-2023-28.eval_First": 0,
+            "Assn2-2023-3.eval_First": 0,
+            "Assn2-2023-4.eval_First": 0,
+            "Assn2-2023-5.eval_First": 0,
+            "Assn2-2023-6.eval_First": 0,
+            "Assn2-2023-7.eval_First": 0,
+            "Assn2-2023-9.eval_First": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-11.eval_First"
+                ],
+                "functions": [
+                    "Assn2-2023-29.eval_First"
+                ]
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-11.eval_First": 220,
+            "Assn2-2023-29.eval_First": 0
+        }
+    },
+    {
+        "equivalent": [{"specific function not found": [ 
+            "Assn2-2023-30.eval_First"
+         ] }]
+    }
+]

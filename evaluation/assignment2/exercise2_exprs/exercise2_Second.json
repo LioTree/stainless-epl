@@ -1,0 +1,157 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2Solution_fixed.eval_Second"
+                ],
+                "functions": [
+                    "Assn2-2023-10.eval_Second",
+                    "Assn2-2023-12.eval_Second",
+                    "Assn2-2023-13.eval_Second",
+                    "Assn2-2023-14.eval_Second",
+                    "Assn2-2023-15.eval_Second",
+                    "Assn2-2023-16.eval_Second",
+                    "Assn2-2023-17.eval_Second",
+                    "Assn2-2023-19.eval_Second",
+                    "Assn2-2023-20.eval_Second",
+                    "Assn2-2023-21.eval_Second",
+                    "Assn2-2023-23.eval_Second",
+                    "Assn2-2023-24.eval_Second",
+                    "Assn2-2023-25.eval_Second",
+                    "Assn2-2023-26.eval_Second",
+                    "Assn2-2023-27.eval_Second",
+                    "Assn2-2023-28.eval_Second",
+                    "Assn2-2023-3.eval_Second",
+                    "Assn2-2023-4.eval_Second",
+                    "Assn2-2023-5.eval_Second",
+                    "Assn2-2023-6.eval_Second",
+                    "Assn2-2023-7.eval_Second",
+                    "Assn2-2023-9.eval_Second"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-11.eval_Second",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{* -> None[FakeValue]()}",
+                            "e": "Second(Pair(Var(6), Var(5)))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-29.eval_Second",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{* -> None[FakeValue]()}",
+                            "e": "Second(Pair(Var(6), Var(5)))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [
+            {
+                "function": "Assn2-2023-8.eval_Second",
+                "self": [
+                    {
+                        "kind": "body assertion: Choose satisfiability",
+                        "position": "173:14",
+                        "ctex": {
+                            "args": {
+                                "env": "{* -> None[FakeValue]()}",
+                                "e": "Second(Var(2))"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn2-2023-18.eval_Second",
+                "self": [
+                    {
+                        "kind": "body assertion: Choose satisfiability",
+                        "position": "165:35",
+                        "ctex": {
+                            "args": {
+                                "env": "{* -> None[FakeValue]()}",
+                                "e": "Second(Var(2))"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "precond. (call get[FakeValue](env((scrut.x): @DropVC...)",
+                        "position": "164:43",
+                        "ctex": {
+                            "args": {
+                                "env": "{* -> None[FakeValue]()}",
+                                "e": "Second(Var(2))"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            }
+        ],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2Solution_fixed.eval_Second": 640,
+            "Assn2-2023-10.eval_Second": 0,
+            "Assn2-2023-12.eval_Second": 0,
+            "Assn2-2023-13.eval_Second": 0,
+            "Assn2-2023-14.eval_Second": 0,
+            "Assn2-2023-15.eval_Second": 0,
+            "Assn2-2023-16.eval_Second": 0,
+            "Assn2-2023-17.eval_Second": 0,
+            "Assn2-2023-19.eval_Second": 0,
+            "Assn2-2023-20.eval_Second": 0,
+            "Assn2-2023-21.eval_Second": 0,
+            "Assn2-2023-23.eval_Second": 0,
+            "Assn2-2023-24.eval_Second": 0,
+            "Assn2-2023-25.eval_Second": 0,
+            "Assn2-2023-26.eval_Second": 0,
+            "Assn2-2023-27.eval_Second": 0,
+            "Assn2-2023-28.eval_Second": 0,
+            "Assn2-2023-3.eval_Second": 0,
+            "Assn2-2023-4.eval_Second": 0,
+            "Assn2-2023-5.eval_Second": 0,
+            "Assn2-2023-6.eval_Second": 0,
+            "Assn2-2023-7.eval_Second": 0,
+            "Assn2-2023-9.eval_Second": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-11.eval_Second"
+                ],
+                "functions": [
+                    "Assn2-2023-29.eval_Second"
+                ]
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-11.eval_Second": 220,
+            "Assn2-2023-29.eval_Second": 0
+        }
+    },
+    {
+        "equivalent": [{"specific function not found": [ 
+            "Assn2-2023-30.eval_Second"
+         ] }]
+    }
+]

@@ -1,0 +1,644 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1Solution.election"
+                ],
+                "functions": [
+                    "Assn1-2023-11.election",
+                    "Assn1-2023-12.election",
+                    "Assn1-2023-13.election",
+                    "Assn1-2023-14.election",
+                    "Assn1-2023-19.election",
+                    "Assn1-2023-20.election",
+                    "Assn1-2023-23.election",
+                    "Assn1-2023-3.election",
+                    "Assn1-2023-30.election",
+                    "Assn1-2023-31.election",
+                    "Assn1-2023-32.election",
+                    "Assn1-2023-34.election",
+                    "Assn1-2023-8.election",
+                    "Assn1-2023-9.election"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-2.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Cons[StringWrapper](StringWrapper(\"\"), Cons[StringWrapper](StringWrapper(\"\"), Nil[StringWrapper]()))"
+                        },
+                        "expected": "{StringWrapper(\"\") -> Some[OverflowInt](OverflowInt(2)), * -> None[OverflowInt]()}",
+                        "got": "{StringWrapper(\"\") -> Some[OverflowInt](OverflowInt(1)), * -> None[OverflowInt]()}"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-16.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Cons[StringWrapper](StringWrapper(\"\"), Nil[StringWrapper]())"
+                        }
+                    },
+                    {
+                        "args": {
+                            "votes": "Nil[StringWrapper]()"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-18.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Nil[StringWrapper]()"
+                        }
+                    },
+                    {
+                        "args": {
+                            "votes": "Cons[StringWrapper](StringWrapper(\"\"), Nil[StringWrapper]())"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-24.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Cons[StringWrapper](StringWrapper(\"\"), Nil[StringWrapper]())"
+                        }
+                    },
+                    {
+                        "args": {
+                            "votes": "Nil[StringWrapper]()"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-28.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Cons[StringWrapper](StringWrapper(\"\"), Nil[StringWrapper]())"
+                        }
+                    },
+                    {
+                        "args": {
+                            "votes": "Nil[StringWrapper]()"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-33.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Nil[StringWrapper]()"
+                        }
+                    },
+                    {
+                        "args": {
+                            "votes": "Cons[StringWrapper](StringWrapper(\"\"), Nil[StringWrapper]())"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-38.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Nil[StringWrapper]()"
+                        }
+                    },
+                    {
+                        "args": {
+                            "votes": "Cons[StringWrapper](StringWrapper(\"\"), Nil[StringWrapper]())"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [
+            "Assn1-2023-1.election",
+            "Assn1-2023-21.election",
+            "Assn1-2023-26.election",
+            "Assn1-2023-27.election",
+            "Assn1-2023-35.election",
+            "Assn1-2023-37.election",
+            "Assn1-2023-5.election",
+            "Assn1-2023-6.election",
+            "Assn1-2023-7.election"
+        ],
+        "wrong": [],
+        "weights": {
+            "Assn1Solution.election": 462,
+            "Assn1-2023-11.election": -6,
+            "Assn1-2023-12.election": -6,
+            "Assn1-2023-13.election": -6,
+            "Assn1-2023-14.election": -6,
+            "Assn1-2023-20.election": -6,
+            "Assn1-2023-23.election": -6,
+            "Assn1-2023-3.election": -6,
+            "Assn1-2023-31.election": -6,
+            "Assn1-2023-34.election": -6,
+            "Assn1-2023-8.election": -6,
+            "Assn1-2023-9.election": -6,
+            "Assn1-2023-19.election": -8,
+            "Assn1-2023-30.election": -8,
+            "Assn1-2023-32.election": -8
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-2.election"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-1.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Cons[StringWrapper](StringWrapper(\"\"), Cons[StringWrapper](StringWrapper(\"\"), Nil[StringWrapper]()))"
+                        },
+                        "expected": "{StringWrapper(\"\") -> Some[OverflowInt](OverflowInt(1)), * -> None[OverflowInt]()}",
+                        "got": "{StringWrapper(\"\") -> Some[OverflowInt](OverflowInt(2)), * -> None[OverflowInt]()}"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-5.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Cons[StringWrapper](StringWrapper(\"\"), Cons[StringWrapper](StringWrapper(\"\"), Nil[StringWrapper]()))"
+                        },
+                        "expected": "{StringWrapper(\"\") -> Some[OverflowInt](OverflowInt(1)), * -> None[OverflowInt]()}",
+                        "got": "{StringWrapper(\"\") -> Some[OverflowInt](OverflowInt(2)), * -> None[OverflowInt]()}"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-6.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Cons[StringWrapper](StringWrapper(\"\"), Cons[StringWrapper](StringWrapper(\"\"), Nil[StringWrapper]()))"
+                        },
+                        "expected": "{StringWrapper(\"\") -> Some[OverflowInt](OverflowInt(1)), * -> None[OverflowInt]()}",
+                        "got": "{StringWrapper(\"\") -> Some[OverflowInt](OverflowInt(2)), * -> None[OverflowInt]()}"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-7.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Cons[StringWrapper](StringWrapper(\"\"), Cons[StringWrapper](StringWrapper(\"\"), Nil[StringWrapper]()))"
+                        },
+                        "expected": "{StringWrapper(\"\") -> Some[OverflowInt](OverflowInt(1)), * -> None[OverflowInt]()}",
+                        "got": "{StringWrapper(\"\") -> Some[OverflowInt](OverflowInt(2)), * -> None[OverflowInt]()}"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-16.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Cons[StringWrapper](StringWrapper(\"\"), Nil[StringWrapper]())"
+                        }
+                    },
+                    {
+                        "args": {
+                            "votes": "Nil[StringWrapper]()"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-18.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Cons[StringWrapper](StringWrapper(\"\"), Nil[StringWrapper]())"
+                        }
+                    },
+                    {
+                        "args": {
+                            "votes": "Nil[StringWrapper]()"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-21.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Cons[StringWrapper](StringWrapper(\"\"), Cons[StringWrapper](StringWrapper(\"\"), Nil[StringWrapper]()))"
+                        },
+                        "expected": "{StringWrapper(\"\") -> Some[OverflowInt](OverflowInt(1)), * -> None[OverflowInt]()}",
+                        "got": "{StringWrapper(\"\") -> Some[OverflowInt](OverflowInt(2)), * -> None[OverflowInt]()}"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-24.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Nil[StringWrapper]()"
+                        }
+                    },
+                    {
+                        "args": {
+                            "votes": "Cons[StringWrapper](StringWrapper(\"\"), Nil[StringWrapper]())"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-26.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Cons[StringWrapper](StringWrapper(\"\"), Cons[StringWrapper](StringWrapper(\"\"), Nil[StringWrapper]()))"
+                        },
+                        "expected": "{StringWrapper(\"\") -> Some[OverflowInt](OverflowInt(1)), * -> None[OverflowInt]()}",
+                        "got": "{StringWrapper(\"\") -> Some[OverflowInt](OverflowInt(2)), * -> None[OverflowInt]()}"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-27.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Cons[StringWrapper](StringWrapper(\"\"), Cons[StringWrapper](StringWrapper(\"\"), Nil[StringWrapper]()))"
+                        },
+                        "expected": "{StringWrapper(\"\") -> Some[OverflowInt](OverflowInt(1)), * -> None[OverflowInt]()}",
+                        "got": "{StringWrapper(\"\") -> Some[OverflowInt](OverflowInt(2)), * -> None[OverflowInt]()}"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-28.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Nil[StringWrapper]()"
+                        }
+                    },
+                    {
+                        "args": {
+                            "votes": "Cons[StringWrapper](StringWrapper(\"\"), Nil[StringWrapper]())"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-33.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Cons[StringWrapper](StringWrapper(\"\"), Nil[StringWrapper]())"
+                        }
+                    },
+                    {
+                        "args": {
+                            "votes": "Nil[StringWrapper]()"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-35.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Cons[StringWrapper](StringWrapper(\"\"), Cons[StringWrapper](StringWrapper(\"\"), Nil[StringWrapper]()))"
+                        },
+                        "expected": "{StringWrapper(\"\") -> Some[OverflowInt](OverflowInt(1)), * -> None[OverflowInt]()}",
+                        "got": "{StringWrapper(\"\") -> Some[OverflowInt](OverflowInt(2)), * -> None[OverflowInt]()}"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-37.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Cons[StringWrapper](StringWrapper(\"\"), Cons[StringWrapper](StringWrapper(\"\"), Nil[StringWrapper]()))"
+                        },
+                        "expected": "{StringWrapper(\"\") -> Some[OverflowInt](OverflowInt(1)), * -> None[OverflowInt]()}",
+                        "got": "{StringWrapper(\"\") -> Some[OverflowInt](OverflowInt(2)), * -> None[OverflowInt]()}"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-38.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Cons[StringWrapper](StringWrapper(\"\"), Nil[StringWrapper]())"
+                        }
+                    },
+                    {
+                        "args": {
+                            "votes": "Nil[StringWrapper]()"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-2.election": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-1.election"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-16.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Nil[StringWrapper]()"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-18.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Nil[StringWrapper]()"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-24.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Nil[StringWrapper]()"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-28.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Nil[StringWrapper]()"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-33.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Nil[StringWrapper]()"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-38.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Nil[StringWrapper]()"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [
+            "Assn1-2023-21.election",
+            "Assn1-2023-26.election",
+            "Assn1-2023-27.election",
+            "Assn1-2023-35.election",
+            "Assn1-2023-37.election",
+            "Assn1-2023-5.election",
+            "Assn1-2023-6.election",
+            "Assn1-2023-7.election"
+        ],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-1.election": 184
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-16.election"
+                ],
+                "functions": [
+                    "Assn1-2023-18.election",
+                    "Assn1-2023-24.election",
+                    "Assn1-2023-28.election",
+                    "Assn1-2023-33.election",
+                    "Assn1-2023-38.election"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-5.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Cons[StringWrapper](StringWrapper(\"\"), Nil[StringWrapper]())"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-6.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Nil[StringWrapper]()"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-7.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Cons[StringWrapper](StringWrapper(\"\"), Nil[StringWrapper]())"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-21.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Cons[StringWrapper](StringWrapper(\"\"), Nil[StringWrapper]())"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-26.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Cons[StringWrapper](StringWrapper(\"\"), Nil[StringWrapper]())"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-27.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Cons[StringWrapper](StringWrapper(\"\"), Nil[StringWrapper]())"
+                        }
+                    },
+                    {
+                        "args": {
+                            "votes": "Nil[StringWrapper]()"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-35.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Cons[StringWrapper](StringWrapper(\"\"), Nil[StringWrapper]())"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-37.election",
+                "ctexs": [
+                    {
+                        "args": {
+                            "votes": "Cons[StringWrapper](StringWrapper(\"\"), Nil[StringWrapper]())"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-16.election": 300,
+            "Assn1-2023-18.election": 0,
+            "Assn1-2023-24.election": 0,
+            "Assn1-2023-28.election": 0,
+            "Assn1-2023-33.election": 0,
+            "Assn1-2023-38.election": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-5.election"
+                ],
+                "functions": [
+                    "Assn1-2023-26.election",
+                    "Assn1-2023-35.election",
+                    "Assn1-2023-37.election",
+                    "Assn1-2023-6.election",
+                    "Assn1-2023-7.election"
+                ]
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [
+            "Assn1-2023-21.election",
+            "Assn1-2023-27.election"
+        ],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-5.election": 285,
+            "Assn1-2023-26.election": -4,
+            "Assn1-2023-35.election": -4,
+            "Assn1-2023-37.election": -4,
+            "Assn1-2023-6.election": -4,
+            "Assn1-2023-7.election": -4
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-21.election"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [
+            "Assn1-2023-27.election"
+        ],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-21.election": 198
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "models": [
+                    "Assn1-2023-27.election"
+                ],
+                "functions": []
+            }
+        ]
+    }
+]

@@ -1,0 +1,78 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2Solution_fixed.eval_Pair"
+                ],
+                "functions": [
+                    "Assn2-2023-10.eval_Pair",
+                    "Assn2-2023-11.eval_Pair",
+                    "Assn2-2023-12.eval_Pair",
+                    "Assn2-2023-13.eval_Pair",
+                    "Assn2-2023-14.eval_Pair",
+                    "Assn2-2023-15.eval_Pair",
+                    "Assn2-2023-16.eval_Pair",
+                    "Assn2-2023-17.eval_Pair",
+                    "Assn2-2023-18.eval_Pair",
+                    "Assn2-2023-19.eval_Pair",
+                    "Assn2-2023-20.eval_Pair",
+                    "Assn2-2023-21.eval_Pair",
+                    "Assn2-2023-23.eval_Pair",
+                    "Assn2-2023-24.eval_Pair",
+                    "Assn2-2023-25.eval_Pair",
+                    "Assn2-2023-26.eval_Pair",
+                    "Assn2-2023-27.eval_Pair",
+                    "Assn2-2023-28.eval_Pair",
+                    "Assn2-2023-29.eval_Pair",
+                    "Assn2-2023-3.eval_Pair",
+                    "Assn2-2023-4.eval_Pair",
+                    "Assn2-2023-5.eval_Pair",
+                    "Assn2-2023-6.eval_Pair",
+                    "Assn2-2023-7.eval_Pair",
+                    "Assn2-2023-8.eval_Pair",
+                    "Assn2-2023-9.eval_Pair"
+                ]
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2Solution_fixed.eval_Pair": 720,
+            "Assn2-2023-10.eval_Pair": 0,
+            "Assn2-2023-11.eval_Pair": 0,
+            "Assn2-2023-12.eval_Pair": 0,
+            "Assn2-2023-13.eval_Pair": 0,
+            "Assn2-2023-14.eval_Pair": 0,
+            "Assn2-2023-15.eval_Pair": 0,
+            "Assn2-2023-16.eval_Pair": 0,
+            "Assn2-2023-17.eval_Pair": 0,
+            "Assn2-2023-18.eval_Pair": 0,
+            "Assn2-2023-19.eval_Pair": 0,
+            "Assn2-2023-20.eval_Pair": 0,
+            "Assn2-2023-21.eval_Pair": 0,
+            "Assn2-2023-23.eval_Pair": 0,
+            "Assn2-2023-24.eval_Pair": 0,
+            "Assn2-2023-25.eval_Pair": 0,
+            "Assn2-2023-26.eval_Pair": 0,
+            "Assn2-2023-27.eval_Pair": 0,
+            "Assn2-2023-28.eval_Pair": 0,
+            "Assn2-2023-29.eval_Pair": 0,
+            "Assn2-2023-3.eval_Pair": 0,
+            "Assn2-2023-4.eval_Pair": 0,
+            "Assn2-2023-5.eval_Pair": 0,
+            "Assn2-2023-6.eval_Pair": 0,
+            "Assn2-2023-7.eval_Pair": 0,
+            "Assn2-2023-8.eval_Pair": 0,
+            "Assn2-2023-9.eval_Pair": 0
+        }
+    },
+    {
+        "equivalent": [{"specific function not found": [ 
+            "Assn2-2023-30.eval_Pair"
+         ] }]
+    }
+]

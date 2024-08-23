@@ -1,0 +1,68 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2Solution_fixed.tyOf_Var"
+                ],
+                "functions": [
+                    "Assn2-2023-11.tyOf_Var",
+                    "Assn2-2023-12.tyOf_Var",
+                    "Assn2-2023-14.tyOf_Var",
+                    "Assn2-2023-15.tyOf_Var",
+                    "Assn2-2023-16.tyOf_Var",
+                    "Assn2-2023-17.tyOf_Var",
+                    "Assn2-2023-19.tyOf_Var",
+                    "Assn2-2023-2.tyOf_Var",
+                    "Assn2-2023-23.tyOf_Var",
+                    "Assn2-2023-24.tyOf_Var",
+                    "Assn2-2023-25.tyOf_Var",
+                    "Assn2-2023-26.tyOf_Var",
+                    "Assn2-2023-27.tyOf_Var",
+                    "Assn2-2023-28.tyOf_Var",
+                    "Assn2-2023-29.tyOf_Var",
+                    "Assn2-2023-3.tyOf_Var",
+                    "Assn2-2023-4.tyOf_Var",
+                    "Assn2-2023-5.tyOf_Var",
+                    "Assn2-2023-6.tyOf_Var",
+                    "Assn2-2023-8.tyOf_Var",
+                    "Assn2-2023-9.tyOf_Var"
+                ]
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2Solution_fixed.tyOf_Var": 620,
+            "Assn2-2023-11.tyOf_Var": 0,
+            "Assn2-2023-12.tyOf_Var": 0,
+            "Assn2-2023-14.tyOf_Var": 0,
+            "Assn2-2023-15.tyOf_Var": 0,
+            "Assn2-2023-16.tyOf_Var": 0,
+            "Assn2-2023-17.tyOf_Var": 0,
+            "Assn2-2023-19.tyOf_Var": 0,
+            "Assn2-2023-2.tyOf_Var": 0,
+            "Assn2-2023-23.tyOf_Var": 0,
+            "Assn2-2023-24.tyOf_Var": 0,
+            "Assn2-2023-25.tyOf_Var": 0,
+            "Assn2-2023-26.tyOf_Var": 0,
+            "Assn2-2023-27.tyOf_Var": 0,
+            "Assn2-2023-28.tyOf_Var": 0,
+            "Assn2-2023-29.tyOf_Var": 0,
+            "Assn2-2023-3.tyOf_Var": 0,
+            "Assn2-2023-4.tyOf_Var": 0,
+            "Assn2-2023-5.tyOf_Var": 0,
+            "Assn2-2023-6.tyOf_Var": 0,
+            "Assn2-2023-8.tyOf_Var": 0,
+            "Assn2-2023-9.tyOf_Var": 0
+        }
+    },
+    {
+        "equivalent": [{"specific function not found": [ 
+            "Assn2-2023-21.tyOf_Var"
+         ] }]
+    }
+]

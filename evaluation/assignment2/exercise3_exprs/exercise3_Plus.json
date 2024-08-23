@@ -1,0 +1,65 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2Solution_fixed.tyOf_Plus"
+                ],
+                "functions": [
+                    "Assn2-2023-11.tyOf_Plus",
+                    "Assn2-2023-12.tyOf_Plus",
+                    "Assn2-2023-14.tyOf_Plus",
+                    "Assn2-2023-15.tyOf_Plus",
+                    "Assn2-2023-16.tyOf_Plus",
+                    "Assn2-2023-17.tyOf_Plus",
+                    "Assn2-2023-19.tyOf_Plus",
+                    "Assn2-2023-2.tyOf_Plus",
+                    "Assn2-2023-21.tyOf_Plus",
+                    "Assn2-2023-23.tyOf_Plus",
+                    "Assn2-2023-24.tyOf_Plus",
+                    "Assn2-2023-25.tyOf_Plus",
+                    "Assn2-2023-26.tyOf_Plus",
+                    "Assn2-2023-27.tyOf_Plus",
+                    "Assn2-2023-28.tyOf_Plus",
+                    "Assn2-2023-29.tyOf_Plus",
+                    "Assn2-2023-3.tyOf_Plus",
+                    "Assn2-2023-4.tyOf_Plus",
+                    "Assn2-2023-5.tyOf_Plus",
+                    "Assn2-2023-6.tyOf_Plus",
+                    "Assn2-2023-8.tyOf_Plus",
+                    "Assn2-2023-9.tyOf_Plus"
+                ]
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2Solution_fixed.tyOf_Plus": 640,
+            "Assn2-2023-11.tyOf_Plus": 0,
+            "Assn2-2023-12.tyOf_Plus": 0,
+            "Assn2-2023-14.tyOf_Plus": 0,
+            "Assn2-2023-15.tyOf_Plus": 0,
+            "Assn2-2023-16.tyOf_Plus": 0,
+            "Assn2-2023-17.tyOf_Plus": 0,
+            "Assn2-2023-19.tyOf_Plus": 0,
+            "Assn2-2023-2.tyOf_Plus": 0,
+            "Assn2-2023-21.tyOf_Plus": 0,
+            "Assn2-2023-23.tyOf_Plus": 0,
+            "Assn2-2023-24.tyOf_Plus": 0,
+            "Assn2-2023-25.tyOf_Plus": 0,
+            "Assn2-2023-26.tyOf_Plus": 0,
+            "Assn2-2023-27.tyOf_Plus": 0,
+            "Assn2-2023-28.tyOf_Plus": 0,
+            "Assn2-2023-29.tyOf_Plus": 0,
+            "Assn2-2023-3.tyOf_Plus": 0,
+            "Assn2-2023-4.tyOf_Plus": 0,
+            "Assn2-2023-5.tyOf_Plus": 0,
+            "Assn2-2023-6.tyOf_Plus": 0,
+            "Assn2-2023-8.tyOf_Plus": 0,
+            "Assn2-2023-9.tyOf_Plus": 0
+        }
+    }
+]

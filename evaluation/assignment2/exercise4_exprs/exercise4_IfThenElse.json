@@ -1,0 +1,98 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2Solution_fixed.subst_IfThenElse"
+                ],
+                "functions": [
+                    "Assn2-2023-10.subst_IfThenElse",
+                    "Assn2-2023-11.subst_IfThenElse",
+                    "Assn2-2023-12.subst_IfThenElse",
+                    "Assn2-2023-14.subst_IfThenElse",
+                    "Assn2-2023-15.subst_IfThenElse",
+                    "Assn2-2023-17.subst_IfThenElse",
+                    "Assn2-2023-18.subst_IfThenElse",
+                    "Assn2-2023-19.subst_IfThenElse",
+                    "Assn2-2023-2.subst_IfThenElse",
+                    "Assn2-2023-20.subst_IfThenElse",
+                    "Assn2-2023-21.subst_IfThenElse",
+                    "Assn2-2023-25.subst_IfThenElse",
+                    "Assn2-2023-26.subst_IfThenElse",
+                    "Assn2-2023-27.subst_IfThenElse",
+                    "Assn2-2023-28.subst_IfThenElse",
+                    "Assn2-2023-29.subst_IfThenElse",
+                    "Assn2-2023-3.subst_IfThenElse",
+                    "Assn2-2023-30.subst_IfThenElse",
+                    "Assn2-2023-5.subst_IfThenElse",
+                    "Assn2-2023-6.subst_IfThenElse",
+                    "Assn2-2023-7.subst_IfThenElse",
+                    "Assn2-2023-8.subst_IfThenElse",
+                    "Assn2-2023-9.subst_IfThenElse"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-16.subst_IfThenElse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "IfThenElse(Var(4), Var(3), Var(2))",
+                            "e2": "First(Var(6))",
+                            "x": "11"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2Solution_fixed.subst_IfThenElse": 660,
+            "Assn2-2023-10.subst_IfThenElse": 0,
+            "Assn2-2023-11.subst_IfThenElse": 0,
+            "Assn2-2023-12.subst_IfThenElse": 0,
+            "Assn2-2023-14.subst_IfThenElse": 0,
+            "Assn2-2023-15.subst_IfThenElse": 0,
+            "Assn2-2023-17.subst_IfThenElse": 0,
+            "Assn2-2023-18.subst_IfThenElse": 0,
+            "Assn2-2023-19.subst_IfThenElse": 0,
+            "Assn2-2023-2.subst_IfThenElse": 0,
+            "Assn2-2023-20.subst_IfThenElse": 0,
+            "Assn2-2023-21.subst_IfThenElse": 0,
+            "Assn2-2023-25.subst_IfThenElse": 0,
+            "Assn2-2023-26.subst_IfThenElse": 0,
+            "Assn2-2023-27.subst_IfThenElse": 0,
+            "Assn2-2023-28.subst_IfThenElse": 0,
+            "Assn2-2023-29.subst_IfThenElse": 0,
+            "Assn2-2023-3.subst_IfThenElse": 0,
+            "Assn2-2023-30.subst_IfThenElse": 0,
+            "Assn2-2023-5.subst_IfThenElse": 0,
+            "Assn2-2023-6.subst_IfThenElse": 0,
+            "Assn2-2023-7.subst_IfThenElse": 0,
+            "Assn2-2023-8.subst_IfThenElse": 0,
+            "Assn2-2023-9.subst_IfThenElse": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "models": [
+                    "Assn2-2023-16.subst_IfThenElse"
+                ],
+                "functions": []
+            }
+        ]
+    },
+    {
+        "equivalent": [{"specific function not found": [ 
+            "Assn2-2023-24.subst_IfThenElse",
+            "Assn2-2023-23.subst_IfThenElse",
+            "Assn2-2023-13.subst_IfThenElse",
+            "Assn2-2023-4.subst_IfThenElse"
+         ] }]
+    }
+]

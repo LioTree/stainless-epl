@@ -1,0 +1,151 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2Solution_fixed.subst_Lambda"
+                ],
+                "functions": [
+                    "Assn2-2023-10.subst_Lambda",
+                    "Assn2-2023-11.subst_Lambda",
+                    "Assn2-2023-12.subst_Lambda",
+                    "Assn2-2023-14.subst_Lambda",
+                    "Assn2-2023-15.subst_Lambda",
+                    "Assn2-2023-16.subst_Lambda",
+                    "Assn2-2023-17.subst_Lambda",
+                    "Assn2-2023-18.subst_Lambda",
+                    "Assn2-2023-19.subst_Lambda",
+                    "Assn2-2023-20.subst_Lambda",
+                    "Assn2-2023-25.subst_Lambda",
+                    "Assn2-2023-26.subst_Lambda",
+                    "Assn2-2023-27.subst_Lambda",
+                    "Assn2-2023-28.subst_Lambda",
+                    "Assn2-2023-29.subst_Lambda",
+                    "Assn2-2023-3.subst_Lambda",
+                    "Assn2-2023-5.subst_Lambda",
+                    "Assn2-2023-6.subst_Lambda",
+                    "Assn2-2023-7.subst_Lambda",
+                    "Assn2-2023-8.subst_Lambda"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-2.subst_Lambda",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Lambda(28956, StringTy(), Var(4))",
+                            "e2": "First(Lambda(2437, StringTy(), Var(3)))",
+                            "x": "28956"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-9.subst_Lambda",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Lambda(23674, StringTy(), Var(3))",
+                            "e2": "First(Var(5))",
+                            "x": "23674"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.subst_Lambda",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Lambda(-1, StringTy(), Var(5))",
+                            "e2": "First(Lambda(-1, StringTy(), Var(5)))",
+                            "x": "6"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2Solution_fixed.subst_Lambda": 600,
+            "Assn2-2023-10.subst_Lambda": 0,
+            "Assn2-2023-11.subst_Lambda": 0,
+            "Assn2-2023-12.subst_Lambda": 0,
+            "Assn2-2023-14.subst_Lambda": 0,
+            "Assn2-2023-15.subst_Lambda": 0,
+            "Assn2-2023-16.subst_Lambda": 0,
+            "Assn2-2023-17.subst_Lambda": 0,
+            "Assn2-2023-18.subst_Lambda": 0,
+            "Assn2-2023-19.subst_Lambda": 0,
+            "Assn2-2023-20.subst_Lambda": 0,
+            "Assn2-2023-25.subst_Lambda": 0,
+            "Assn2-2023-26.subst_Lambda": 0,
+            "Assn2-2023-27.subst_Lambda": 0,
+            "Assn2-2023-28.subst_Lambda": 0,
+            "Assn2-2023-29.subst_Lambda": 0,
+            "Assn2-2023-3.subst_Lambda": 0,
+            "Assn2-2023-5.subst_Lambda": 0,
+            "Assn2-2023-6.subst_Lambda": 0,
+            "Assn2-2023-7.subst_Lambda": 0,
+            "Assn2-2023-8.subst_Lambda": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-2.subst_Lambda"
+                ],
+                "functions": [
+                    "Assn2-2023-9.subst_Lambda"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-21.subst_Lambda",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "Lambda(23674, StringTy(), Var(4))",
+                            "e2": "First(Lambda(23674, StringTy(), Var(4)))",
+                            "x": "23674"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-2.subst_Lambda": 220,
+            "Assn2-2023-9.subst_Lambda": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "models": [
+                    "Assn2-2023-21.subst_Lambda"
+                ],
+                "functions": []
+            }
+        ]
+    },
+    {
+        "equivalent": [{"specific function not found": [ 
+            "Assn2-2023-30.subst_Lambda",
+            "Assn2-2023-13.subst_Lambda",
+            "Assn2-2023-4.subst_Lambda",
+            "Assn2-2023-24.subst_Lambda",
+            "Assn2-2023-23.subst_Lambda"
+         ] }]
+    }
+]

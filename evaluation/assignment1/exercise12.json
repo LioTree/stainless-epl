@@ -1,0 +1,174 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1Solution.filter"
+                ],
+                "functions": [
+                    "Assn1-2023-10.filter",
+                    "Assn1-2023-11.filter",
+                    "Assn1-2023-12.filter",
+                    "Assn1-2023-13.filter",
+                    "Assn1-2023-14.filter",
+                    "Assn1-2023-15.filter",
+                    "Assn1-2023-17.filter",
+                    "Assn1-2023-19.filter",
+                    "Assn1-2023-2.filter",
+                    "Assn1-2023-20.filter",
+                    "Assn1-2023-21.filter",
+                    "Assn1-2023-22.filter",
+                    "Assn1-2023-23.filter",
+                    "Assn1-2023-24.filter",
+                    "Assn1-2023-25.filter",
+                    "Assn1-2023-27.filter",
+                    "Assn1-2023-28.filter",
+                    "Assn1-2023-29.filter",
+                    "Assn1-2023-3.filter",
+                    "Assn1-2023-30.filter",
+                    "Assn1-2023-31.filter",
+                    "Assn1-2023-32.filter",
+                    "Assn1-2023-34.filter",
+                    "Assn1-2023-35.filter",
+                    "Assn1-2023-36.filter",
+                    "Assn1-2023-37.filter",
+                    "Assn1-2023-5.filter",
+                    "Assn1-2023-6.filter",
+                    "Assn1-2023-7.filter",
+                    "Assn1-2023-8.filter",
+                    "Assn1-2023-9.filter"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-16.filter",
+                "ctexs": [
+                    {
+                        "args": {
+                            "f": "(x$2306: BigInt) => if (x$2306 == 2) {\n  true\n} else {\n  true\n}",
+                            "l": "Cons[BigInt](2, Nil[BigInt]())"
+                        }
+                    },
+                    {
+                        "args": {
+                            "f": "(x$1745: BigInt) => false",
+                            "l": "Nil[BigInt]()"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-26.filter",
+                "ctexs": [
+                    {
+                        "args": {
+                            "f": "(x$1747: BigInt) => if (x$1747 == 2) {\n  true\n} else {\n  true\n}",
+                            "l": "Cons[BigInt](2, Nil[BigInt]())"
+                        },
+                        "expected": "Cons[BigInt](2, Nil[BigInt]())",
+                        "got": "Nil[BigInt]()"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-33.filter",
+                "ctexs": [
+                    {
+                        "args": {
+                            "f": "(x$1745: BigInt) => false",
+                            "l": "Nil[BigInt]()"
+                        }
+                    },
+                    {
+                        "args": {
+                            "f": "(x$3302: BigInt) => if (x$3302 == 2) {\n  true\n} else {\n  true\n}",
+                            "l": "Cons[BigInt](2, Nil[BigInt]())"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1Solution.filter": 820,
+            "Assn1-2023-10.filter": 0,
+            "Assn1-2023-11.filter": 0,
+            "Assn1-2023-12.filter": 0,
+            "Assn1-2023-13.filter": 0,
+            "Assn1-2023-14.filter": 0,
+            "Assn1-2023-15.filter": 0,
+            "Assn1-2023-17.filter": 0,
+            "Assn1-2023-19.filter": 0,
+            "Assn1-2023-2.filter": 0,
+            "Assn1-2023-20.filter": 0,
+            "Assn1-2023-21.filter": 0,
+            "Assn1-2023-22.filter": 0,
+            "Assn1-2023-23.filter": 0,
+            "Assn1-2023-24.filter": 0,
+            "Assn1-2023-25.filter": 0,
+            "Assn1-2023-27.filter": 0,
+            "Assn1-2023-28.filter": 0,
+            "Assn1-2023-29.filter": 0,
+            "Assn1-2023-3.filter": 0,
+            "Assn1-2023-30.filter": 0,
+            "Assn1-2023-31.filter": 0,
+            "Assn1-2023-32.filter": 0,
+            "Assn1-2023-34.filter": 0,
+            "Assn1-2023-35.filter": 0,
+            "Assn1-2023-36.filter": 0,
+            "Assn1-2023-37.filter": 0,
+            "Assn1-2023-5.filter": 0,
+            "Assn1-2023-6.filter": 0,
+            "Assn1-2023-7.filter": 0,
+            "Assn1-2023-8.filter": 0,
+            "Assn1-2023-9.filter": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-16.filter"
+                ],
+                "functions": [
+                    "Assn1-2023-33.filter"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-26.filter",
+                "ctexs": [
+                    {
+                        "args": {
+                            "f": "(x$1651: BigInt) => false",
+                            "l": "Nil[BigInt]()"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-16.filter": 220,
+            "Assn1-2023-33.filter": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "models": [
+                    "Assn1-2023-26.filter"
+                ],
+                "functions": []
+            }
+        ]
+    }
+]

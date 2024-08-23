@@ -1,0 +1,2434 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1Solution.mayOverlap"
+                ],
+                "functions": [
+                    "Assn1-2023-1.mayOverlap",
+                    "Assn1-2023-17.mayOverlap",
+                    "Assn1-2023-19.mayOverlap",
+                    "Assn1-2023-23.mayOverlap",
+                    "Assn1-2023-24.mayOverlap",
+                    "Assn1-2023-31.mayOverlap",
+                    "Assn1-2023-35.mayOverlap",
+                    "Assn1-2023-37.mayOverlap",
+                    "Assn1-2023-38.mayOverlap",
+                    "Assn1-2023-4.mayOverlap",
+                    "Assn1-2023-5.mayOverlap",
+                    "Assn1-2023-7.mayOverlap"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-2.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(0, 2437, 44184, 37460)",
+                            "s2": "Rectangle(13572, 39897, 21238, 8365)"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-6.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(1, 41165, 37015, 2997)",
+                            "s2": "Rectangle(37016, 23625, 0, 17540)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-8.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(1, 41165, 37015, 2997)",
+                            "s2": "Rectangle(37016, 23625, 0, 17540)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-9.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(0, 2437, 44184, 37460)",
+                            "s2": "Rectangle(13572, 39897, 21238, 8365)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-10.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(1, 41165, 37015, 2997)",
+                            "s2": "Rectangle(37016, 23625, 0, 17540)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-11.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(0, 2437, 44184, 37460)",
+                            "s2": "Rectangle(13572, 39897, 21238, 8365)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-12.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(1, 41165, 37015, 2997)",
+                            "s2": "Rectangle(37016, 23625, 0, 17540)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-13.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(0, 2437, 41672, 10502)",
+                            "s2": "Rectangle(35819, 12939, 21238, 8365)"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-14.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(1, 41165, 37015, 2997)",
+                            "s2": "Rectangle(37016, 23625, 0, 17540)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-16.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(0, 2437, 44184, 37460)",
+                            "s2": "Rectangle(13572, 39897, 21238, 8365)"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-20.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(0, 2437, 44184, 37460)",
+                            "s2": "Rectangle(13572, 39897, 21238, 8365)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-21.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(0, 57058, 21305)",
+                            "s2": "Rectangle(35819, 12939, 21238, 8365)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-22.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(37016, 23625, 0, 17540)",
+                            "s2": "Rectangle(1, 41165, 37015, 2997)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-25.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(13572, 39897, 21238, 8365)",
+                            "s2": "Rectangle(0, 2437, 44184, 37460)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-26.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(0, 57058, 21305)",
+                            "s2": "Rectangle(35819, 12939, 21238, 8365)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-27.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(1, 41165, 37015, 2997)",
+                            "s2": "Rectangle(37016, 23625, 0, 17540)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-28.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(0, 2437, 44184, 37460)",
+                            "s2": "Rectangle(13572, 39897, 21238, 8365)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-29.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(0, 2437, 44184, 37460)",
+                            "s2": "Rectangle(13572, 39897, 21238, 8365)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-30.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(30650, 36390, 1, 0)",
+                            "s2": "Rectangle(30650, 36390, 0, 0)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-32.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(1, 41165, 37015, 2997)",
+                            "s2": "Rectangle(37016, 23625, 0, 17540)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-33.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(0, 2437, 44184, 37460)",
+                            "s2": "Rectangle(13572, 39897, 21238, 8365)"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-34.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(1, 41165, 37015, 2997)",
+                            "s2": "Rectangle(37016, 23625, 0, 17540)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-36.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(0, 2437, 44184, 37460)",
+                            "s2": "Rectangle(13572, 39897, 21238, 8365)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1Solution.mayOverlap": 440,
+            "Assn1-2023-1.mayOverlap": 0,
+            "Assn1-2023-17.mayOverlap": 0,
+            "Assn1-2023-19.mayOverlap": 0,
+            "Assn1-2023-23.mayOverlap": 0,
+            "Assn1-2023-24.mayOverlap": 0,
+            "Assn1-2023-31.mayOverlap": 0,
+            "Assn1-2023-35.mayOverlap": 0,
+            "Assn1-2023-37.mayOverlap": 0,
+            "Assn1-2023-38.mayOverlap": 0,
+            "Assn1-2023-4.mayOverlap": 0,
+            "Assn1-2023-5.mayOverlap": 0,
+            "Assn1-2023-7.mayOverlap": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-2.mayOverlap"
+                ],
+                "functions": [
+                    "Assn1-2023-13.mayOverlap",
+                    "Assn1-2023-16.mayOverlap",
+                    "Assn1-2023-33.mayOverlap"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-6.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(38, 2437, 11797, 8365)",
+                            "s2": "Rectangle(11, 8855, 28, 33953)"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-8.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(1, 1, 0, 0)",
+                            "s2": "Rectangle(0, 0, 2, 2)"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-9.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(0, 58712, 38890, 2)",
+                            "s2": "Circle(0, 5854, 58713)"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-10.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(0, 28185, 1604)",
+                            "s2": "Circle(1899, 26285, 2997)"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-11.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(0, 8366, 1, 0)",
+                            "s2": "Rectangle(0, 8365, 8856, 2)"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-12.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(8946, 2452, 20538, 1)",
+                            "s2": "Circle(1226, 7720, 1226)"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-14.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(0, 0, 0, 0)",
+                            "s2": "Rectangle(1, 0, 0, 0)"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-20.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(0, 23676, 0)",
+                            "s2": "Rectangle(23675, 0, 0, 0)"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-21.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(0, 0, 14234, 0)",
+                            "s2": "Rectangle(14235, 0, 30093, 0)"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-22.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(0, 1, 41062)",
+                            "s2": "Rectangle(0, 32285, 2, 8367)"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-25.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(1, 0, 0, 0)",
+                            "s2": "Rectangle(0, 0, 7719, 21238)"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-26.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(0, 0, 0, 0)",
+                            "s2": "Circle(0, 0, 0)"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-27.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(29482, 0, 0, 0)",
+                            "s2": "Circle(0, 29482, 42206)"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-28.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(32285, 0, 11797, 1)",
+                            "s2": "Rectangle(2437, 0, 0, 0)"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-29.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(28102, 0, 32285, 10450)",
+                            "s2": "Circle(1423, 29526, 29524)"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-30.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(0, 0, 0, 0)",
+                            "s2": "Rectangle(0, 0, 38, 7719)"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-32.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(30613, 62898, 41063)",
+                            "s2": "Rectangle(32286, 16304, 0, 0)"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-34.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(0, 0, 21276, 0)",
+                            "s2": "Circle(0, 0, 0)"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-36.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(8265, 1142, 2437, 23098)",
+                            "s2": "Circle(2132, 6134, 26371)"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-2.mayOverlap": 260,
+            "Assn1-2023-13.mayOverlap": 0,
+            "Assn1-2023-16.mayOverlap": 0,
+            "Assn1-2023-33.mayOverlap": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-6.mayOverlap"
+                ],
+                "functions": [
+                    "Assn1-2023-11.mayOverlap",
+                    "Assn1-2023-36.mayOverlap",
+                    "Assn1-2023-9.mayOverlap"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-8.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(0, 41062, 21239, 11797)",
+                            "s2": "Circle(0, 21238, 52859)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-10.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(1, 31752, 21241, 0)",
+                            "s2": "Circle(5855, 5857, 37607)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-12.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(1, 2, 15921)",
+                            "s2": "Circle(0, 2, 15921)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-14.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(0, 41062, 21239, 11797)",
+                            "s2": "Rectangle(21238, 52858, 0, 38138)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-20.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(195, 4572, 48861, 36736)",
+                            "s2": "Rectangle(196, 4572, 0, 36459)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-21.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(1, 31752, 21241, 0)",
+                            "s2": "Circle(5855, 5857, 37607)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-22.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(21238, 52858, 0, 38138)",
+                            "s2": "Rectangle(0, 41062, 21239, 11797)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-25.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(196, 4572, 0, 36459)",
+                            "s2": "Rectangle(195, 4572, 48861, 36736)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-26.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(0, 41062, 21239, 11797)",
+                            "s2": "Circle(0, 21238, 52859)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-27.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(196, 4572, 0, 36459)",
+                            "s2": "Rectangle(195, 4572, 48861, 36736)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-28.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(0, 0, 21239, 0)",
+                            "s2": "Rectangle(21238, 0, 0, 0)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-29.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(1, 2, 15921)",
+                            "s2": "Circle(0, 2, 15921)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-30.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(1, 31752, 21241, 0)",
+                            "s2": "Circle(5855, 5857, 37607)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-32.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(1, 31752, 21241, 0)",
+                            "s2": "Circle(5855, 5857, 37607)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-34.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(1, 2, 15921)",
+                            "s2": "Circle(0, 2, 15921)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-6.mayOverlap": 260,
+            "Assn1-2023-11.mayOverlap": 0,
+            "Assn1-2023-36.mayOverlap": 0,
+            "Assn1-2023-9.mayOverlap": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-8.mayOverlap"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-10.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(58603, 1, 3210, 77537)",
+                            "s2": "Rectangle(58602, 2, 61814, 30715)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-12.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(1, 5854, 0, 0)",
+                            "s2": "Rectangle(0, 0, 32287, 30613)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-14.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(58603, 1, 3210, 77537)",
+                            "s2": "Rectangle(58602, 2, 61814, 30715)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-20.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(0, 0, 32287, 30613)",
+                            "s2": "Rectangle(1, 5854, 0, 0)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-21.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(58603, 1, 3210, 77537)",
+                            "s2": "Rectangle(58602, 2, 61814, 30715)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-22.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(58603, 1, 3210, 77537)",
+                            "s2": "Rectangle(58602, 2, 61814, 30715)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-25.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(1, 5854, 0, 0)",
+                            "s2": "Rectangle(0, 0, 32287, 30613)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-26.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(0, 0, 0, 0)",
+                            "s2": "Circle(0, 0, 0)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-27.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(58603, 1, 3210, 77537)",
+                            "s2": "Rectangle(58602, 2, 61814, 30715)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-28.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(58603, 1, 3210, 77537)",
+                            "s2": "Rectangle(58602, 2, 61814, 30715)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-29.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(1, 5854, 0, 0)",
+                            "s2": "Rectangle(0, 0, 32287, 30613)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-30.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(1, 5854, 0, 0)",
+                            "s2": "Rectangle(0, 0, 32287, 30613)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-32.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(58603, 1, 3210, 77537)",
+                            "s2": "Rectangle(58602, 2, 61814, 30715)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-34.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(1, 5854, 0, 0)",
+                            "s2": "Rectangle(0, 0, 32287, 30613)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-8.mayOverlap": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-10.mayOverlap"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-12.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(0, 10173, 17011)",
+                            "s2": "Rectangle(5770, 10362, 9136, 13296)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-14.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(19264, 73428, 140764, 72500)",
+                            "s2": "Rectangle(160028, 35776, 4664, 37652)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-20.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(5770, 10362, 9136, 13296)",
+                            "s2": "Circle(0, 10173, 17011)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-21.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(0, 6881, 10280)",
+                            "s2": "Circle(1, 6879, 1)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-22.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(160028, 35776, 4664, 37652)",
+                            "s2": "Rectangle(19264, 73428, 140764, 72500)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-25.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(0, 10173, 17011)",
+                            "s2": "Rectangle(5770, 10362, 9136, 13296)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-26.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(0, 6881, 10280)",
+                            "s2": "Circle(1, 6879, 1)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-27.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(138388, 28809, 1, 109578)",
+                            "s2": "Rectangle(138388, 28808, 3, 51966)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-28.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(19264, 73428, 140764, 72500)",
+                            "s2": "Rectangle(160028, 35776, 4664, 37652)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-29.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(0, 10173, 17011)",
+                            "s2": "Rectangle(5770, 10362, 9136, 13296)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-30.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(0, 10173, 17011)",
+                            "s2": "Rectangle(5770, 10362, 9136, 13296)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-32.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(19264, 73428, 140764, 72500)",
+                            "s2": "Rectangle(160028, 35776, 4664, 37652)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-34.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(0, 10173, 17011)",
+                            "s2": "Rectangle(5770, 10362, 9136, 13296)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-10.mayOverlap": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-12.mayOverlap"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-14.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(5854, 7033, 46506)",
+                            "s2": "Rectangle(12887, 32285, 30613, 1)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-20.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(12887, 32285, 30613, 1)",
+                            "s2": "Circle(5854, 7033, 46506)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-21.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(5854, 7033, 46506)",
+                            "s2": "Rectangle(12887, 32285, 30613, 1)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-22.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(12887, 32285, 30613, 1)",
+                            "s2": "Circle(5854, 7033, 46506)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-25.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(12887, 32285, 30613, 1)",
+                            "s2": "Circle(5854, 7033, 46506)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-26.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(5854, 7033, 46506)",
+                            "s2": "Rectangle(12887, 32285, 30613, 1)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-27.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(12887, 32285, 30613, 1)",
+                            "s2": "Circle(5854, 7033, 46506)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-28.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(12887, 32285, 30613, 1)",
+                            "s2": "Circle(5854, 7033, 46506)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-29.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(5854, 7033, 46506)",
+                            "s2": "Rectangle(12887, 32285, 30613, 1)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-30.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(12887, 32285, 30613, 1)",
+                            "s2": "Circle(5854, 7033, 46506)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-32.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(12887, 32285, 30613, 1)",
+                            "s2": "Circle(5854, 7033, 46506)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-34.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(443, 322, 563, 38)",
+                            "s2": "Circle(161, 282, 162)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-12.mayOverlap": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-14.mayOverlap"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-20.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(2850, 1, 16150, 28101)",
+                            "s2": "Rectangle(2851, 1, 0, 2849)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-21.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(0, 20538, 4617)",
+                            "s2": "Circle(0, 20537, 4616)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-22.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(2438, 0, 0, 0)",
+                            "s2": "Rectangle(2437, 0, 0, 8856)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-25.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(2851, 1, 0, 2849)",
+                            "s2": "Rectangle(2850, 1, 16150, 28101)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-26.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(2437, 0, 0, 8856)",
+                            "s2": "Rectangle(2438, 0, 0, 0)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-27.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(2850, 1, 16150, 28101)",
+                            "s2": "Rectangle(2851, 1, 0, 2849)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-28.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(2437, 0, 0, 8856)",
+                            "s2": "Rectangle(2438, 0, 0, 0)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-29.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(0, 20538, 4617)",
+                            "s2": "Circle(0, 20537, 4616)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-30.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(2437, 0, 0, 8856)",
+                            "s2": "Rectangle(2438, 0, 0, 0)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-32.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(2437, 0, 0, 8856)",
+                            "s2": "Rectangle(2438, 0, 0, 0)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-34.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(2850, 1, 16150, 28101)",
+                            "s2": "Rectangle(2851, 1, 0, 2849)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-14.mayOverlap": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-20.mayOverlap"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-21.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(7720, 0, 17220, 0)",
+                            "s2": "Rectangle(7719, 0, 2, 11799)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-22.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(7720, 0, 17220, 0)",
+                            "s2": "Rectangle(7719, 0, 2, 11799)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-25.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(0, 10803, 11798)",
+                            "s2": "Rectangle(10802, 0, 2, 11799)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-26.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(10802, 0, 2, 11799)",
+                            "s2": "Circle(0, 10803, 11798)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-27.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(10802, 0, 2, 11799)",
+                            "s2": "Circle(0, 10803, 11798)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-28.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(10802, 0, 2, 11799)",
+                            "s2": "Circle(0, 10803, 11798)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-29.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(0, 10803, 11798)",
+                            "s2": "Rectangle(10802, 0, 2, 11799)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-30.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(0, 10803, 11798)",
+                            "s2": "Rectangle(10802, 0, 2, 11799)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-32.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(10802, 0, 2, 11799)",
+                            "s2": "Circle(0, 10803, 11798)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-34.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(0, 10803, 11798)",
+                            "s2": "Rectangle(10802, 0, 2, 11799)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-20.mayOverlap": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-21.mayOverlap"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-22.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(41141, 0, 41140, 11798)",
+                            "s2": "Circle(0, 0, 8366)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-25.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(0, 0, 8366)",
+                            "s2": "Rectangle(41141, 0, 41140, 11798)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-26.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(0, 0, 8366)",
+                            "s2": "Rectangle(41141, 0, 41140, 11798)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-27.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(0, 0, 8366)",
+                            "s2": "Rectangle(41141, 0, 41140, 11798)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-28.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(0, 0, 8366)",
+                            "s2": "Rectangle(41141, 0, 41140, 11798)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-29.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(0, 0, 8366)",
+                            "s2": "Rectangle(41141, 0, 41140, 11798)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-30.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(0, 0, 8366)",
+                            "s2": "Rectangle(41141, 0, 41140, 11798)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-32.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(0, 0, 8366)",
+                            "s2": "Rectangle(41141, 0, 41140, 11798)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-34.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(0, 0, 8366)",
+                            "s2": "Rectangle(41141, 0, 41140, 11798)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-21.mayOverlap": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-22.mayOverlap"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-25.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(33050, 1142, 0, 6134)",
+                            "s2": "Rectangle(2437, 28100, 30614, 30614)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-26.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(33050, 1142, 0, 6134)",
+                            "s2": "Rectangle(2437, 28100, 30614, 30614)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-27.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(33050, 1142, 0, 6134)",
+                            "s2": "Rectangle(2437, 28100, 30614, 30614)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-28.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(33050, 1142, 0, 6134)",
+                            "s2": "Rectangle(2437, 28100, 30614, 30614)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-29.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(33050, 1142, 0, 6134)",
+                            "s2": "Rectangle(2437, 28100, 30614, 30614)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-30.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(33050, 1142, 0, 6134)",
+                            "s2": "Rectangle(2437, 28100, 30614, 30614)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-32.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(33050, 1142, 0, 6134)",
+                            "s2": "Rectangle(2437, 28100, 30614, 30614)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-34.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(33050, 1142, 0, 6134)",
+                            "s2": "Rectangle(2437, 28100, 30614, 30614)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-22.mayOverlap": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-25.mayOverlap"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-26.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(2, 6, 3)",
+                            "s2": "Rectangle(2, 1, 2, 2)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-27.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(2, 1, 2, 2)",
+                            "s2": "Circle(2, 6, 3)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-28.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(2, 1, 2, 2)",
+                            "s2": "Circle(2, 6, 3)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-29.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(15921, 1, 2437, 8365)",
+                            "s2": "Rectangle(15922, 0, 11797, 0)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-30.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(2, 6, 3)",
+                            "s2": "Rectangle(2, 1, 2, 2)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-32.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(2, 1, 2, 2)",
+                            "s2": "Circle(2, 6, 3)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-34.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(2, 1, 2, 2)",
+                            "s2": "Circle(2, 6, 3)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-25.mayOverlap": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-26.mayOverlap"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-27.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(0, 32286, 0)",
+                            "s2": "Rectangle(0, 0, 0, 0)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-28.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(0, 32286, 0)",
+                            "s2": "Rectangle(0, 0, 0, 0)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-29.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(24867, 45404, 1, 0)",
+                            "s2": "Circle(0, 24868, 24866)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-30.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(0, 32286, 0)",
+                            "s2": "Rectangle(0, 0, 0, 0)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-32.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(0, 32286, 0)",
+                            "s2": "Rectangle(0, 0, 0, 0)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-34.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(0, 32286, 0)",
+                            "s2": "Rectangle(0, 0, 0, 0)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-26.mayOverlap": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-27.mayOverlap"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-28.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(28100, 11293, 28102, 1143)",
+                            "s2": "Rectangle(28100, 11294, 1, 2)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-29.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(26373, 51850, 0, 0)",
+                            "s2": "Rectangle(15922, 2437, 10452, 49414)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-30.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(26373, 51850, 0, 0)",
+                            "s2": "Rectangle(15922, 2437, 10452, 49414)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-32.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(28100, 11293, 28102, 1143)",
+                            "s2": "Rectangle(28100, 11294, 1, 2)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-34.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(26373, 51850, 0, 0)",
+                            "s2": "Rectangle(15922, 2437, 10452, 49414)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-27.mayOverlap": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-28.mayOverlap"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-29.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(1143, 0, 1, 24867)",
+                            "s2": "Rectangle(1, 15921, 1143, 25155)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-30.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(1, 320, 19300)",
+                            "s2": "Rectangle(317, 19299, 1184, 0)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-32.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(1, 320, 19300)",
+                            "s2": "Rectangle(317, 19299, 1184, 0)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-34.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(1143, 0, 1, 24867)",
+                            "s2": "Rectangle(1, 15921, 1143, 25155)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-28.mayOverlap": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-29.mayOverlap"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-30.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(10450, 38504, 4230, 8855)",
+                            "s2": "Rectangle(31427, 6219, 0, 32284)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-32.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(10450, 38504, 4230, 8855)",
+                            "s2": "Rectangle(31427, 6219, 0, 32284)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-34.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(10450, 38504, 4230, 8855)",
+                            "s2": "Rectangle(31427, 6219, 0, 32284)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-29.mayOverlap": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-30.mayOverlap"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-32.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(0, 0, 0)",
+                            "s2": "Circle(90041, 90041, 90041)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-34.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Circle(0, 0, 0)",
+                            "s2": "Circle(90041, 90041, 90041)"
+                        },
+                        "expected": "false",
+                        "got": "true"
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-30.mayOverlap": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-32.mayOverlap"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-34.mayOverlap",
+                "ctexs": [
+                    {
+                        "args": {
+                            "s1": "Rectangle(38, 1, 38294, 8411)",
+                            "s2": "Rectangle(38331, 8290, 0, 29242)"
+                        },
+                        "expected": "true",
+                        "got": "false"
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-32.mayOverlap": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "models": [
+                    "Assn1-2023-34.mayOverlap"
+                ],
+                "functions": []
+            }
+        ]
+    }
+]

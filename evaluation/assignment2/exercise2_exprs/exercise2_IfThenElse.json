@@ -1,0 +1,234 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2Solution_fixed.eval_IfThenElse"
+                ],
+                "functions": [
+                    "Assn2-2023-10.eval_IfThenElse",
+                    "Assn2-2023-11.eval_IfThenElse",
+                    "Assn2-2023-13.eval_IfThenElse",
+                    "Assn2-2023-14.eval_IfThenElse",
+                    "Assn2-2023-15.eval_IfThenElse",
+                    "Assn2-2023-16.eval_IfThenElse",
+                    "Assn2-2023-17.eval_IfThenElse",
+                    "Assn2-2023-18.eval_IfThenElse",
+                    "Assn2-2023-20.eval_IfThenElse",
+                    "Assn2-2023-21.eval_IfThenElse",
+                    "Assn2-2023-24.eval_IfThenElse",
+                    "Assn2-2023-25.eval_IfThenElse",
+                    "Assn2-2023-27.eval_IfThenElse",
+                    "Assn2-2023-29.eval_IfThenElse",
+                    "Assn2-2023-3.eval_IfThenElse",
+                    "Assn2-2023-4.eval_IfThenElse",
+                    "Assn2-2023-6.eval_IfThenElse",
+                    "Assn2-2023-7.eval_IfThenElse",
+                    "Assn2-2023-8.eval_IfThenElse",
+                    "Assn2-2023-9.eval_IfThenElse"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-5.eval_IfThenElse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{* -> None[FakeValue]()}",
+                            "e": "IfThenElse(Var(6), Var(5), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-12.eval_IfThenElse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{* -> None[FakeValue]()}",
+                            "e": "IfThenElse(Var(7), Var(5), Var(6))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-19.eval_IfThenElse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{* -> None[FakeValue]()}",
+                            "e": "IfThenElse(Var(5), Var(7), Var(6))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-23.eval_IfThenElse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{* -> None[FakeValue]()}",
+                            "e": "IfThenElse(Var(5), Var(6), Var(7))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-26.eval_IfThenElse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{* -> None[FakeValue]()}",
+                            "e": "IfThenElse(Var(6), Var(5), Var(7))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-28.eval_IfThenElse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{* -> None[FakeValue]()}",
+                            "e": "IfThenElse(Var(7), Var(6), Var(5))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2Solution_fixed.eval_IfThenElse": 600,
+            "Assn2-2023-10.eval_IfThenElse": 0,
+            "Assn2-2023-11.eval_IfThenElse": 0,
+            "Assn2-2023-13.eval_IfThenElse": 0,
+            "Assn2-2023-14.eval_IfThenElse": 0,
+            "Assn2-2023-15.eval_IfThenElse": 0,
+            "Assn2-2023-16.eval_IfThenElse": 0,
+            "Assn2-2023-17.eval_IfThenElse": 0,
+            "Assn2-2023-18.eval_IfThenElse": 0,
+            "Assn2-2023-20.eval_IfThenElse": 0,
+            "Assn2-2023-21.eval_IfThenElse": 0,
+            "Assn2-2023-24.eval_IfThenElse": 0,
+            "Assn2-2023-25.eval_IfThenElse": 0,
+            "Assn2-2023-27.eval_IfThenElse": 0,
+            "Assn2-2023-29.eval_IfThenElse": 0,
+            "Assn2-2023-3.eval_IfThenElse": 0,
+            "Assn2-2023-4.eval_IfThenElse": 0,
+            "Assn2-2023-6.eval_IfThenElse": 0,
+            "Assn2-2023-7.eval_IfThenElse": 0,
+            "Assn2-2023-8.eval_IfThenElse": 0,
+            "Assn2-2023-9.eval_IfThenElse": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-5.eval_IfThenElse"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-12.eval_IfThenElse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{* -> None[FakeValue]()}",
+                            "e": "IfThenElse(Var(7), Var(6), Var(8))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-19.eval_IfThenElse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{* -> None[FakeValue]()}",
+                            "e": "IfThenElse(Var(6), Var(5), Var(7))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-23.eval_IfThenElse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{* -> None[FakeValue]()}",
+                            "e": "IfThenElse(Var(4), Var(5), Var(6))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-26.eval_IfThenElse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{* -> None[FakeValue]()}",
+                            "e": "IfThenElse(Var(5), Var(7), Var(6))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-28.eval_IfThenElse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "env": "{* -> None[FakeValue]()}",
+                            "e": "IfThenElse(Var(5), Var(6), Var(7))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-5.eval_IfThenElse": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-12.eval_IfThenElse"
+                ],
+                "functions": [
+                    "Assn2-2023-19.eval_IfThenElse",
+                    "Assn2-2023-23.eval_IfThenElse",
+                    "Assn2-2023-26.eval_IfThenElse",
+                    "Assn2-2023-28.eval_IfThenElse"
+                ]
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-12.eval_IfThenElse": 280,
+            "Assn2-2023-19.eval_IfThenElse": 0,
+            "Assn2-2023-23.eval_IfThenElse": 0,
+            "Assn2-2023-26.eval_IfThenElse": 0,
+            "Assn2-2023-28.eval_IfThenElse": 0
+        }
+    },
+    {
+        "equivalent": [{"specific function not found": [ 
+            "Assn2-2023-30.eval_IfThenElse"
+         ] }]
+    }
+]

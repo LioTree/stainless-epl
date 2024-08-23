@@ -1,0 +1,210 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2Solution_fixed.desugar_LetFun"
+                ],
+                "functions": [
+                    "Assn2-2023-10.desugar_LetFun",
+                    "Assn2-2023-11.desugar_LetFun",
+                    "Assn2-2023-14.desugar_LetFun",
+                    "Assn2-2023-15.desugar_LetFun",
+                    "Assn2-2023-16.desugar_LetFun",
+                    "Assn2-2023-17.desugar_LetFun",
+                    "Assn2-2023-18.desugar_LetFun",
+                    "Assn2-2023-19.desugar_LetFun",
+                    "Assn2-2023-20.desugar_LetFun",
+                    "Assn2-2023-21.desugar_LetFun",
+                    "Assn2-2023-25.desugar_LetFun",
+                    "Assn2-2023-26.desugar_LetFun",
+                    "Assn2-2023-27.desugar_LetFun",
+                    "Assn2-2023-29.desugar_LetFun",
+                    "Assn2-2023-3.desugar_LetFun",
+                    "Assn2-2023-30.desugar_LetFun",
+                    "Assn2-2023-6.desugar_LetFun",
+                    "Assn2-2023-9.desugar_LetFun"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-5.desugar_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetFun(2, 3, StringTy(), Var(5), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-7.desugar_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetFun(2, 3, StringTy(), Var(5), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-8.desugar_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetFun(2, 3, StringTy(), Var(4), Var(5))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-12.desugar_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetFun(2, 3, StringTy(), Var(5), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-28.desugar_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetFun(2, 3, StringTy(), Var(4), Var(5))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2Solution_fixed.desugar_LetFun": 560,
+            "Assn2-2023-10.desugar_LetFun": 0,
+            "Assn2-2023-11.desugar_LetFun": 0,
+            "Assn2-2023-14.desugar_LetFun": 0,
+            "Assn2-2023-15.desugar_LetFun": 0,
+            "Assn2-2023-16.desugar_LetFun": 0,
+            "Assn2-2023-17.desugar_LetFun": 0,
+            "Assn2-2023-18.desugar_LetFun": 0,
+            "Assn2-2023-19.desugar_LetFun": 0,
+            "Assn2-2023-20.desugar_LetFun": 0,
+            "Assn2-2023-21.desugar_LetFun": 0,
+            "Assn2-2023-25.desugar_LetFun": 0,
+            "Assn2-2023-26.desugar_LetFun": 0,
+            "Assn2-2023-27.desugar_LetFun": 0,
+            "Assn2-2023-29.desugar_LetFun": 0,
+            "Assn2-2023-3.desugar_LetFun": 0,
+            "Assn2-2023-30.desugar_LetFun": 0,
+            "Assn2-2023-6.desugar_LetFun": 0,
+            "Assn2-2023-9.desugar_LetFun": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-5.desugar_LetFun"
+                ],
+                "functions": [
+                    "Assn2-2023-7.desugar_LetFun"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-8.desugar_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetFun(2, 3, StringTy(), Var(4), Var(5))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-12.desugar_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetFun(2, 3, StringTy(), Var(5), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-28.desugar_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetFun(2, 3, StringTy(), Var(4), Var(5))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-5.desugar_LetFun": 220,
+            "Assn2-2023-7.desugar_LetFun": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-8.desugar_LetFun"
+                ],
+                "functions": [
+                    "Assn2-2023-28.desugar_LetFun"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-12.desugar_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e": "LetFun(2, 3, StringTy(), Var(5), Var(4))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-8.desugar_LetFun": 220,
+            "Assn2-2023-28.desugar_LetFun": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "models": [
+                    "Assn2-2023-12.desugar_LetFun"
+                ],
+                "functions": []
+            }
+        ]
+    },
+    {
+        "equivalent": [{"specific function not found": [ 
+            "Assn2-2023-24.desugar_LetFun",
+            "Assn2-2023-13.desugar_LetFun",
+            "Assn2-2023-23.desugar_LetFun",
+            "Assn2-2023-4.desugar_LetFun"
+         ] }]
+    }
+]

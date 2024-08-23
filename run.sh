@@ -1,1 +1,0 @@
-frontends/dotty/target/universal/stage/bin/stainless-dotty frontends/benchmarks/equivalence/isSorted/isSorted.scala  --equivchk=true --comparefuns=IsSorted.isSortedR --models=IsSorted.isSortedA --timeout=3 

@@ -1,0 +1,68 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2Solution_fixed.tyOf_Pair"
+                ],
+                "functions": [
+                    "Assn2-2023-11.tyOf_Pair",
+                    "Assn2-2023-12.tyOf_Pair",
+                    "Assn2-2023-14.tyOf_Pair",
+                    "Assn2-2023-15.tyOf_Pair",
+                    "Assn2-2023-16.tyOf_Pair",
+                    "Assn2-2023-17.tyOf_Pair",
+                    "Assn2-2023-19.tyOf_Pair",
+                    "Assn2-2023-21.tyOf_Pair",
+                    "Assn2-2023-23.tyOf_Pair",
+                    "Assn2-2023-24.tyOf_Pair",
+                    "Assn2-2023-25.tyOf_Pair",
+                    "Assn2-2023-26.tyOf_Pair",
+                    "Assn2-2023-27.tyOf_Pair",
+                    "Assn2-2023-28.tyOf_Pair",
+                    "Assn2-2023-29.tyOf_Pair",
+                    "Assn2-2023-3.tyOf_Pair",
+                    "Assn2-2023-4.tyOf_Pair",
+                    "Assn2-2023-5.tyOf_Pair",
+                    "Assn2-2023-6.tyOf_Pair",
+                    "Assn2-2023-8.tyOf_Pair",
+                    "Assn2-2023-9.tyOf_Pair"
+                ]
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2Solution_fixed.tyOf_Pair": 620,
+            "Assn2-2023-11.tyOf_Pair": 0,
+            "Assn2-2023-12.tyOf_Pair": 0,
+            "Assn2-2023-14.tyOf_Pair": 0,
+            "Assn2-2023-15.tyOf_Pair": 0,
+            "Assn2-2023-16.tyOf_Pair": 0,
+            "Assn2-2023-17.tyOf_Pair": 0,
+            "Assn2-2023-19.tyOf_Pair": 0,
+            "Assn2-2023-21.tyOf_Pair": 0,
+            "Assn2-2023-23.tyOf_Pair": 0,
+            "Assn2-2023-24.tyOf_Pair": 0,
+            "Assn2-2023-25.tyOf_Pair": 0,
+            "Assn2-2023-26.tyOf_Pair": 0,
+            "Assn2-2023-27.tyOf_Pair": 0,
+            "Assn2-2023-28.tyOf_Pair": 0,
+            "Assn2-2023-29.tyOf_Pair": 0,
+            "Assn2-2023-3.tyOf_Pair": 0,
+            "Assn2-2023-4.tyOf_Pair": 0,
+            "Assn2-2023-5.tyOf_Pair": 0,
+            "Assn2-2023-6.tyOf_Pair": 0,
+            "Assn2-2023-8.tyOf_Pair": 0,
+            "Assn2-2023-9.tyOf_Pair": 0
+        }
+    },
+    {
+        "equivalent": [{"specific function not found": [ 
+            "Assn2-2023-2.tyOf_Pair"
+         ] }]
+    }
+]

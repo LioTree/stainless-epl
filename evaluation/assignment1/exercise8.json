@@ -1,0 +1,112 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1Solution.compose1"
+                ],
+                "functions": [
+                    "Assn1-2023-1.compose1",
+                    "Assn1-2023-10.compose1",
+                    "Assn1-2023-11.compose1",
+                    "Assn1-2023-12.compose1",
+                    "Assn1-2023-13.compose1",
+                    "Assn1-2023-14.compose1",
+                    "Assn1-2023-15.compose1",
+                    "Assn1-2023-16.compose1",
+                    "Assn1-2023-17.compose1",
+                    "Assn1-2023-18.compose1",
+                    "Assn1-2023-19.compose1",
+                    "Assn1-2023-2.compose1",
+                    "Assn1-2023-20.compose1",
+                    "Assn1-2023-21.compose1",
+                    "Assn1-2023-22.compose1",
+                    "Assn1-2023-23.compose1",
+                    "Assn1-2023-25.compose1",
+                    "Assn1-2023-26.compose1",
+                    "Assn1-2023-27.compose1",
+                    "Assn1-2023-28.compose1",
+                    "Assn1-2023-29.compose1",
+                    "Assn1-2023-3.compose1",
+                    "Assn1-2023-30.compose1",
+                    "Assn1-2023-31.compose1",
+                    "Assn1-2023-32.compose1",
+                    "Assn1-2023-34.compose1",
+                    "Assn1-2023-35.compose1",
+                    "Assn1-2023-37.compose1",
+                    "Assn1-2023-38.compose1",
+                    "Assn1-2023-5.compose1",
+                    "Assn1-2023-6.compose1",
+                    "Assn1-2023-7.compose1",
+                    "Assn1-2023-8.compose1",
+                    "Assn1-2023-9.compose1"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-33.compose1",
+                "ctexs": [
+                    {
+                        "args": {
+                            "f": "(x$1500: BigInt) => if (x$1500 == 0) {\n  1\n} else {\n  1\n}",
+                            "g": "(x$1496: BigInt) => if (x$1496 == 1) {\n  2\n} else {\n  2\n}",
+                            "x": "0"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1Solution.compose1": 880,
+            "Assn1-2023-1.compose1": 0,
+            "Assn1-2023-10.compose1": 0,
+            "Assn1-2023-11.compose1": 0,
+            "Assn1-2023-12.compose1": 0,
+            "Assn1-2023-13.compose1": 0,
+            "Assn1-2023-14.compose1": 0,
+            "Assn1-2023-15.compose1": 0,
+            "Assn1-2023-16.compose1": 0,
+            "Assn1-2023-17.compose1": 0,
+            "Assn1-2023-18.compose1": 0,
+            "Assn1-2023-19.compose1": 0,
+            "Assn1-2023-2.compose1": 0,
+            "Assn1-2023-20.compose1": 0,
+            "Assn1-2023-21.compose1": 0,
+            "Assn1-2023-22.compose1": 0,
+            "Assn1-2023-23.compose1": 0,
+            "Assn1-2023-25.compose1": 0,
+            "Assn1-2023-26.compose1": 0,
+            "Assn1-2023-27.compose1": 0,
+            "Assn1-2023-28.compose1": 0,
+            "Assn1-2023-29.compose1": 0,
+            "Assn1-2023-3.compose1": 0,
+            "Assn1-2023-30.compose1": 0,
+            "Assn1-2023-31.compose1": 0,
+            "Assn1-2023-32.compose1": 0,
+            "Assn1-2023-34.compose1": 0,
+            "Assn1-2023-35.compose1": 0,
+            "Assn1-2023-37.compose1": 0,
+            "Assn1-2023-38.compose1": 0,
+            "Assn1-2023-5.compose1": 0,
+            "Assn1-2023-6.compose1": 0,
+            "Assn1-2023-7.compose1": 0,
+            "Assn1-2023-8.compose1": 0,
+            "Assn1-2023-9.compose1": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "models": [
+                    "Assn1-2023-33.compose1"
+                ],
+                "functions": []
+            }
+        ]
+    }
+]

@@ -1,0 +1,1637 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2Solution_fixed.subst_LetRec"
+                ],
+                "functions": [
+                    "Assn2-2023-12.subst_LetRec",
+                    "Assn2-2023-28.subst_LetRec",
+                    "Assn2-2023-6.subst_LetRec",
+                    "Assn2-2023-7.subst_LetRec",
+                    "Assn2-2023-8.subst_LetRec"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-2.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(8854, -2, StringTy(), StringTy(), Var(5), Var(4))",
+                            "e2": "First(Var(5))",
+                            "x": "-2"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-3.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(-1, -2, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetRec(-1, 0, StringTy(), StringTy(), Var(4), Var(3)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-5.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(-1, -2, StringTy(), StringTy(), Var(8), Var(7))",
+                            "e2": "First(Var(8))",
+                            "x": "9"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-9.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(-1, -2, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-10.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(-1, 7757, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(7))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-11.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(-1, -2, StringTy(), StringTy(), Var(8), Var(7))",
+                            "e2": "First(Var(8))",
+                            "x": "9"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "exp": "LetRec(23675, 8854, StringTy(), StringTy(), Var(9), Var(8))",
+                            "to": "First(LetRec(23676, 8856, StringTy(), StringTy(), Var(3), Var(7)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-15.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(33034, 11292, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(7))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(-1, 7757, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(-1, 11291, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-18.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(-1, -2, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-19.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "origExpr": "LetRec(23675, 16573, StringTy(), StringTy(), Var(9), Var(8))",
+                            "substExpr": "First(LetRec(23677, 16574, StringTy(), StringTy(), Var(5), Var(4)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-20.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(-1, -2, StringTy(), StringTy(), Var(8), Var(7))",
+                            "e2": "First(Var(8))",
+                            "x": "9"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(23675, 7718, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-25.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(-1, -2, StringTy(), StringTy(), Var(8), Var(7))",
+                            "e2": "First(Var(7))",
+                            "x": "9"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-26.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(21236, 11292, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetRec(21237, 11294, StringTy(), StringTy(), Var(3), Var(4)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-27.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(-1, -2, StringTy(), StringTy(), Var(8), Var(7))",
+                            "e2": "First(Var(7))",
+                            "x": "9"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-30.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(-1, -2, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(7))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [
+            {
+                "function": "Assn2-2023-29.subst_LetRec",
+                "self": [
+                    {
+                        "kind": "body assertion: Expression of type Nothing: require(e1 is LetRec)\nval freshId: BigInt = 0\ne1 match {\n  case LetRec(f, arg, xty, ty, t1, t2) =>\n    errorWrapper[{ x: Object | @dropConjunct false }]\n  case _ =>\n    errorWrapper[{ x: Object | @dropConjunct false }]\n  case _ =>\n    errorWrapper[{ x: Object | @dropConjunct false }]\n}",
+                        "position": "366:13",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(0)",
+                                "e2": "Var(0)",
+                                "x": "0"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            }
+        ],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2Solution_fixed.subst_LetRec": 300,
+            "Assn2-2023-12.subst_LetRec": 0,
+            "Assn2-2023-28.subst_LetRec": 0,
+            "Assn2-2023-6.subst_LetRec": 0,
+            "Assn2-2023-7.subst_LetRec": 0,
+            "Assn2-2023-8.subst_LetRec": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-2.subst_LetRec"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-3.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(105386, 105385, StringTy(), StringTy(), Var(8), Var(7))",
+                            "e2": "First(Var(8))",
+                            "x": "105385"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-5.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(-1, -40, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetRec(0, -38, StringTy(), StringTy(), Var(3), Var(4)))",
+                            "x": "-1"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-9.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(-14823, -23677, StringTy(), StringTy(), Var(6), Var(5))",
+                            "e2": "First(Var(6))",
+                            "x": "-14823"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-10.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(-12931, -12932, StringTy(), StringTy(), Var(7), Var(6))",
+                            "e2": "First(Var(7))",
+                            "x": "-12932"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-11.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(-20595, 11691, StringTy(), StringTy(), Var(6), Var(5))",
+                            "e2": "First(Var(5))",
+                            "x": "-20595"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "exp": "LetRec(20160, 8854, StringTy(), StringTy(), Var(9), Var(8))",
+                            "to": "First(LetRec(20160, 8854, StringTy(), StringTy(), Var(9), Var(8)))",
+                            "x": "8854"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-15.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(61886, 29602, StringTy(), StringTy(), Var(7), Var(6))",
+                            "e2": "First(Var(8))",
+                            "x": "29602"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(8855, 28956, StringTy(), StringTy(), Var(7), Var(6))",
+                            "e2": "First(Var(6))",
+                            "x": "28956"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(98688, 64736, StringTy(), StringTy(), Var(7), Var(6))",
+                            "e2": "First(LetRec(8365, 11797, StringTy(), StringTy(), Var(9), Var(8)))",
+                            "x": "64736"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-18.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(34721, 75782, StringTy(), StringTy(), Var(6), Var(5))",
+                            "e2": "First(Var(6))",
+                            "x": "75782"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-19.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "origExpr": "LetRec(42439, 42440, StringTy(), StringTy(), Var(8), Var(7))",
+                            "substExpr": "First(Var(7))",
+                            "x": "42440"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-20.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(-28958, 11292, StringTy(), StringTy(), Var(6), Var(5))",
+                            "e2": "First(Var(7))",
+                            "x": "11292"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(7719, -20653, StringTy(), StringTy(), Var(6), Var(5))",
+                            "e2": "First(Var(6))",
+                            "x": "7719"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-25.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(11291, 20160, StringTy(), StringTy(), Var(8), Var(7))",
+                            "e2": "First(Var(6))",
+                            "x": "20160"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-26.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(5869, 5870, StringTy(), StringTy(), Var(6), Var(5))",
+                            "e2": "First(Var(6))",
+                            "x": "5870"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-27.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(37323, 5037, StringTy(), StringTy(), Var(6), Var(5))",
+                            "e2": "First(Var(7))",
+                            "x": "5037"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-30.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(21275, -10158, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(8))",
+                            "x": "-10158"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-2.subst_LetRec": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-3.subst_LetRec"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-5.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(21275, 7717, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-9.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(7718, 21236, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetRec(7719, 21238, StringTy(), StringTy(), Var(4), Var(3)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-10.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(20652, 23675, StringTy(), StringTy(), Var(8), Var(7))",
+                            "e2": "First(Var(8))",
+                            "x": "9"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-11.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(7756, -2, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetFun(7757, 0, StringTy(), Var(4), Var(5)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "exp": "LetRec(11292, 33034, StringTy(), StringTy(), Var(9), Var(8))",
+                            "to": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-15.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(11292, 21237, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(7))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(11292, 28957, StringTy(), StringTy(), Var(8), Var(7))",
+                            "e2": "First(Var(8))",
+                            "x": "9"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(28955, 11290, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-18.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(7718, 36, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetRec(7718, 36, StringTy(), StringTy(), Var(9), Var(8)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-19.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "origExpr": "LetRec(23673, 7717, StringTy(), StringTy(), Var(9), Var(8))",
+                            "substExpr": "First(Var(8))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-20.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(7756, 23673, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(7))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(23675, 7718, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-25.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(-1, -2, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetRec(0, 0, StringTy(), StringTy(), Var(4), Var(3)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-26.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(23673, 7757, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(7))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-27.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(28956, 36, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetRec(28956, 36, StringTy(), StringTy(), Var(9), Var(8)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-30.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(-1, -2, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-3.subst_LetRec": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-5.subst_LetRec"
+                ],
+                "functions": [
+                    "Assn2-2023-25.subst_LetRec",
+                    "Assn2-2023-27.subst_LetRec"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-9.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(-1, -2, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-10.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(37, 28957, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetRec(38, 28959, StringTy(), StringTy(), Var(7), Var(4)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-11.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(-1, -2, StringTy(), StringTy(), Var(7), Var(6))",
+                            "e2": "First(LetRec(0, 0, StringTy(), StringTy(), Var(4), Var(3)))",
+                            "x": "8"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "exp": "LetRec(7717, 23675, StringTy(), StringTy(), Var(9), Var(8))",
+                            "to": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-15.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(11292, 21236, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(30092, 10154, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(7))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(11290, 28957, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetRec(11290, 28957, StringTy(), StringTy(), Var(9), Var(8)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-18.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(7718, 21236, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetRec(7719, 21238, StringTy(), StringTy(), Var(7), Var(6)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-19.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "origExpr": "LetRec(10801, 20651, StringTy(), StringTy(), Var(9), Var(8))",
+                            "substExpr": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-20.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(-1, -2, StringTy(), StringTy(), Var(8), Var(7))",
+                            "e2": "First(LetRec(0, 0, StringTy(), StringTy(), Var(6), Var(4)))",
+                            "x": "9"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(20651, 2436, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetRec(20653, 2437, StringTy(), StringTy(), Var(3), Var(4)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-26.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(11290, 28957, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(7))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-30.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(-1, -2, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetRec(0, 0, StringTy(), StringTy(), Var(3), Var(4)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-5.subst_LetRec": 240,
+            "Assn2-2023-25.subst_LetRec": 0,
+            "Assn2-2023-27.subst_LetRec": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-9.subst_LetRec"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-10.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(21237, 7757, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetRec(21237, 7757, StringTy(), StringTy(), Var(9), Var(8)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-11.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(20651, 2435, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetRec(20651, 2435, StringTy(), StringTy(), Var(9), Var(8)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "exp": "LetRec(23675, 7717, StringTy(), StringTy(), Var(9), Var(8))",
+                            "to": "First(Var(7))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-15.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(11291, 28957, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetRec(11293, 28958, StringTy(), StringTy(), Var(5), Var(4)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(30092, 10154, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetRec(30093, 10156, StringTy(), StringTy(), Var(7), Var(3)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(20652, 23674, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-18.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(-1, -2, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetRec(-1, -2, StringTy(), StringTy(), Var(9), Var(8)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-19.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "origExpr": "LetRec(28957, 11291, StringTy(), StringTy(), Var(9), Var(8))",
+                            "substExpr": "First(Var(7))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-20.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(-1, -2, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(8))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(10801, 20651, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetRec(10803, 20652, StringTy(), StringTy(), Var(4), Var(3)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-26.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(10801, 20651, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(8))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-30.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(-1, 7717, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-9.subst_LetRec": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-10.subst_LetRec"
+                ],
+                "functions": [
+                    "Assn2-2023-16.subst_LetRec"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-11.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(37, 28957, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(8))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "exp": "LetRec(7755, -1, StringTy(), StringTy(), Var(9), Var(8))",
+                            "to": "First(Var(8))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-15.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(28955, 37, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(7))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(36, -1, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-18.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(23674, 7757, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-19.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "origExpr": "LetRec(36, -1, StringTy(), StringTy(), Var(9), Var(8))",
+                            "substExpr": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-20.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(23674, 7757, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(7))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(28955, -1, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-26.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(7755, -1, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetRec(7755, 0, StringTy(), StringTy(), Var(7), Var(3)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-30.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(2436, 28955, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetRec(2436, 28956, StringTy(), StringTy(), Var(7), Var(3)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-10.subst_LetRec": 220,
+            "Assn2-2023-16.subst_LetRec": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-11.subst_LetRec"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-14.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "exp": "LetRec(11292, 21236, StringTy(), StringTy(), Var(9), Var(8))",
+                            "to": "First(Var(8))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-15.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(23675, 7717, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(7))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(20160, 11290, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-18.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(23674, 7717, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-19.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "origExpr": "LetRec(2436, 20651, StringTy(), StringTy(), Var(9), Var(8))",
+                            "substExpr": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-20.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(-1, -2, StringTy(), StringTy(), Var(8), Var(7))",
+                            "e2": "First(Var(6))",
+                            "x": "9"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(11290, 28957, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetFun(11291, 28959, StringTy(), Var(4), Var(5)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-26.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(11290, 20160, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetRec(11292, 20161, StringTy(), StringTy(), Var(4), Var(3)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-30.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(-1, -2, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-11.subst_LetRec": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-14.subst_LetRec"
+                ],
+                "functions": [
+                    "Assn2-2023-15.subst_LetRec",
+                    "Assn2-2023-17.subst_LetRec"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-18.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(7757, 23675, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-19.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "origExpr": "LetRec(-2, 7718, StringTy(), StringTy(), Var(8), Var(7))",
+                            "substExpr": "First(Var(6))",
+                            "x": "9"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-20.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(28955, 11292, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(-2, -1, StringTy(), StringTy(), Var(8), Var(7))",
+                            "e2": "First(Var(6))",
+                            "x": "9"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-26.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(23673, 20651, StringTy(), StringTy(), Var(8), Var(7))",
+                            "e2": "First(Var(6))",
+                            "x": "9"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-30.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(16573, 23675, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(7))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-14.subst_LetRec": 240,
+            "Assn2-2023-15.subst_LetRec": 0,
+            "Assn2-2023-17.subst_LetRec": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-18.subst_LetRec"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-19.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "origExpr": "LetRec(11291, 28957, StringTy(), StringTy(), Var(9), Var(8))",
+                            "substExpr": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-20.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(-1, -2, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(8))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(23673, 20652, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetRec(23674, 20654, StringTy(), StringTy(), Var(7), Var(6)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-26.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(11291, 20161, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-30.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(28956, 2435, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-18.subst_LetRec": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-19.subst_LetRec"
+                ],
+                "functions": [
+                    "Assn2-2023-26.subst_LetRec"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-20.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(-1, 28956, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetRec(-1, 28956, StringTy(), StringTy(), Var(9), Var(8)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(-2, -1, StringTy(), StringTy(), Var(8), Var(7))",
+                            "e2": "First(Var(6))",
+                            "x": "9"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-30.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(33034, 11292, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-19.subst_LetRec": 220,
+            "Assn2-2023-26.subst_LetRec": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-20.subst_LetRec"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-21.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(11292, 33034, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-30.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(28956, -2, StringTy(), StringTy(), Var(8), Var(7))",
+                            "e2": "First(LetRec(28956, -2, StringTy(), StringTy(), Var(8), Var(7)))",
+                            "x": "9"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-20.subst_LetRec": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-21.subst_LetRec"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-30.subst_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetRec(7757, 23675, StringTy(), StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetRec(7759, 23676, StringTy(), StringTy(), Var(7), Var(6)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-21.subst_LetRec": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "models": [
+                    "Assn2-2023-30.subst_LetRec"
+                ],
+                "functions": []
+            }
+        ]
+    },
+    {
+        "equivalent": [{"specific function not found": [ 
+            "Assn2-2023-13.subst_LetRec",
+            "Assn2-2023-4.subst_LetRec",
+            "Assn2-2023-24.subst_LetRec",
+            "Assn2-2023-23.subst_LetRec"
+         ] }]
+    }
+]

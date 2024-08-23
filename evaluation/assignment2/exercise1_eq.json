@@ -1,0 +1,127 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2Solution_fixed.Value.eq"
+                ],
+                "functions": [
+                    "Assn2-2023-10.Value.eq",
+                    "Assn2-2023-11.Value.eq",
+                    "Assn2-2023-13.Value.eq",
+                    "Assn2-2023-14.Value.eq",
+                    "Assn2-2023-15.Value.eq",
+                    "Assn2-2023-17.Value.eq",
+                    "Assn2-2023-18.Value.eq",
+                    "Assn2-2023-19.Value.eq",
+                    "Assn2-2023-2.Value.eq",
+                    "Assn2-2023-20.Value.eq",
+                    "Assn2-2023-22.Value.eq",
+                    "Assn2-2023-23.Value.eq",
+                    "Assn2-2023-24.Value.eq",
+                    "Assn2-2023-25.Value.eq",
+                    "Assn2-2023-26.Value.eq",
+                    "Assn2-2023-28.Value.eq",
+                    "Assn2-2023-4.Value.eq",
+                    "Assn2-2023-5.Value.eq",
+                    "Assn2-2023-6.Value.eq",
+                    "Assn2-2023-7.Value.eq",
+                    "Assn2-2023-8.Value.eq",
+                    "Assn2-2023-9.Value.eq"
+                ]
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [
+            {
+                "function": "Assn2-2023-30.Value.eq",
+                "self": [
+                    {
+                        "kind": "measure missing",
+                        "position": "95:9",
+                        "ctex": {
+                            "args": {
+                                "v1": "StringV(StringWrapper(\"\"))",
+                                "v2": "StringV(StringWrapper(\"\"))"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            }
+        ],
+        "unknownSafety": [],
+        "unknownEquivalence": [
+            "Assn2-2023-16.Value.eq",
+            "Assn2-2023-27.Value.eq"
+        ],
+        "wrong": [],
+        "weights": {
+            "Assn2Solution_fixed.Value.eq": 636,
+            "Assn2-2023-13.Value.eq": 0,
+            "Assn2-2023-15.Value.eq": 0,
+            "Assn2-2023-17.Value.eq": 0,
+            "Assn2-2023-18.Value.eq": 0,
+            "Assn2-2023-2.Value.eq": 0,
+            "Assn2-2023-22.Value.eq": 0,
+            "Assn2-2023-24.Value.eq": 0,
+            "Assn2-2023-26.Value.eq": 0,
+            "Assn2-2023-28.Value.eq": 0,
+            "Assn2-2023-5.Value.eq": 0,
+            "Assn2-2023-6.Value.eq": 0,
+            "Assn2-2023-9.Value.eq": 0,
+            "Assn2-2023-10.Value.eq": -2,
+            "Assn2-2023-11.Value.eq": -2,
+            "Assn2-2023-14.Value.eq": -2,
+            "Assn2-2023-19.Value.eq": -2,
+            "Assn2-2023-20.Value.eq": -2,
+            "Assn2-2023-23.Value.eq": -2,
+            "Assn2-2023-25.Value.eq": -2,
+            "Assn2-2023-4.Value.eq": -2,
+            "Assn2-2023-7.Value.eq": -2,
+            "Assn2-2023-8.Value.eq": -2
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-16.Value.eq"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-27.Value.eq",
+                "ctexs": [
+                    {
+                        "args": {
+                            "v1": "PairV(NumV(106), NumV(108))",
+                            "v2": "PairV(NumV(106), NumV(108))"
+                        },
+                        "expected": "BoolV(false)",
+                        "got": "BoolV(true)"
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-16.Value.eq": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "models": [
+                    "Assn2-2023-27.Value.eq"
+                ],
+                "functions": []
+            }
+        ]
+    }
+]

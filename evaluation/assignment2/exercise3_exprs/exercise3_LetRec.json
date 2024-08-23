@@ -1,0 +1,1051 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2Solution_fixed.tyOf_LetRec"
+                ],
+                "functions": [
+                    "Assn2-2023-19.tyOf_LetRec"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-3.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(PairTy(BoolTy(), BoolTy()), PairTy(BoolTy(), BoolTy()))), * -> None[Type]()}",
+                            "e": "LetRec(2, 2, StringTy(), StringTy(), Var(4), Var(3))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-4.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](IntTy()), * -> None[Type]()}",
+                            "exp": "LetRec(2, 2, StringTy(), FunTy(PairTy(StringTy(), StringTy()), StringTy()), Var(4), Var(3))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-5.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](IntTy()), * -> None[Type]()}",
+                            "e": "LetRec(2, 2, StringTy(), StringTy(), Var(4), Var(3))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-6.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](FunTy(PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy()))), 3 -> Some[Type](PairTy(PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, StringTy(), IntTy(), Var(5), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-8.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](StringTy()), 2 -> None[Type](), * -> Some[Type](PairTy(FunTy(FunTy(StringTy(), FunTy(StringTy(), StringTy())), FunTy(StringTy(), FunTy(StringTy(), StringTy()))), FunTy(FunTy(StringTy(), FunTy(StringTy(), StringTy())), FunTy(StringTy(), FunTy(StringTy(), StringTy())))))}",
+                            "e": "LetRec(2, 3, StringTy(), FunTy(StringTy(), StringTy()), Var(4), Var(5))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-9.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](IntTy()), * -> None[Type]()}",
+                            "e": "LetRec(2, 2, StringTy(), StringTy(), Var(3), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-11.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(PairTy(PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy())), PairTy(PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy())))), 3 -> Some[Type](PairTy(PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, StringTy(), IntTy(), Var(4), Var(5))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-12.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "LetRec(2, 2, StringTy(), FunTy(StringTy(), StringTy()), Var(3), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(PairTy(BoolTy(), BoolTy()), FunTy(StringTy(), StringTy()))), 3 -> Some[Type](BoolTy()), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, StringTy(), StringTy(), Var(4), Var(5))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-15.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](IntTy()), * -> None[Type]()}",
+                            "e": "LetRec(2, 2, StringTy(), StringTy(), Var(3), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](IntTy()), 2 -> Some[Type](BoolTy()), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, StringTy(), StringTy(), Var(4), Var(5))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](FunTy(PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())), PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())))), 3 -> None[Type](), * -> Some[Type](IntTy())}",
+                            "e": "LetRec(2, 2, FunTy(StringTy(), StringTy()), FunTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())), Var(5), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](BoolTy()), * -> None[Type]()}",
+                            "e": "LetRec(2, 2, StringTy(), StringTy(), Var(3), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-23.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](FunTy(StringTy(), StringTy())), * -> None[Type]()}",
+                            "e": "LetRec(2, 2, PairTy(StringTy(), StringTy()), BoolTy(), Var(3), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-25.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](IntTy()), * -> None[Type]()}",
+                            "e": "LetRec(2, 2, StringTy(), StringTy(), Var(4), Var(3))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-26.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(FunTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())), FunTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())))), 3 -> Some[Type](FunTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, StringTy(), IntTy(), Var(4), Var(5))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-27.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](BoolTy()), * -> None[Type]()}",
+                            "e": "LetRec(2, 2, StringTy(), StringTy(), Var(3), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-28.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](FunTy(PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())), PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())))), 3 -> Some[Type](PairTy(FunTy(PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())), PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))), FunTy(PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())), PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))))), * -> None[Type]()}",
+                            "e": "LetRec(3, 2, StringTy(), StringTy(), Var(5), Var(4))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2Solution_fixed.tyOf_LetRec": 220,
+            "Assn2-2023-19.tyOf_LetRec": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-3.tyOf_LetRec"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-4.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](BoolTy()), * -> None[Type]()}",
+                            "exp": "LetRec(2, 2, StringTy(), PairTy(StringTy(), StringTy()), Var(3), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-5.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](FunTy(PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())), PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())))), * -> None[Type]()}",
+                            "e": "LetRec(2, 2, StringTy(), StringTy(), Var(3), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-6.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](FunTy(FunTy(FunTy(StringTy(), FunTy(StringTy(), StringTy())), FunTy(StringTy(), FunTy(StringTy(), StringTy()))), FunTy(FunTy(StringTy(), FunTy(StringTy(), StringTy())), FunTy(StringTy(), FunTy(StringTy(), StringTy()))))), 2 -> None[Type](), * -> Some[Type](PairTy(FunTy(FunTy(StringTy(), FunTy(StringTy(), StringTy())), FunTy(StringTy(), FunTy(StringTy(), StringTy()))), FunTy(FunTy(StringTy(), FunTy(StringTy(), StringTy())), FunTy(StringTy(), FunTy(StringTy(), StringTy())))))}",
+                            "e": "LetRec(3, 2, StringTy(), FunTy(StringTy(), StringTy()), Var(4), Var(5))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-8.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](FunTy(PairTy(FunTy(StringTy(), FunTy(StringTy(), StringTy())), FunTy(StringTy(), FunTy(StringTy(), StringTy()))), PairTy(FunTy(StringTy(), FunTy(StringTy(), StringTy())), FunTy(StringTy(), FunTy(StringTy(), StringTy()))))), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, StringTy(), FunTy(StringTy(), StringTy()), Var(5), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-9.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(FunTy(PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())), PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))), FunTy(PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())), PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))))), 3 -> Some[Type](PairTy(PairTy(FunTy(PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())), PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))), FunTy(PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())), PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())))), PairTy(FunTy(PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())), PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))), FunTy(PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())), PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())))))), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, StringTy(), StringTy(), Var(4), Var(5))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-11.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](IntTy()), 2 -> None[Type](), * -> Some[Type](FunTy(PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())), PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))))}",
+                            "e": "LetRec(3, 2, StringTy(), FunTy(StringTy(), StringTy()), Var(4), Var(5))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-12.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](FunTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))), 3 -> Some[Type](PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, StringTy(), FunTy(StringTy(), StringTy()), Var(4), Var(5))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{4 -> Some[Type](StringTy()), 2 -> None[Type](), 3 -> Some[Type](BoolTy()), * -> Some[Type](PairTy(PairTy(BoolTy(), BoolTy()), FunTy(StringTy(), StringTy())))}",
+                            "e": "LetRec(2, 4, StringTy(), StringTy(), Var(5), Var(6))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-15.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](FunTy(PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "LetRec(2, 2, StringTy(), StringTy(), Var(3), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](IntTy()), 3 -> Some[Type](FunTy(PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, StringTy(), StringTy(), Var(4), Var(5))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](FunTy(FunTy(FunTy(PairTy(StringTy(), StringTy()), StringTy()), PairTy(StringTy(), StringTy())), FunTy(FunTy(PairTy(StringTy(), StringTy()), StringTy()), PairTy(StringTy(), StringTy())))), 2 -> Some[Type](IntTy()), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, FunTy(PairTy(StringTy(), StringTy()), StringTy()), PairTy(StringTy(), StringTy()), Var(4), Var(5))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](PairTy(PairTy(BoolTy(), BoolTy()), StringTy())), 2 -> None[Type](), * -> Some[Type](BoolTy())}",
+                            "e": "LetRec(2, 3, StringTy(), StringTy(), Var(4), Var(5))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-23.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](PairTy(FunTy(FunTy(StringTy(), PairTy(StringTy(), StringTy())), FunTy(StringTy(), PairTy(StringTy(), StringTy()))), FunTy(FunTy(StringTy(), PairTy(StringTy(), StringTy())), FunTy(StringTy(), PairTy(StringTy(), StringTy()))))), 2 -> Some[Type](FunTy(FunTy(FunTy(StringTy(), PairTy(StringTy(), StringTy())), FunTy(StringTy(), PairTy(StringTy(), StringTy()))), FunTy(FunTy(StringTy(), PairTy(StringTy(), StringTy())), FunTy(StringTy(), PairTy(StringTy(), StringTy()))))), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, StringTy(), FunTy(StringTy(), StringTy()), Var(4), Var(5))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-25.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](IntTy()), * -> None[Type]()}",
+                            "e": "LetRec(2, 2, StringTy(), StringTy(), Var(3), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-26.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](FunTy(FunTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())), FunTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())))), 2 -> None[Type](), * -> Some[Type](PairTy(FunTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())), FunTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))))}",
+                            "e": "LetRec(3, 2, StringTy(), FunTy(StringTy(), StringTy()), Var(5), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-27.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](BoolTy()), * -> None[Type]()}",
+                            "e": "LetRec(2, 2, StringTy(), StringTy(), Var(3), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-28.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](PairTy(PairTy(BoolTy(), BoolTy()), StringTy())), 2 -> Some[Type](PairTy(PairTy(PairTy(PairTy(BoolTy(), BoolTy()), StringTy()), PairTy(PairTy(BoolTy(), BoolTy()), StringTy())), PairTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, StringTy(), StringTy(), Var(4), Var(5))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-3.tyOf_LetRec": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-4.tyOf_LetRec"
+                ],
+                "functions": [
+                    "Assn2-2023-12.tyOf_LetRec",
+                    "Assn2-2023-23.tyOf_LetRec"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-5.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(FunTy(FunTy(StringTy(), FunTy(StringTy(), PairTy(StringTy(), StringTy()))), FunTy(StringTy(), FunTy(StringTy(), PairTy(StringTy(), StringTy())))), FunTy(FunTy(StringTy(), FunTy(StringTy(), PairTy(StringTy(), StringTy()))), FunTy(StringTy(), FunTy(StringTy(), PairTy(StringTy(), StringTy())))))), 3 -> Some[Type](FunTy(FunTy(FunTy(StringTy(), FunTy(StringTy(), PairTy(StringTy(), StringTy()))), FunTy(StringTy(), FunTy(StringTy(), PairTy(StringTy(), StringTy())))), FunTy(FunTy(StringTy(), FunTy(StringTy(), PairTy(StringTy(), StringTy()))), FunTy(StringTy(), FunTy(StringTy(), PairTy(StringTy(), StringTy())))))), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, StringTy(), FunTy(StringTy(), StringTy()), Var(5), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-6.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](StringTy()), * -> None[Type]()}",
+                            "e": "LetRec(2, 2, StringTy(), PairTy(StringTy(), StringTy()), Var(3), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-8.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> None[Type](), 3 -> Some[Type](FunTy(PairTy(FunTy(StringTy(), FunTy(StringTy(), StringTy())), FunTy(StringTy(), FunTy(StringTy(), StringTy()))), PairTy(FunTy(StringTy(), FunTy(StringTy(), StringTy())), FunTy(StringTy(), FunTy(StringTy(), StringTy()))))), * -> Some[Type](IntTy())}",
+                            "e": "LetRec(2, 3, StringTy(), FunTy(StringTy(), StringTy()), Var(5), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-9.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](IntTy()), 2 -> Some[Type](FunTy(PairTy(FunTy(StringTy(), FunTy(StringTy(), StringTy())), FunTy(StringTy(), FunTy(StringTy(), StringTy()))), PairTy(FunTy(StringTy(), FunTy(StringTy(), StringTy())), FunTy(StringTy(), FunTy(StringTy(), StringTy()))))), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, StringTy(), StringTy(), Var(5), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-11.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](StringTy()), * -> None[Type]()}",
+                            "e": "LetRec(2, 2, StringTy(), PairTy(StringTy(), StringTy()), Var(4), Var(3))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](IntTy()), * -> None[Type]()}",
+                            "e": "LetRec(2, 2, StringTy(), FunTy(PairTy(StringTy(), StringTy()), StringTy()), Var(4), Var(3))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-15.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](BoolTy()), 2 -> Some[Type](IntTy()), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, StringTy(), FunTy(StringTy(), StringTy()), Var(5), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](IntTy()), * -> None[Type]()}",
+                            "e": "LetRec(2, 2, StringTy(), FunTy(PairTy(StringTy(), StringTy()), StringTy()), Var(4), Var(3))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](IntTy()), 2 -> Some[Type](FunTy(PairTy(FunTy(StringTy(), PairTy(StringTy(), StringTy())), FunTy(StringTy(), PairTy(StringTy(), StringTy()))), PairTy(FunTy(StringTy(), PairTy(StringTy(), StringTy())), FunTy(StringTy(), PairTy(StringTy(), StringTy()))))), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, PairTy(PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy())), FunTy(StringTy(), StringTy()), Var(5), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](PairTy(PairTy(PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy())), PairTy(PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy())))), 2 -> Some[Type](PairTy(PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, StringTy(), FunTy(StringTy(), StringTy()), Var(4), Var(5))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-25.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))), 3 -> Some[Type](FunTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, StringTy(), FunTy(StringTy(), StringTy()), Var(5), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-26.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](StringTy()), * -> None[Type]()}",
+                            "e": "LetRec(2, 2, StringTy(), PairTy(StringTy(), StringTy()), Var(3), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-27.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](IntTy()), 3 -> Some[Type](BoolTy()), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, StringTy(), FunTy(StringTy(), StringTy()), Var(5), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-28.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> None[Type](), * -> Some[Type](BoolTy())}",
+                            "e": "LetRec(2, 2, PairTy(StringTy(), StringTy()), PairTy(StringTy(), PairTy(StringTy(), StringTy())), Var(3), Var(4))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-4.tyOf_LetRec": 240,
+            "Assn2-2023-12.tyOf_LetRec": 0,
+            "Assn2-2023-23.tyOf_LetRec": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-5.tyOf_LetRec"
+                ],
+                "functions": [
+                    "Assn2-2023-15.tyOf_LetRec",
+                    "Assn2-2023-21.tyOf_LetRec",
+                    "Assn2-2023-25.tyOf_LetRec",
+                    "Assn2-2023-27.tyOf_LetRec"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-6.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> None[Type](), 3 -> Some[Type](PairTy(PairTy(PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy())), PairTy(PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy())))), * -> Some[Type](FunTy(PairTy(PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy())), PairTy(PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy()))))}",
+                            "e": "LetRec(3, 3, StringTy(), FunTy(StringTy(), PairTy(StringTy(), StringTy())), Var(5), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-8.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](FunTy(PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())), PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())))), 2 -> Some[Type](IntTy()), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, StringTy(), FunTy(StringTy(), StringTy()), Var(4), Var(5))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-9.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(PairTy(BoolTy(), BoolTy()), StringTy())), 3 -> Some[Type](BoolTy()), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, StringTy(), StringTy(), Var(4), Var(5))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-11.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> None[Type](), 3 -> Some[Type](PairTy(PairTy(FunTy(StringTy(), FunTy(StringTy(), StringTy())), FunTy(StringTy(), FunTy(StringTy(), StringTy()))), PairTy(FunTy(StringTy(), FunTy(StringTy(), StringTy())), FunTy(StringTy(), FunTy(StringTy(), StringTy()))))), * -> Some[Type](FunTy(PairTy(FunTy(StringTy(), FunTy(StringTy(), StringTy())), FunTy(StringTy(), FunTy(StringTy(), StringTy()))), PairTy(FunTy(StringTy(), FunTy(StringTy(), StringTy())), FunTy(StringTy(), FunTy(StringTy(), StringTy())))))}",
+                            "e": "LetRec(3, 3, StringTy(), FunTy(PairTy(StringTy(), StringTy()), StringTy()), Var(4), Var(5))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](IntTy()), 3 -> Some[Type](BoolTy()), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, StringTy(), StringTy(), Var(5), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](IntTy()), * -> None[Type]()}",
+                            "e": "LetRec(2, 2, StringTy(), StringTy(), Var(4), Var(3))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](BoolTy()), 2 -> Some[Type](PairTy(PairTy(BoolTy(), BoolTy()), StringTy())), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, FunTy(PairTy(StringTy(), StringTy()), StringTy()), PairTy(StringTy(), StringTy()), Var(5), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-26.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{4 -> Some[Type](IntTy()), 2 -> None[Type](), 3 -> Some[Type](StringTy()), * -> Some[Type](BoolTy())}",
+                            "e": "LetRec(3, 3, StringTy(), FunTy(StringTy(), StringTy()), Var(6), Var(5))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-28.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](StringTy()), 2 -> Some[Type](IntTy()), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, StringTy(), StringTy(), Var(4), Var(5))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-5.tyOf_LetRec": 280,
+            "Assn2-2023-15.tyOf_LetRec": 0,
+            "Assn2-2023-21.tyOf_LetRec": 0,
+            "Assn2-2023-25.tyOf_LetRec": 0,
+            "Assn2-2023-27.tyOf_LetRec": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-6.tyOf_LetRec"
+                ],
+                "functions": [
+                    "Assn2-2023-11.tyOf_LetRec",
+                    "Assn2-2023-26.tyOf_LetRec"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-8.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](FunTy(PairTy(FunTy(StringTy(), FunTy(StringTy(), StringTy())), FunTy(StringTy(), FunTy(StringTy(), StringTy()))), PairTy(FunTy(StringTy(), FunTy(StringTy(), StringTy())), FunTy(StringTy(), FunTy(StringTy(), StringTy()))))), 2 -> None[Type](), * -> Some[Type](IntTy())}",
+                            "e": "LetRec(2, 3, StringTy(), FunTy(StringTy(), StringTy()), Var(5), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-9.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> None[Type](), 2 -> Some[Type](PairTy(FunTy(FunTy(StringTy(), PairTy(StringTy(), StringTy())), FunTy(StringTy(), PairTy(StringTy(), StringTy()))), FunTy(FunTy(StringTy(), PairTy(StringTy(), StringTy())), FunTy(StringTy(), PairTy(StringTy(), StringTy()))))), * -> Some[Type](FunTy(FunTy(FunTy(StringTy(), PairTy(StringTy(), StringTy())), FunTy(StringTy(), PairTy(StringTy(), StringTy()))), FunTy(FunTy(StringTy(), PairTy(StringTy(), StringTy())), FunTy(StringTy(), PairTy(StringTy(), StringTy())))))}",
+                            "e": "LetRec(2, 3, StringTy(), PairTy(StringTy(), StringTy()), Var(5), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(FunTy(FunTy(StringTy(), FunTy(StringTy(), PairTy(StringTy(), StringTy()))), FunTy(StringTy(), FunTy(StringTy(), PairTy(StringTy(), StringTy())))), FunTy(FunTy(StringTy(), FunTy(StringTy(), PairTy(StringTy(), StringTy()))), FunTy(StringTy(), FunTy(StringTy(), PairTy(StringTy(), StringTy())))))), 3 -> Some[Type](FunTy(FunTy(FunTy(StringTy(), FunTy(StringTy(), PairTy(StringTy(), StringTy()))), FunTy(StringTy(), FunTy(StringTy(), PairTy(StringTy(), StringTy())))), FunTy(FunTy(StringTy(), FunTy(StringTy(), PairTy(StringTy(), StringTy()))), FunTy(StringTy(), FunTy(StringTy(), PairTy(StringTy(), StringTy())))))), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, StringTy(), FunTy(StringTy(), StringTy()), Var(4), Var(5))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))), 3 -> Some[Type](FunTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, StringTy(), FunTy(StringTy(), StringTy()), Var(4), Var(5))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> None[Type](), 3 -> Some[Type](FunTy(StringTy(), StringTy())), * -> Some[Type](FunTy(FunTy(FunTy(StringTy(), PairTy(StringTy(), StringTy())), StringTy()), FunTy(FunTy(StringTy(), PairTy(StringTy(), StringTy())), StringTy())))}",
+                            "e": "LetRec(2, 3, FunTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy()), Var(4), Var(5))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-28.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](PairTy(BoolTy(), BoolTy())), 2 -> Some[Type](BoolTy()), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy()), Var(5), Var(4))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-6.tyOf_LetRec": 240,
+            "Assn2-2023-11.tyOf_LetRec": 0,
+            "Assn2-2023-26.tyOf_LetRec": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-8.tyOf_LetRec"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-9.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](BoolTy()), 3 -> Some[Type](PairTy(PairTy(BoolTy(), BoolTy()), PairTy(BoolTy(), BoolTy()))), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, StringTy(), StringTy(), Var(5), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](FunTy(PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())), PairTy(FunTy(StringTy(), StringTy()), FunTy(StringTy(), StringTy())))), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, StringTy(), StringTy(), Var(5), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](FunTy(PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, StringTy(), StringTy(), Var(5), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](IntTy()), 3 -> Some[Type](FunTy(PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy()))), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, FunTy(StringTy(), StringTy()), FunTy(FunTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy())), Var(5), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-28.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](PairTy(BoolTy(), BoolTy())), 3 -> Some[Type](BoolTy()), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy()), Var(4), Var(5))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-8.tyOf_LetRec": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-9.tyOf_LetRec"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-14.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> None[Type](), 2 -> Some[Type](StringTy()), * -> Some[Type](IntTy())}",
+                            "e": "LetRec(3, 2, StringTy(), StringTy(), Var(4), Var(5))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](StringTy()), 2 -> None[Type](), * -> Some[Type](IntTy())}",
+                            "e": "LetRec(2, 3, StringTy(), StringTy(), Var(5), Var(4))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](BoolTy()), * -> None[Type]()}",
+                            "e": "LetRec(2, 2, StringTy(), StringTy(), Var(4), Var(3))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-28.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](IntTy()), 3 -> Some[Type](BoolTy()), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, StringTy(), StringTy(), Var(5), Var(4))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-9.tyOf_LetRec": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-14.tyOf_LetRec"
+                ],
+                "functions": [
+                    "Assn2-2023-16.tyOf_LetRec"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-17.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](IntTy()), 3 -> None[Type](), * -> Some[Type](BoolTy())}",
+                            "e": "LetRec(2, 3, PairTy(StringTy(), StringTy()), PairTy(StringTy(), StringTy()), Var(4), Var(5))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-28.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> Some[Type](IntTy()), 3 -> Some[Type](BoolTy()), * -> None[Type]()}",
+                            "e": "LetRec(2, 3, StringTy(), StringTy(), Var(5), Var(4))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-14.tyOf_LetRec": 220,
+            "Assn2-2023-16.tyOf_LetRec": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-17.tyOf_LetRec"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-28.tyOf_LetRec",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{2 -> None[Type](), 3 -> Some[Type](IntTy()), * -> Some[Type](BoolTy())}",
+                            "e": "LetRec(2, 3, PairTy(StringTy(), StringTy()), StringTy(), Var(5), Var(4))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-17.tyOf_LetRec": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "models": [
+                    "Assn2-2023-28.tyOf_LetRec"
+                ],
+                "functions": []
+            }
+        ]
+    },
+    {
+        "equivalent": [{"specific function not found": [ 
+            "Assn2-2023-29.tyOf_LetRec",
+            "Assn2-2023-2.tyOf_LetRec",
+            "Assn2-2023-24.tyOf_LetRec"
+         ] }]
+    }
+]

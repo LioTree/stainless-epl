@@ -1,0 +1,155 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1Solution.compose"
+                ],
+                "functions": [
+                    "Assn1-2023-10.compose",
+                    "Assn1-2023-11.compose",
+                    "Assn1-2023-13.compose",
+                    "Assn1-2023-14.compose",
+                    "Assn1-2023-15.compose",
+                    "Assn1-2023-17.compose",
+                    "Assn1-2023-18.compose",
+                    "Assn1-2023-19.compose",
+                    "Assn1-2023-2.compose",
+                    "Assn1-2023-20.compose",
+                    "Assn1-2023-21.compose",
+                    "Assn1-2023-22.compose",
+                    "Assn1-2023-23.compose",
+                    "Assn1-2023-24.compose",
+                    "Assn1-2023-25.compose",
+                    "Assn1-2023-26.compose",
+                    "Assn1-2023-27.compose",
+                    "Assn1-2023-28.compose",
+                    "Assn1-2023-29.compose",
+                    "Assn1-2023-3.compose",
+                    "Assn1-2023-30.compose",
+                    "Assn1-2023-31.compose",
+                    "Assn1-2023-32.compose",
+                    "Assn1-2023-34.compose",
+                    "Assn1-2023-35.compose",
+                    "Assn1-2023-37.compose",
+                    "Assn1-2023-38.compose",
+                    "Assn1-2023-5.compose",
+                    "Assn1-2023-6.compose",
+                    "Assn1-2023-7.compose",
+                    "Assn1-2023-8.compose",
+                    "Assn1-2023-9.compose"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-4.compose",
+                "ctexs": [
+                    {
+                        "args": {
+                            "f": "(x$421: BigInt) => 1",
+                            "g": "(x$421: BigInt) => 2"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-16.compose",
+                "ctexs": [
+                    {
+                        "args": {
+                            "f": "(x$421: BigInt) => 1",
+                            "g": "(x$421: BigInt) => 2"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-33.compose",
+                "ctexs": [
+                    {
+                        "args": {
+                            "f": "(x$421: BigInt) => 1",
+                            "g": "(x$421: BigInt) => 2"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-36.compose",
+                "ctexs": [
+                    {
+                        "args": {
+                            "f": "(x$421: BigInt) => 1",
+                            "g": "(x$421: BigInt) => 2"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1Solution.compose": 840,
+            "Assn1-2023-10.compose": 0,
+            "Assn1-2023-11.compose": 0,
+            "Assn1-2023-13.compose": 0,
+            "Assn1-2023-14.compose": 0,
+            "Assn1-2023-15.compose": 0,
+            "Assn1-2023-17.compose": 0,
+            "Assn1-2023-18.compose": 0,
+            "Assn1-2023-19.compose": 0,
+            "Assn1-2023-2.compose": 0,
+            "Assn1-2023-20.compose": 0,
+            "Assn1-2023-21.compose": 0,
+            "Assn1-2023-22.compose": 0,
+            "Assn1-2023-23.compose": 0,
+            "Assn1-2023-24.compose": 0,
+            "Assn1-2023-25.compose": 0,
+            "Assn1-2023-26.compose": 0,
+            "Assn1-2023-27.compose": 0,
+            "Assn1-2023-28.compose": 0,
+            "Assn1-2023-29.compose": 0,
+            "Assn1-2023-3.compose": 0,
+            "Assn1-2023-30.compose": 0,
+            "Assn1-2023-31.compose": 0,
+            "Assn1-2023-32.compose": 0,
+            "Assn1-2023-34.compose": 0,
+            "Assn1-2023-35.compose": 0,
+            "Assn1-2023-37.compose": 0,
+            "Assn1-2023-38.compose": 0,
+            "Assn1-2023-5.compose": 0,
+            "Assn1-2023-6.compose": 0,
+            "Assn1-2023-7.compose": 0,
+            "Assn1-2023-8.compose": 0,
+            "Assn1-2023-9.compose": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-4.compose"
+                ],
+                "functions": [
+                    "Assn1-2023-16.compose",
+                    "Assn1-2023-33.compose",
+                    "Assn1-2023-36.compose"
+                ]
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-4.compose": 260,
+            "Assn1-2023-16.compose": 0,
+            "Assn1-2023-33.compose": 0,
+            "Assn1-2023-36.compose": 0
+        }
+    }
+]

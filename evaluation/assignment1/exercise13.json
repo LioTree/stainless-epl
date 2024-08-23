@@ -1,0 +1,505 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1Solution.reverse"
+                ],
+                "functions": [
+                    "Assn1-2023-10.reverse",
+                    "Assn1-2023-11.reverse",
+                    "Assn1-2023-12.reverse",
+                    "Assn1-2023-19.reverse",
+                    "Assn1-2023-2.reverse",
+                    "Assn1-2023-24.reverse",
+                    "Assn1-2023-25.reverse",
+                    "Assn1-2023-28.reverse",
+                    "Assn1-2023-3.reverse",
+                    "Assn1-2023-35.reverse",
+                    "Assn1-2023-38.reverse",
+                    "Assn1-2023-6.reverse",
+                    "Assn1-2023-8.reverse",
+                    "Assn1-2023-9.reverse"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-18.reverse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "l": "Nil[BigInt]()"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-33.reverse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "l": "Nil[BigInt]()"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [
+            "Assn1-2023-1.reverse",
+            "Assn1-2023-13.reverse",
+            "Assn1-2023-14.reverse",
+            "Assn1-2023-15.reverse",
+            "Assn1-2023-16.reverse",
+            "Assn1-2023-17.reverse",
+            "Assn1-2023-20.reverse",
+            "Assn1-2023-21.reverse",
+            "Assn1-2023-22.reverse",
+            "Assn1-2023-23.reverse",
+            "Assn1-2023-26.reverse",
+            "Assn1-2023-27.reverse",
+            "Assn1-2023-29.reverse",
+            "Assn1-2023-30.reverse",
+            "Assn1-2023-31.reverse",
+            "Assn1-2023-32.reverse",
+            "Assn1-2023-34.reverse",
+            "Assn1-2023-36.reverse",
+            "Assn1-2023-37.reverse",
+            "Assn1-2023-5.reverse",
+            "Assn1-2023-7.reverse"
+        ],
+        "wrong": [],
+        "weights": {
+            "Assn1Solution.reverse": 438,
+            "Assn1-2023-11.reverse": -14,
+            "Assn1-2023-12.reverse": -14,
+            "Assn1-2023-2.reverse": -14,
+            "Assn1-2023-25.reverse": -14,
+            "Assn1-2023-3.reverse": -14,
+            "Assn1-2023-35.reverse": -14,
+            "Assn1-2023-8.reverse": -14,
+            "Assn1-2023-10.reverse": -16,
+            "Assn1-2023-19.reverse": -16,
+            "Assn1-2023-24.reverse": -16,
+            "Assn1-2023-28.reverse": -16,
+            "Assn1-2023-38.reverse": -16,
+            "Assn1-2023-6.reverse": -16,
+            "Assn1-2023-9.reverse": -16
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-18.reverse"
+                ],
+                "functions": [
+                    "Assn1-2023-33.reverse"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-1.reverse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "l": "Cons[BigInt](3, Nil[BigInt]())"
+                        }
+                    },
+                    {
+                        "args": {
+                            "l": "Nil[BigInt]()"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-5.reverse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "l": "Nil[BigInt]()"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-7.reverse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "l": "Nil[BigInt]()"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-13.reverse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "l": "Nil[BigInt]()"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-14.reverse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "l": "Nil[BigInt]()"
+                        }
+                    },
+                    {
+                        "args": {
+                            "l": "Cons[BigInt](2, Nil[BigInt]())"
+                        }
+                    },
+                    {
+                        "args": {
+                            "l": "Cons[BigInt](2, Cons[BigInt](3, Nil[BigInt]()))"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-15.reverse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "l": "Nil[BigInt]()"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-16.reverse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "l": "Nil[BigInt]()"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-17.reverse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "l": "Nil[BigInt]()"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-20.reverse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "l": "Nil[BigInt]()"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-21.reverse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "l": "Nil[BigInt]()"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-22.reverse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "l": "Cons[BigInt](2, Nil[BigInt]())"
+                        }
+                    },
+                    {
+                        "args": {
+                            "l": "Nil[BigInt]()"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-23.reverse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "l": "Cons[BigInt](2, Nil[BigInt]())"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-26.reverse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "l": "Nil[BigInt]()"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-27.reverse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "l": "Nil[BigInt]()"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-29.reverse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "l": "Nil[BigInt]()"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-30.reverse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "l": "Nil[BigInt]()"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-31.reverse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "l": "Nil[BigInt]()"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-32.reverse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "l": "Nil[BigInt]()"
+                        }
+                    },
+                    {
+                        "args": {
+                            "l": "Cons[BigInt](2, Nil[BigInt]())"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-34.reverse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "l": "Nil[BigInt]()"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-36.reverse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "l": "Nil[BigInt]()"
+                        }
+                    },
+                    {
+                        "args": {
+                            "l": "Cons[BigInt](2, Nil[BigInt]())"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-37.reverse",
+                "ctexs": [
+                    {
+                        "args": {
+                            "l": "Cons[BigInt](2, Nil[BigInt]())"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-18.reverse": 220,
+            "Assn1-2023-33.reverse": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-1.reverse"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [
+            "Assn1-2023-13.reverse",
+            "Assn1-2023-14.reverse",
+            "Assn1-2023-15.reverse",
+            "Assn1-2023-16.reverse",
+            "Assn1-2023-17.reverse",
+            "Assn1-2023-20.reverse",
+            "Assn1-2023-21.reverse",
+            "Assn1-2023-22.reverse",
+            "Assn1-2023-23.reverse",
+            "Assn1-2023-26.reverse",
+            "Assn1-2023-27.reverse",
+            "Assn1-2023-29.reverse",
+            "Assn1-2023-30.reverse",
+            "Assn1-2023-31.reverse",
+            "Assn1-2023-32.reverse",
+            "Assn1-2023-34.reverse",
+            "Assn1-2023-36.reverse",
+            "Assn1-2023-37.reverse",
+            "Assn1-2023-5.reverse",
+            "Assn1-2023-7.reverse"
+        ],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-1.reverse": 160
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-13.reverse"
+                ],
+                "functions": [
+                    "Assn1-2023-15.reverse",
+                    "Assn1-2023-16.reverse",
+                    "Assn1-2023-17.reverse",
+                    "Assn1-2023-20.reverse",
+                    "Assn1-2023-21.reverse",
+                    "Assn1-2023-26.reverse",
+                    "Assn1-2023-27.reverse",
+                    "Assn1-2023-29.reverse",
+                    "Assn1-2023-30.reverse",
+                    "Assn1-2023-31.reverse",
+                    "Assn1-2023-34.reverse",
+                    "Assn1-2023-5.reverse",
+                    "Assn1-2023-7.reverse"
+                ]
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [
+            "Assn1-2023-14.reverse",
+            "Assn1-2023-22.reverse",
+            "Assn1-2023-23.reverse",
+            "Assn1-2023-32.reverse",
+            "Assn1-2023-36.reverse",
+            "Assn1-2023-37.reverse"
+        ],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-13.reverse": 448,
+            "Assn1-2023-15.reverse": -4,
+            "Assn1-2023-17.reverse": -4,
+            "Assn1-2023-20.reverse": -4,
+            "Assn1-2023-21.reverse": -4,
+            "Assn1-2023-26.reverse": -4,
+            "Assn1-2023-27.reverse": -4,
+            "Assn1-2023-29.reverse": -4,
+            "Assn1-2023-30.reverse": -4,
+            "Assn1-2023-31.reverse": -4,
+            "Assn1-2023-34.reverse": -4,
+            "Assn1-2023-7.reverse": -4,
+            "Assn1-2023-16.reverse": -6,
+            "Assn1-2023-5.reverse": -6
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-14.reverse"
+                ],
+                "functions": [
+                    "Assn1-2023-22.reverse",
+                    "Assn1-2023-36.reverse"
+                ]
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [
+            "Assn1-2023-23.reverse",
+            "Assn1-2023-32.reverse",
+            "Assn1-2023-37.reverse"
+        ],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-14.reverse": 229,
+            "Assn1-2023-22.reverse": -6,
+            "Assn1-2023-36.reverse": -6
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-23.reverse"
+                ],
+                "functions": [
+                    "Assn1-2023-37.reverse"
+                ]
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [
+            "Assn1-2023-32.reverse"
+        ],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-23.reverse": 216,
+            "Assn1-2023-37.reverse": -2
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "models": [
+                    "Assn1-2023-32.reverse"
+                ],
+                "functions": []
+            }
+        ]
+    }
+]

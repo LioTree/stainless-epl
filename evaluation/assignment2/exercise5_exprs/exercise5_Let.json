@@ -1,0 +1,77 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2Solution_fixed.desugar_Let"
+                ],
+                "functions": [
+                    "Assn2-2023-10.desugar_Let",
+                    "Assn2-2023-11.desugar_Let",
+                    "Assn2-2023-12.desugar_Let",
+                    "Assn2-2023-14.desugar_Let",
+                    "Assn2-2023-15.desugar_Let",
+                    "Assn2-2023-16.desugar_Let",
+                    "Assn2-2023-17.desugar_Let",
+                    "Assn2-2023-18.desugar_Let",
+                    "Assn2-2023-19.desugar_Let",
+                    "Assn2-2023-20.desugar_Let",
+                    "Assn2-2023-21.desugar_Let",
+                    "Assn2-2023-25.desugar_Let",
+                    "Assn2-2023-26.desugar_Let",
+                    "Assn2-2023-27.desugar_Let",
+                    "Assn2-2023-28.desugar_Let",
+                    "Assn2-2023-29.desugar_Let",
+                    "Assn2-2023-3.desugar_Let",
+                    "Assn2-2023-5.desugar_Let",
+                    "Assn2-2023-6.desugar_Let",
+                    "Assn2-2023-7.desugar_Let",
+                    "Assn2-2023-8.desugar_Let"
+                ]
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2Solution_fixed.desugar_Let": 620,
+            "Assn2-2023-10.desugar_Let": 0,
+            "Assn2-2023-11.desugar_Let": 0,
+            "Assn2-2023-12.desugar_Let": 0,
+            "Assn2-2023-14.desugar_Let": 0,
+            "Assn2-2023-15.desugar_Let": 0,
+            "Assn2-2023-16.desugar_Let": 0,
+            "Assn2-2023-17.desugar_Let": 0,
+            "Assn2-2023-18.desugar_Let": 0,
+            "Assn2-2023-19.desugar_Let": 0,
+            "Assn2-2023-20.desugar_Let": 0,
+            "Assn2-2023-21.desugar_Let": 0,
+            "Assn2-2023-25.desugar_Let": 0,
+            "Assn2-2023-26.desugar_Let": 0,
+            "Assn2-2023-27.desugar_Let": 0,
+            "Assn2-2023-28.desugar_Let": 0,
+            "Assn2-2023-29.desugar_Let": 0,
+            "Assn2-2023-3.desugar_Let": 0,
+            "Assn2-2023-5.desugar_Let": 0,
+            "Assn2-2023-6.desugar_Let": 0,
+            "Assn2-2023-7.desugar_Let": 0,
+            "Assn2-2023-8.desugar_Let": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "specific function not found": [
+                    "Assn2-2023-30.desugar_Let",
+                    "Assn2-2023-4.desugar_Let",
+                    "Assn2-2023-13.desugar_Let",
+                    "Assn2-2023-9.desugar_Let",
+                    "Assn2-2023-24.desugar_Let",
+                    "Assn2-2023-23.desugar_Let"
+                ]
+            }
+        ]
+    }
+]

@@ -1,0 +1,177 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1Solution.lookup"
+                ],
+                "functions": [
+                    "Assn1-2023-1.lookup",
+                    "Assn1-2023-10.lookup",
+                    "Assn1-2023-11.lookup",
+                    "Assn1-2023-12.lookup",
+                    "Assn1-2023-13.lookup",
+                    "Assn1-2023-14.lookup",
+                    "Assn1-2023-15.lookup",
+                    "Assn1-2023-16.lookup",
+                    "Assn1-2023-17.lookup",
+                    "Assn1-2023-19.lookup",
+                    "Assn1-2023-2.lookup",
+                    "Assn1-2023-20.lookup",
+                    "Assn1-2023-21.lookup",
+                    "Assn1-2023-22.lookup",
+                    "Assn1-2023-23.lookup",
+                    "Assn1-2023-25.lookup",
+                    "Assn1-2023-26.lookup",
+                    "Assn1-2023-27.lookup",
+                    "Assn1-2023-28.lookup",
+                    "Assn1-2023-29.lookup",
+                    "Assn1-2023-3.lookup",
+                    "Assn1-2023-30.lookup",
+                    "Assn1-2023-31.lookup",
+                    "Assn1-2023-34.lookup",
+                    "Assn1-2023-35.lookup",
+                    "Assn1-2023-36.lookup",
+                    "Assn1-2023-37.lookup",
+                    "Assn1-2023-38.lookup",
+                    "Assn1-2023-4.lookup",
+                    "Assn1-2023-5.lookup",
+                    "Assn1-2023-6.lookup",
+                    "Assn1-2023-7.lookup",
+                    "Assn1-2023-8.lookup"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-18.lookup",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Cons[(BigInt, BigInt)]((4, 9), Nil[(BigInt, BigInt)]()))",
+                            "k": "4"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-24.lookup",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Cons[(BigInt, BigInt)]((4, 9), Nil[(BigInt, BigInt)]()))",
+                            "k": "4"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-33.lookup",
+                "ctexs": [
+                    {
+                        "args": {
+                            "m": "Cons[(BigInt, BigInt)]((4, 7), Cons[(BigInt, BigInt)]((4, 9), Nil[(BigInt, BigInt)]()))",
+                            "k": "4"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [
+            {
+                "function": "Assn1-2023-9.lookup",
+                "self": [
+                    {
+                        "kind": "precond. (call head[(K, V)](filter[(K, V)]((x: (K, V...)",
+                        "position": "173:46",
+                        "ctex": {
+                            "args": {
+                                "m": "Nil[(BigInt, BigInt)]()",
+                                "k": "0"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            },
+            {
+                "function": "Assn1-2023-32.lookup",
+                "self": [
+                    {
+                        "kind": "precond. (call apply[(K, V)](filter[(K, V)](m, (x: (...)",
+                        "position": "200:46",
+                        "ctex": {
+                            "args": {
+                                "m": "Nil[(BigInt, BigInt)]()",
+                                "k": "32"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            }
+        ],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1Solution.lookup": 860,
+            "Assn1-2023-1.lookup": 0,
+            "Assn1-2023-10.lookup": 0,
+            "Assn1-2023-11.lookup": 0,
+            "Assn1-2023-12.lookup": 0,
+            "Assn1-2023-13.lookup": 0,
+            "Assn1-2023-14.lookup": 0,
+            "Assn1-2023-15.lookup": 0,
+            "Assn1-2023-16.lookup": 0,
+            "Assn1-2023-17.lookup": 0,
+            "Assn1-2023-19.lookup": 0,
+            "Assn1-2023-2.lookup": 0,
+            "Assn1-2023-20.lookup": 0,
+            "Assn1-2023-21.lookup": 0,
+            "Assn1-2023-22.lookup": 0,
+            "Assn1-2023-23.lookup": 0,
+            "Assn1-2023-25.lookup": 0,
+            "Assn1-2023-26.lookup": 0,
+            "Assn1-2023-27.lookup": 0,
+            "Assn1-2023-28.lookup": 0,
+            "Assn1-2023-29.lookup": 0,
+            "Assn1-2023-3.lookup": 0,
+            "Assn1-2023-30.lookup": 0,
+            "Assn1-2023-31.lookup": 0,
+            "Assn1-2023-34.lookup": 0,
+            "Assn1-2023-35.lookup": 0,
+            "Assn1-2023-36.lookup": 0,
+            "Assn1-2023-37.lookup": 0,
+            "Assn1-2023-38.lookup": 0,
+            "Assn1-2023-4.lookup": 0,
+            "Assn1-2023-5.lookup": 0,
+            "Assn1-2023-6.lookup": 0,
+            "Assn1-2023-7.lookup": 0,
+            "Assn1-2023-8.lookup": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-18.lookup"
+                ],
+                "functions": [
+                    "Assn1-2023-24.lookup",
+                    "Assn1-2023-33.lookup"
+                ]
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-18.lookup": 240,
+            "Assn1-2023-24.lookup": 0,
+            "Assn1-2023-33.lookup": 0
+        }
+    }
+]

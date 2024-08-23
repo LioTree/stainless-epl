@@ -1,0 +1,86 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2Solution_fixed.tyOf_LetFun"
+                ],
+                "functions": [
+                    "Assn2-2023-11.tyOf_LetFun",
+                    "Assn2-2023-12.tyOf_LetFun",
+                    "Assn2-2023-14.tyOf_LetFun",
+                    "Assn2-2023-15.tyOf_LetFun",
+                    "Assn2-2023-17.tyOf_LetFun",
+                    "Assn2-2023-19.tyOf_LetFun",
+                    "Assn2-2023-21.tyOf_LetFun",
+                    "Assn2-2023-23.tyOf_LetFun",
+                    "Assn2-2023-25.tyOf_LetFun",
+                    "Assn2-2023-26.tyOf_LetFun",
+                    "Assn2-2023-27.tyOf_LetFun",
+                    "Assn2-2023-28.tyOf_LetFun",
+                    "Assn2-2023-3.tyOf_LetFun",
+                    "Assn2-2023-4.tyOf_LetFun",
+                    "Assn2-2023-5.tyOf_LetFun",
+                    "Assn2-2023-6.tyOf_LetFun",
+                    "Assn2-2023-8.tyOf_LetFun",
+                    "Assn2-2023-9.tyOf_LetFun"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-16.tyOf_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "ctx": "{3 -> Some[Type](FunTy(FunTy(StringTy(), FunTy(StringTy(), StringTy())), FunTy(StringTy(), FunTy(StringTy(), StringTy())))), 2 -> Some[Type](IntTy()), * -> None[Type]()}",
+                            "e": "LetFun(2, 3, StringTy(), Var(5), Var(4))"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2Solution_fixed.tyOf_LetFun": 560,
+            "Assn2-2023-11.tyOf_LetFun": 0,
+            "Assn2-2023-12.tyOf_LetFun": 0,
+            "Assn2-2023-14.tyOf_LetFun": 0,
+            "Assn2-2023-15.tyOf_LetFun": 0,
+            "Assn2-2023-17.tyOf_LetFun": 0,
+            "Assn2-2023-19.tyOf_LetFun": 0,
+            "Assn2-2023-21.tyOf_LetFun": 0,
+            "Assn2-2023-23.tyOf_LetFun": 0,
+            "Assn2-2023-25.tyOf_LetFun": 0,
+            "Assn2-2023-26.tyOf_LetFun": 0,
+            "Assn2-2023-27.tyOf_LetFun": 0,
+            "Assn2-2023-28.tyOf_LetFun": 0,
+            "Assn2-2023-3.tyOf_LetFun": 0,
+            "Assn2-2023-4.tyOf_LetFun": 0,
+            "Assn2-2023-5.tyOf_LetFun": 0,
+            "Assn2-2023-6.tyOf_LetFun": 0,
+            "Assn2-2023-8.tyOf_LetFun": 0,
+            "Assn2-2023-9.tyOf_LetFun": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "models": [
+                    "Assn2-2023-16.tyOf_LetFun"
+                ],
+                "functions": []
+            }
+        ]
+    },
+    {
+        "equivalent": [{"specific function not found": [ 
+            "Assn2-2023-24.tyOf_LetFun",
+            "Assn2-2023-29.tyOf_LetFun",
+            "Assn2-2023-2.tyOf_LetFun"
+         ] }]
+    }
+]

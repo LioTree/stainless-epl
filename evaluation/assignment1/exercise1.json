@@ -1,0 +1,294 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1Solution.p"
+                ],
+                "functions": [
+                    "Assn1-2023-10.p",
+                    "Assn1-2023-12.p",
+                    "Assn1-2023-13.p",
+                    "Assn1-2023-14.p",
+                    "Assn1-2023-15.p",
+                    "Assn1-2023-18.p",
+                    "Assn1-2023-19.p",
+                    "Assn1-2023-2.p",
+                    "Assn1-2023-20.p",
+                    "Assn1-2023-21.p",
+                    "Assn1-2023-22.p",
+                    "Assn1-2023-23.p",
+                    "Assn1-2023-24.p",
+                    "Assn1-2023-25.p",
+                    "Assn1-2023-26.p",
+                    "Assn1-2023-27.p",
+                    "Assn1-2023-28.p",
+                    "Assn1-2023-29.p",
+                    "Assn1-2023-3.p",
+                    "Assn1-2023-30.p",
+                    "Assn1-2023-31.p",
+                    "Assn1-2023-32.p",
+                    "Assn1-2023-33.p",
+                    "Assn1-2023-34.p",
+                    "Assn1-2023-35.p",
+                    "Assn1-2023-36.p",
+                    "Assn1-2023-37.p",
+                    "Assn1-2023-38.p",
+                    "Assn1-2023-5.p",
+                    "Assn1-2023-6.p",
+                    "Assn1-2023-7.p",
+                    "Assn1-2023-8.p"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-4.p",
+                "ctexs": [
+                    {
+                        "args": {
+                            "x": "OverflowInt(0)",
+                            "y": "OverflowInt(1)"
+                        },
+                        "expected": "OverflowInt(0)",
+                        "got": "OverflowInt(1)"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-9.p",
+                "ctexs": [
+                    {
+                        "args": {
+                            "x": "OverflowInt(2)",
+                            "y": "OverflowInt(1)"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-11.p",
+                "ctexs": [
+                    {
+                        "args": {
+                            "x": "OverflowInt(0)",
+                            "y": "OverflowInt(2)"
+                        },
+                        "expected": "OverflowInt(7)",
+                        "got": "OverflowInt(3)"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-16.p",
+                "ctexs": [
+                    {
+                        "args": {
+                            "x": "OverflowInt(100)",
+                            "y": "OverflowInt(1)"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-17.p",
+                "ctexs": [
+                    {
+                        "args": {
+                            "x": "OverflowInt(0)",
+                            "y": "OverflowInt(1)"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1Solution.p": 840,
+            "Assn1-2023-10.p": 0,
+            "Assn1-2023-12.p": 0,
+            "Assn1-2023-13.p": 0,
+            "Assn1-2023-14.p": 0,
+            "Assn1-2023-15.p": 0,
+            "Assn1-2023-18.p": 0,
+            "Assn1-2023-19.p": 0,
+            "Assn1-2023-2.p": 0,
+            "Assn1-2023-20.p": 0,
+            "Assn1-2023-21.p": 0,
+            "Assn1-2023-22.p": 0,
+            "Assn1-2023-23.p": 0,
+            "Assn1-2023-24.p": 0,
+            "Assn1-2023-25.p": 0,
+            "Assn1-2023-26.p": 0,
+            "Assn1-2023-27.p": 0,
+            "Assn1-2023-28.p": 0,
+            "Assn1-2023-29.p": 0,
+            "Assn1-2023-3.p": 0,
+            "Assn1-2023-30.p": 0,
+            "Assn1-2023-31.p": 0,
+            "Assn1-2023-32.p": 0,
+            "Assn1-2023-33.p": 0,
+            "Assn1-2023-34.p": 0,
+            "Assn1-2023-35.p": 0,
+            "Assn1-2023-36.p": 0,
+            "Assn1-2023-37.p": 0,
+            "Assn1-2023-38.p": 0,
+            "Assn1-2023-5.p": 0,
+            "Assn1-2023-6.p": 0,
+            "Assn1-2023-7.p": 0,
+            "Assn1-2023-8.p": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-4.p"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-9.p",
+                "ctexs": [
+                    {
+                        "args": {
+                            "x": "OverflowInt(0)",
+                            "y": "OverflowInt(0)"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-11.p",
+                "ctexs": [
+                    {
+                        "args": {
+                            "x": "OverflowInt(1)",
+                            "y": "OverflowInt(1)"
+                        },
+                        "expected": "OverflowInt(4)",
+                        "got": "OverflowInt(3)"
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-16.p",
+                "ctexs": [
+                    {
+                        "args": {
+                            "x": "OverflowInt(1)",
+                            "y": "OverflowInt(1)"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-17.p",
+                "ctexs": [
+                    {
+                        "args": {
+                            "x": "OverflowInt(1)",
+                            "y": "OverflowInt(1)"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-4.p": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-9.p"
+                ],
+                "functions": [
+                    "Assn1-2023-17.p"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-11.p",
+                "ctexs": [
+                    {
+                        "args": {
+                            "x": "OverflowInt(22)",
+                            "y": "OverflowInt(45)"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn1-2023-16.p",
+                "ctexs": [
+                    {
+                        "args": {
+                            "x": "OverflowInt(1)",
+                            "y": "OverflowInt(1)"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-9.p": 220,
+            "Assn1-2023-17.p": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn1-2023-11.p"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn1-2023-16.p",
+                "ctexs": [
+                    {
+                        "args": {
+                            "x": "OverflowInt(100)",
+                            "y": "OverflowInt(2)"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn1-2023-11.p": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "models": [
+                    "Assn1-2023-16.p"
+                ],
+                "functions": []
+            }
+        ]
+    }
+]

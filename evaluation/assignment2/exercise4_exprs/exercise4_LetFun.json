@@ -1,0 +1,939 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2Solution_fixed.subst_LetFun"
+                ],
+                "functions": [
+                    "Assn2-2023-11.subst_LetFun",
+                    "Assn2-2023-18.subst_LetFun",
+                    "Assn2-2023-20.subst_LetFun",
+                    "Assn2-2023-25.subst_LetFun",
+                    "Assn2-2023-27.subst_LetFun",
+                    "Assn2-2023-28.subst_LetFun",
+                    "Assn2-2023-5.subst_LetFun",
+                    "Assn2-2023-6.subst_LetFun",
+                    "Assn2-2023-7.subst_LetFun",
+                    "Assn2-2023-8.subst_LetFun"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-2.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(-1, -2, StringTy(), Var(6), Var(5))",
+                            "e2": "First(LetFun(7719, -2, StringTy(), Var(8), Var(7)))",
+                            "x": "-2"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-3.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(-1, -2, StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetFun(-1, -2, StringTy(), Var(9), Var(8)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-9.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(-1, -2, StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetFun(0, 0, StringTy(), Var(5), Var(4)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-10.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(23674, 7757, StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-12.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(-1, -2, StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(8))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "exp": "LetFun(21236, 11292, StringTy(), Var(9), Var(8))",
+                            "to": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-15.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(-1, 11291, StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(7))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(-1, 7757, StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetFun(-1, 7757, StringTy(), Var(9), Var(8)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(-1, 28957, StringTy(), Var(10), Var(9))",
+                            "e2": "First(Var(9))",
+                            "x": "6"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-19.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "origExpr": "LetFun(23675, -2, StringTy(), Var(9), Var(8))",
+                            "substExpr": "First(Var(7))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(-1, 23675, StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(8))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-26.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(33033, 11292, StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-30.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(-1, -2, StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(7))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [
+            {
+                "function": "Assn2-2023-29.subst_LetFun",
+                "self": [
+                    {
+                        "kind": "body assertion: Expression of type Nothing: require(e1 is LetFun)\nval freshId: BigInt = 0\ne1 match {\n  case LetFun(f, arg, ty, t1, t2) =>\n    errorWrapper[{ x: Object | @dropConjunct false }]\n  case _ =>\n    errorWrapper[{ x: Object | @dropConjunct false }]\n  case _ =>\n    errorWrapper[{ x: Object | @dropConjunct false }]\n}",
+                        "position": "366:13",
+                        "ctex": {
+                            "args": {
+                                "e1": "Var(0)",
+                                "e2": "Var(0)",
+                                "x": "0"
+                            }
+                        }
+                    }
+                ],
+                "auxiliaries": {}
+            }
+        ],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2Solution_fixed.subst_LetFun": 400,
+            "Assn2-2023-11.subst_LetFun": 0,
+            "Assn2-2023-18.subst_LetFun": 0,
+            "Assn2-2023-20.subst_LetFun": 0,
+            "Assn2-2023-25.subst_LetFun": 0,
+            "Assn2-2023-27.subst_LetFun": 0,
+            "Assn2-2023-28.subst_LetFun": 0,
+            "Assn2-2023-5.subst_LetFun": 0,
+            "Assn2-2023-6.subst_LetFun": 0,
+            "Assn2-2023-7.subst_LetFun": 0,
+            "Assn2-2023-8.subst_LetFun": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-2.subst_LetFun"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-3.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(61242, 91855, StringTy(), Var(8), Var(7))",
+                            "e2": "First(Var(7))",
+                            "x": "61242"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-9.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(31453, 31454, StringTy(), Var(8), Var(7))",
+                            "e2": "First(Var(6))",
+                            "x": "31454"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-10.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(21238, 7756, StringTy(), Var(6), Var(5))",
+                            "e2": "First(Var(7))",
+                            "x": "7756"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-12.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(2474, 11328, StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "11328"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "exp": "LetFun(36, 28956, StringTy(), Var(10), Var(9))",
+                            "to": "First(Var(6))",
+                            "x": "28956"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-15.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(49117, 49118, StringTy(), Var(6), Var(5))",
+                            "e2": "First(LetFun(8855, 49118, StringTy(), Var(9), Var(8)))",
+                            "x": "49118"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(10802, 10801, StringTy(), Var(7), Var(6))",
+                            "e2": "First(Var(6))",
+                            "x": "10801"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(20486, 20487, StringTy(), Var(6), Var(5))",
+                            "e2": "First(Var(4))",
+                            "x": "20487"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-19.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "origExpr": "LetFun(-40, 2436, StringTy(), Var(7), Var(6))",
+                            "substExpr": "First(Var(8))",
+                            "x": "2436"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(-40, 7718, StringTy(), Var(7), Var(6))",
+                            "e2": "First(LetFun(-40, 7718, StringTy(), Var(7), Var(6)))",
+                            "x": "7718"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-26.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(27879, 19513, StringTy(), Var(7), Var(6))",
+                            "e2": "First(Var(8))",
+                            "x": "27879"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-30.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(62377, 62376, StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "62377"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-2.subst_LetFun": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-3.subst_LetFun"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-9.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(7718, 23673, StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetFun(7719, 23675, StringTy(), Var(4), Var(3)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-10.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(23675, 20652, StringTy(), Var(8), Var(7))",
+                            "e2": "First(Var(6))",
+                            "x": "9"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-12.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(-1, -2, StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(7))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "exp": "LetFun(23675, 8854, StringTy(), Var(9), Var(8))",
+                            "to": "First(LetFun(23675, 8854, StringTy(), Var(9), Var(8)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-15.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(2435, 28955, StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(8854, 23675, StringTy(), Var(8), Var(7))",
+                            "e2": "First(LetFun(8854, 23675, StringTy(), Var(8), Var(7)))",
+                            "x": "9"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(7757, 21236, StringTy(), Var(10), Var(9))",
+                            "e2": "First(LetFun(7757, 21238, StringTy(), Var(8), Var(3)))",
+                            "x": "6"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-19.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "origExpr": "LetFun(23673, 7757, StringTy(), Var(9), Var(8))",
+                            "substExpr": "First(Var(7))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(11290, 28955, StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetFun(11292, 28956, StringTy(), Var(3), Var(4)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-26.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(23675, 7718, StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(8))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-30.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(7718, -2, StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-3.subst_LetFun": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-9.subst_LetFun"
+                ],
+                "functions": []
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-10.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(21237, 7757, StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-12.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(-1, 23673, StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(7))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "exp": "LetFun(16572, 23675, StringTy(), Var(9), Var(8))",
+                            "to": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-15.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(23673, 20652, StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-16.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(21237, 7757, StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(7717, 23673, StringTy(), Var(10), Var(9))",
+                            "e2": "First(Var(9))",
+                            "x": "6"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-19.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "origExpr": "LetFun(20652, 23674, StringTy(), Var(9), Var(8))",
+                            "substExpr": "First(Var(7))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(11290, 11795, StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetFun(11292, 11796, StringTy(), Var(4), Var(5)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-26.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(20652, 23674, StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(8))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-30.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(-1, -2, StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-9.subst_LetFun": 200
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-10.subst_LetFun"
+                ],
+                "functions": [
+                    "Assn2-2023-16.subst_LetFun"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-12.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(7718, 21236, StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(7))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-14.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "exp": "LetFun(7755, -1, StringTy(), Var(9), Var(8))",
+                            "to": "First(LetFun(7755, 0, StringTy(), Var(7), Var(3)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-15.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(36, -1, StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(7755, -1, StringTy(), Var(10), Var(9))",
+                            "e2": "First(LetFun(7757, 6, StringTy(), Var(4), Var(5)))",
+                            "x": "6"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-19.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "origExpr": "LetFun(7755, -1, StringTy(), Var(9), Var(8))",
+                            "substExpr": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(36, -1, StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-26.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(7755, -1, StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(8))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-30.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(23674, 7757, StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetFun(23675, 7759, StringTy(), Var(5), Var(4)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-10.subst_LetFun": 220,
+            "Assn2-2023-16.subst_LetFun": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-12.subst_LetFun"
+                ],
+                "functions": [
+                    "Assn2-2023-30.subst_LetFun"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-14.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "exp": "LetFun(23675, 7757, StringTy(), Var(9), Var(8))",
+                            "to": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-15.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(11292, 21237, StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(7))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-17.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(7717, 23673, StringTy(), Var(10), Var(9))",
+                            "e2": "First(LetFun(7717, 23673, StringTy(), Var(10), Var(9)))",
+                            "x": "6"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-19.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "origExpr": "LetFun(20160, 11290, StringTy(), Var(9), Var(8))",
+                            "substExpr": "First(LetFun(20161, 11292, StringTy(), Var(7), Var(3)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-21.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(20160, 11290, StringTy(), Var(9), Var(8))",
+                            "e2": "First(LetFun(20161, 11292, StringTy(), Var(7), Var(6)))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            },
+            {
+                "function": "Assn2-2023-26.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(7757, 23675, StringTy(), Var(9), Var(8))",
+                            "e2": "First(Var(6))",
+                            "x": "10"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-12.subst_LetFun": 220,
+            "Assn2-2023-30.subst_LetFun": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2-2023-14.subst_LetFun"
+                ],
+                "functions": [
+                    "Assn2-2023-15.subst_LetFun",
+                    "Assn2-2023-19.subst_LetFun",
+                    "Assn2-2023-21.subst_LetFun",
+                    "Assn2-2023-26.subst_LetFun"
+                ]
+            }
+        ],
+        "unequivalent": [
+            {
+                "function": "Assn2-2023-17.subst_LetFun",
+                "ctexs": [
+                    {
+                        "args": {
+                            "e1": "LetFun(-2, -1, StringTy(), Var(8), Var(7))",
+                            "e2": "First(LetFun(-2, -1, StringTy(), Var(8), Var(7)))",
+                            "x": "5"
+                        }
+                    }
+                ]
+            }
+        ],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2-2023-14.subst_LetFun": 280,
+            "Assn2-2023-15.subst_LetFun": 0,
+            "Assn2-2023-19.subst_LetFun": 0,
+            "Assn2-2023-21.subst_LetFun": 0,
+            "Assn2-2023-26.subst_LetFun": 0
+        }
+    },
+    {
+        "equivalent": [
+            {
+                "models": [
+                    "Assn2-2023-17.subst_LetFun"
+                ],
+                "functions": []
+            }
+        ]
+    },
+    {
+        "equivalent": [{"specific function not found": [ 
+            "Assn2-2023-24.subst_LetFun",
+            "Assn2-2023-23.subst_LetFun",
+            "Assn2-2023-13.subst_LetFun",
+            "Assn2-2023-4.subst_LetFun"
+         ] }]
+    }
+]

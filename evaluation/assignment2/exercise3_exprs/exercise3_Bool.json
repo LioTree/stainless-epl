@@ -1,0 +1,68 @@
+[
+    {
+        "equivalent": [
+            {
+                "model": [
+                    "Assn2Solution_fixed.tyOf_Bool"
+                ],
+                "functions": [
+                    "Assn2-2023-11.tyOf_Bool",
+                    "Assn2-2023-12.tyOf_Bool",
+                    "Assn2-2023-14.tyOf_Bool",
+                    "Assn2-2023-15.tyOf_Bool",
+                    "Assn2-2023-16.tyOf_Bool",
+                    "Assn2-2023-17.tyOf_Bool",
+                    "Assn2-2023-19.tyOf_Bool",
+                    "Assn2-2023-21.tyOf_Bool",
+                    "Assn2-2023-23.tyOf_Bool",
+                    "Assn2-2023-24.tyOf_Bool",
+                    "Assn2-2023-25.tyOf_Bool",
+                    "Assn2-2023-26.tyOf_Bool",
+                    "Assn2-2023-27.tyOf_Bool",
+                    "Assn2-2023-28.tyOf_Bool",
+                    "Assn2-2023-29.tyOf_Bool",
+                    "Assn2-2023-3.tyOf_Bool",
+                    "Assn2-2023-4.tyOf_Bool",
+                    "Assn2-2023-5.tyOf_Bool",
+                    "Assn2-2023-6.tyOf_Bool",
+                    "Assn2-2023-8.tyOf_Bool",
+                    "Assn2-2023-9.tyOf_Bool"
+                ]
+            }
+        ],
+        "unequivalent": [],
+        "unsafe": [],
+        "unknownSafety": [],
+        "unknownEquivalence": [],
+        "wrong": [],
+        "weights": {
+            "Assn2Solution_fixed.tyOf_Bool": 620,
+            "Assn2-2023-11.tyOf_Bool": 0,
+            "Assn2-2023-12.tyOf_Bool": 0,
+            "Assn2-2023-14.tyOf_Bool": 0,
+            "Assn2-2023-15.tyOf_Bool": 0,
+            "Assn2-2023-16.tyOf_Bool": 0,
+            "Assn2-2023-17.tyOf_Bool": 0,
+            "Assn2-2023-19.tyOf_Bool": 0,
+            "Assn2-2023-21.tyOf_Bool": 0,
+            "Assn2-2023-23.tyOf_Bool": 0,
+            "Assn2-2023-24.tyOf_Bool": 0,
+            "Assn2-2023-25.tyOf_Bool": 0,
+            "Assn2-2023-26.tyOf_Bool": 0,
+            "Assn2-2023-27.tyOf_Bool": 0,
+            "Assn2-2023-28.tyOf_Bool": 0,
+            "Assn2-2023-29.tyOf_Bool": 0,
+            "Assn2-2023-3.tyOf_Bool": 0,
+            "Assn2-2023-4.tyOf_Bool": 0,
+            "Assn2-2023-5.tyOf_Bool": 0,
+            "Assn2-2023-6.tyOf_Bool": 0,
+            "Assn2-2023-8.tyOf_Bool": 0,
+            "Assn2-2023-9.tyOf_Bool": 0
+        }
+    },
+    {
+        "equivalent": [{"specific function not found": [ 
+            "Assn2-2023-2.tyOf_Bool"
+         ] }]
+    }
+]
